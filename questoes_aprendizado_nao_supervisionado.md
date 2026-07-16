@@ -5,8 +5,11 @@
 
 ### 1. O objetivo principal do aprendizado não-supervisionado é:
 a) Prever uma variável-alvo rotulada
+
 b) Encontrar padrões, estruturas ou agrupamentos em dados sem rótulos
+
 c) Maximizar a acurácia em um conjunto de teste rotulado
+
 d) Ajustar uma função de regressão linear
 
 **Gabarito: b)** No aprendizado não-supervisionado não há variável-alvo (y); o objetivo é descobrir estrutura latente nos dados, como grupos (clustering), associações ou reduções de dimensionalidade.
