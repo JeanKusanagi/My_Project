@@ -1,0 +1,164 @@
+# Aprendizado de Máquina Não-Supervisionado
+## Modelos e Métricas de Avaliação — Material de Estudo
+
+---
+
+## 1. Conceito Central
+
+**Aprendizado não-supervisionado** é o ramo do ML em que o algoritmo recebe **dados sem rótulos (labels)** e deve encontrar estrutura, padrões ou relações escondidas nos dados por conta própria.
+
+> **Definição de prova:** "Diferente do aprendizado supervisionado, não há uma variável-alvo (y) conhecida. O objetivo não é prever, e sim **descrever/organizar** os dados."
+
+**Três grandes famílias de tarefas:**
+| Tarefa | Objetivo | Exemplos de algoritmos |
+|---|---|---|
+| **Clusterização (agrupamento)** | Agrupar amostras similares | K-Means, DBSCAN, Hierárquico, GMM |
+| **Redução de dimensionalidade** | Comprimir features mantendo informação | PCA, t-SNE, UMAP, Autoencoders |
+| **Regras de associação / detecção de anomalias** | Encontrar padrões de co-ocorrência ou desvios | Apriori, FP-Growth, Isolation Forest, LOF |
+
+⚠️ **Pegadinha clássica de prova:** associar "não-supervisionado" apenas a clustering. Bancas cobram redução de dimensionalidade e detecção de anomalias também como não-supervisionado — muita gente esquece.
+
+---
+
+## 2. Modelos de Clusterização
+
+### 2.1 K-Means
+- Particiona os dados em **k** grupos, minimizando a **soma das distâncias quadráticas** ao centróide (inércia/WCSS — *Within-Cluster Sum of Squares*).
+- Algoritmo iterativo: (1) inicializa centróides, (2) atribui pontos ao centróide mais próximo, (3) recalcula centróides, repete até convergir.
+
+**Pressupostos (muito cobrado em prova):**
+- Clusters **esféricos** e de tamanho semelhante.
+- Sensível à **escala das variáveis** → sempre normalizar/padronizar antes.
+- Sensível a **outliers** (média é puxada).
+- **k precisa ser definido a priori.**
+- Sensível à **inicialização** dos centróides (por isso existe o K-Means++).
+
+⚠️ **Pegadinha:** dizer que k-means "descobre" o número de clusters. Ele **não descobre** — você define k, e usa métricas (cotovelo, silhueta) para *escolher* um bom k, mas o algoritmo em si não infere isso sozinho.
+
+### 2.2 Clusterização Hierárquica
+- **Aglomerativa (bottom-up):** cada ponto começa como seu próprio cluster e vai fundindo os mais próximos.
+- **Divisiva (top-down):** todos começam juntos e vão se dividindo (menos comum).
+- Resultado visualizado em um **dendrograma**; corta-se em uma altura para definir o número de clusters.
+- Métodos de linkage: *single*, *complete*, *average*, *Ward*.
+
+⚠️ **Pegadinha:** custo computacional alto — geralmente **O(n²) a O(n³)**, inviável para datasets muito grandes (diferente do K-Means, que é O(n·k·i)).
+
+### 2.3 DBSCAN (Density-Based Spatial Clustering)
+- Agrupa por **densidade**: pontos com muitos vizinhos próximos formam um cluster; pontos isolados viram **ruído (outliers)**.
+- Parâmetros: `eps` (raio de vizinhança) e `minPts` (mínimo de vizinhos).
+- **Não exige definir k** e consegue achar clusters de formato arbitrário (não só esféricos).
+
+⚠️ **Pegadinha:** DBSCAN tem dificuldade quando os clusters têm **densidades muito diferentes** entre si — um único par (eps, minPts) pode não servir para todos.
+
+### 2.4 GMM — Gaussian Mixture Models
+- Modelo **probabilístico**: assume que os dados vêm de uma mistura de distribuições gaussianas.
+- Usa o algoritmo **EM (Expectation-Maximization)**.
+- Diferença-chave em relação ao K-Means: gera **atribuição probabilística** (soft clustering) em vez de "hard clustering" (cada ponto pertence 100% a um cluster).
+
+⚠️ **Pegadinha de prova:** perguntam "qual a diferença entre soft e hard clustering?" — K-Means e DBSCAN são *hard*; GMM é *soft* (dá probabilidade de pertencimento a cada cluster).
+
+---
+
+## 3. Redução de Dimensionalidade
+
+### 3.1 PCA (Análise de Componentes Principais)
+- Técnica **linear** que projeta os dados em novos eixos (componentes principais) que **maximizam a variância explicada**.
+- Os componentes são **ortogonais** entre si (não-correlacionados).
+- Muito usado para visualização, remoção de ruído e mitigação da "maldição da dimensionalidade".
+
+⚠️ **Pegadinha:** PCA é **linear** e sensível à **escala** — sempre padronizar dados antes. Também **não é seleção de features**: ele cria *novas* variáveis (combinações lineares), não escolhe um subconjunto das originais.
+
+### 3.2 t-SNE e UMAP
+- Técnicas **não-lineares**, focadas em **visualização** (normalmente reduzindo para 2D/3D).
+- Preservam melhor a **estrutura local** (vizinhança) do que a global.
+
+⚠️ **Pegadinha comum:** achar que distâncias entre clusters distantes num gráfico de t-SNE têm significado quantitativo — **não têm**. t-SNE preserva vizinhança local, não distâncias globais reais.
+
+### 3.3 Autoencoders
+- Redes neurais que aprendem a **comprimir e reconstruir** os dados (encoder + decoder).
+- A camada latente (gargalo) é a representação reduzida.
+- Vantagem sobre PCA: consegue capturar relações **não-lineares**.
+
+---
+
+## 4. Métricas de Avaliação
+
+Este é o ponto que mais cai em prova, porque exige diferenciar **avaliação sem rótulo (interna)** de **avaliação com rótulo (externa)** — e saber que a segunda só é possível em contexto de *pesquisa/benchmark*, não em produção real (senão seria supervisionado).
+
+### 4.1 Métricas Internas (não usam rótulo verdadeiro)
+
+| Métrica | O que mede | Intervalo | Interpretação |
+|---|---|---|---|
+| **Silhouette Score** | Quão bem separado e coeso está cada ponto | -1 a 1 | Quanto mais perto de 1, melhor |
+| **Inertia / WCSS** | Soma das distâncias ao centróide | 0 a ∞ | Menor é mais compacto (mas **sempre cai** ao aumentar k) |
+| **Davies-Bouldin Index** | Razão entre dispersão intra-cluster e separação inter-cluster | 0 a ∞ | Menor é melhor |
+| **Calinski-Harabasz Index** | Razão entre variância inter e intra-cluster | 0 a ∞ | Maior é melhor |
+
+⚠️ **Pegadinha número 1 (a mais cobrada):** usar apenas a **inertia** para escolher k. Como a inertia **sempre diminui** conforme k aumenta (no limite, k = n dá inertia = 0), ela sozinha nunca aponta um "melhor k" — por isso se usa o **método do cotovelo** (procurar o ponto de inflexão no gráfico) e/ou o **silhouette score**, que penaliza overfitting de clusters.
+
+⚠️ **Pegadinha número 2:** aplicar o Silhouette Score diretamente em resultados do **DBSCAN** sem tratar os pontos de ruído (label -1) — isso distorce a métrica, pois ruído não é um "cluster" de verdade.
+
+### 4.2 Métricas Externas (exigem rótulo verdadeiro conhecido)
+
+Usadas em **contextos de validação/pesquisa**, quando por algum motivo você tem o rótulo real (ex.: dataset benchmark) mas está testando um algoritmo não-supervisionado.
+
+| Métrica | O que faz |
+|---|---|
+| **Adjusted Rand Index (ARI)** | Compara pares de pontos: mesmo cluster nos dois agrupamentos ou não; corrigido pelo acaso |
+| **Normalized Mutual Information (NMI)** | Mede quanto de informação um agrupamento dá sobre o outro |
+| **Homogeneity** | Cada cluster contém só membros de uma única classe verdadeira? |
+| **Completeness** | Todos os membros de uma classe verdadeira estão no mesmo cluster? |
+| **V-measure** | Média harmônica entre Homogeneity e Completeness |
+
+⚠️ **Pegadinha conceitual importante:** se você está usando métrica externa (com rótulo), tecnicamente está fazendo **avaliação supervisionada de um modelo não-supervisionado** — isso é comum em pesquisa acadêmica e provas adoram perguntar "por que isso não descaracteriza o método como não-supervisionado?". Resposta: porque o **rótulo não foi usado no treinamento**, apenas na avaliação posterior.
+
+### 4.3 Avaliação em Redução de Dimensionalidade
+- **Variância explicada acumulada** (PCA): quanto da informação original os componentes escolhidos retêm.
+- **Erro de reconstrução** (Autoencoders/PCA): diferença entre dado original e reconstruído.
+
+---
+
+## 5. Detecção de Anomalias (tópico frequentemente esquecido)
+
+- **Isolation Forest:** isola anomalias construindo árvores aleatórias — anomalias são isoladas com **menos divisões** (mais próximas da raiz).
+- **LOF (Local Outlier Factor):** compara a densidade local de um ponto com a de seus vizinhos.
+- **One-Class SVM:** aprende uma fronteira que engloba a "normalidade" dos dados.
+
+⚠️ **Pegadinha:** confundir detecção de anomalias não-supervisionada (sem rótulo de "normal/anômalo") com detecção **supervisionada** de fraude, por exemplo — muitos sistemas reais de fraude são supervisionados porque têm histórico rotulado.
+
+---
+
+## 6. Quadro-Resumo para Revisão Rápida
+
+| Se a prova perguntar sobre... | Pense em... |
+|---|---|
+| Escolher número de clusters | Método do cotovelo + Silhouette Score (nunca só inertia) |
+| Clusters de formato irregular | DBSCAN (não K-Means) |
+| Necessidade de escala numérica | K-Means e PCA são sensíveis à escala → sempre normalizar |
+| Clustering "soft" com probabilidade | GMM |
+| Reduzir dimensões para visualização | t-SNE / UMAP |
+| Reduzir dimensões preservando variância (linear) | PCA |
+| Avaliar sem ter rótulo | Métricas internas (Silhouette, Davies-Bouldin, Calinski-Harabasz) |
+| Avaliar comparando com rótulo real (benchmark) | Métricas externas (ARI, NMI, V-measure) |
+| Detectar outliers sem rótulo | Isolation Forest, LOF, One-Class SVM |
+
+---
+
+## 7. Aplicação Profissional (além da prova)
+
+- **Segmentação de clientes** (marketing): K-Means ou GMM sobre dados de comportamento de compra.
+- **Redução de dimensionalidade em Big Data**: PCA antes de aplicar modelos supervisionados, para acelerar treino e reduzir overfitting.
+- **Detecção de fraude/anomalias** em transações financeiras: Isolation Forest, LOF.
+- **Sistemas de recomendação**: regras de associação (Apriori) — "quem compra X também compra Y".
+- Na prática, a escolha do **k** ou dos **hiperparâmetros** (eps, minPts) raramente é só matemática — envolve também **interpretabilidade de negócio** (ex.: "3 segmentos de cliente" é mais acionável para o time de marketing do que "7 microssegmentos estatisticamente ótimos").
+
+---
+
+## 8. Perguntas típicas de prova (para se testar)
+
+1. Por que a inertia não pode ser usada sozinha para escolher k?
+2. Qual a diferença entre clustering hard e soft? Dê um exemplo de cada.
+3. Por que o PCA é considerado uma técnica linear e qual sua limitação?
+4. Explique por que métricas externas não tornam o método "supervisionado".
+5. Em que situação o DBSCAN seria preferível ao K-Means?
+6. Por que normalizar os dados antes de rodar K-Means ou PCA?
