@@ -34,7 +34,7 @@ d) Igualar a média dos resíduos a 1
 ---
 
 ### 4. Qual métrica de regressão penaliza mais fortemente erros grandes, por elevá-los ao quadrado?
-a) MAE (Erro Absoluto Médio)
+a) MAE (Erro Absoluto Médio)<br>
 b) MSE (Erro Quadrático Médio)<br>
 c) R² (Coeficiente de Determinação)<br>
 d) MAPE (Erro Percentual Absoluto Médio)
