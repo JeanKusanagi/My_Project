@@ -234,22 +234,22 @@ d) Variância baixa sempre indica que o agente está explorando o suficiente
 ---
 
 ### 24. A "taxa de convergência" de um algoritmo de RL refere-se a:
-a) A velocidade de processamento da GPU utilizada<br>
-b) A quantidade de episódios/interações necessárias para que a política do agente se estabilize em (ou se aproxime de) um bom desempenho<br>
+a) A quantidade de episódios/interações necessárias para que a política do agente se estabilize em (ou se aproxime de) um bom desempenho<br>
+b) A velocidade de processamento da GPU utilizada<br>
 c) O número de estados do ambiente<br>
 d) A precisão de ponto flutuante usada nos cálculos
 
-**Gabarito: b)** É comum comparar algoritmos de RL observando quantos episódios (ou passos de interação) cada um necessita até atingir um determinado nível de recompensa, o que reflete a eficiência de amostragem (sample efficiency) do método.
+**Gabarito: a)** É comum comparar algoritmos de RL observando quantos episódios (ou passos de interação) cada um necessita até atingir um determinado nível de recompensa, o que reflete a eficiência de amostragem (sample efficiency) do método.
 
 ---
 
 ### 25. A "eficiência amostral" (sample efficiency) em RL refere-se a:
 a) O quão eficientemente o agente utiliza a memória RAM disponível<br>
-b) A quantidade de interações com o ambiente necessárias para o agente aprender uma boa política<br>
-c) O número de camadas de uma rede neural<br>
+b) O número de camadas de uma rede neural<br>
+c) A quantidade de interações com o ambiente necessárias para o agente aprender uma boa política<br>
 d) A precisão do cálculo do fator de desconto
 
-**Gabarito: b)** Algoritmos com alta eficiência amostral conseguem aprender boas políticas com relativamente poucas interações com o ambiente — algo especialmente importante quando essas interações são caras ou arriscadas (ex.: robôs físicos, sistemas reais).
+**Gabarito: c)** Algoritmos com alta eficiência amostral conseguem aprender boas políticas com relativamente poucas interações com o ambiente — algo especialmente importante quando essas interações são caras ou arriscadas (ex.: robôs físicos, sistemas reais).
 
 ---
 
