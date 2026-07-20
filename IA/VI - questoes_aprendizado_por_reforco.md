@@ -184,22 +184,22 @@ d) De regressão linear
 ---
 
 ### 19. Métodos Ator-Crítico (Actor-Critic) combinam:
-a) Dois algoritmos de clustering diferentes<br>
-b) Um "ator", que aprende a política, e um "crítico", que estima uma função de valor para reduzir a variância das estimativas de gradiente<br>
+a) Um "ator", que aprende a política, e um "crítico", que estima uma função de valor para reduzir a variância das estimativas de gradiente<br>
+b) Dois algoritmos de clustering diferentes<br>
 c) Apenas árvores de decisão<br>
 d) Regressão logística e SVM
 
-**Gabarito: b)** No esquema Ator-Crítico, o ator escolhe as ações (aprendendo a política), enquanto o crítico estima V(s) ou Q(s,a) para avaliar essas ações, fornecendo um sinal de erro (vantagem) mais estável e com menor variância do que usar apenas os retornos observados (como no REINFORCE puro).
+**Gabarito: a)** No esquema Ator-Crítico, o ator escolhe as ações (aprendendo a política), enquanto o crítico estima V(s) ou Q(s,a) para avaliar essas ações, fornecendo um sinal de erro (vantagem) mais estável e com menor variância do que usar apenas os retornos observados (como no REINFORCE puro).
 
 ---
 
 ### 20. O algoritmo PPO (Proximal Policy Optimization) é conhecido por:
 a) Não utilizar nenhuma função de recompensa<br>
-b) Limitar (clipar) a magnitude das atualizações de política a cada passo, evitando mudanças bruscas que desestabilizem o treinamento<br>
-c) Ser exclusivo para problemas de classificação supervisionada<br>
-d) Não poder ser usado em ambientes com ações contínuas
+b) Ser exclusivo para problemas de classificação supervisionada<br>
+c) Não poder ser usado em ambientes com ações contínuas<br>
+d) Limitar (clipar) a magnitude das atualizações de política a cada passo, evitando mudanças bruscas que desestabilizem o treinamento
 
-**Gabarito: b)** O PPO introduz uma função objetivo "clipada" que restringe o quanto a nova política pode se afastar da política anterior em uma única atualização, tornando o treinamento mais estável do que métodos de policy gradient mais simples, sem exigir cálculos de segunda ordem como no TRPO.
+**Gabarito: d)** O PPO introduz uma função objetivo "clipada" que restringe o quanto a nova política pode se afastar da política anterior em uma única atualização, tornando o treinamento mais estável do que métodos de policy gradient mais simples, sem exigir cálculos de segunda ordem como no TRPO.
 
 ---
 
