@@ -5,11 +5,11 @@
 
 ### 1. O que caracteriza fundamentalmente o Aprendizado por Reforço (RL)?
 a) Um agente aprende a partir de exemplos rotulados fornecidos por um supervisor<br>
-b) Um agente aprende a tomar decisões por meio de interação com um ambiente, recebendo recompensas ou punições<br>
-c) O algoritmo apenas descobre agrupamentos em dados sem rótulos<br>
+b) O algoritmo apenas descobre agrupamentos em dados sem rótulos<br>
+c) Um agente aprende a tomar decisões por meio de interação com um ambiente, recebendo recompensas ou punições<br>
 d) O modelo é treinado uma única vez e nunca interage com o ambiente
 
-**Gabarito: b)** No RL, um agente interage sequencialmente com um ambiente, executando ações e recebendo recompensas (sinais de feedback), com o objetivo de aprender uma política que maximize a recompensa acumulada ao longo do tempo — diferente do aprendizado supervisionado (rótulos) e não-supervisionado (sem feedback).
+**Gabarito: c)** No RL, um agente interage sequencialmente com um ambiente, executando ações e recebendo recompensas (sinais de feedback), com o objetivo de aprender uma política que maximize a recompensa acumulada ao longo do tempo — diferente do aprendizado supervisionado (rótulos) e não-supervisionado (sem feedback).
 
 ---
 
@@ -105,11 +105,11 @@ d) A divisão entre dados de treino e teste
 
 ### 11. A estratégia ε-greedy (epsilon-greedy) funciona da seguinte forma:
 a) O agente sempre escolhe a ação de maior valor estimado<br>
-b) Com probabilidade ε, o agente escolhe uma ação aleatória (exploração); com probabilidade 1-ε, escolhe a ação de maior valor estimado (explotação)<br>
-c) O agente nunca explora, apenas explota<br>
-d) ε representa o número total de episódios
+b) O agente nunca explora, apenas explota<br>
+c) ε representa o número total de episódios<br>
+d) Com probabilidade ε, o agente escolhe uma ação aleatória (exploração); com probabilidade 1-ε, escolhe a ação de maior valor estimado (explotação)
 
-**Gabarito: b)** É uma das estratégias mais simples para equilibrar exploração e explotação: com pequena probabilidade ε, uma ação aleatória é escolhida; caso contrário, a ação considerada ótima segundo as estimativas atuais é selecionada.
+**Gabarito: d)** É uma das estratégias mais simples para equilibrar exploração e explotação: com pequena probabilidade ε, uma ação aleatória é escolhida; caso contrário, a ação considerada ótima segundo as estimativas atuais é selecionada.
 
 ---
 
@@ -124,12 +124,12 @@ d) Baseado em clustering
 ---
 
 ### 13. A regra de atualização do Q-Learning utiliza:
-a) Apenas a recompensa imediata, ignorando estados futuros<br>
-b) A diferença entre a estimativa atual de Q(s,a) e um "alvo" baseado na recompensa recebida mais o valor máximo estimado do próximo estado (TD-target)<br>
+a) A diferença entre a estimativa atual de Q(s,a) e um "alvo" baseado na recompensa recebida mais o valor máximo estimado do próximo estado (TD-target)<br>
+b) Apenas a recompensa imediata, ignorando estados futuros<br>
 c) Uma função de perda de entropia cruzada<br>
 d) A distância euclidiana entre estados
 
-**Gabarito: b)** A atualização segue: Q(s,a) ← Q(s,a) + α[r + γ·max_a' Q(s',a') − Q(s,a)], em que o termo entre colchetes é o erro de diferença temporal (TD-error) entre o valor atual e o alvo estimado.
+**Gabarito: a)** A atualização segue: Q(s,a) ← Q(s,a) + α[r + γ·max_a' Q(s',a') − Q(s,a)], em que o termo entre colchetes é o erro de diferença temporal (TD-error) entre o valor atual e o alvo estimado.
 
 ---
 
@@ -145,11 +145,11 @@ d) Só funciona em ambientes contínuos
 
 ### 15. O Deep Q-Network (DQN) combina Q-Learning com:
 a) Árvores de decisão<br>
-b) Redes neurais profundas, para aproximar a função Q(s,a) em espaços de estados muito grandes ou contínuos<br>
-c) Regressão linear simples<br>
+b) Regressão linear simples<br>
 d) Clustering hierárquico
+d) Redes neurais profundas, para aproximar a função Q(s,a) em espaços de estados muito grandes ou contínuos<br>
 
-**Gabarito: b)** O DQN utiliza uma rede neural para aproximar Q(s,a), permitindo aplicar Q-Learning em problemas com espaços de estados de altíssima dimensão (ex.: pixels de um jogo), o que seria inviável com uma tabela Q tradicional.
+**Gabarito: d)** O DQN utiliza uma rede neural para aproximar Q(s,a), permitindo aplicar Q-Learning em problemas com espaços de estados de altíssima dimensão (ex.: pixels de um jogo), o que seria inviável com uma tabela Q tradicional.
 
 ---
 
@@ -165,11 +165,11 @@ d) Substituir completamente a rede neural por uma tabela Q
 
 ### 17. Métodos baseados em valor (value-based), como Q-Learning e DQN, diferem de métodos baseados em política (policy-based) porque:
 a) Métodos baseados em valor aprendem diretamente uma política parametrizada, enquanto métodos baseados em política aprendem apenas Q(s,a)<br>
-b) Métodos baseados em valor aprendem a estimar funções de valor (como Q) e derivam a política a partir delas; métodos baseados em política otimizam diretamente os parâmetros de uma política<br>
-c) Não há diferença prática entre as duas abordagens<br>
+b) Não há diferença prática entre as duas abordagens<br>
+c) Métodos baseados em valor aprendem a estimar funções de valor (como Q) e derivam a política a partir delas; métodos baseados em política otimizam diretamente os parâmetros de uma política<br>
 d) Métodos baseados em política não podem ser usados em ambientes contínuos
 
-**Gabarito: b)** Métodos value-based (ex.: Q-Learning) estimam V(s) ou Q(s,a) e definem a política implicitamente (ex.: escolhendo a ação de maior valor). Métodos policy-based (ex.: REINFORCE, PPO) otimizam diretamente os parâmetros da política π_θ(a|s), o que é especialmente útil em espaços de ação contínuos.
+**Gabarito: c)** Métodos value-based (ex.: Q-Learning) estimam V(s) ou Q(s,a) e definem a política implicitamente (ex.: escolhendo a ação de maior valor). Métodos policy-based (ex.: REINFORCE, PPO) otimizam diretamente os parâmetros da política π_θ(a|s), o que é especialmente útil em espaços de ação contínuos.
 
 ---
 
@@ -205,11 +205,11 @@ d) Não poder ser usado em ambientes com ações contínuas
 
 ### 21. Em RL, um "episódio" refere-se a:
 a) Uma única ação isolada do agente<br>
-b) Uma sequência completa de interações entre agente e ambiente, do estado inicial até um estado terminal<br>
-c) O número total de parâmetros do modelo<br>
-d) Uma métrica de avaliação de classificação
+b) O número total de parâmetros do modelo<br>
+c) Uma métrica de avaliação de classificação<br>
+d) Uma sequência completa de interações entre agente e ambiente, do estado inicial até um estado terminal
 
-**Gabarito: b)** Um episódio é uma trajetória completa (s₀, a₀, r₁, s₁, a₁, r₂, ..., até um estado terminal), muito comum em tarefas episódicas como jogos, em contraste com tarefas contínuas, que não têm um fim natural.
+**Gabarito: d)** Um episódio é uma trajetória completa (s₀, a₀, r₁, s₁, a₁, r₂, ..., até um estado terminal), muito comum em tarefas episódicas como jogos, em contraste com tarefas contínuas, que não têm um fim natural.
 
 ---
 
@@ -265,21 +265,21 @@ d) A acurácia de um classificador supervisionado
 
 ### 27. Em Aprendizado por Reforço, o problema conhecido como "recompensa esparsa" (sparse reward) ocorre quando:
 a) O agente recebe recompensas positivas a cada passo, facilitando o aprendizado<br>
-b) As recompensas informativas ocorrem raramente (ex.: apenas ao final de uma longa sequência de ações), dificultando o aprendizado<br>
-c) O ambiente não possui estados terminais<br>
+b) O ambiente não possui estados terminais<br>
+c) As recompensas informativas ocorrem raramente (ex.: apenas ao final de uma longa sequência de ações), dificultando o aprendizado<br>
 d) O fator de desconto é igual a 1
 
-**Gabarito: b)** Quando recompensas úteis são raras (ex.: só há recompensa ao vencer um jogo longo), o agente recebe pouco sinal de feedback ao longo do caminho, tornando o aprendizado mais lento e desafiador — problema frequentemente mitigado com técnicas como reward shaping ou métodos de exploração mais sofisticados.
+**Gabarito: c)** Quando recompensas úteis são raras (ex.: só há recompensa ao vencer um jogo longo), o agente recebe pouco sinal de feedback ao longo do caminho, tornando o aprendizado mais lento e desafiador — problema frequentemente mitigado com técnicas como reward shaping ou métodos de exploração mais sofisticados.
 
 ---
 
 ### 28. O "Reward Shaping" é uma técnica que consiste em:
-a) Eliminar completamente a função de recompensa original<br>
-b) Modificar ou complementar a função de recompensa original com sinais adicionais, para guiar o aprendizado do agente de forma mais eficiente<br>
+a) Modificar ou complementar a função de recompensa original com sinais adicionais, para guiar o aprendizado do agente de forma mais eficiente<br>
+b) Eliminar completamente a função de recompensa original<br>
 c) Substituir o ambiente por um conjunto de dados rotulados<br>
 d) Aumentar artificialmente o fator de desconto para 2
 
-**Gabarito: b)** Reward shaping adiciona recompensas intermediárias (bem projetadas) para tornar o aprendizado mais eficiente, especialmente em cenários de recompensa esparsa — mas deve ser feito com cuidado para não induzir comportamentos indesejados que "enganem" o objetivo original.
+**Gabarito: a)** Reward shaping adiciona recompensas intermediárias (bem projetadas) para tornar o aprendizado mais eficiente, especialmente em cenários de recompensa esparsa — mas deve ser feito com cuidado para não induzir comportamentos indesejados que "enganem" o objetivo original.
 
 ---
 
