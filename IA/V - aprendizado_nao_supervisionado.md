@@ -217,7 +217,10 @@ Um analista de dados aplica t-SNE em um conjunto de dados de alta dimensão e ob
 Por que o K-Means é considerado um caso particular do GMM?
 
 **Resposta:**
-Porque o K-Means pode ser derivado do GMM assumindo que: (1) todos os componentes gaussianos têm a **mesma variância (esférica e isotrópica)**; (2) a atribuição de pontos aos clusters é **hard** (0 ou 1), em vez de probabilística (soft), como o EM produz no GMM.
+Porque o K-Means pode ser derivado do GMM assumindo que: 
+
+(1) todos os componentes gaussianos têm a **mesma variância (esférica e isotrópica)**;<br>
+(2) a atribuição de pontos aos clusters é **hard** (0 ou 1), em vez de probabilística (soft), como o EM produz no GMM.
 
 ---
 
