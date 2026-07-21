@@ -252,7 +252,12 @@ Porque ambos os métodos dependem de **distâncias euclidianas** (K-Means) ou de
 Você aplicou K-Means com k=4 em dados de transações bancárias e obteve Silhouette Score = 0.15. O que esse valor sugere, e o que você faria a seguir?
 
 **Resposta:**
-Um Silhouette Score de 0.15 é **baixo** (próximo de 0), sugerindo clusters mal definidos, sobrepostos ou pouco separados. Passos possíveis: (1) testar outros valores de k com o método do cotovelo e Silhueta; (2) verificar se os dados foram padronizados; (3) considerar que a estrutura pode não ser esférica/convexa e testar DBSCAN, GMM ou Spectral Clustering; (4) revisar a seleção de features (redução de dimensionalidade ou remoção de ruído).
+Um Silhouette Score de 0.15 é **baixo** (próximo de 0), sugerindo clusters mal definidos, sobrepostos ou pouco separados. Passos possíveis: 
+
+(1) testar outros valores de k com o método do cotovelo e Silhueta;<br>
+(2) verificar se os dados foram padronizados;<br>
+(3) considerar que a estrutura pode não ser esférica/convexa e testar DBSCAN, GMM ou Spectral Clustering;<br>
+(4) revisar a seleção de features (redução de dimensionalidade ou remoção de ruído).
 
 ---
 
