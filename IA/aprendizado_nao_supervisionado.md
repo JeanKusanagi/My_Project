@@ -114,6 +114,7 @@ Avaliam a qualidade da estrutura encontrada usando apenas os próprios dados.
 
 **Questão 1.**
 Qual das métricas abaixo deve ser **minimizada** para indicar melhor qualidade de clusterização?
+
 a) Silhouette Score<br>
 b) Calinski-Harabasz Index<br>
 c) Davies-Bouldin Index<br>
