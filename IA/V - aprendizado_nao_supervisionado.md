@@ -157,8 +157,38 @@ Usadas em **contextos de validação/pesquisa**, quando por algum motivo você t
 ## 8. Perguntas típicas de prova (para se testar)
 
 1. Por que a inertia não pode ser usada sozinha para escolher k?
+
+A inertia (soma das distâncias quadráticas dentro dos clusters) diminui monotonicamente conforme k aumenta — no limite, se k = número de amostras, a inertia é zero (cada ponto é seu próprio cluster). Ou seja, ela sempre "melhora" com mais clusters, então escolher k apenas minimizando a inertia levaria a um overfitting, criando clusters excessivamente fragmentados e sem significado prático. É por isso que se usa o método do "cotovelo" (elbow), que busca o ponto de retorno decrescente, combinado com outras métricas (como silhouette score) que penalizam ou avaliam a qualidade da separação entre clusters, não só a compactação interna.
+
 2. Qual a diferença entre clustering hard e soft? Dê um exemplo de cada.
+
+- Hard clustering: cada ponto pertence exclusivamente a um único cluster, com atribuição binária (0 ou 1). Exemplo: K-Means, onde cada amostra recebe um rótulo de cluster único.
+- Soft clustering: cada ponto recebe uma probabilidade (ou grau de pertinência) de pertencer a cada cluster, permitindo pertencimento parcial. Exemplo: Gaussian Mixture Models (GMM), onde cada ponto tem uma probabilidade de pertencer a cada uma das gaussianas/componentes.
+
 3. Por que o PCA é considerado uma técnica linear e qual sua limitação?
+
+O PCA é linear porque encontra os componentes principais através de combinações lineares das variáveis originais (projeções sobre os autovetores da matriz de covariância). Ele assume que a variância relevante dos dados pode ser capturada por hiperplanos lineares.
+
+Limitação: quando os dados possuem estrutura não linear (por exemplo, formam uma espiral, um "S" ou estão dispostos em variedades curvas — manifolds), o PCA não consegue capturar essa estrutura corretamente, pois tenta "esticar" uma superfície curva em um espaço linear, perdendo informação relevante. Nesses casos, técnicas não lineares como t-SNE, UMAP ou Kernel PCA são mais adequadas.
+
 4. Explique por que métricas externas não tornam o método "supervisionado".
+
+Métricas externas (como Adjusted Rand Index, homogeneidade, V-measure) usam rótulos verdadeiros apenas para avaliar a qualidade do agrupamento após ele ter sido feito — os rótulos não são usados durante o processo de treinamento/formação dos clusters. O algoritmo continua sendo não supervisionado porque ele descobre a estrutura dos dados sem acesso a nenhum rótulo durante o aprendizado. Os rótulos servem só como um "gabarito externo" de comparação, um recurso disponível apenas para fins de validação (geralmente em datasets de benchmark), não como sinal de treinamento.
+
 5. Em que situação o DBSCAN seria preferível ao K-Means?
+
+O DBSCAN é preferível quando:
+
+- Os clusters têm formatos arbitrários/não convexos (K-Means assume clusters esféricos/convexos);
+- Existem outliers/ruído nos dados, já que o DBSCAN pode classificá-los como ruído em vez de forçá-los a um cluster;
+- Não se sabe o número de clusters k a priori (DBSCAN não exige que se defina k);
+- Os clusters têm densidades variáveis dentro de uma mesma região, mas com separação clara por densidade (ex.: dados geoespaciais, detecção de anomalias, clusters em formato de "lua crescente" ou espiral).
+
 6. Por que normalizar os dados antes de rodar K-Means ou PCA?
+
+Ambos os algoritmos são sensíveis à escala das variáveis, pois se baseiam em distâncias (K-Means) ou variância (PCA):
+
+- No K-Means, a distância euclidiana é dominada por variáveis com escalas maiores. Se uma feature varia de 0 a 10.000 e outra de 0 a 1, a primeira dominará o cálculo de distância, distorcendo os clusters.
+- No PCA, os componentes principais são escolhidos maximizando a variância. Sem normalização, variáveis com escalas maiores terão variância artificialmente maior e dominarão os primeiros componentes, mesmo que não sejam as mais informativas.
+
+Por isso, normalizar (ex.: StandardScaler, colocando média 0 e desvio padrão 1) garante que todas as variáveis contribuam de forma equilibrada para o resultado do algoritmo.
