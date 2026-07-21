@@ -156,35 +156,45 @@ Usadas em **contextos de validação/pesquisa**, quando por algum motivo você t
 
 ## 8. Perguntas típicas de prova (para se testar)
 
-1. Por que a inertia não pode ser usada sozinha para escolher k?
+**Questão 1.**
+Por que a inertia não pode ser usada sozinha para escolher k?
 
+**Resposta:**
 A inertia (soma das distâncias quadráticas dentro dos clusters) diminui monotonicamente conforme k aumenta — no limite, se k = número de amostras, a inertia é zero (cada ponto é seu próprio cluster). Ou seja, ela sempre "melhora" com mais clusters, então escolher k apenas minimizando a inertia levaria a um overfitting, criando clusters excessivamente fragmentados e sem significado prático. É por isso que se usa o método do "cotovelo" (elbow), que busca o ponto de retorno decrescente, combinado com outras métricas (como silhouette score) que penalizam ou avaliam a qualidade da separação entre clusters, não só a compactação interna.
 
 ---
 
-2. Qual a diferença entre clustering hard e soft? Dê um exemplo de cada.
+**Questão 2**
+Qual a diferença entre clustering hard e soft? Dê um exemplo de cada.
 
+**Resposta:**
 - Hard clustering: cada ponto pertence exclusivamente a um único cluster, com atribuição binária (0 ou 1). Exemplo: K-Means, onde cada amostra recebe um rótulo de cluster único.
 - Soft clustering: cada ponto recebe uma probabilidade (ou grau de pertinência) de pertencer a cada cluster, permitindo pertencimento parcial. Exemplo: Gaussian Mixture Models (GMM), onde cada ponto tem uma probabilidade de pertencer a cada uma das gaussianas/componentes.
 
 ---
 
-3. Por que o PCA é considerado uma técnica linear e qual sua limitação?
+**Questão 3.**
+Por que o PCA é considerado uma técnica linear e qual sua limitação?
 
+**Resposta:**
 O PCA é linear porque encontra os componentes principais através de combinações lineares das variáveis originais (projeções sobre os autovetores da matriz de covariância). Ele assume que a variância relevante dos dados pode ser capturada por hiperplanos lineares.
 
 Limitação: quando os dados possuem estrutura não linear (por exemplo, formam uma espiral, um "S" ou estão dispostos em variedades curvas — manifolds), o PCA não consegue capturar essa estrutura corretamente, pois tenta "esticar" uma superfície curva em um espaço linear, perdendo informação relevante. Nesses casos, técnicas não lineares como t-SNE, UMAP ou Kernel PCA são mais adequadas.
 
 ---
 
-4. Explique por que métricas externas não tornam o método "supervisionado".
+**Questão 4.**
+Explique por que métricas externas não tornam o método "supervisionado".
 
+**Resposta:**
 Métricas externas (como Adjusted Rand Index, homogeneidade, V-measure) usam rótulos verdadeiros apenas para avaliar a qualidade do agrupamento após ele ter sido feito — os rótulos não são usados durante o processo de treinamento/formação dos clusters. O algoritmo continua sendo não supervisionado porque ele descobre a estrutura dos dados sem acesso a nenhum rótulo durante o aprendizado. Os rótulos servem só como um "gabarito externo" de comparação, um recurso disponível apenas para fins de validação (geralmente em datasets de benchmark), não como sinal de treinamento.
 
 ---
 
-5. Em que situação o DBSCAN seria preferível ao K-Means?
+**Questão 5.**
+Em que situação o DBSCAN seria preferível ao K-Means?
 
+**Resposta:**
 O DBSCAN é preferível quando:
 
 - Os clusters têm formatos arbitrários/não convexos (K-Means assume clusters esféricos/convexos);
@@ -194,8 +204,10 @@ O DBSCAN é preferível quando:
 
 ---
 
-6. Por que normalizar os dados antes de rodar K-Means ou PCA?
+**Questão 6.**
+Por que normalizar os dados antes de rodar K-Means ou PCA?
 
+**Resposta:**
 Ambos os algoritmos são sensíveis à escala das variáveis, pois se baseiam em distâncias (K-Means) ou variância (PCA):
 
 - No K-Means, a distância euclidiana é dominada por variáveis com escalas maiores. Se uma feature varia de 0 a 10.000 e outra de 0 a 1, a primeira dominará o cálculo de distância, distorcendo os clusters.
