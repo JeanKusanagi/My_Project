@@ -203,20 +203,9 @@ Ambos os algoritmos são sensíveis à escala das variáveis, pois se baseiam em
 
 Por isso, normalizar (ex.: StandardScaler, colocando média 0 e desvio padrão 1) garante que todas as variáveis contribuam de forma equilibrada para o resultado do algoritmo.
 
-**Questão 1.**
-Qual das métricas abaixo deve ser **minimizada** para indicar melhor qualidade de clusterização?
-
-a) Silhouette Score<br>
-b) Calinski-Harabasz Index<br>
-c) Davies-Bouldin Index<br>
-d) Adjusted Rand Index
-
-**Resposta: c) Davies-Bouldin Index.**
-*Comentário:* Diferente das outras métricas listadas (que devem ser maximizadas), o Davies-Bouldin mede a razão entre dispersão intra-cluster e separação inter-cluster — quanto menor essa razão, mais compactos e bem separados estão os clusters.
-
 ---
 
-**Questão 2.**
+**Questão 7.**
 Um analista de dados aplica t-SNE em um conjunto de dados de alta dimensão e observa dois clusters visualmente distantes no gráfico 2D. Ele conclui que esses clusters são "muito diferentes entre si" e que o cluster A é "maior" que o B, pois ocupa mais área visual. Isso está correto?
 
 **Resposta: Não.**
@@ -224,7 +213,7 @@ Um analista de dados aplica t-SNE em um conjunto de dados de alta dimensão e ob
 
 ---
 
-**Questão 3.**
+**Questão 8.**
 Por que o K-Means é considerado um caso particular do GMM?
 
 **Resposta:**
@@ -232,7 +221,7 @@ Porque o K-Means pode ser derivado do GMM assumindo que: (1) todos os componente
 
 ---
 
-**Questão 4.**
+**Questão 9.**
 Em um projeto de segmentação de clientes, você não possui rótulos verdadeiros de "segmentos corretos". Qual conjunto de métricas você pode usar para validar o número ideal de clusters?
 
 **Resposta:**
@@ -240,7 +229,7 @@ Métricas **internas**: Silhouette Score, Índice de Davies-Bouldin, Calinski-Ha
 
 ---
 
-**Questão 5.**
+**Questão 10.**
 Um aluno afirma: "DBSCAN é sempre superior ao K-Means porque não exige definir k antecipadamente." Essa afirmação é totalmente correta?
 
 **Resposta: Não, é uma simplificação equivocada.**
@@ -248,7 +237,7 @@ Um aluno afirma: "DBSCAN é sempre superior ao K-Means porque não exige definir
 
 ---
 
-**Questão 6.**
+**Questão 11.**
 Explique por que a padronização (standardization/normalization) dos dados é geralmente necessária antes de aplicar K-Means ou PCA.
 
 **Resposta:**
@@ -256,7 +245,7 @@ Porque ambos os métodos dependem de **distâncias euclidianas** (K-Means) ou de
 
 ---
 
-**Questão 7 (aplicação prática).**
+**Questão 12 (aplicação prática).**
 Você aplicou K-Means com k=4 em dados de transações bancárias e obteve Silhouette Score = 0.15. O que esse valor sugere, e o que você faria a seguir?
 
 **Resposta:**
@@ -264,7 +253,7 @@ Um Silhouette Score de 0.15 é **baixo** (próximo de 0), sugerindo clusters mal
 
 ---
 
-**Questão 8.**
+**Questão 13.**
 Qual a diferença conceitual entre homogeneidade e completude na avaliação de clusters (com ground truth disponível)?
 
 **Resposta:**
