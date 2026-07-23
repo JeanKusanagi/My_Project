@@ -136,6 +136,8 @@ Usadas em **contextos de validação/pesquisa**, quando por algum motivo você t
 - **Variância explicada acumulada** (PCA): quanto da informação original os componentes escolhidos retêm.
 - **Erro de reconstrução** (Autoencoders/PCA): diferença entre dado original e reconstruído.
 - **Trustworthiness e Continuity** (t-SNE, UMAP): avaliam se vizinhanças locais foram preservadas.
+  - **Trustworthiness**: mede o quanto a projeção evita criar vizinhos artificiais inexistentes no espaço original;
+  - **Continuity**: avalia o quanto os vizinhos existentes no espaço original permanecem próximos após a projeção.
 
 ---
 
