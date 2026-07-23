@@ -84,9 +84,9 @@ Avaliam a qualidade da estrutura encontrada usando apenas os próprios dados.
 
 - **Coeficiente de Silhueta (Silhouette Score)**: para cada ponto, compara a distância média intra-cluster (`a`) com a distância média ao cluster vizinho mais próximo (`b`): 
   `s = (b - a) / max(a, b)`. Varia de -1 a 1; valores próximos de 1 indicam boa separação.
-- **Índice de Davies-Bouldin**: razão entre dispersão intra-cluster e separação entre clusters. **Quanto menor, melhor** (diferente da silhueta).
-- **Índice de Calinski-Harabasz (variance ratio criterion)**: razão entre dispersão inter-cluster e intra-cluster. **Quanto maior, melhor**.
-- **Inércia / WCSS (Within-Cluster Sum of Squares)**: usada no **método do cotovelo (elbow method)** para escolher k no K-Means.
+- **Índice de Davies-Bouldin**: razão entre dispersão intra-cluster e separação entre clusters. **Quanto menor, melhor** (diferente da silhueta). Varia de 0 a ∞.
+- **Índice de Calinski-Harabasz (variance ratio criterion)**: razão entre dispersão inter-cluster e intra-cluster. **Quanto maior, melhor**. Varia de 0 a ∞.
+- **Inércia / WCSS (Within-Cluster Sum of Squares)**: usada no **método do cotovelo (elbow method)** para escolher k no K-Means. Varia de 0 a ∞. Menor é mais compacto (mas sempre cai ao aumentar k)
 
 ### 3.2 Métricas externas (com ground truth, quando disponível para validação)
 - **Adjusted Rand Index (ARI)**: mede concordância entre clusters previstos e rótulos verdadeiros, corrigido para acerto aleatório. Varia de -1 a 1 (1 = concordância perfeita).
