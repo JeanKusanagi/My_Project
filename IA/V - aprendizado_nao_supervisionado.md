@@ -41,7 +41,7 @@
 ### 2.2 Clusterização Hierárquica
 - **Aglomerativa (bottom-up):** cada ponto começa como seu próprio cluster e vai fundindo os mais próximos.
 - **Divisiva (top-down):** todos começam juntos e vão se dividindo (menos comum).
-- Resultado visualizado em um **dendrograma**; corta-se em uma altura para definir o número de clusters.
+- Resultado visualizado em um **dendrograma**; corta-se em uma altura para definir o número de clusters (não exige definir k a priori).
 - Métodos de linkage: *single*, *complete*, *average*, *Ward*.
 
 ⚠️ **Pegadinha:** custo computacional alto — geralmente **O(n²) a O(n³)**, inviável para datasets muito grandes (diferente do K-Means, que é O(n·k·i)).
