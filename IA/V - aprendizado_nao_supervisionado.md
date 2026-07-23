@@ -126,8 +126,8 @@ Usadas em **contextos de validação/pesquisa**, quando por algum motivo você t
 | **Adjusted Rand Index (ARI)** | Compara pares de pontos: mesmo cluster nos dois agrupamentos ou não; corrigido pelo acaso |
 | **Normalized Mutual Information (NMI)** | Mede quanto de informação um agrupamento dá sobre o outro |
 | **Fowlkes-Mallows Index** | Mmédia geométrica entre precisão e recall de pares de pontos |
-| **Homogeneity** | Cada cluster contém só membros de uma única classe verdadeira? |
-| **Completeness** | Todos os membros de uma classe verdadeira estão no mesmo cluster? |
+| **Homogeneity** | avalia se cada cluster contém só membros de uma única classe verdadeira |
+| **Completeness** | avalia se todos os membros de uma classe verdadeira estão no mesmo cluster |
 | **V-measure** | Média harmônica entre Homogeneity e Completeness |
 
 ⚠️ **Pegadinha conceitual importante:** se você está usando métrica externa (com rótulo), tecnicamente está fazendo **avaliação supervisionada de um modelo não-supervisionado** — isso é comum em pesquisa acadêmica e provas adoram perguntar "por que isso não descaracteriza o método como não-supervisionado?". Resposta: porque o **rótulo não foi usado no treinamento**, apenas na avaliação posterior.
