@@ -54,10 +54,20 @@
 - Mais flexível quanto à forma dos clusters (elipsoides via matriz de covariância).
 
 ### 2.5 Redução de dimensionalidade
-- **PCA (Análise de Componentes Principais)**: transformação linear que maximiza a variância explicada; usa autovalores/autovetores da matriz de covariância.
-- **t-SNE**: preserva estrutura local (vizinhança), útil para visualização, mas **distâncias globais e tamanhos de cluster não são interpretáveis**.
-- **UMAP**: similar ao t-SNE, mas geralmente mais rápido e preserva melhor estrutura global.
-- **Autoencoders**: redes neurais que aprendem representações compactas (encoder-decoder) de forma não-linear.
+- **PCA (Análise de Componentes Principais)**:
+   - transformação linear que maximiza a variância explicada; usa autovalores/autovetores da matriz de covariância.
+   - Técnica linear que projeta os dados em novos eixos (componentes principais) que maximizam a variância explicada.
+   - Os componentes são ortogonais entre si (não-correlacionados).
+   - Muito usado para visualização, remoção de ruído e mitigação da "maldição da dimensionalidade".
+   - PCA é linear e sensível à escala — sempre padronizar dados antes. Também não é seleção de features: ele cria novas variáveis (combinações lineares), não escolhe um subconjunto das originais.
+- **t-SNE e UMAP**:
+   - Técnicas não-lineares, focadas em visualização (normalmente reduzindo para 2D/3D).
+      - **t-SNE**: preserva estrutura local (vizinhança), útil para visualização, mas **distâncias globais e tamanhos de cluster não são interpretáveis**.
+      - **UMAP**: similar ao t-SNE, mas geralmente mais rápido e preserva melhor estrutura global.
+- **Autoencoders**:
+   - redes neurais que aprendem a comprimir e reconstruir os dados (encoder + decoder) de forma não-linear.
+   - A camada latente (gargalo) é a representação reduzida.
+   - Vantagem sobre PCA: consegue capturar relações não-lineares.
 
 ### 2.6 Outros modelos relevantes
 - **Mean Shift**: clusterização por deslocamento de médias, baseada em densidade, sem k fixo.
