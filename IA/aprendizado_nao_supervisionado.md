@@ -29,9 +29,9 @@
 - Sensível à inicialização (usar **k-means++**) e à escolha de **k**.
 - Não lida bem com clusters de formato não-esférico ou densidades muito distintas.
 - Algoritmo iterativo:<br>
- (1) inicializa centróides,<br>
- (2) atribui pontos ao centróide mais próximo,<br>
- (3) recalcula centróides, repete até convergir.
+   (1) inicializa centróides,<br>
+   (2) atribui pontos ao centróide mais próximo,<br>
+   (3) recalcula centróides, repete até convergir.
 
 ### 2.2 Clusterização Hierárquica
 - Existem duas estratégias principais para construção da hierarquia:
