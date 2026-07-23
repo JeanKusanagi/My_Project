@@ -44,6 +44,7 @@
 - Agrupa por densidade: pontos "core" (com número mínimo de vizinhos, `minPts`, dentro de raio `eps`), pontos de borda e **ruído (outliers)**.
 - Encontra clusters de formato arbitrário e detecta outliers naturalmente.
 - Não exige k, mas é sensível a `eps` e `minPts`; sofre com densidades muito heterogêneas.
+- DBSCAN tem dificuldade quando os clusters têm densidades muito diferentes entre si — um único par (eps, minPts) pode não servir para todos.
 - Variante **HDBSCAN** lida melhor com densidades variáveis.
 
 ### 2.4 GMM (Gaussian Mixture Models)
