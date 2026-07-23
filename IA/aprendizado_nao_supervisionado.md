@@ -5,7 +5,7 @@
 **Aprendizado não-supervisionado**: aprender padrões, estrutura ou representações em dados **sem rótulos (labels)**. O objetivo não é prever um `y`, mas descobrir organização latente nos dados (`X`).
 
 **Principais tarefas:**
-- **Clusterização (clustering)**: agrupar exemplos semelhantes (K-Means, DBSCAN, Hierárquico, GMM).
+- **Clusterização (clustering)**: agrupar exemplos semelhantes.
 - **Redução de dimensionalidade**: encontrar representações compactas (PCA, t-SNE, UMAP, autoencoders).
 - **Detecção de anomalias**: identificar pontos que não seguem o padrão geral.
 - **Estimação de densidade**: modelar a distribuição de probabilidade dos dados (GMM, KDE).
@@ -28,23 +28,17 @@
 - Assume clusters **convexos, de tamanho e variância semelhantes**.
 - Sensível à inicialização (usar **k-means++**) e à escolha de **k**.
 - Não lida bem com clusters de formato não-esférico ou densidades muito distintas.
-- Algoritmo iterativo:<br>
-   (1) inicializa centróides,<br>
-   (2) atribui pontos ao centróide mais próximo,<br>
-   (3) recalcula centróides, repete até convergir.
 
 ### 2.2 Clusterização Hierárquica
-- Existem duas estratégias principais para construção da hierarquia:
-  - **Aglomerativa** (bottom-up): cada ponto começa como cluster próprio e se funde progressivamente.
-  - **Divisiva** (top-down): parte de um único cluster e o divide.
+- **Aglomerativa** (bottom-up): cada ponto começa como cluster próprio e se funde progressivamente.
+- **Divisiva** (top-down): parte de um único cluster e o divide.
 - Critérios de ligação (linkage): *single*, *complete*, *average*, *Ward*.
-- Resultado visualizado em um **dendrograma**; corta-se em uma altura para definir o número de clusters.
+- Resultado visualizado em **dendrograma**; não exige definir k a priori, mas exige um corte.
 
 ### 2.3 DBSCAN (Density-Based Spatial Clustering)
 - Agrupa por densidade: pontos "core" (com número mínimo de vizinhos, `minPts`, dentro de raio `eps`), pontos de borda e **ruído (outliers)**.
 - Encontra clusters de formato arbitrário e detecta outliers naturalmente.
 - Não exige k, mas é sensível a `eps` e `minPts`; sofre com densidades muito heterogêneas.
-- DBSCAN tem dificuldade quando os clusters têm densidades muito diferentes entre si — um único par (eps, minPts) pode não servir para todos.
 - Variante **HDBSCAN** lida melhor com densidades variáveis.
 
 ### 2.4 GMM (Gaussian Mixture Models)
@@ -54,20 +48,10 @@
 - Mais flexível quanto à forma dos clusters (elipsoides via matriz de covariância).
 
 ### 2.5 Redução de dimensionalidade
-- **PCA (Análise de Componentes Principais)**:
-   - transformação linear que maximiza a variância explicada; usa autovalores/autovetores da matriz de covariância.
-   - Técnica linear que projeta os dados em novos eixos (componentes principais) que maximizam a variância explicada.
-   - Os componentes são ortogonais entre si (não-correlacionados).
-   - Muito usado para visualização, remoção de ruído e mitigação da "maldição da dimensionalidade".
-   - PCA é linear e sensível à escala — sempre padronizar dados antes. Também não é seleção de features: ele cria novas variáveis (combinações lineares), não escolhe um subconjunto das originais.
-- **t-SNE e UMAP**:
-   - Técnicas não-lineares, focadas em visualização (normalmente reduzindo para 2D/3D).
-      - **t-SNE**: preserva estrutura local (vizinhança), útil para visualização, mas **distâncias globais e tamanhos de cluster não são interpretáveis**.
-      - **UMAP**: similar ao t-SNE, mas geralmente mais rápido e preserva melhor estrutura global.
-- **Autoencoders**:
-   - redes neurais que aprendem a comprimir e reconstruir os dados (encoder + decoder) de forma não-linear.
-   - A camada latente (gargalo) é a representação reduzida.
-   - Vantagem sobre PCA: consegue capturar relações não-lineares.
+- **PCA (Análise de Componentes Principais)**: transformação linear que maximiza a variância explicada; usa autovalores/autovetores da matriz de covariância.
+- **t-SNE**: preserva estrutura local (vizinhança), útil para visualização, mas **distâncias globais e tamanhos de cluster não são interpretáveis**.
+- **UMAP**: similar ao t-SNE, mas geralmente mais rápido e preserva melhor estrutura global.
+- **Autoencoders**: redes neurais que aprendem representações compactas (encoder-decoder) de forma não-linear.
 
 ### 2.6 Outros modelos relevantes
 - **Mean Shift**: clusterização por deslocamento de médias, baseada em densidade, sem k fixo.
@@ -84,13 +68,9 @@ Avaliam a qualidade da estrutura encontrada usando apenas os próprios dados.
 
 - **Coeficiente de Silhueta (Silhouette Score)**: para cada ponto, compara a distância média intra-cluster (`a`) com a distância média ao cluster vizinho mais próximo (`b`): 
   `s = (b - a) / max(a, b)`. Varia de -1 a 1; valores próximos de 1 indicam boa separação.
-- **Índice de Davies-Bouldin**: razão entre dispersão intra-cluster e separação entre clusters. **Quanto menor, melhor** (diferente da silhueta). Varia de 0 a ∞.
-- **Índice de Calinski-Harabasz (variance ratio criterion)**: razão entre dispersão inter-cluster e intra-cluster. **Quanto maior, melhor**. Varia de 0 a ∞.
-- **Inércia / WCSS (Within-Cluster Sum of Squares)**: usada no **método do cotovelo (elbow method)** para escolher k no K-Means. Varia de 0 a ∞. Menor é mais compacto (mas sempre cai ao aumentar k)
-
-⚠️ **Pegadinha número 1 (a mais cobrada):** usar apenas a **inertia** para escolher k. Como a inertia **sempre diminui** conforme k aumenta (no limite, k = n dá inertia = 0), ela sozinha nunca aponta um "melhor k" — por isso se usa o **método do cotovelo** (procurar o ponto de inflexão no gráfico) e/ou o **silhouette score**, que penaliza overfitting de clusters.
-
-⚠️ **Pegadinha número 2:** aplicar o Silhouette Score diretamente em resultados do **DBSCAN** sem tratar os pontos de ruído (label -1) — isso distorce a métrica, pois ruído não é um "cluster" de verdade.
+- **Índice de Davies-Bouldin**: razão entre dispersão intra-cluster e separação entre clusters. **Quanto menor, melhor** (diferente da silhueta).
+- **Índice de Calinski-Harabasz (variance ratio criterion)**: razão entre dispersão inter-cluster e intra-cluster. **Quanto maior, melhor**.
+- **Inércia / WCSS (Within-Cluster Sum of Squares)**: usada no **método do cotovelo (elbow method)** para escolher k no K-Means.
 
 ### 3.2 Métricas externas (com ground truth, quando disponível para validação)
 - **Adjusted Rand Index (ARI)**: mede concordância entre clusters previstos e rótulos verdadeiros, corrigido para acerto aleatório. Varia de -1 a 1 (1 = concordância perfeita).
@@ -134,10 +114,9 @@ Avaliam a qualidade da estrutura encontrada usando apenas os próprios dados.
 
 **Questão 1.**
 Qual das métricas abaixo deve ser **minimizada** para indicar melhor qualidade de clusterização?
-
-a) Silhouette Score<br>
-b) Calinski-Harabasz Index<br>
-c) Davies-Bouldin Index<br>
+a) Silhouette Score
+b) Calinski-Harabasz Index
+c) Davies-Bouldin Index
 d) Adjusted Rand Index
 
 **Resposta: c) Davies-Bouldin Index.**
