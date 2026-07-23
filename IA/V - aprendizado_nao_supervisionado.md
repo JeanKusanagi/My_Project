@@ -91,10 +91,10 @@
 
 ## 4 Outros modelos relevantes
 
-    Mean Shift: clusterização por deslocamento de médias, baseada em densidade, sem k fixo.
-    Spectral Clustering: usa autovalores do grafo de similaridade; bom para clusters não-convexos.
-    Self-Organizing Maps (SOM): redes neurais para mapeamento topológico.
-    Isolation Forest / One-Class SVM: detecção de anomalias.
+- Mean Shift: clusterização por deslocamento de médias, baseada em densidade, sem k fixo.
+- Spectral Clustering: usa autovalores do grafo de similaridade; bom para clusters não-convexos.
+- Self-Organizing Maps (SOM): redes neurais para mapeamento topológico.
+- Isolation Forest / One-Class SVM: detecção de anomalias.
 
 ---
 
