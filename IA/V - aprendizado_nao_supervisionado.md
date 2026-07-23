@@ -61,7 +61,7 @@
 ### 2.4 GMM — Gaussian Mixture Models
 - Modelo **probabilístico**: assume que os dados vêm de uma mistura de distribuições gaussianas.
 - Usa o algoritmo **EM (Expectation-Maximization)**.
-- Diferença-chave em relação ao K-Means: gera **atribuição probabilística** (soft clustering) em vez de "hard clustering" (cada ponto pertence 100% a um cluster).
+- Diferença-chave em relação ao K-Means: gera **atribuição probabilística** (soft clustering) em vez de "hard clustering" (cada ponto pertence 100% a um cluster, como no K-Means).
 
 ⚠️ **Pegadinha de prova:** perguntam "qual a diferença entre soft e hard clustering?" — K-Means e DBSCAN são *hard*; GMM é *soft* (dá probabilidade de pertencimento a cada cluster).
 
@@ -70,7 +70,8 @@
 ## 3. Redução de Dimensionalidade
 
 ### 3.1 PCA (Análise de Componentes Principais)
-- Técnica **linear** que projeta os dados em novos eixos (componentes principais) que **maximizam a variância explicada**.
+- Transformação **linear** que projeta os dados em novos eixos (componentes principais), que **maximizam a variância explicada**;
+- Usa autovalores/autovetores da matriz de covariância.
 - Os componentes são **ortogonais** entre si (não-correlacionados).
 - Muito usado para visualização, remoção de ruído e mitigação da "maldição da dimensionalidade".
 
@@ -78,12 +79,13 @@
 
 ### 3.2 t-SNE e UMAP
 - Técnicas **não-lineares**, focadas em **visualização** (normalmente reduzindo para 2D/3D).
-- Preservam melhor a **estrutura local** (vizinhança) do que a global.
+- **t-SNE**: preserva estrutura local (vizinhança), útil para visualização, mas distâncias globais e tamanhos de cluster não são interpretáveis.
+- **UMAP**: similar ao t-SNE, mas geralmente mais rápido e preserva melhor estrutura global.
 
 ⚠️ **Pegadinha comum:** achar que distâncias entre clusters distantes num gráfico de t-SNE têm significado quantitativo — **não têm**. t-SNE preserva vizinhança local, não distâncias globais reais.
 
 ### 3.3 Autoencoders
-- Redes neurais que aprendem a **comprimir e reconstruir** os dados (encoder + decoder).
+- Redes neurais que aprendem a **comprimir e reconstruir** os dados (encoder + decoder) de forma não linear.
 - A camada latente (gargalo) é a representação reduzida.
 - Vantagem sobre PCA: consegue capturar relações **não-lineares**.
 
