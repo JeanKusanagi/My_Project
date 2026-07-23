@@ -135,7 +135,7 @@ Usadas em **contextos de validação/pesquisa**, quando por algum motivo você t
 ### 4.3 Avaliação em Redução de Dimensionalidade
 - **Variância explicada acumulada** (PCA): quanto da informação original os componentes escolhidos retêm.
 - **Erro de reconstrução** (Autoencoders/PCA): diferença entre dado original e reconstruído.
-- **Trustworthiness e Continuity** (t-SNE, UMAP): — avaliam se vizinhanças locais foram preservadas.
+- **Trustworthiness e Continuity** (t-SNE, UMAP): avaliam se vizinhanças locais foram preservadas.
 
 ---
 
