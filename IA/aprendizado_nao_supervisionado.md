@@ -38,7 +38,7 @@
   - **Aglomerativa** (bottom-up): cada ponto começa como cluster próprio e se funde progressivamente.
   - **Divisiva** (top-down): parte de um único cluster e o divide.
 - Critérios de ligação (linkage): *single*, *complete*, *average*, *Ward*.
-- Resultado visualizado em **dendrograma**; não exige definir k a priori, mas exige um corte.
+- Resultado visualizado em um **dendrograma**; corta-se em uma altura para definir o número de clusters.
 
 ### 2.3 DBSCAN (Density-Based Spatial Clustering)
 - Agrupa por densidade: pontos "core" (com número mínimo de vizinhos, `minPts`, dentro de raio `eps`), pontos de borda e **ruído (outliers)**.
