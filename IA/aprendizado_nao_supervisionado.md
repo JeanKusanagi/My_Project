@@ -88,6 +88,10 @@ Avaliam a qualidade da estrutura encontrada usando apenas os próprios dados.
 - **Índice de Calinski-Harabasz (variance ratio criterion)**: razão entre dispersão inter-cluster e intra-cluster. **Quanto maior, melhor**. Varia de 0 a ∞.
 - **Inércia / WCSS (Within-Cluster Sum of Squares)**: usada no **método do cotovelo (elbow method)** para escolher k no K-Means. Varia de 0 a ∞. Menor é mais compacto (mas sempre cai ao aumentar k)
 
+⚠️ **Pegadinha número 1 (a mais cobrada):** usar apenas a **inertia** para escolher k. Como a inertia **sempre diminui** conforme k aumenta (no limite, k = n dá inertia = 0), ela sozinha nunca aponta um "melhor k" — por isso se usa o **método do cotovelo** (procurar o ponto de inflexão no gráfico) e/ou o **silhouette score**, que penaliza overfitting de clusters.
+
+⚠️ **Pegadinha número 2:** aplicar o Silhouette Score diretamente em resultados do **DBSCAN** sem tratar os pontos de ruído (label -1) — isso distorce a métrica, pois ruído não é um "cluster" de verdade.
+
 ### 3.2 Métricas externas (com ground truth, quando disponível para validação)
 - **Adjusted Rand Index (ARI)**: mede concordância entre clusters previstos e rótulos verdadeiros, corrigido para acerto aleatório. Varia de -1 a 1 (1 = concordância perfeita).
 - **Normalized Mutual Information (NMI)**: baseada em teoria da informação, mede quanto os agrupamentos compartilham informação com os rótulos reais.
