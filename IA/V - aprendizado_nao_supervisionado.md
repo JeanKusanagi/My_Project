@@ -28,12 +28,13 @@
 - Particiona os dados em **k** grupos, minimizando a **soma das distâncias quadráticas** ao centróide (inércia/WCSS — *Within-Cluster Sum of Squares*).
 - Algoritmo iterativo: (1) inicializa centróides, (2) atribui pontos ao centróide mais próximo, (3) recalcula centróides, repete até convergir.
 
-**Pressupostos (muito cobrado em prova):**
-- Clusters **esféricos** e de tamanho semelhante.
+**Pressupostos:**
+- Clusters **esféricos**, de tamanho e variância semelhantes.
 - Sensível à **escala das variáveis** → sempre normalizar/padronizar antes.
 - Sensível a **outliers** (média é puxada).
 - **k precisa ser definido a priori.**
 - Sensível à **inicialização** dos centróides (por isso existe o K-Means++).
+- Não lida bem com clusters de formato não-esférico ou densidades muito distintas.
 
 ⚠️ **Pegadinha:** dizer que k-means "descobre" o número de clusters. Ele **não descobre** — você define k, e usa métricas (cotovelo, silhueta) para *escolher* um bom k, mas o algoritmo em si não infere isso sozinho.
 
