@@ -35,8 +35,8 @@
 
 ### 2.2 Clusterização Hierárquica
 - Existem duas estratégias principais para construção da hierarquia:
- - **Aglomerativa** (bottom-up): cada ponto começa como cluster próprio e se funde progressivamente.
- - **Divisiva** (top-down): parte de um único cluster e o divide.
+   - **Aglomerativa** (bottom-up): cada ponto começa como cluster próprio e se funde progressivamente.
+   - **Divisiva** (top-down): parte de um único cluster e o divide.
 - Critérios de ligação (linkage): *single*, *complete*, *average*, *Ward*.
 - Resultado visualizado em **dendrograma**; não exige definir k a priori, mas exige um corte.
 
