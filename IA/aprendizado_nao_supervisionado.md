@@ -5,7 +5,7 @@
 **Aprendizado não-supervisionado**: aprender padrões, estrutura ou representações em dados **sem rótulos (labels)**. O objetivo não é prever um `y`, mas descobrir organização latente nos dados (`X`).
 
 **Principais tarefas:**
-- **Clusterização (clustering)**: agrupar exemplos semelhantes.
+- **Clusterização (clustering)**: agrupar exemplos semelhantes (K-Means, DBSCAN, Hierárquico, GMM).
 - **Redução de dimensionalidade**: encontrar representações compactas (PCA, t-SNE, UMAP, autoencoders).
 - **Detecção de anomalias**: identificar pontos que não seguem o padrão geral.
 - **Estimação de densidade**: modelar a distribuição de probabilidade dos dados (GMM, KDE).
