@@ -14,7 +14,9 @@
 |---|---|---|
 | **Clusterização (agrupamento)** | Agrupar amostras similares | K-Means, DBSCAN, Hierárquico, GMM |
 | **Redução de dimensionalidade** | Comprimir features mantendo informação | PCA, t-SNE, UMAP, Autoencoders |
-| **Regras de associação / detecção de anomalias** | Encontrar padrões de co-ocorrência ou desvios | Apriori, FP-Growth, Isolation Forest, LOF |
+| **Detecção de anomalias** | Identificar pontos que não seguem o padrão geral |  Isolation Forest, LOF |
+| **Estimação de densidade** | Modelar a distribuição de probabilidade dos dados | GMM, KDE |
+| **Regras de associação** | Encontrar relações frequentes entre itens | Apriori, FP-Growth |
 
 ⚠️ **Pegadinha clássica de prova:** associar "não-supervisionado" apenas a clustering. Bancas cobram redução de dimensionalidade e detecção de anomalias também como não-supervisionado — muita gente esquece.
 
