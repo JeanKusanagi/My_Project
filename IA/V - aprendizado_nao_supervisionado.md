@@ -125,6 +125,7 @@ Usadas em **contextos de validação/pesquisa**, quando por algum motivo você t
 |---|---|
 | **Adjusted Rand Index (ARI)** | Compara pares de pontos: mesmo cluster nos dois agrupamentos ou não; corrigido pelo acaso |
 | **Normalized Mutual Information (NMI)** | Mede quanto de informação um agrupamento dá sobre o outro |
+| **Fowlkes-Mallows Index** | Mmédia geométrica entre precisão e recall de pares de pontos |
 | **Homogeneity** | Cada cluster contém só membros de uma única classe verdadeira? |
 | **Completeness** | Todos os membros de uma classe verdadeira estão no mesmo cluster? |
 | **V-measure** | Média harmônica entre Homogeneity e Completeness |
