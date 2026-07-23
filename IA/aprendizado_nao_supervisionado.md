@@ -28,6 +28,10 @@
 - Assume clusters **convexos, de tamanho e variância semelhantes**.
 - Sensível à inicialização (usar **k-means++**) e à escolha de **k**.
 - Não lida bem com clusters de formato não-esférico ou densidades muito distintas.
+- Algoritmo iterativo:<br>
+ (1) inicializa centróides,<br>
+ (2) atribui pontos ao centróide mais próximo,<br>
+ (3) recalcula centróides, repete até convergir.
 
 ### 2.2 Clusterização Hierárquica
 - **Aglomerativa** (bottom-up): cada ponto começa como cluster próprio e se funde progressivamente.
