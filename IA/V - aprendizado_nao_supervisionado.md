@@ -26,7 +26,10 @@
 
 ### 2.1 K-Means
 - Particiona os dados em **k** grupos, minimizando a **soma das distâncias quadráticas** ao centróide (inércia/WCSS — *Within-Cluster Sum of Squares*).
-- Algoritmo iterativo: (1) inicializa centróides, (2) atribui pontos ao centróide mais próximo, (3) recalcula centróides, repete até convergir.
+- Algoritmo iterativo:
+  - (1) inicializa centróides,
+  - (2) atribui pontos ao centróide mais próximo,
+  - (3) recalcula centróides, repete até convergir.
 
 **Pressupostos:**
 - Clusters **esféricos**, de tamanho e variância semelhantes.
@@ -50,6 +53,8 @@
 - Agrupa por **densidade**: pontos com muitos vizinhos próximos formam um cluster; pontos isolados viram **ruído (outliers)**.
 - Parâmetros: `eps` (raio de vizinhança) e `minPts` (mínimo de vizinhos).
 - **Não exige definir k** e consegue achar clusters de formato arbitrário (não só esféricos).
+- Sensível a `eps` e `minPts`; sofre com densidades muito heterogêneas.
+- Variante HDBSCAN lida melhor com densidades variáveis.
 
 ⚠️ **Pegadinha:** DBSCAN tem dificuldade quando os clusters têm **densidades muito diferentes** entre si — um único par (eps, minPts) pode não servir para todos.
 
