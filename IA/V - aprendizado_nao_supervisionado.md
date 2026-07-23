@@ -111,7 +111,7 @@ Este é o ponto que mais cai em prova, porque exige diferenciar **avaliação se
 | **Davies-Bouldin Index** | Razão entre dispersão intra-cluster e separação inter-cluster | 0 a ∞ | Menor é melhor |
 | **Calinski-Harabasz Index** | Razão entre variância inter e intra-cluster | 0 a ∞ | Maior é melhor |
 
-- Coeficiente de Silhueta (Silhouette Score): para cada ponto, compara a distância média intra-cluster (a) com a distância média ao cluster vizinho mais próximo (b): s = (b - a) / max(a, b). Varia de -1 a 1; valores próximos de 1 indicam boa separação.
+- **Coeficiente de Silhueta (Silhouette Score):** para cada ponto, compara a distância média intra-cluster (a) com a distância média ao cluster vizinho mais próximo (b): s = (b - a) / max(a, b). Varia de -1 a 1; valores próximos de 1 indicam boa separação.
 
 ⚠️ **Pegadinha número 1 (a mais cobrada):** usar apenas a **inertia** para escolher k. Como a inertia **sempre diminui** conforme k aumenta (no limite, k = n dá inertia = 0), ela sozinha nunca aponta um "melhor k" — por isso se usa o **método do cotovelo** (procurar o ponto de inflexão no gráfico) e/ou o **silhouette score**, que penaliza overfitting de clusters.
 
