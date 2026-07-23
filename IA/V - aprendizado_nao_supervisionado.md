@@ -167,7 +167,7 @@ Usadas em **contextos de validação/pesquisa**, quando por algum motivo você t
 
 ---
 
-## 7. Aplicação Profissional (além da prova)
+## 7. Aplicação Profissional
 
 - **Segmentação de clientes** (marketing): K-Means ou GMM sobre dados de comportamento de compra.
 - **Redução de dimensionalidade em Big Data**: PCA antes de aplicar modelos supervisionados, para acelerar treino e reduzir overfitting.
@@ -177,7 +177,32 @@ Usadas em **contextos de validação/pesquisa**, quando por algum motivo você t
 
 ---
 
-## 8. Perguntas típicas de prova (para se testar)
+## 8. ## 4. Exemplos práticos
+
+1. **Segmentação de clientes (RFM + K-Means)**: uma empresa de varejo agrupa clientes por recência, frequência e valor monetário de compras para criar campanhas de marketing direcionadas.
+2. **Detecção de fraude com DBSCAN**: transações que não pertencem a nenhum cluster denso (marcadas como ruído) são investigadas como possíveis fraudes.
+3. **Compressão de imagens com PCA**: reduzir dimensionalidade de pixels mantendo 95% da variância, diminuindo espaço de armazenamento.
+4. **Visualização de dados genômicos com t-SNE/UMAP**: agrupar amostras de expressão genética em 2D para inspeção visual de subtipos de câncer.
+5. **Agrupamento hierárquico de documentos**: organizar artigos de notícias em um dendrograma por similaridade textual (TF-IDF + linkage).
+
+---
+
+## 9. Pegadinhas comuns (armadilhas de prova e de prática)
+
+1. **"K-Means sempre encontra os clusters ótimos"** — Falso. K-Means converge para **mínimos locais**; é sensível à inicialização (mitigado com múltiplas execuções e k-means++).
+2. **Confundir Silhueta com Davies-Bouldin quanto à direção da otimização** — Silhueta: **maior é melhor**. Davies-Bouldin: **menor é melhor**. Calinski-Harabasz: **maior é melhor**. Essa inversão é clássica pegadinha de prova.
+3. **Usar métricas internas como prova definitiva de "clusters corretos"** — Métricas internas avaliam **compacidade/separação geométrica**, não necessariamente correspondência com significado semântico ou de negócio.
+4. **Achar que ARI/NMI podem ser usados sempre** — Só se aplicam quando existe algum **ground truth** disponível (raro em não-supervisionado "puro"); em provas, costuma-se testar se o aluno sabe que essas métricas **não são não-supervisionadas em espírito puro** — são usadas para *validação*, não para o treinamento em si.
+5. **Interpretar distâncias entre clusters no t-SNE como significativas** — Erro grave: t-SNE preserva vizinhança **local**, não distâncias globais nem tamanhos relativos de clusters.
+6. **Achar que PCA é sempre a melhor redução de dimensionalidade** — PCA é **linear**; falha em capturar estruturas não-lineares (nesse caso, t-SNE, UMAP ou autoencoders são mais adequados).
+7. **Elbow method é sempre claro e objetivo** — Na prática, o "cotovelo" é frequentemente ambíguo; por isso combina-se com silhueta ou outros critérios.
+8. **DBSCAN funciona bem em qualquer dado** — Ele falha quando há **clusters com densidades muito diferentes**; nesse caso HDBSCAN é mais indicado.
+9. **Padronização dos dados é opcional** — Em modelos baseados em distância (K-Means, DBSCAN, PCA), a **ausência de padronização** (escala) distorce fortemente os resultados. Pegadinha comum: esquecer de mencionar que features em escalas diferentes dominam a distância euclidiana.
+10. **GMM e K-Means são a mesma coisa "com nome diferente"** — Falso. K-Means é um caso particular/restrito de GMM (assume clusters esféricos, variância igual, hard assignment); GMM é mais geral (soft assignment, covariâncias distintas).
+
+---
+
+## 10. Perguntas típicas de prova (para se testar)
 
 **Questão 1.**
 Por que a inertia não pode ser usada sozinha para escolher k?
