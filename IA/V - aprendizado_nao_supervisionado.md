@@ -14,7 +14,7 @@
 |---|---|---|
 | **Clusterização (agrupamento)** | Agrupar amostras similares | K-Means, DBSCAN, Hierárquico, GMM |
 | **Redução de dimensionalidade** | Comprimir features mantendo informação | PCA, t-SNE, UMAP, Autoencoders |
-| **Detecção de anomalias** | Identificar pontos que não seguem o padrão geral |  Isolation Forest, LOF |
+| **Detecção de anomalias** | Identificar pontos que não seguem o padrão geral |  Isolation Forest, LOF, One-Class SVM |
 | **Estimação de densidade** | Modelar a distribuição de probabilidade dos dados | GMM, KDE |
 | **Regras de associação** | Encontrar relações frequentes entre itens | Apriori, FP-Growth |
 
