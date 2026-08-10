@@ -1,9 +1,6 @@
 # SIMULADO — Metodologias Ativas de Aprendizagem no Ensino de Algoritmos
 ### Sala de Aula Invertida | Aprendizagem Baseada em Problemas/Projetos | Gamificação
 
-**Instruções:** Cada questão possui 4 ou 5 alternativas, das quais apenas uma é correta. Leia com atenção — algumas questões contêm pegadinhas conceituais. Tempo sugerido: 60 minutos.
-
----
 
 **1.** Na Sala de Aula Invertida ("Flipped Classroom"), o que caracteriza principalmente essa abordagem?
 
