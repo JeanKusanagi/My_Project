@@ -140,6 +140,7 @@ a) Ela depende de os alunos terem acesso a materiais (vídeos, textos) e tempo f
 b) Ela impede o uso de projetos em grupo<br>
 c) Ela não pode ser usada em disciplinas de exatas<br>
 d) Ela é incompatível com avaliações formativas
+
 **Gabarito: a)** | Pegadinha: a limitação real é a desigualdade de acesso a materiais/tempo fora da sala; as outras opções são mitos.
 
 ---
