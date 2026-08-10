@@ -27,11 +27,11 @@ d) Gamificação com sistema de níveis
 **3.** **(Pegadinha)** Em relação à Aprendizagem Baseada em Problemas (PBL) e à Aprendizagem Baseada em Projetos (PBL — Project-Based Learning), qual afirmação está correta?
 
 a) Ambas as siglas "PBL" referem-se exatamente ao mesmo método, sem qualquer distinção<br>
-b) A Aprendizagem Baseada em Problemas parte de um problema disparador para construir conhecimento, enquanto a Baseada em Projetos organiza o aprendizado em torno da criação de um produto ou entrega final<br>
-c) A Aprendizagem Baseada em Problemas só pode ser aplicada em cursos de Medicina<br>
+b) A Aprendizagem Baseada em Problemas só pode ser aplicada em cursos de Medicina<br>
+c) A Aprendizagem Baseada em Problemas parte de um problema disparador para construir conhecimento, enquanto a Baseada em Projetos organiza o aprendizado em torno da criação de um produto ou entrega final<br>
 d) A Aprendizagem Baseada em Projetos não permite trabalho em equipe
 
-**Gabarito: b)** | Pegadinha: as duas siglas "PBL" não são idênticas — problema disparador vs. produto/entrega final.
+**Gabarito: c)** | Pegadinha: as duas siglas "PBL" não são idênticas — problema disparador vs. produto/entrega final.
 
 ---
 
