@@ -1,8 +1,6 @@
 # SIMULADO — Ética, Transparência, Avaliação e Regulamentação em IA
 ### Vieses algorítmicos | Interpretabilidade | Responsabilidade social | LGPD | Regulamentação da IA no Brasil (PL 2338/2023)
 
-**Instruções:** Cada questão possui 4 ou 5 alternativas, das quais apenas uma é correta. O gabarito comentado aparece imediatamente após cada questão. Leia com atenção — várias questões contêm pegadinhas conceituais.
-
 ---
 
 **1.** Viés algorítmico, no contexto de sistemas de IA, refere-se a:
