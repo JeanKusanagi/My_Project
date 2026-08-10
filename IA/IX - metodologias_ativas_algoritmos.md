@@ -169,9 +169,9 @@ d) Uma questão de verdadeiro ou falso
 
 **16.** **(Pegadinha)** Sobre avaliação em metodologias ativas, é correto dizer que:
 
-a) A avaliação deve ser sempre exclusivamente somativa, com uma única prova final
-b) A avaliação tende a incorporar formas formativas e contínuas, como rubricas de projeto, autoavaliação e avaliação por pares, além da avaliação somativa
-c) Metodologias ativas tornam qualquer avaliação desnecessária
+a) A avaliação deve ser sempre exclusivamente somativa, com uma única prova final<br>
+b) A avaliação tende a incorporar formas formativas e contínuas, como rubricas de projeto, autoavaliação e avaliação por pares, além da avaliação somativa<br>
+c) Metodologias ativas tornam qualquer avaliação desnecessária<br>
 d) Apenas o professor pode avaliar, sendo proibida a avaliação por pares
 
 **Gabarito: b)** | Metodologias ativas costumam combinar avaliação formativa e somativa, incluindo pares e autoavaliação.
