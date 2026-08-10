@@ -295,7 +295,7 @@ b) A gamificação é incompatível com qualquer teoria motivacional<br>
 c) A motivação intrínseca é irrelevante em ambientes gamificados<br>
 d) Só existe motivação extrínseca em contextos educacionais
 
-**Gabarito: b)** | Problema real e investigativo (Torre de Hanói) sem solução entregue de imediato = ABP.**Gabarito: a)** | Gamificação bem planejada busca favorecer também motivação intrínseca, não só externa.
+**Gabarito: a)** | Gamificação bem planejada busca favorecer também motivação intrínseca, não só externa.
 
 ---
 
@@ -331,3 +331,5 @@ d) Isso comprova que vídeos nunca devem ser usados no ensino
 **Gabarito: b)** | Pegadinha: a crítica geralmente aponta falha de implementação, não da metodologia em si.
 
 ---
+
+*Documento gerado para fins educacionais sobre Aprendizado de Máquina Supervisionado.*
