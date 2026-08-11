@@ -333,7 +333,3 @@ d) Incorreta, mas apenas porque o Marco Civil da Internet já regulamenta integr
 
 ---
 
-## Observações finais para o aplicador
-
-- As respostas corretas foram distribuídas de forma não sequencial entre as alternativas (a), (b), (c) e (d), evitando padrões previsíveis (ex.: "a resposta certa é sempre a 'c'").
-- Recomenda-se, ao aplicar esta prova, reforçar oralmente que o PL 2338/2023 é um **projeto de lei em tramitação** (não uma lei em vigor até o momento desta prova, agosto de 2026), para evitar que os alunos memorizem uma informação que pode se tornar rapidamente desatualizada caso o texto seja promulgado.
