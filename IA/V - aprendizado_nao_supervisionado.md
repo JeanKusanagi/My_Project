@@ -379,7 +379,7 @@ Os clusters têm densidades variáveis dentro de uma mesma região, mas com sepa
 **Resposta:**
 Ambos os algoritmos são sensíveis à escala das variáveis, pois se baseiam em distâncias (K-Means) ou variância (PCA):
 
-No K-Means, a distância euclidiana é dominada por variáveis com escalas maiores. Se uma feature varia de 0 a 10.000 e outra de 0 a 1, a primeira dominará o cálculo de distância, distorcendo os clusters.
-No PCA, os componentes principais são escolhidos maximizando a variância. Sem normalização, variáveis com escalas maiores terão variância artificialmente maior e dominarão os primeiros componentes, mesmo que não sejam as mais informativas.
+- No K-Means, a distância euclidiana é dominada por variáveis com escalas maiores. Se uma feature varia de 0 a 10.000 e outra de 0 a 1, a primeira dominará o cálculo de distância, distorcendo os clusters.
+- No PCA, os componentes principais são escolhidos maximizando a variância. Sem normalização, variáveis com escalas maiores terão variância artificialmente maior e dominarão os primeiros componentes, mesmo que não sejam as mais informativas.
 
 Por isso, normalizar (ex.: StandardScaler, colocando média 0 e desvio padrão 1) garante que todas as variáveis contribuam de forma equilibrada para o resultado do algoritmo.
