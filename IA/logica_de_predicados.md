@@ -190,17 +190,76 @@ Ou seja: **"Existe pelo menos um estudante que estuda e não passa na prova."**
 
 ---
    
-3. Explique, com um exemplo, por que ∀x∃y P(x,y) e ∃y∀x P(x,y) não são logicamente equivalentes.
+2. Explique, com um exemplo, por que ∀x∃y P(x,y) e ∃y∀x P(x,y) não são logicamente equivalentes.
 
+- **∀x∃y P(x,y)**: "Para todo x, existe (pelo menos um) y tal que P(x,y)" — o y pode **depender de x** (cada x pode ter seu próprio y).
+- **∃y∀x P(x,y)**: "Existe um y tal que, para todo x, P(x,y)" — o **mesmo y** deve servir para todos os x.
 
+### Exemplo
+
+Seja `P(x,y)`: "y é maior que x", no domínio dos números naturais.
+
+| Fórmula | Leitura | Valor-verdade |
+|---|---|---|
+| ∀x∃y P(x,y) | Para todo número x, existe um número y maior que ele | **Verdadeiro** (basta tomar y = x+1) |
+| ∃y∀x P(x,y) | Existe um número y que é maior que todos os números x | **Falso** (não existe maior número natural) |
+
+Isso mostra que a **ordem dos quantificadores importa**: trocar ∀∃ por ∃∀ pode transformar uma afirmação verdadeira em falsa.
+
+---
    
-5. Qual conectivo lógico normalmente acompanha o quantificador universal e qual acompanha o existencial? Por que trocá-los produz fórmulas com significado indesejado?
+3. Qual conectivo lógico normalmente acompanha o quantificador universal e qual acompanha o existencial? Por que trocá-los produz fórmulas com significado indesejado?
 
-   
-6. O que diferencia uma variável livre de uma variável ligada? Por que uma fórmula com variável livre não é considerada uma sentença?
+- O **quantificador universal (∀)** normalmente acompanha o **condicional (→)**:
+  `∀x (P(x) → Q(x))` — "para todo x, se P(x) então Q(x)".
+- O **quantificador existencial (∃)** normalmente acompanha a **conjunção (∧)**:
+  `∃x (P(x) ∧ Q(x))` — "existe x tal que P(x) e Q(x)".
 
-   
-8. Por que o problema de validade na lógica de predicados de primeira ordem é indecidível (e não apenas "difícil")?
+### Por que trocá-los produz significado indesejado
 
+- Usar `∀x (P(x) ∧ Q(x))` no lugar de "todo P é Q" exige que **todos os elementos do domínio** satisfaçam P e Q simultaneamente — não apenas os que satisfazem P. Isso é uma afirmação muito mais forte (e geralmente falsa).
+- Usar `∃x (P(x) → Q(x))` no lugar de "existe x tal que P(x) e Q(x)" torna a fórmula **quase trivialmente verdadeira**: basta um x onde P(x) seja falso para a implicação ser verdadeira por vacuidade (F → qualquer coisa = V), mesmo sem relação real entre P e Q.
+
+---
+
+4. O que diferencia uma variável livre de uma variável ligada? Por que uma fórmula com variável livre não é considerada uma sentença?
+
+- **Variável ligada**: está no escopo de um quantificador (∀ ou ∃) que a vincula.
+  *Ex.:* em `∀x P(x,y)`, x é ligada.
+- **Variável livre**: não está sob o escopo de nenhum quantificador.
+  *Ex.:* em `∀x P(x,y)`, y é livre.
+
+### Por que uma fórmula com variável livre não é uma sentença
+
+Uma sentença (fórmula fechada) deve ter um **valor de verdade definido**, sem depender de interpretação externa. Uma fórmula com variável livre, como `P(x,y)` sem quantificação de y, não tem valor de verdade fixo: depende de **qual valor é atribuído a y**. Ela é uma *função proposicional* (um "molde" para sentenças), não uma proposição completa. Só se torna sentença quando todas as variáveis são ligadas por quantificadores ou substituídas por constantes específicas.
+
+---
    
-10. O que é uma constante de Skolem e por que a skolemização preserva apenas equisatisfatibilidade, não equivalência lógica?
+5. Por que o problema de validade na lógica de predicados de primeira ordem é indecidível (e não apenas "difícil")?
+
+O problema é **indecidível** (não apenas difícil computacionalmente) porque, pelo **Teorema de Church-Turing (1936)**, não existe algoritmo que, para toda fórmula de primeira ordem, sempre termine e decida corretamente se ela é válida ou não.
+
+**Motivo estrutural:** a lógica de primeira ordem é **semidecidível**:
+- Se uma fórmula **é válida**, um procedimento de prova (como resolução) eventualmente a comprovará em tempo finito.
+- Se a fórmula **não é válida**, não há garantia de que o procedimento pare; pode rodar indefinidamente sem nunca concluir "não é válida".
+
+Isso decorre da capacidade da lógica de primeira ordem de codificar o **problema da parada** (halting problem) e a aritmética de Peano, ambos indecidíveis.
+
+> Diferente de um problema "difícil" (como NP-completo, que é decidível mas com alto custo computacional), aqui **nenhum algoritmo, por mais tempo que rode, garante resposta em todos os casos**.
+
+---
+   
+6. O que é uma constante de Skolem e por que a skolemização preserva apenas equisatisfatibilidade, não equivalência lógica?
+
+Uma **constante de Skolem** (ou, de forma mais geral, **função de Skolem**) é um novo símbolo introduzido para **eliminar quantificadores existenciais** de uma fórmula, substituindo a variável existencialmente quantificada por um termo (constante ou função) que "testemunha" essa existência.
+
+**Exemplo:**
+
+`∀x∃y P(x,y)` é skolemizado para `∀x P(x, f(x))`, onde `f` é uma nova função de Skolem que, para cada x, fornece o y que satisfaz P.
+
+### Por que preserva apenas equisatisfatibilidade, não equivalência lógica
+
+A fórmula skolemizada **não é logicamente equivalente** à original, pois introduz um símbolo novo (`f` ou `c`) que não existia na linguagem original — as duas fórmulas nem sequer estão na mesma assinatura/linguagem.
+
+O que se preserva é a **equisatisfatibilidade**: a fórmula original é satisfazível **se e somente se** a fórmula skolemizada é satisfazível. Isso é suficiente para fins práticos (prova automática de teoremas, resolução), pois o que importa é verificar se um conjunto de fórmulas é consistente — não preservar exatamente o mesmo conjunto de modelos. A skolemização "testemunha" a existência sem afirmar que a nova função é *a mesma* relação implícita no `∃y` original; apenas garante que, se existe alguma função que satisfaz a relação, podemos nomeá-la e trabalhar com ela.
+
