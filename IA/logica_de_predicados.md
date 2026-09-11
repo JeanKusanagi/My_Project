@@ -169,8 +169,38 @@ Essa é provavelmente a pegadinha **número 1** em qualquer prova de lógica de 
 ## 12. Perguntas típicas de prova (para se testar)
 
 1. Traduza para lógica de predicados: "Todo estudante que estuda passa na prova." Depois traduza a negação dessa afirmação corretamente.
-2. Explique, com um exemplo, por que ∀x∃y P(x,y) e ∃y∀x P(x,y) não são logicamente equivalentes.
-3. Qual conectivo lógico normalmente acompanha o quantificador universal e qual acompanha o existencial? Por que trocá-los produz fórmulas com significado indesejado?
-4. O que diferencia uma variável livre de uma variável ligada? Por que uma fórmula com variável livre não é considerada uma sentença?
-5. Por que o problema de validade na lógica de predicados de primeira ordem é indecidível (e não apenas "difícil")?
-6. O que é uma constante de Skolem e por que a skolemização preserva apenas equisatisfatibilidade, não equivalência lógica?
+
+Seja o domínio o conjunto de estudantes, com predicados:
+- **E(x)**: "x estuda"
+- **P(x)**: "x passa na prova"
+
+**Afirmação original:**
+
+$$\forall x\, (E(x) \rightarrow P(x))$$
+
+**Negação:**
+
+Aplicando a negação de um quantificador universal (que vira existencial) e a negação de uma implicação (¬(A→B) ≡ A ∧ ¬B):
+
+$$\neg \forall x\, (E(x) \rightarrow P(x)) \equiv \exists x\, (E(x) \wedge \neg P(x))$$
+
+Ou seja: **"Existe pelo menos um estudante que estuda e não passa na prova."**
+
+> ⚠️ Um erro comum é negar apenas o predicado interno, produzindo algo como `∀x(E(x) → ¬P(x))` ("todo estudante que estuda não passa"), o que está **incorreto** — essa não é a negação lógica da afirmação original.
+
+---
+   
+3. Explique, com um exemplo, por que ∀x∃y P(x,y) e ∃y∀x P(x,y) não são logicamente equivalentes.
+
+
+   
+5. Qual conectivo lógico normalmente acompanha o quantificador universal e qual acompanha o existencial? Por que trocá-los produz fórmulas com significado indesejado?
+
+   
+6. O que diferencia uma variável livre de uma variável ligada? Por que uma fórmula com variável livre não é considerada uma sentença?
+
+   
+8. Por que o problema de validade na lógica de predicados de primeira ordem é indecidível (e não apenas "difícil")?
+
+   
+10. O que é uma constante de Skolem e por que a skolemização preserva apenas equisatisfatibilidade, não equivalência lógica?
