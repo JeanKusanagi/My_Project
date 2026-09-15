@@ -195,8 +195,38 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 ## 9. Perguntas típicas de prova (para se testar)
 
 1. Por que a Busca em Largura (BFS) não é ótima quando os custos das arestas são diferentes? Dê um contraexemplo.
+
+   A BFS expande os nós em ordem de **profundidade** (número de arestas), não em ordem de **custo acumulado**. Ela encontra o caminho com **menor número de passos**, mas isso não é necessariamente o caminho de **menor custo total** quando as arestas têm pesos diferentes.
+
+**Contraexemplo:**
+
+```
+        A
+      /   \
+   (1)     (10)
+    /         \
+   B           C
+    \         /
+   (10)     (1)
+      \     /
+        D
+```
+
+- Caminho A → C → D: 2 arestas, custo total = 10 + 1 = **11**
+- Caminho A → B → D: 2 arestas, custo total = 1 + 10 = **11**
+
+Agora, considere um caminho alternativo mais longo em número de arestas, mas mais barato:
+
+```
+A --(1)--> B --(1)--> E --(1)--> D
+```
+
+- Caminho A → B → E → D: 3 arestas, custo total = 1 + 1 + 1 = **3**
+
+A BFS, por explorar por camadas (nível de profundidade), encontraria primeiro um caminho de **2 arestas** (A→C→D ou A→B→D, custo 11) e o retornaria como solução, **ignorando** o caminho de 3 arestas com custo total 3, que é o realmente ótimo. Isso prova que BFS otimiza número de passos, não custo — para isso seria necessário usar **Busca de Custo Uniforme (UCS)**.
+   
 2. Explique por que o Aprofundamento Iterativo (IDS) não é tão ineficiente quanto parece, apesar de reexpandir os nós das camadas superiores repetidamente.
-3. Qual a diferença entre uma heurística admissível e uma heurística consistente? Por que a busca em grafo do A* exige consistência para garantir otimalidade?
-4. O que acontece com o algoritmo A* se a heurística usada for h(n) = 0 para todo n?
-5. Por que a Busca Gulosa (Greedy Best-First) não é ótima, mesmo usando uma heurística admissível?
-6. Por que o IDA* é preferido ao A* tradicional em problemas com espaço de busca muito grande?
+5. Qual a diferença entre uma heurística admissível e uma heurística consistente? Por que a busca em grafo do A* exige consistência para garantir otimalidade?
+6. O que acontece com o algoritmo A* se a heurística usada for h(n) = 0 para todo n?
+7. Por que a Busca Gulosa (Greedy Best-First) não é ótima, mesmo usando uma heurística admissível?
+8. Por que o IDA* é preferido ao A* tradicional em problemas com espaço de busca muito grande?
