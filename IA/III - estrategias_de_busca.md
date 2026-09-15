@@ -226,7 +226,59 @@ A --(1)--> B --(1)--> E --(1)--> D
 A BFS, por explorar por camadas (nível de profundidade), encontraria primeiro um caminho de **2 arestas** (A→C→D ou A→B→D, custo 11) e o retornaria como solução, **ignorando** o caminho de 3 arestas com custo total 3, que é o realmente ótimo. Isso prova que BFS otimiza número de passos, não custo — para isso seria necessário usar **Busca de Custo Uniforme (UCS)**.
    
 2. Explique por que o Aprofundamento Iterativo (IDS) não é tão ineficiente quanto parece, apesar de reexpandir os nós das camadas superiores repetidamente.
-5. Qual a diferença entre uma heurística admissível e uma heurística consistente? Por que a busca em grafo do A* exige consistência para garantir otimalidade?
-6. O que acontece com o algoritmo A* se a heurística usada for h(n) = 0 para todo n?
-7. Por que a Busca Gulosa (Greedy Best-First) não é ótima, mesmo usando uma heurística admissível?
-8. Por que o IDA* é preferido ao A* tradicional em problemas com espaço de busca muito grande?
+
+Embora o IDS (Iterative Deepening Search) reexpanda os nós das camadas superiores em cada iteração, o **custo dessas reexpansões é dominado pelo custo da última camada** (mais profunda), pois em uma árvore com fator de ramificação b, o número de nós cresce **exponencialmente** com a profundidade.
+
+Matematicamente, o número total de expansões do IDS é aproximadamente:
+
+$$(b)(d) + (b-1)(d-1)(b) + \dots \approx O(b^d)$$
+
+Como a maioria dos nós está concentrada na última camada (nível d), o "desperdício" de reexpandir camadas superiores representa uma fração pequena do trabalho total — na prática, o overhead é de um **fator constante** (aproximadamente b/(b-1)) em relação a uma busca em profundidade única até o nível d. Por exemplo, com b=10, o overhead é de apenas ~11%. Em troca, o IDS mantém o **uso de memória linear** O(bd) da DFS, evitando o consumo exponencial de memória da BFS — um trade-off extremamente vantajoso.
+
+3. Qual a diferença entre uma heurística admissível e uma heurística consistente? Por que a busca em grafo do A* exige consistência para garantir otimalidade?
+
+- **Admissível**: h(n) **nunca superestima** o custo real até o objetivo, ou seja, h(n) ≤ h*(n) para todo nó n, onde h*(n) é o custo real mínimo de n até o objetivo.
+- **Consistente (ou monótona)**: satisfaz a **desigualdade triangular** — para todo nó n e sucessor n' gerado por uma ação com custo c(n,n'):
+
+$$h(n) \leq c(n,n') + h(n')$$
+
+Toda heurística consistente é admissível, mas o inverso não é necessariamente verdadeiro.
+
+**Por que a busca em grafo do A* exige consistência:**
+
+Na **busca em árvore**, admissibilidade é suficiente para garantir otimalidade, pois cada caminho até um nó é único.
+
+Na **busca em grafo**, porém, existem múltiplos caminhos até o mesmo nó, e o algoritmo usa uma lista de nós já visitados (closed list) para evitar reexpansões. Se a heurística for apenas admissível (mas não consistente), é possível que o A* encontre inicialmente um caminho **não ótimo** até um nó n, o marque como "fechado", e depois descubra um caminho **melhor** para aquele mesmo nó — mas como ele já foi expandido e descartado, esse caminho melhor é ignorado, comprometendo a otimalidade.
+
+A consistência garante que o valor f(n) = g(n) + h(n) é **não decrescente** ao longo de qualquer caminho explorado pelo algoritmo. Isso assegura que, quando um nó é expandido pela primeira vez, o caminho até ele já é o de menor custo — permitindo que ele seja fechado com segurança sem necessidade de reabertura.
+   
+4. O que acontece com o algoritmo A* se a heurística usada for h(n) = 0 para todo n?
+
+Se h(n) = 0 para todos os nós, a função de avaliação se reduz a:
+
+$$f(n) = g(n) + h(n) = g(n)$$
+
+Isso significa que o A* passa a expandir os nós **exclusivamente pelo custo acumulado até então (g(n))**, sem nenhuma informação sobre a distância até o objetivo. Nesse caso, o A* se comporta **exatamente como a Busca de Custo Uniforme (UCS)** — ainda é completo e ótimo (já que h(n)=0 é trivialmente admissível e consistente), mas perde toda a "orientação" fornecida por uma heurística informativa, tornando a busca menos eficiente (explora mais nós do que seria necessário com uma heurística melhor).
+
+5. Por que a Busca Gulosa (Greedy Best-First) não é ótima, mesmo usando uma heurística admissível?
+
+A Busca Gulosa (Greedy Best-First Search) usa apenas:
+
+$$f(n) = h(n)$$
+
+ignorando completamente o custo já percorrido g(n). Isso faz com que o algoritmo seja "míope": ele sempre escolhe expandir o nó que **parece** mais próximo do objetivo, sem considerar quanto já custou para chegar até ali.
+
+Mesmo que a heurística seja admissível (nunca superestime o custo restante), a Busca Gulosa pode ser **enganada** ao seguir um caminho que parece promissor localmente (h baixo), mas que na verdade tem um custo acumulado g muito alto, ignorando um caminho alternativo com g menor. Como o algoritmo não pondera g(n), ele não tem como perceber que está seguindo por um caminho caro. Diferente do A*, que balanceia custo já pago (g) e estimativa futura (h), a Busca Gulosa é rápida mas **não garante o caminho de menor custo total** — apenas tende a encontrar *algum* caminho rapidamente, sem garantia de otimalidade.
+
+6. Por que o IDA* é preferido ao A* tradicional em problemas com espaço de busca muito grande?
+
+O A* tradicional mantém **todos os nós gerados em memória** (nas listas open e closed), o que leva a um consumo de memória que cresce **exponencialmente** com a profundidade da busca — O(b^d). Em problemas com espaços de busca muito grandes (como quebra-cabeças complexos, jogos com muitos estados), essa demanda de memória rapidamente se torna proibitiva, mesmo que haja tempo computacional disponível.
+
+O **IDA\* (Iterative Deepening A\*)** combina a ideia do aprofundamento iterativo com a função f(n) = g(n) + h(n) do A*: em vez de manter uma lista aberta expansiva, ele realiza buscas em profundidade sucessivas, usando um **limite de custo (threshold)** baseado em f(n) que aumenta a cada iteração (começando com f(início) e aumentando para o menor valor de f que excedeu o limite anterior).
+
+Isso permite que o IDA*:
+
+- Use apenas memória **linear** O(d) (como a DFS), evitando o gargalo de memória do A*;
+- Ainda garanta **otimalidade e completude**, desde que a heurística seja admissível.
+
+O custo é o mesmo overhead de reexpansão de nós discutido na questão 2 — mas, como já visto, esse overhead costuma ser aceitável frente ao ganho drástico em economia de memória, tornando o IDA* a escolha preferida quando a memória é o recurso limitante (mais do que o tempo).
