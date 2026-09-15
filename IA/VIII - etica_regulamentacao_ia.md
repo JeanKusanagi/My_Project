@@ -186,8 +186,100 @@ A **Lei Geral de Proteção de Dados (Lei nº 13.709/2018)** não é uma lei esp
 ## 9. Perguntas típicas de prova (para se testar)
 
 1. Por que remover a variável sensível (ex.: raça, gênero) de um dataset não elimina, por si só, o viés algorítmico? Explique o conceito de "proxy".
+
+Remover explicitamente a variável sensível (ex.: raça, gênero) de um dataset **não elimina o viés algorítmico**, porque outras variáveis podem estar fortemente correlacionadas com o atributo removido, funcionando como substitutas implícitas dele. Esse fenômeno é chamado de **proxy**.
+
+**Exemplos de variáveis proxy:**
+- CEP/código postal → pode ser proxy para raça ou classe social (segregação residencial histórica)
+- Nome próprio → pode ser proxy para gênero ou etnia
+- Histórico de compras → pode ser proxy para renda
+
+Um modelo treinado sem a variável "raça" diretamente ainda pode aprender padrões discriminatórios usando essas variáveis substitutas, reproduzindo o mesmo viés de forma indireta — e frequentemente **mais difícil de detectar e auditar**, já que a variável sensível não aparece explicitamente no modelo.
+
+> A abordagem de "fairness through unawareness" (justiça pela ignorância da variável) é considerada insuficiente. É necessário auditar correlações e usar métricas de equidade (fairness metrics) sobre os **resultados** do modelo, não apenas sobre suas entradas.
+
+---
+
 2. Diferencie interpretabilidade de explicabilidade, com um exemplo de modelo interpretável e um exemplo de técnica explicativa post-hoc.
+
+| Aspecto | Interpretabilidade | Explicabilidade |
+|---|---|---|
+| Natureza | Propriedade intrínseca do modelo | Técnica aplicada externamente |
+| Quando ocorre | Durante a própria concepção do modelo | Geralmente *post-hoc* (depois do treinamento) |
+| Exemplo | Árvore de decisão rasa, regressão linear | SHAP, LIME |
+
+- **Interpretabilidade**: capacidade de compreender diretamente, por inspeção da estrutura do modelo, como entradas se relacionam com saídas.
+- **Explicabilidade**: capacidade de fornecer explicações sobre decisões de um modelo "caixa-preta", geralmente via aproximações locais de seu comportamento.
+
+> Interpretabilidade é "o modelo é transparente por si só"; explicabilidade é "conseguimos explicar o modelo de fora, mesmo que ele não seja transparente".
+
+---
+
 3. O que diz o Art. 20 da LGPD sobre decisões automatizadas, e por que é um erro comum afirmar que ele garante "revisão humana obrigatória"?
+
+O **Art. 20 da LGPD** garante ao titular o **direito de solicitar revisão** de decisões tomadas unicamente com base em tratamento automatizado de dados pessoais que afetem seus interesses (perfil pessoal, profissional, de consumo, crédito, aspectos de personalidade).
+
+### Por que "revisão humana obrigatória" é um erro comum
+
+O texto sancionado **não exige explicitamente** que a revisão seja feita por um humano. Houve **veto presidencial** ao dispositivo original que previa expressamente revisão "por pessoa natural", gerando lacuna interpretativa (diferente do GDPR europeu, mais explícito nesse ponto).
+
+O que a lei efetivamente garante:
+- Direito de **solicitar revisão** da decisão
+- Direito a **informações claras e adequadas** sobre critérios e procedimentos utilizados
+
+A forma da revisão (humana ou não) permanece **juridicamente indefinida**, sendo objeto de debate doutrinário e regulamentação complementar pela ANPD.
+
+---
+
 4. Qual a diferença entre dado anonimizado e dado pseudonimizado segundo a LGPD, e por que essa distinção importa para sistemas de IA?
+
+| | Anonimizado | Pseudonimizado |
+|---|---|---|
+| Base legal | Art. 5º, III e XI | Art. 13, §4º |
+| Reversibilidade | Irreversível | Reversível (via chave separada) |
+| É dado pessoal? | Não (regra geral) | Sim, continua sendo |
+| Incidência da LGPD | Fora do escopo (exceções existem) | Sujeito integral à LGPD |
+
+### Por que essa distinção importa para IA
+
+- Muitos sistemas de IA usam técnicas rotuladas como "anonimização" que, na prática, apenas **pseudonimizam** os dados (removem nome, mas mantêm identificadores indiretos combináveis).
+- Dados **verdadeiramente anonimizados** podem, em tese, ficar fora do regime rigoroso da LGPD.
+- Dados **pseudonimizados** continuam sujeitos a todas as exigências legais (base legal, minimização, direitos do titular).
+- Há risco real de **reidentificação** via *linkage attacks* ou pela própria capacidade de generalização/memorização de modelos de IA (ex.: *membership inference attacks*), que podem vazar informações permitindo reidentificação.
+
+---
+
 5. Qual é o status atual (2026) do PL 2338/2023 no Congresso Nacional, e por que não é correto afirmar que o Marco Legal da IA já está em vigor no Brasil?
+
+- Aprovado pelo **Senado Federal em 10/12/2024**
+- Remetido à **Câmara dos Deputados em março/2025**, onde aguarda parecer do relator na Comissão Especial
+- Votação na Câmara **adiada para 2026**, com expectativa de votação em fevereiro (sujeita a novos adiamentos por conta do calendário eleitoral)
+- Como o texto pode sofrer ajustes, a tramitação não se encerra na Câmara: após votação, **retorna ao Senado** para nova análise
+- Poder Executivo enviou projeto complementar criando o **SIA** (Sistema Nacional de Regulação e Governança de IA), necessário para evitar risco de inconstitucionalidade da parte institucional do PL
+
+### Por que não está em vigor
+
+O projeto ainda está em **tramitação legislativa**:
+1. Passou apenas pelo Senado (uma das duas Casas)
+2. Precisa ser votado e aprovado pela Câmara
+3. Pode retornar ao Senado para nova apreciação (devido a emendas)
+4. Depois, segue para **sanção presidencial**
+5. E posterior **vacatio legis** antes de entrar formalmente em vigor
+
+> Até a conclusão desse processo, não existe lei em vigor — existe um projeto de lei aprovado em apenas uma das casas legislativas, algo juridicamente muito diferente de uma norma vigente e exigível.
+
+---
+
 6. Explique a diferença entre "human-in-the-loop" e "human-on-the-loop" no contexto de supervisão humana de sistemas de IA de alto risco.
+
+| | Human-in-the-loop (HITL) | Human-on-the-loop (HOTL) |
+|---|---|---|
+| Envolvimento humano | Direto, em cada decisão | Supervisão geral, à distância |
+| Poder de ação | Aprovar/vetar antes da execução | Intervir caso identifique problema |
+| Adequado para | Decisões de alto risco/impacto individual | Alto volume, menor risco individual |
+| Exemplo | Analista revisa cada concessão de crédito antes de efetivar | Moderação automática de conteúdo, com monitoramento agregado |
+
+### Relevância regulatória
+
+Frameworks como o **AI Act europeu** e o **PL 2338/2023** (modelo semelhante) tendem a exigir **HITL** para decisões de alto risco (ex.: negação de crédito, decisões judiciais), garantindo que um humano possa efetivamente vetar a decisão antes que cause dano. **HOTL** é mais adequado para sistemas de menor risco individual mas alto volume, onde intervenção caso a caso seria operacionalmente inviável.
+
