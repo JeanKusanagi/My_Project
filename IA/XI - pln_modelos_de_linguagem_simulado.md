@@ -8,22 +8,22 @@
 **1.** **Tokenização**, em Processamento de Linguagem Natural, é o processo de:
 
 a) Traduzir automaticamente um texto de um idioma para outro<br>
-b) Dividir um texto em unidades menores (tokens), como palavras, subpalavras ou caracteres, que servirão de base para o processamento posterior<br>
-c) Remover todos os sinais de pontuação de um texto, sem exceção<br>
+b) Remover todos os sinais de pontuação de um texto, sem exceção<br>
+c) Dividir um texto em unidades menores (tokens), como palavras, subpalavras ou caracteres, que servirão de base para o processamento posterior<br>
 d) Calcular a frequência de ocorrência de cada palavra em um documento
 
-> **Gabarito: b.** Tokenização é a etapa inicial que segmenta o texto bruto em unidades processáveis (tokens), sejam palavras completas, subpalavras (subwords) ou até caracteres individuais, dependendo da abordagem.
+> **Gabarito: c.** Tokenização é a etapa inicial que segmenta o texto bruto em unidades processáveis (tokens), sejam palavras completas, subpalavras (subwords) ou até caracteres individuais, dependendo da abordagem.
 
 ---
 
 **2.** **(Pegadinha)** Modelos de linguagem modernos como GPT e BERT costumam utilizar, como estratégia de tokenização, técnicas de:
 
 a) Tokenização exclusivamente por palavra completa (word-level), nunca dividindo palavras<br>
-b) Tokenização em **subpalavras** (subword tokenization), como Byte-Pair Encoding (BPE) ou WordPiece, que dividem palavras raras ou desconhecidas em unidades menores e mais frequentes, equilibrando o tamanho do vocabulário com a capacidade de representar palavras fora do vocabulário original<br>
-c) Tokenização exclusivamente por caractere individual, sempre<br>
-d) Tokenização baseada unicamente em espaços em branco, sem qualquer outro critério
+b) Tokenização exclusivamente por caractere individual, sempre<br>
+c) Tokenização baseada unicamente em espaços em branco, sem qualquer outro critério<br>
+d) Tokenização em **subpalavras** (subword tokenization), como Byte-Pair Encoding (BPE) ou WordPiece, que dividem palavras raras ou desconhecidas em unidades menores e mais frequentes, equilibrando o tamanho do vocabulário com a capacidade de representar palavras fora do vocabulário original
 
-> **Gabarito: b.** Pegadinha: muitos assumem que a tokenização é sempre por palavra inteira ou por caractere — mas a abordagem dominante em LLMs modernos é a tokenização por subpalavras, que lida melhor com palavras raras, neologismos e línguas morfologicamente ricas, sem exigir um vocabulário gigantesco.
+> **Gabarito: d.** Pegadinha: muitos assumem que a tokenização é sempre por palavra inteira ou por caractere — mas a abordagem dominante em LLMs modernos é a tokenização por subpalavras, que lida melhor com palavras raras, neologismos e línguas morfologicamente ricas, sem exigir um vocabulário gigantesco.
 
 ---
 
