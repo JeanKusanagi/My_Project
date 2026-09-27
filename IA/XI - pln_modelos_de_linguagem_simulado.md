@@ -75,7 +75,7 @@ d) Um peso (score) TF-IDF baixo, mesmo tendo alta frequência local (TF alto), p
 
 a) Codificar cada palavra como um vetor binário esparso (one-hot encoding), sem qualquer relação semântica entre vetores<br>
 b) Serem calculados exclusivamente por contagem de caracteres em cada palavra<br>
-c) Não terem qualquer relação com o significado das palavras, sendo apenas identificadores numéricos arbitrários
+c) Não terem qualquer relação com o significado das palavras, sendo apenas identificadores numéricos arbitrários<br>
 d) Representar palavras como vetores densos de números reais em um espaço contínuo, de forma que palavras semanticamente similares tendam a ficar próximas nesse espaço vetorial<br>
 
 > **Gabarito: d.** Word embeddings mapeiam palavras para vetores densos em um espaço vetorial contínuo, capturando relações semânticas — palavras com significados ou usos similares tendem a ter vetores próximos nesse espaço (diferente do one-hot encoding, que não carrega nenhuma noção de similaridade).
