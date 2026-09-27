@@ -51,34 +51,34 @@ d) Modelos de n-gramas não podem ser usados para prever a próxima palavra em u
 
 **5.** **TF-IDF** (Term Frequency–Inverse Document Frequency) é uma técnica utilizada para:
 
-a) Traduzir textos automaticamente entre idiomas<br>
-b) Ponderar a importância de uma palavra em um documento específico, dentro de uma coleção (corpus) de documentos, equilibrando sua frequência local (TF) com o quão rara ou comum ela é no conjunto geral de documentos (IDF)<br>
+a) Ponderar a importância de uma palavra em um documento específico, dentro de uma coleção (corpus) de documentos, equilibrando sua frequência local (TF) com o quão rara ou comum ela é no conjunto geral de documentos (IDF)<br>
+b) Traduzir textos automaticamente entre idiomas<br>
 c) Gerar texto de forma autoregressiva, palavra por palavra<br>
 d) Corrigir erros ortográficos automaticamente
 
-> **Gabarito: b.** TF-IDF combina a frequência de um termo em um documento específico (TF) com o inverso de sua frequência em toda a coleção de documentos (IDF), dando maior peso a palavras que são frequentes em um documento mas raras no corpus geral — úteis para diferenciar documentos por seu conteúdo distintivo.
+> **Gabarito: a.** TF-IDF combina a frequência de um termo em um documento específico (TF) com o inverso de sua frequência em toda a coleção de documentos (IDF), dando maior peso a palavras que são frequentes em um documento mas raras no corpus geral — úteis para diferenciar documentos por seu conteúdo distintivo.
 
 ---
 
 **6.** **(Pegadinha)** Em TF-IDF, uma palavra extremamente comum (como artigos e preposições, ex.: "de", "a", "o"), presente em praticamente todos os documentos de um corpus, tende a receber:
 
 a) Um peso (score) TF-IDF muito alto, pois aparece com alta frequência em cada documento<br>
-b) Um peso (score) TF-IDF baixo, mesmo tendo alta frequência local (TF alto), pois seu componente IDF (frequência inversa nos documentos) será muito baixo, já que ela aparece em quase todos os documentos do corpus — refletindo sua baixa capacidade de distinguir um documento dos demais<br>
-c) Um peso TF-IDF exatamente igual a zero, sempre, independentemente do corpus<br>
-d) Um peso indefinido, pois o TF-IDF não pode ser calculado para palavras muito frequentes
+b) Um peso TF-IDF exatamente igual a zero, sempre, independentemente do corpus<br>
+c) Um peso indefinido, pois o TF-IDF não pode ser calculado para palavras muito frequentes<br>
+d) Um peso (score) TF-IDF baixo, mesmo tendo alta frequência local (TF alto), pois seu componente IDF (frequência inversa nos documentos) será muito baixo, já que ela aparece em quase todos os documentos do corpus — refletindo sua baixa capacidade de distinguir um documento dos demais
 
-> **Gabarito: b.** Pegadinha: alta frequência local (TF) não garante alto TF-IDF — o componente IDF penaliza palavras que aparecem em quase todos os documentos, reduzindo seu peso final, já que elas contribuem pouco para diferenciar um documento específico dos demais.
+> **Gabarito: d.** Pegadinha: alta frequência local (TF) não garante alto TF-IDF — o componente IDF penaliza palavras que aparecem em quase todos os documentos, reduzindo seu peso final, já que elas contribuem pouco para diferenciar um documento específico dos demais.
 
 ---
 
 **7.** **Word embeddings** (como Word2Vec ou GloVe) são representações de palavras caracterizadas por:
 
 a) Codificar cada palavra como um vetor binário esparso (one-hot encoding), sem qualquer relação semântica entre vetores<br>
-b) Representar palavras como vetores densos de números reais em um espaço contínuo, de forma que palavras semanticamente similares tendam a ficar próximas nesse espaço vetorial<br>
-c) Serem calculados exclusivamente por contagem de caracteres em cada palavra<br>
-d) Não terem qualquer relação com o significado das palavras, sendo apenas identificadores numéricos arbitrários
+b) Serem calculados exclusivamente por contagem de caracteres em cada palavra<br>
+c) Não terem qualquer relação com o significado das palavras, sendo apenas identificadores numéricos arbitrários
+d) Representar palavras como vetores densos de números reais em um espaço contínuo, de forma que palavras semanticamente similares tendam a ficar próximas nesse espaço vetorial<br>
 
-> **Gabarito: b.** Word embeddings mapeiam palavras para vetores densos em um espaço vetorial contínuo, capturando relações semânticas — palavras com significados ou usos similares tendem a ter vetores próximos nesse espaço (diferente do one-hot encoding, que não carrega nenhuma noção de similaridade).
+> **Gabarito: d.** Word embeddings mapeiam palavras para vetores densos em um espaço vetorial contínuo, capturando relações semânticas — palavras com significados ou usos similares tendem a ter vetores próximos nesse espaço (diferente do one-hot encoding, que não carrega nenhuma noção de similaridade).
 
 ---
 
