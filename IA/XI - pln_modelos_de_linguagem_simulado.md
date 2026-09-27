@@ -170,7 +170,7 @@ d) Executa análise sintática exclusivamente por regras gramaticais explícitas
 
 ---
 
-**16.** **(Pegadinha)** A métrica de **perplexidade (perplexity)**, comumente usada para avaliar modelos de linguagem, é interpretada da seguinte forma:
+**16.** **(Pegadinha)** A métrica de **perplexidade (perplexity)**, comumente utilizada para avaliar modelos de linguagem, é interpretada da seguinte forma:
 
 a) Quanto maior a perplexidade, melhor o desempenho do modelo em prever a sequência de teste<br>
 b) A perplexidade é sempre igual a zero para modelos bem treinados<br>
