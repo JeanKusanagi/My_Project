@@ -34,7 +34,7 @@ b) Um tipo específico de rede neural profunda<br>
 c) Uma métrica de avaliação de tradução automática, exclusivamente<br>
 d) Um algoritmo de clustering aplicado a documentos
 
-> **Gabarito: a.** N-gramas são sequências contíguas de n elementos (por exemplo, bigrama = 2 palavras consecutivas, trigrama = 3 palavras consecutivas) usadas como base para diversos modelos estatísticos de linguagem e extração de características textuais.
+> **Gabarito: a.** N-gramas são sequências contíguas de n elementos (por exemplo, bigrama = 2 palavras consecutivas, trigrama = 3 palavras consecutivas) utilizadas como base para diversos modelos estatísticos de linguagem e extração de características textuais.
 
 ---
 
