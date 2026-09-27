@@ -161,23 +161,23 @@ d) Ser utilizada exclusivamente em tarefas de visão computacional, sem relaçã
 
 **15.** Um **modelo de linguagem** (language model), de forma geral, é definido como um modelo que:
 
-a) Traduz texto entre diferentes idiomas de forma determinística<br>
-b) Estima a probabilidade de uma sequência de palavras (ou tokens), sendo comumente usado para prever a próxima palavra/token dado um contexto anterior<br>
+a) Estima a probabilidade de uma sequência de palavras (ou tokens), sendo comumente utilizado para prever a próxima palavra/token dado um contexto anterior<br>
+b) Traduz texto entre diferentes idiomas de forma determinística<br>
 c) Classifica imagens em categorias predefinidas<br>
 d) Executa análise sintática exclusivamente por regras gramaticais explícitas, sem qualquer componente estatístico
 
-> **Gabarito: b.** A tarefa central de um modelo de linguagem é estimar P(próximo token | tokens anteriores), o que permite tanto avaliar a probabilidade de sequências completas quanto gerar texto de forma autoregressiva, token por token.
+> **Gabarito: a.** A tarefa central de um modelo de linguagem é estimar P(próximo token | tokens anteriores), o que permite tanto avaliar a probabilidade de sequências completas quanto gerar texto de forma autoregressiva, token por token.
 
 ---
 
 **16.** **(Pegadinha)** A métrica de **perplexidade (perplexity)**, comumente usada para avaliar modelos de linguagem, é interpretada da seguinte forma:
 
 a) Quanto maior a perplexidade, melhor o desempenho do modelo em prever a sequência de teste<br>
-b) Quanto **menor** a perplexidade, melhor, em geral, o desempenho do modelo — perplexidade baixa indica que o modelo atribui, em média, probabilidades mais altas às sequências reais observadas no conjunto de teste, ou seja, está menos "surpreso" (perplexo) com os dados<br>
-c) A perplexidade é sempre igual a zero para modelos bem treinados<br>
+b) A perplexidade é sempre igual a zero para modelos bem treinados<br>
+c) Quanto **menor** a perplexidade, melhor, em geral, o desempenho do modelo — perplexidade baixa indica que o modelo atribui, em média, probabilidades mais altas às sequências reais observadas no conjunto de teste, ou seja, está menos "surpreso" (perplexo) com os dados<br>
 d) A perplexidade mede exclusivamente o tamanho do vocabulário do modelo
 
-> **Gabarito: b.** Pegadinha: é comum inverter essa relação — perplexidade é, intuitivamente, uma medida de "quão surpreso" o modelo fica ao ver os dados reais; quanto menor esse valor, melhor o modelo está capturando a distribuição real da linguagem no conjunto avaliado.
+> **Gabarito: c.** Pegadinha: é comum inverter essa relação — perplexidade é, intuitivamente, uma medida de "quão surpreso" o modelo fica ao ver os dados reais; quanto menor esse valor, melhor o modelo está capturando a distribuição real da linguagem no conjunto avaliado.
 
 ---
 
