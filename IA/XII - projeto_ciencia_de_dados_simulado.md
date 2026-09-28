@@ -107,7 +107,7 @@ d) Um problema que só ocorre em modelos de deep learning, nunca em modelos esta
 **10.** **(Pegadinha)** Um exemplo clássico de **data leakage** ocorre quando:
 
 a) Um cientista de dados divide corretamente os dados em treino e teste antes de qualquer pré-processamento<br>
-b) A normalização (ou outra transformação estatística, como imputação de valores ausentes) dos dados é calculada usando **todo** o conjunto de dados (incluindo o conjunto de teste) antes da divisão treino/teste, fazendo com que informações estatísticas do conjunto de teste "vazem" indevidamente para o processo de treinamento<br>
+b) A normalização (ou outra transformação estatística, como imputação de valores ausentes) dos dados é calculada utilizando **todo** o conjunto de dados (incluindo o conjunto de teste) antes da divisão treino/teste, fazendo com que informações estatísticas do conjunto de teste "vazem" indevidamente para o processo de treinamento<br>
 c) O modelo é avaliado exclusivamente no conjunto de treino, sem qualquer conjunto de teste separado<br>
 d) O cientista de dados utiliza validação cruzada (cross-validation) corretamente implementada
 
@@ -118,11 +118,11 @@ d) O cientista de dados utiliza validação cruzada (cross-validation) corretame
 **11.** A divisão dos dados em **conjunto de treino e conjunto de teste** tem como principal objetivo:
 
 a) Reduzir o tamanho total do conjunto de dados disponível<br>
-b) Permitir avaliar a capacidade de generalização do modelo em dados não vistos durante o treinamento, simulando (de forma aproximada) o desempenho esperado do modelo em produção, sobre novos dados<br>
-c) Eliminar completamente a necessidade de qualquer validação futura do modelo<br>
+b) Eliminar completamente a necessidade de qualquer validação futura do modelo<br>
+c) Permitir avaliar a capacidade de generalização do modelo em dados não vistos durante o treinamento, simulando (de forma aproximada) o desempenho esperado do modelo em produção, sobre novos dados<br>
 d) Garantir que o modelo memorize perfeitamente todos os exemplos de treino
 
-> **Gabarito: b.** A separação treino/teste busca estimar, de forma mais honesta, como o modelo se comportará diante de dados novos (não usados no ajuste dos parâmetros), evitando avaliar o modelo apenas em dados que ele já "viu" durante o treinamento.
+> **Gabarito: c.** A separação treino/teste busca estimar, de forma mais honesta, como o modelo se comportará diante de dados novos (não utilizados no ajuste dos parâmetros), evitando avaliar o modelo apenas em dados que ele já "viu" durante o treinamento.
 
 ---
 
