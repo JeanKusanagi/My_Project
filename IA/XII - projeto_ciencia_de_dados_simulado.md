@@ -162,11 +162,11 @@ d) Ser aplicável exclusivamente a problemas de regressão, nunca de classifica�
 **15.** **(Pegadinha)** Sobre a relação entre **validação cruzada** e um **conjunto de teste final isolado (hold-out)**, é correto afirmar que:
 
 a) A validação cruzada elimina totalmente a necessidade de qualquer conjunto de teste final separado, em qualquer cenário de projeto<br>
-b) É uma boa prática manter um conjunto de teste final, completamente isolado do processo de treinamento e ajuste (inclusive da validação cruzada usada para tunar hiperparâmetros), para uma avaliação final e mais imparcial do modelo, já que usar a validação cruzada repetidamente para ajustar decisões de modelagem pode, sutilmente, "vazar" informação do processo de validação para as escolhas do modelo<br>
+b) É uma boa prática manter um conjunto de teste final, completamente isolado do processo de treinamento e ajuste (inclusive da validação cruzada utilizada para tunar hiperparâmetros), para uma avaliação final e mais imparcial do modelo, já que utilizar a validação cruzada repetidamente para ajustar decisões de modelagem pode, sutilmente, "vazar" informação do processo de validação para as escolhas do modelo<br>
 c) Um conjunto de teste final isolado nunca deve ser utilizado em conjunto com validação cruzada<br>
 d) A validação cruzada é sinônimo exato de conjunto de teste final, sem qualquer distinção prática
 
-> **Gabarito: b.** Pegadinha: embora a validação cruzada seja valiosa para ajuste de hiperparâmetros e seleção de modelos, usá-la repetidamente para tomar decisões pode, de forma sutil, introduzir um viés otimista — por isso, manter um conjunto de teste final, tocado apenas uma vez ao final do processo, é uma prática recomendada para uma avaliação mais honesta.
+> **Gabarito: b.** Pegadinha: embora a validação cruzada seja valiosa para ajuste de hiperparâmetros e seleção de modelos, utilizá-la repetidamente para tomar decisões pode, de forma sutil, introduzir um viés otimista — por isso, manter um conjunto de teste final, tocado apenas uma vez ao final do processo, é uma prática recomendada para uma avaliação mais honesta.
 
 ---
 
