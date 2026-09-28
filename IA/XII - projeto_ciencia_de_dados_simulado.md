@@ -7,9 +7,9 @@
 
 **1.** O modelo de referência **CRISP-DM** (Cross-Industry Standard Process for Data Mining) descreve o ciclo de vida de um projeto de dados como um processo:
 
-a) Estritamente linear e sequencial, sem qualquer possibilidade de retorno a etapas anteriores
-b) Iterativo, composto por fases como compreensão do negócio, compreensão dos dados, preparação dos dados, modelagem, avaliação e implantação, com possibilidade de retorno a fases anteriores conforme necessário
-c) Composto por uma única fase, focada exclusivamente na construção do modelo estatístico
+a) Estritamente linear e sequencial, sem qualquer possibilidade de retorno a etapas anteriores<br>
+b) Iterativo, composto por fases como compreensão do negócio, compreensão dos dados, preparação dos dados, modelagem, avaliação e implantação, com possibilidade de retorno a fases anteriores conforme necessário<br>
+c) Composto por uma única fase, focada exclusivamente na construção do modelo estatístico<br>
 d) Aplicável apenas a projetos de aprendizado supervisionado
 
 > **Gabarito: b.** O CRISP-DM é reconhecido justamente por seu caráter iterativo e cíclico — é comum, por exemplo, voltar da fase de modelagem para a de preparação de dados ao identificar problemas de qualidade não percebidos anteriormente.
@@ -18,9 +18,9 @@ d) Aplicável apenas a projetos de aprendizado supervisionado
 
 **2.** **(Pegadinha)** Segundo a lógica do CRISP-DM e a prática comum em projetos de Ciência de Dados, a primeira fase de um projeto deveria ser:
 
-a) A modelagem, pois é a etapa mais tecnicamente interessante
-b) A compreensão do negócio (business understanding), definindo claramente o problema a ser resolvido e os objetivos do projeto, antes mesmo de qualquer exploração de dados
-c) A implantação (deployment), para já validar a infraestrutura disponível
+a) A modelagem, pois é a etapa mais tecnicamente interessante<br>
+b) A compreensão do negócio (business understanding), definindo claramente o problema a ser resolvido e os objetivos do projeto, antes mesmo de qualquer exploração de dados<br>
+c) A implantação (deployment), para já validar a infraestrutura disponível<br>
 d) A avaliação do modelo, para saber quais métricas serão usadas depois
 
 > **Gabarito: b.** Pegadinha: é comum, especialmente entre iniciantes, "pular direto" para dados e modelagem — mas a prática recomendada é começar pela compreensão clara do problema de negócio e dos objetivos, evitando o retrabalho de construir modelos tecnicamente corretos, porém que não respondem à pergunta certa.
@@ -29,9 +29,9 @@ d) A avaliação do modelo, para saber quais métricas serão usadas depois
 
 **3.** Na etapa de **coleta de dados**, uma preocupação relevante e frequentemente citada é:
 
-a) Garantir que os dados sejam coletados de forma representativa do problema e do público de interesse, evitando vieses de amostragem que possam comprometer as conclusões do projeto
-b) Coletar exclusivamente dados numéricos, descartando qualquer dado textual ou categórico
-c) Utilizar sempre a maior quantidade possível de fontes de dados, independentemente de sua qualidade ou relevância
+a) Garantir que os dados sejam coletados de forma representativa do problema e do público de interesse, evitando vieses de amostragem que possam comprometer as conclusões do projeto<br>
+b) Coletar exclusivamente dados numéricos, descartando qualquer dado textual ou categórico<br>
+c) Utilizar sempre a maior quantidade possível de fontes de dados, independentemente de sua qualidade ou relevância<br>
 d) Ignorar completamente questões de privacidade e conformidade legal na coleta de dados
 
 > **Gabarito: a.** A representatividade da amostra em relação ao problema real é fundamental — dados coletados de forma enviesada (por exemplo, apenas de um subgrupo específico da população) podem comprometer a validade e a generalização de qualquer modelo construído a partir deles.
@@ -40,9 +40,9 @@ d) Ignorar completamente questões de privacidade e conformidade legal na coleta
 
 **4.** **(Pegadinha)** Um cientista de dados afirma: "Quanto mais dados eu coletar, sempre melhor será o modelo resultante, independentemente da qualidade desses dados." Essa afirmação está:
 
-a) Correta, pois quantidade de dados é o único fator relevante para a qualidade de um modelo
-b) Incorreta — embora mais dados frequentemente ajudem, a **qualidade** dos dados (representatividade, ausência de erros sistemáticos, relevância para o problema) é igualmente ou mais importante do que a quantidade; grandes volumes de dados de baixa qualidade podem, inclusive, piorar o desempenho e a confiabilidade do modelo
-c) Correta, desde que os dados sejam armazenados em formato CSV
+a) Correta, pois quantidade de dados é o único fator relevante para a qualidade de um modelo<br>
+b) Incorreta — embora mais dados frequentemente ajudem, a **qualidade** dos dados (representatividade, ausência de erros sistemáticos, relevância para o problema) é igualmente ou mais importante do que a quantidade; grandes volumes de dados de baixa qualidade podem, inclusive, piorar o desempenho e a confiabilidade do modelo<br>
+c) Correta, desde que os dados sejam armazenados em formato CSV<br>
 d) Incorreta, mas apenas porque mais dados sempre aumentam o tempo de treinamento
 
 > **Gabarito: b.** Pegadinha resumida na máxima "garbage in, garbage out" (lixo entra, lixo sai): volume de dados não compensa, por si só, problemas sistemáticos de qualidade, representatividade ou relevância dos dados coletados.
@@ -51,9 +51,9 @@ d) Incorreta, mas apenas porque mais dados sempre aumentam o tempo de treinament
 
 **5.** Na etapa de **preparação/limpeza de dados**, o tratamento de **valores ausentes (missing values)** pode envolver, entre outras estratégias:
 
-a) Ignorar sempre a existência de valores ausentes, deixando o modelo lidar com eles automaticamente, sem qualquer tratamento
-b) Remover as observações/linhas com valores ausentes, imputar valores (como média, mediana, moda ou técnicas mais sofisticadas) ou usar métodos que lidem nativamente com ausência de dados, sendo a escolha dependente do contexto, da proporção de dados ausentes e do mecanismo de ausência
-c) Substituir automaticamente todo valor ausente por zero, em qualquer contexto, sem análise adicional
+a) Ignorar sempre a existência de valores ausentes, deixando o modelo lidar com eles automaticamente, sem qualquer tratamento<br>
+b) Remover as observações/linhas com valores ausentes, imputar valores (como média, mediana, moda ou técnicas mais sofisticadas) ou usar métodos que lidem nativamente com ausência de dados, sendo a escolha dependente do contexto, da proporção de dados ausentes e do mecanismo de ausência<br>
+c) Substituir automaticamente todo valor ausente por zero, em qualquer contexto, sem análise adicional<br>
 d) Converter todos os valores ausentes em texto livre, sem qualquer padronização
 
 > **Gabarito: b.** Não existe uma solução universal para valores ausentes — a estratégia adequada depende de fatores como a proporção de dados faltantes, se a ausência é aleatória ou sistemática, e o tipo de variável envolvida, entre outros aspectos do contexto do problema.
@@ -62,9 +62,9 @@ d) Converter todos os valores ausentes em texto livre, sem qualquer padronizaç�
 
 **6.** **(Pegadinha)** Um analista decide substituir automaticamente todo valor ausente numérico por zero, sem qualquer análise adicional sobre o significado dessa ausência. Essa prática pode ser problemática porque:
 
-a) É sempre a melhor prática recomendada em qualquer cenário, sem exceções
-b) O valor zero pode não representar adequadamente a ausência de informação, introduzindo um viés artificial nos dados — por exemplo, em uma variável de "idade" ou "salário", um valor ausente substituído por zero pode ser interpretado incorretamente pelo modelo como um valor real e extremo, distorcendo padrões e relações estatísticas
-c) Zero é sempre um valor neutro e sem qualquer impacto estatístico, independentemente da variável
+a) É sempre a melhor prática recomendada em qualquer cenário, sem exceções<br>
+b) O valor zero pode não representar adequadamente a ausência de informação, introduzindo um viés artificial nos dados — por exemplo, em uma variável de "idade" ou "salário", um valor ausente substituído por zero pode ser interpretado incorretamente pelo modelo como um valor real e extremo, distorcendo padrões e relações estatísticas<br>
+c) Zero é sempre um valor neutro e sem qualquer impacto estatístico, independentemente da variável<br>
 d) Essa prática elimina completamente qualquer necessidade de análise exploratória de dados
 
 > **Gabarito: b.** Pegadinha: substituir "ausência de dado" por um valor numérico específico (como zero) sem refletir sobre o significado dessa escolha pode introduzir distorções sérias, especialmente quando zero é um valor numericamente plausível e diferente de "informação faltante".
@@ -73,9 +73,9 @@ d) Essa prática elimina completamente qualquer necessidade de análise explorat
 
 **7.** **Outliers** (valores atípicos/discrepantes), em um conjunto de dados, são:
 
-a) Sempre erros de digitação que devem ser removidos automaticamente, sem análise
-b) Observações que se desviam significativamente do padrão geral dos demais dados, podendo representar tanto erros de coleta/digitação quanto fenômenos raros, porém legítimos e relevantes para o problema — por isso, exigem investigação contextual antes de qualquer decisão sobre tratamento
-c) Um sinônimo técnico de "valores ausentes"
+a) Sempre erros de digitação que devem ser removidos automaticamente, sem análise<br>
+b) Observações que se desviam significativamente do padrão geral dos demais dados, podendo representar tanto erros de coleta/digitação quanto fenômenos raros, porém legítimos e relevantes para o problema — por isso, exigem investigação contextual antes de qualquer decisão sobre tratamento<br>
+c) Um sinônimo técnico de "valores ausentes"<br>
 d) Sempre benéficos para o desempenho de qualquer modelo, sem exceção
 
 > **Gabarito: b.** A identificação de um valor como outlier não implica automaticamente que ele deva ser removido — pode representar um erro real de coleta, mas também pode ser um evento raro, porém verdadeiro e informativo (como uma fraude, por exemplo), exigindo análise cuidadosa antes de qualquer decisão.
@@ -84,9 +84,9 @@ d) Sempre benéficos para o desempenho de qualquer modelo, sem exceção
 
 **8.** **Feature engineering** (engenharia de atributos/características) refere-se ao processo de:
 
-a) Selecionar exclusivamente o algoritmo de aprendizado de máquina a ser utilizado
-b) Criar, transformar ou selecionar variáveis (features) a partir dos dados brutos, de forma a melhorar a capacidade do modelo de capturar padrões relevantes para o problema
-c) Implantar o modelo final em produção
+a) Selecionar exclusivamente o algoritmo de aprendizado de máquina a ser utilizado<br>
+b) Criar, transformar ou selecionar variáveis (features) a partir dos dados brutos, de forma a melhorar a capacidade do modelo de capturar padrões relevantes para o problema<br>
+c) Implantar o modelo final em produção<br>
 d) Calcular exclusivamente métricas de avaliação do modelo já treinado
 
 > **Gabarito: b.** Feature engineering é o processo criativo e analítico de transformar dados brutos em representações (variáveis) mais úteis e informativas para o modelo — muitas vezes tão ou mais importante para o desempenho final do que a escolha do algoritmo em si.
@@ -95,9 +95,9 @@ d) Calcular exclusivamente métricas de avaliação do modelo já treinado
 
 **9.** **(Pegadinha)** O termo **data leakage** (vazamento de dados), em Ciência de Dados, refere-se a:
 
-a) Um problema exclusivamente de segurança da informação, relacionado ao vazamento de dados sensíveis para terceiros não autorizados
-b) A situação em que informações do conjunto de teste (ou informações que só estariam disponíveis no momento da previsão real, no futuro) acabam sendo utilizadas, direta ou indiretamente, durante o treinamento do modelo, produzindo uma avaliação de desempenho artificialmente otimista, que não se sustenta quando o modelo é usado em produção
-c) Um sinônimo de overfitting, sem qualquer distinção conceitual
+a) Um problema exclusivamente de segurança da informação, relacionado ao vazamento de dados sensíveis para terceiros não autorizados<br>
+b) A situação em que informações do conjunto de teste (ou informações que só estariam disponíveis no momento da previsão real, no futuro) acabam sendo utilizadas, direta ou indiretamente, durante o treinamento do modelo, produzindo uma avaliação de desempenho artificialmente otimista, que não se sustenta quando o modelo é utilizado em produção<br>
+c) Um sinônimo de overfitting, sem qualquer distinção conceitual<br>
 d) Um problema que só ocorre em modelos de deep learning, nunca em modelos estatísticos tradicionais
 
 > **Gabarito: b.** Pegadinha importante: apesar do nome sugerir um problema de segurança, data leakage em Ciência de Dados é um problema metodológico — o vazamento de informação do futuro (ou do conjunto de teste) para o treinamento, o que infla artificialmente as métricas de avaliação e compromete a validade real do modelo.
@@ -106,9 +106,9 @@ d) Um problema que só ocorre em modelos de deep learning, nunca em modelos esta
 
 **10.** **(Pegadinha)** Um exemplo clássico de **data leakage** ocorre quando:
 
-a) Um cientista de dados divide corretamente os dados em treino e teste antes de qualquer pré-processamento
-b) A normalização (ou outra transformação estatística, como imputação de valores ausentes) dos dados é calculada usando **todo** o conjunto de dados (incluindo o conjunto de teste) antes da divisão treino/teste, fazendo com que informações estatísticas do conjunto de teste "vazem" indevidamente para o processo de treinamento
-c) O modelo é avaliado exclusivamente no conjunto de treino, sem qualquer conjunto de teste separado
+a) Um cientista de dados divide corretamente os dados em treino e teste antes de qualquer pré-processamento<br>
+b) A normalização (ou outra transformação estatística, como imputação de valores ausentes) dos dados é calculada usando **todo** o conjunto de dados (incluindo o conjunto de teste) antes da divisão treino/teste, fazendo com que informações estatísticas do conjunto de teste "vazem" indevidamente para o processo de treinamento<br>
+c) O modelo é avaliado exclusivamente no conjunto de treino, sem qualquer conjunto de teste separado<br>
 d) O cientista de dados utiliza validação cruzada (cross-validation) corretamente implementada
 
 > **Gabarito: b.** Pegadinha muito comum na prática: calcular estatísticas de normalização, imputação ou seleção de features usando o conjunto completo (antes de separar treino e teste) é uma forma sutil, porém real, de vazamento de dados — a prática correta é calcular essas estatísticas apenas no conjunto de treino e aplicá-las, depois, ao conjunto de teste.
@@ -117,9 +117,9 @@ d) O cientista de dados utiliza validação cruzada (cross-validation) corretame
 
 **11.** A divisão dos dados em **conjunto de treino e conjunto de teste** tem como principal objetivo:
 
-a) Reduzir o tamanho total do conjunto de dados disponível
-b) Permitir avaliar a capacidade de generalização do modelo em dados não vistos durante o treinamento, simulando (de forma aproximada) o desempenho esperado do modelo em produção, sobre novos dados
-c) Eliminar completamente a necessidade de qualquer validação futura do modelo
+a) Reduzir o tamanho total do conjunto de dados disponível<br>
+b) Permitir avaliar a capacidade de generalização do modelo em dados não vistos durante o treinamento, simulando (de forma aproximada) o desempenho esperado do modelo em produção, sobre novos dados<br>
+c) Eliminar completamente a necessidade de qualquer validação futura do modelo<br>
 d) Garantir que o modelo memorize perfeitamente todos os exemplos de treino
 
 > **Gabarito: b.** A separação treino/teste busca estimar, de forma mais honesta, como o modelo se comportará diante de dados novos (não usados no ajuste dos parâmetros), evitando avaliar o modelo apenas em dados que ele já "viu" durante o treinamento.
