@@ -21,7 +21,7 @@ d) Aplicável apenas a projetos de aprendizado supervisionado
 a) A modelagem, pois é a etapa mais tecnicamente interessante<br>
 b) A compreensão do negócio (business understanding), definindo claramente o problema a ser resolvido e os objetivos do projeto, antes mesmo de qualquer exploração de dados<br>
 c) A implantação (deployment), para já validar a infraestrutura disponível<br>
-d) A avaliação do modelo, para saber quais métricas serão usadas depois
+d) A avaliação do modelo, para saber quais métricas serão utilizadas depois
 
 > **Gabarito: b.** Pegadinha: é comum, especialmente entre iniciantes, "pular direto" para dados e modelagem — mas a prática recomendada é começar pela compreensão clara do problema de negócio e dos objetivos, evitando o retrabalho de construir modelos tecnicamente corretos, porém que não respondem à pergunta certa.
 
@@ -52,7 +52,7 @@ d) Incorreta, mas apenas porque mais dados sempre aumentam o tempo de treinament
 **5.** Na etapa de **preparação/limpeza de dados**, o tratamento de **valores ausentes (missing values)** pode envolver, entre outras estratégias:
 
 a) Ignorar sempre a existência de valores ausentes, deixando o modelo lidar com eles automaticamente, sem qualquer tratamento<br>
-b) Remover as observações/linhas com valores ausentes, imputar valores (como média, mediana, moda ou técnicas mais sofisticadas) ou usar métodos que lidem nativamente com ausência de dados, sendo a escolha dependente do contexto, da proporção de dados ausentes e do mecanismo de ausência<br>
+b) Remover as observações/linhas com valores ausentes, imputar valores (como média, mediana, moda ou técnicas mais sofisticadas) ou utilizar métodos que lidem nativamente com ausência de dados, sendo a escolha dependente do contexto, da proporção de dados ausentes e do mecanismo de ausência<br>
 c) Substituir automaticamente todo valor ausente por zero, em qualquer contexto, sem análise adicional<br>
 d) Converter todos os valores ausentes em texto livre, sem qualquer padronização
 
