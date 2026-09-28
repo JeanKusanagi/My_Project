@@ -228,11 +228,11 @@ d) FN / (FN + VP), invertendo a fórmula correta
 **21.** O **F1-score** é definido como:
 
 a) A soma simples entre precisão e recall<br>
-b) A média harmônica entre precisão e recall, que busca equilibrar as duas métricas em um único valor, sendo especialmente útil quando se deseja um balanço entre ambas, penalizando fortemente casos em que uma das duas é muito baixa<br>
-c) A média aritmética simples entre acurácia e especificidade<br>
-d) Um sinônimo exato de acurácia
+b) A média aritmética simples entre acurácia e especificidade<br>
+c) Um sinônimo exato de acurácia<br>
+d) A média harmônica entre precisão e recall, que busca equilibrar as duas métricas em um único valor, sendo especialmente útil quando se deseja um balanço entre ambas, penalizando fortemente casos em que uma das duas é muito baixa
 
-> **Gabarito: b.** O F1-score usa média harmônica (não aritmética simples) justamente porque essa forma de média penaliza mais fortemente desequilíbrios grandes entre precisão e recall — um modelo só terá F1 alto se ambas as métricas forem razoavelmente boas simultaneamente.
+> **Gabarito: d.** O F1-score utiliza média harmônica (não aritmética simples) justamente porque essa forma de média penaliza mais fortemente desequilíbrios grandes entre precisão e recall — um modelo só terá F1 alto se ambas as métricas forem razoavelmente boas simultaneamente.
 
 ---
 
