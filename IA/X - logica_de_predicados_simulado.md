@@ -49,7 +49,7 @@ d) "Sempre"
 
 ---
 
-**5.** **(Pegadinha)** Considere a sentença "Todo gato é um mamífero". A tradução correta em lógica de predicados, usando Gato(x) e Mamifero(x), é:
+**5.** **(Pegadinha)** Considere a sentença "Todo gato é um mamífero". A tradução correta em lógica de predicados, utilizando Gato(x) e Mamifero(x), é:
 
 a) ∀x (Gato(x) ∧ Mamifero(x))<br>
 b) ∀x (Gato(x) → Mamifero(x))<br>
