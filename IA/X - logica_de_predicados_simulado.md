@@ -56,7 +56,7 @@ b) ∀x (Gato(x) → Mamifero(x))<br>
 c) ∃x (Gato(x) → Mamifero(x))<br>
 d) ∀x (Mamifero(x) → Gato(x))
 
-> **Gabarito: b.** Pegadinha clássica: sentenças do tipo "Todo A é B" usam ∀ com **implicação** (→), não conjunção (∧). Usar ∧ com ∀ (alternativa a) tornaria a fórmula falsa em qualquer domínio com elementos que não sejam gatos, pois exigiria que TUDO no domínio fosse gato e mamífero.
+> **Gabarito: b.** Pegadinha clássica: sentenças do tipo "Todo A é B" utilizam ∀ com **implicação** (→), não conjunção (∧). Utilizar ∧ com ∀ (alternativa a) tornaria a fórmula falsa em qualquer domínio com elementos que não sejam gatos, pois exigiria que TUDO no domínio fosse gato e mamífero.
 
 ---
 
@@ -67,7 +67,7 @@ b) ∃x (Gato(x) ∧ Preto(x))<br>
 c) ∀x (Gato(x) ∧ Preto(x))<br>
 d) ∀x (Gato(x) → Preto(x))
 
-> **Gabarito: b.** Pegadinha inversa da anterior: sentenças do tipo "Existe um A que é B" usam ∃ com **conjunção** (∧), não implicação. Usar → com ∃ (alternativa a) tornaria a fórmula trivialmente verdadeira até em domínios sem nenhum gato, bastando um único indivíduo não-gato para satisfazer o condicional.
+> **Gabarito: b.** Pegadinha inversa da anterior: sentenças do tipo "Existe um A que é B" usam ∃ com **conjunção** (∧), não implicação. Utilizar → com ∃ (alternativa a) tornaria a fórmula trivialmente verdadeira até em domínios sem nenhum gato, bastando um único indivíduo não-gato para satisfazer o condicional.
 
 ---
 
