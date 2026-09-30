@@ -19,6 +19,9 @@ C) Tokenization (Tokenização)
 D) Part-of-Speech Tagging (POS Tagging)  
 E) Parsing Sintático  
 
+**Resposta Correta: B**
+* **Comentário:** A **Lematização** (*Lemmatization*) utiliza dicionários e análise morfológica/gramatical para reduzir uma palavra ao seu lema oficial (ex: "correndo", "correu" $\rightarrow$ "correr"). O *Stemming* (A) apenas corta os afixos de forma heurística, muitas vezes gerando palavras inexistentes (ex: "assimilação" $\rightarrow$ "assimil").
+
 ---
 
 ### Questão 2 (Médio - *Pegadinha*)
@@ -29,6 +32,10 @@ B) Ordem 2, pois a probabilidade depende apenas das 2 palavras imediatamente ant
 C) Ordem 1, pois depende apenas da transição de estado da palavra atual.  
 D) Ordem 0, pois os modelos n-gram são estocásticos e independentes de contexto.  
 E) Ordem $n+1$, no caso Ordem 4, devido aos tokens especiais de início de frase.  
+
+**Resposta Correta: B**
+* **Comentário:** *Pegadinha clássica!* Um modelo $n$-gram com $n=3$ considera sequências de 3 palavras ($w_{i-2}, w_{i-1}, w_i$). A probabilidade condicional é $P(w_i | w_{i-2}, w_{i-1})$. Como a previsão depende das **2** palavras anteriores, a propriedade de Markov é de **Ordem $n-1$**, ou seja, **Ordem 2**.
+
 
 ---
 
@@ -41,6 +48,9 @@ C) Impedir que, para valores grandes de $d_k$, os produtos escalares cresçam mu
 D) Normalizar os vetores de Embeddings de posição para que tenham média zero e variância unitária.  
 E) Permitir que a função de atenuação limite os pesos das palavras mais distantes no texto.  
 
+**Resposta Correta: C**
+* **Comentário:** Para dimensões grandes $d_k$, o produto escalar $Q K^T$ tende a produzir valores com magnitudes muito elevadas. Quando aplicados à função Softmax, esses valores grandes empurram a Softmax para regiões com gradientes extremamente pequenos (platôs/saturação), causando o problema do desaparecimento do gradiente durante o treino. A divisão por $\sqrt{d_k}$ escala a variância para 1.
+
 ---
 
 ### Questão 4 (Médio)
@@ -51,6 +61,9 @@ B) O Word2Vec atribui uma única representação vetorial fixa para um determina
 C) O Word2Vec opera exclusivamente ao nível de subpalavras (subwords), enquanto os modelos contextuais utilizam obrigatoriamente dicionários de palavras inteiras.  
 D) Modelos contextuais não utilizam produtos escalares para medir similaridade de cosseno, ao passo que o Word2Vec depende inteiramente disso.  
 E) O Word2Vec exige a arquitetura Transformer para ser treinado, enquanto BERT e GPT usam redes recorrentes bidirecionais (BiLSTM).  
+
+**Resposta Correta: B**
+* **Comentário:** Em arquiteturas estáticas (Word2Vec, GloVe), a palavra "manga" possui uma única representação vetorial, seja no sentido de fruta ou parte da camisa. Já em arquiteturas contextuais (BERT, GPT), o vetor de saída para "manga" é calculado considerando todas as outras palavras da frase, gerando representações dinâmicas e contextuais.
 
 ---
 
@@ -63,6 +76,9 @@ C) Tradução Automática e geração de texto comparada a referências humanas.
 D) Agrupamento não supervisionado de documentos (Topic Modeling).  
 E) Extração de sintaxe e dependências gramaticais.  
 
+**Resposta Correta: C**
+* **Comentário:** O **BLEU** (*Bilingual Evaluation Understudy*) mede a sobreposição de $n$-grams entre o texto gerado pela máquina e uma ou mais traduções de referência criadas por humanos, sendo o padrão clássico em Tradução Automática.
+
 ---
 
 ### Questão 6 (Difícil - *Pegadinha*)
@@ -73,6 +89,9 @@ B) O *Top-k Sampling* seleciona as $k$ palavras com maior probabilidade e redist
 C) O *Top-p Sampling* (também chamado de *Nucleus Sampling*) seleciona o menor conjunto de palavras cuja soma acumulada de probabilidades atinja o limiar $p$.  
 D) Definir a Temperatura igual a $0.0$ transforma o decoding em uma amostragem estocástica puramente aleatória com distribuição uniforme sobre todo o vocabulário.  
 E) Um valor alto de Temperatura ($> 1.0$) torna a distribuição de probabilidades mais "plana" (uniforme), aumentando a diversidade e a aleatoriedade do texto gerado.  
+
+**Resposta Correta: D**
+* **Comentário:** *Pegadinha!* Ao definir a Temperatura em $0.0$, o modelo **não** faz amostragem aleatória uniforme; na verdade, ele se torna puramente determinístico, equivale ao *Greedy Search* (sempre escolhe o token de maior probabilidade). Portanto, a afirmativa D é a **INCORRETA** (o que a questão pede).
 
 ---
 
@@ -85,6 +104,9 @@ C) Reduzir o tamanho do vocabulário removendo automaticamente palavras de parad
 D) Implementar o mecanismo de atenuação causal para evitar o vazamento do futuro no decoder.  
 E) Otimizar as projeções das matrizes $Q$, $K$ e $V$ via descida do gradiente estocástico com momentum.  
 
+**Resposta Correta: B**
+* **Comentário:** O BERT é um modelo baseado na arquitetura Encoder. Para aprender representações bidirecionais profundas sem "vazar" a palavra a ser prevista no treinamento, o objetivo de Masked Language Modeling (MLM) oculta aleatoriamente cerca de 15% dos tokens e força o modelo a prevê-los com base no contexto da esquerda e da direita simultaneamente.
+
 ---
 
 ### Questão 8 (Fácil)
@@ -95,6 +117,9 @@ B) Fine-Tuning (Ajuste Fino)
 C) Tokenization BPE  
 D) Data Augmentation  
 E) Prompt Engineering  
+
+**Resposta Correta: B**
+* **Comentário:** **Fine-tuning** é o processo de pegar um modelo base já pré-treinado em um córpus massivo não supervisionado e atualizar seus pesos em um conjunto de dados supervisionado específico para uma determinada tarefa downstream.
 
 ---
 
@@ -107,6 +132,9 @@ C) O problema de Palavras Fora do Vocabulário (OOV - *Out-of-Vocabulary*) e a e
 D) A incapacidade das redes neurais de processarem dados numéricos sem normalização Z-score.  
 E) A dependência de dados rotulados por linguistas humanos para tarefas de parsing gramatical.  
 
+**Resposta Correta: C**
+* **Comentário:** *Pegadinha!* A tokenização por palavras inteiras gera vocabulários gigantescos e falha totalmente com palavras não vistas no treino (OOV). A tokenização **Byte-Pair Encoding (BPE)** divide palavras raras ou compostas em subpalavras (subwords) ou até caracteres, garantindo que qualquer palavra possa ser representada com um vocabulário de tamanho fixo e razoável.
+
 ---
 
 ### Questão 10 (Difícil)
@@ -117,6 +145,12 @@ B) Modelos Encoder-only processam a sequência com atenção bidirecional (ideal
 C) Modelos Encoder-only só funcionam com embeddings estáticos; Decoder-only funcionam com embeddings contextuais; Encoder-Decoder usam apenas redes convolucionais.  
 D) Modelos Decoder-only não utilizam a função Softmax em suas camadas de saída, ao contrário dos modelos Encoder-only.  
 E) Não há diferença arquitetural real, apenas variação no número de camadas de Feed-Forward.  
+
+**Resposta Correta: B**
+* **Comentário:** 
+  * **Encoder-only (ex: BERT):** Atenção bidirecional (vê todo o texto). Excelente para classificação e extração.
+  * **Decoder-only (ex: GPT):** Atenção causal/unidirecional (só vê o passado). Excelente para geração autorregressiva.
+  * **Encoder-Decoder (ex: T5):** Processa a entrada bidirecionalmente e gera a saída autoregressivamente. Ideal para tradução e sumarização.
 
 ---
 
