@@ -163,6 +163,12 @@ C) Base, Intermediate, Optimal
 D) Backward, Inward, Outward  
 E) Block, Index, Object  
 
+**Resposta Correta: B**
+* **Comentário:** No padrão BIO para NER:
+  * **B (Begin):** Marca o início de uma entidade.
+  * **I (Inside):** Marca a continuação/interior de uma entidade composta por múltiplos tokens.
+  * **O (Outside):** Indica que o token não pertence a nenhuma entidade nomeada.
+
 ---
 
 ### Questão 12 (Difícil - *Pegadinha*)
@@ -173,6 +179,9 @@ B) A Perplexidade é equivalente à exponencial da entropia cruzada (*cross-entr
 C) A Perplexidade varia exclusivamente de $0.0$ a $1.0$, funcionando como uma porcentagem de precisão.  
 D) A Perplexidade só pode ser calculada para modelos baseados em n-grams clássicos, sendo matematicamente indefinida em Transformers.  
 E) A Perplexidade mede o tempo de inferência necessário em milissegundos para gerar um token.  
+
+**Resposta Correta: B**
+* **Comentário:** *Pegadinha!* A Perplexidade é calculada como $PP(W) = \exp(H(W))$, ou seja, a exponencial da entropia cruzada. **Quanto menor a perplexidade, melhor o modelo**, pois significa que ele está "menos perplexo" (mais confiante/preciso) ao prever os próximos tokens.
 
 ---
 
@@ -185,6 +194,9 @@ C) Congelar a camada de Atenção e treinar apenas as camadas de Feed-Forward da
 D) Remover aleatoriamente 50% dos neurônios do modelo durante a fase de inferência.  
 E) Transformar o modelo Transformer em uma rede recorrente LSTM equivalente.  
 
+**Resposta Correta: B**
+* **Comentário:** O **LoRA** congela os pesos originais $W_0 \in \mathbb{R}^{d \times k}$ do modelo e adiciona uma decomposição de baixo posto: $\Delta W = B \cdot A$, onde $B \in \mathbb{R}^{d \times r}$ e $A \in \mathbb{R}^{r \times k}$, com o rank $r \ll \min(d, k)$. Isso reduz exponencialmente a quantidade de parâmetros a serem atualizados.
+
 ---
 
 ### Questão 14 (Fácil)
@@ -195,6 +207,9 @@ B) Detecção de Spam em e-mails
 C) Tradução de um texto do Inglês para o Português  
 D) Agrupamento de documentos por K-Means  
 E) Classificação de tópicos jornalísticos  
+
+**Resposta Correta: C**
+* **Comentário:** A Tradução Automática pega uma sequência de texto de entrada em um idioma e gera uma nova sequência em outro idioma (mapeamento de sequência para sequência). As opções A e B são classificação de texto simples (texto para rótulo).
 
 ---
 
@@ -207,6 +222,12 @@ C) Treinamento PPO $\rightarrow$ Coleta de preferências $\rightarrow$ Masked La
 D) Fine-tuning com LoRA $\rightarrow$ Avaliação BLEU $\rightarrow$ Injeção de Prompts.  
 E) Alinhamento Direct Preference Optimization (DPO) $\rightarrow$ Pre-training $\rightarrow$ SFT.  
 
+**Resposta Correta: B**
+* **Comentário:** O pipeline do RLHF clássico (ex: InstructGPT/ChatGPT) segue rigorosamente:
+  1. **SFT:** Fine-tuning supervisionado com pares de prompt/resposta de alta qualidade.
+  2. **Reward Model:** Treinamento de um modelo que pontua respostas com base na preferência humana.
+  3. **PPO:** Ajuste fino dos pesos do LLM usando Aprendizado por Reforço para maximizar a nota dada pelo Reward Model.
+
 ---
 
 ### Questão 16 (Médio - *Pegadinha*)
@@ -217,6 +238,11 @@ B) CBOW prevê a palavra central a partir das palavras do contexto ao redor; Ski
 C) O Skip-gram é infinitamente mais rápido de treinar do que o CBOW em grandes volumes de dados, mas apresenta desempenho pior para palavras raras.  
 D) Ambos usam mecânica de atenção e dependem da ordem exata das palavras dentro da janela de contexto.  
 E) CBOW utiliza matrizes de atenuação causais, enquanto Skip-gram utiliza recorrencia bidirecional.  
+
+**Resposta Correta: B**
+* **Comentário:** *Pegadinha inverter as definições!* 
+  * **CBOW (Continuous Bag-of-Words):** Entrada = Palavras do contexto $\rightarrow$ Saída = Palavra central.
+  * **Skip-gram:** Entrada = Palavra central $\rightarrow$ Saída = Palavras do contexto ao redor.
 
 ---
 
@@ -229,6 +255,9 @@ C) Impossibilidade de calcular a perda por Entropia Cruzada.
 D) Altíssima capacidade de paralelização durante o treinamento, o que estoura a memória da GPU.  
 E) Necessidade infalível de aplicar tokenização por caracteres individuais.  
 
+**Resposta Correta: B**
+* **Comentário:** Devido à multiplicação sucessiva de matrizes ao longo dos passos de tempo no backpropagation através do tempo (BPTT), as RNNs tradicionais sofrem com a atenuação do gradiente ($<1$) ou com sua explosão ($>1$), tornando inviável aprender relacionamentos entre palavras distantes no texto.
+
 ---
 
 ### Questão 18 (Fácil)
@@ -239,6 +268,9 @@ B) Pré-processamento e Limpeza de Texto
 C) RLHF  
 D) Softmax Scaling  
 E) Beam Search  
+
+**Resposta Correta: B**
+* **Comentário:** Essas etapas constituem os procedimentos tradicionais de higienização, normalização e pré-processamento de dados de texto antes de alimentar algoritmos de PLN.
 
 ---
 
@@ -251,6 +283,9 @@ C) Porque sem o Positional Encoding o gradiente da função Softmax seria sempre
 D) Para limitar a quantidade máxima de tokens que o modelo pode gerar na inferência.  
 E) Porque o modelo Transformer processa o texto palavra por palavra sequencialmente no tempo, igual a uma RNN.  
 
+**Resposta Correta: A**
+* **Comentário:** *Pegadinha!* Ao contrário das RNNs, o mecanismo de Self-Attention calcula a atenção entre todos os tokens em paralelo através de operações matriciais. A operação $\text{Softmax}(QK^T)V$ é **permutação-invariante**. Sem somar os vetores de *Positional Encoding* aos embeddings, o modelo trataria "O gato comeu o peixe" exatamente da mesma forma que "O peixe comeu o gato".
+
 ---
 
 ### Questão 20 (Médio)
@@ -261,6 +296,9 @@ B) Quando o modelo gera informações plausíveis do ponto de vista sintático/f
 C) O estouro da memória VRAM da placa de vídeo durante a geração de saídas longas.  
 D) O tempo de latência excessivo na inferência decorrente de uma amostragem de alta temperatura.  
 E) O erro gerado quando o prompt contém caracteres em outros idiomas.  
+
+**Resposta Correta: B**
+* **Comentário:** A alucinação em LLMs é o fenômeno em que o modelo gera afirmações fáticas falsas, citações inexistentes ou dados incorretos apresentados com alto grau de confiança e fluência sintática.
 
 ---
 
@@ -273,6 +311,9 @@ C) Classificação de Spam
 D) Análise do tom de voz do usuário  
 E) Estimativa do tamanho de vocabulário  
 
+**Resposta Correta: B**
+* **Comentário:** A família de métricas **ROUGE** (*Recall-Oriented Understudy for Gist Evaluation*) foca em recall e mede a sobreposição de $n$-grams/subsequências entre os resumos gerados pelo modelo e os resumos de referência humana, sendo o padrão para sumarização.
+
 ---
 
 ### Questão 22 (Difícil)
@@ -284,6 +325,9 @@ C) A Greedy Search é imune a repetições de texto, ao passo que o Beam Search 
 D) O Beam Search só funciona em modelos Encoder-only, e a Greedy Search apenas em modelos Decoder-only.  
 E) Não há diferença prática; os termos são sinônimos para o algoritmo de amostragem por temperatura.  
 
+**Resposta Correta: B**
+* **Comentário:** Enquanto o *Greedy Search* é um algoritmo ambicioso que faz a escolha localmente ótima a cada token (passo a passo), o *Beam Search* mantém os $B$ caminhos hipotéticos mais prováveis em paralelo no grafo de busca, encontrando sequências globais de maior probabilidade.
+
 ---
 
 ### Questão 23 (Fácil)
@@ -294,6 +338,9 @@ B) Buscar documentos/informações relevantes em uma base de conhecimento extern
 C) Reduzir o número de camadas do modelo Transformer para acelerar a execução.  
 D) Substituir o mecanismo de Self-Attention por busca em grafos.  
 E) Treinar o modelo do zero usando apenas dados não estruturados da internet.  
+
+**Resposta Correta: B**
+* **Comentário:** O **RAG** desacopla a memória do modelo em duas partes: um recuperador (*Retriever*, normalmente baseado em Busca Vetorial em banco vetorial) que busca trechos de documentos relevantes, e um gerador (*LLM*) que consome esses trechos como contexto no prompt para elaborar a resposta fundamentada.
 
 ---
 
@@ -308,6 +355,9 @@ C) No BERT, o vetor da palavra "banco" será idêntico, pois a tokenização BPE
 D) O Word2Vec consegue diferenciar o sentido de "banco" porque analisa a gramática da frase sequencialmente através de portões de esquecimento.  
 E) Em nenhum dos dois modelos é possível calcular a similaridade de cosseno entre vetores.  
 
+**Resposta Correta: B**
+* **Comentário:** *Pegadinha!* A palavra "banco" possui significados completamente diferentes em ambas as frases. No Word2Vec, como cada palavra do vocabulário mapeia para uma única linha fixa na tabela de embeddings, o vetor de "banco" é **estático e idêntico**. No BERT, a atenção lê a palavra no contexto das palavras vizinhas, produzindo vetores **contextualizados e distintos**.
+
 ---
 
 ### Questão 25 (Difícil)
@@ -318,6 +368,9 @@ B) Ela otimiza o acesso à memória (SRAM vs High Bandwidth Memory - HBM) na GPU
 C) Ela aplica quantização de 1-bit em todos os tensores de Query, Key e Value.  
 D) Ela elimina a necessidade de treinar com GPUs, permitindo execução rápida apenas em CPUs.  
 E) Ela converte a atenção em uma rede convolucional de uma dimensão.  
+
+**Resposta Correta: B**
+* **Comentário:** A **FlashAttention** é uma reorganização exata da computação de Atenção no nível de hardware (Kernel CUDA). Ela divide a matriz de atenção em blocos (*tiling*) para operar dentro da memória rápida SRAM da GPU sem precisar escrever/ler a gigantesca matriz $N \times N$ inteira na memória principal HBM, atingindo acelerações expressivas de tempo e espaço sem perder precisão matemática.
 
 ---
 
@@ -330,6 +383,9 @@ C) Executar a inferência mantendo a taxa de aprendizado (learning rate) em zero
 D) Ajustar apenas a primeira camada da rede neural com zero épocas de treino.  
 E) Treinar um modelo do zero utilizando hardware com zero latência.  
 
+**Resposta Correta: A**
+* **Comentário:** *Zero-Shot Learning* é a capacidade de um modelo performar uma tarefa apenas recebendo a instrução no prompt, sem ter recebido nenhum exemplo de treino (*few-shot*) ou ter passado por fine-tuning específico para aquele dataset.
+
 ---
 
 ### Questão 27 (Difícil - *Pegadinha*)
@@ -340,6 +396,9 @@ B) A quantização de FP16 (16-bit float) para INT4 (4-bit integer) reduz drasti
 C) A quantização exige o retreinamento do modelo do zero durante vários meses em clusters de supercomputadores.  
 D) Um modelo quantizado em 4 bits precisa de mais memória do que um modelo original de 16 bits para funcionar.  
 E) A quantização impede que o modelo seja utilizado em sistemas de RAG.  
+
+**Resposta Correta: B**
+* **Comentário:** A quantização reduz a precisão da representação numérica dos pesos (ex: de 16 bits para 4 bits), permitindo encaixar modelos grandes em GPUs menores. A troca envolvida (*trade-off*) é uma ligeira degradação no desempenho/qualidade das respostas em troca de uma grande economia de memória VRAM e ganhos de velocidade.
 
 ---
 
@@ -352,6 +411,9 @@ C) Pandas
 D) Matplotlib  
 E) Flask  
 
+**Resposta Correta: B**
+* **Comentário:** A biblioteca `transformers` da **Hugging Face** tornou-se o ecossistema padrão da indústria para carregar, treinar, compartilhar e rodar inferências em modelos estado-da-arte em PLN e LLMs.
+
 ---
 
 ### Questão 29 (Médio)
@@ -362,6 +424,11 @@ B) A média harmônica entre a Precisão (Precision) e a Revocação (Recall).
 C) O tempo total de treinamento dividido pelo número de instâncias de teste.  
 D) A probabilidade logarítmica da menor palavra do vocabulário.  
 E) A porcentagem de erros cometidos no conjunto de validação.  
+
+**Resposta Correta: B**
+* **Comentário:** O F1-Score é a média harmônica entre a Precisão e a Revocação:
+$$F1 = 2 \cdot \frac{\text{Precisão} \cdot \text{Revocação}}{\text{Precisão} + \text{Revocação}}$$
+É amplamente utilizado para avaliar a performance global em datasets com classes desbalanceadas.
 
 ---
 
@@ -374,199 +441,6 @@ C) Ela comprime o contexto de entrada removendo verbos e adjetivos desnecessári
 D) Ela é uma técnica usada exclusivamente para pré-treinar encoders BERT em textos acadêmicos.  
 E) Ela garante 100% de precisão matemática sem possibilidade de erros em cálculos complexos.  
 
----
-
----
-
-# Gabarito Comentado
-
-### Questão 1
-**Resposta Correta: B**
-* **Comentário:** A **Lematização** (*Lemmatization*) utiliza dicionários e análise morfológica/gramatical para reduzir uma palavra ao seu lema oficial (ex: "correndo", "correu" $\rightarrow$ "correr"). O *Stemming* (A) apenas corta os afixos de forma heurística, muitas vezes gerando palavras inexistentes (ex: "assimilação" $\rightarrow$ "assimil").
-
----
-
-### Questão 2
-**Resposta Correta: B**
-* **Comentário:** *Pegadinha clássica!* Um modelo $n$-gram com $n=3$ considera sequências de 3 palavras ($w_{i-2}, w_{i-1}, w_i$). A probabilidade condicional é $P(w_i | w_{i-2}, w_{i-1})$. Como a previsão depende das **2** palavras anteriores, a propriedade de Markov é de **Ordem $n-1$**, ou seja, **Ordem 2**.
-
----
-
-### Questão 3
-**Resposta Correta: C**
-* **Comentário:** Para dimensões grandes $d_k$, o produto escalar $Q K^T$ tende a produzir valores com magnitudes muito elevadas. Quando aplicados à função Softmax, esses valores grandes empurram a Softmax para regiões com gradientes extremamente pequenos (platôs/saturação), causando o problema do desaparecimento do gradiente durante o treino. A divisão por $\sqrt{d_k}$ escala a variância para 1.
-
----
-
-### Questão 4
-**Resposta Correta: B**
-* **Comentário:** Em arquiteturas estáticas (Word2Vec, GloVe), a palavra "manga" possui uma única representação vetorial, seja no sentido de fruta ou parte da camisa. Já em arquiteturas contextuais (BERT, GPT), o vetor de saída para "manga" é calculado considerando todas as outras palavras da frase, gerando representações dinâmicas e contextuais.
-
----
-
-### Questão 5
-**Resposta Correta: C**
-* **Comentário:** O **BLEU** (*Bilingual Evaluation Understudy*) mede a sobreposição de $n$-grams entre o texto gerado pela máquina e uma ou mais traduções de referência criadas por humanos, sendo o padrão clássico em Tradução Automática.
-
----
-
-### Questão 6
-**Resposta Correta: D**
-* **Comentário:** *Pegadinha!* Ao definir a Temperatura em $0.0$, o modelo **não** faz amostragem aleatória uniforme; na verdade, ele se torna puramente determinístico, equivale ao *Greedy Search* (sempre escolhe o token de maior probabilidade). Portanto, a afirmativa D é a **INCORRETA** (o que a questão pede).
-
----
-
-### Questão 7
-**Resposta Correta: B**
-* **Comentário:** O BERT é um modelo baseado na arquitetura Encoder. Para aprender representações bidirecionais profundas sem "vazar" a palavra a ser prevista no treinamento, o objetivo de Masked Language Modeling (MLM) oculta aleatoriamente cerca de 15% dos tokens e força o modelo a prevê-los com base no contexto da esquerda e da direita simultaneamente.
-
----
-
-### Questão 8
-**Resposta Correta: B**
-* **Comentário:** **Fine-tuning** é o processo de pegar um modelo base já pré-treinado em um córpus massivo não supervisionado e atualizar seus pesos em um conjunto de dados supervisionado específico para uma determinada tarefa downstream.
-
----
-
-### Questão 9
-**Resposta Correta: C**
-* **Comentário:** *Pegadinha!* A tokenização por palavras inteiras gera vocabulários gigantescos e falha totalmente com palavras não vistas no treino (OOV). A tokenização **Byte-Pair Encoding (BPE)** divide palavras raras ou compostas em subpalavras (subwords) ou até caracteres, garantindo que qualquer palavra possa ser representada com um vocabulário de tamanho fixo e razoável.
-
----
-
-### Questão 10
-**Resposta Correta: B**
-* **Comentário:** 
-  * **Encoder-only (ex: BERT):** Atenção bidirecional (vê todo o texto). Excelente para classificação e extração.
-  * **Decoder-only (ex: GPT):** Atenção causal/unidirecional (só vê o passado). Excelente para geração autorregressiva.
-  * **Encoder-Decoder (ex: T5):** Processa a entrada bidirecionalmente e gera a saída autoregressivamente. Ideal para tradução e sumarização.
-
----
-
-### Questão 11
-**Resposta Correta: B**
-* **Comentário:** No padrão BIO para NER:
-  * **B (Begin):** Marca o início de uma entidade.
-  * **I (Inside):** Marca a continuação/interior de uma entidade composta por múltiplos tokens.
-  * **O (Outside):** Indica que o token não pertence a nenhuma entidade nomeada.
-
----
-
-### Questão 12
-**Resposta Correta: B**
-* **Comentário:** *Pegadinha!* A Perplexidade é calculada como $PP(W) = \exp(H(W))$, ou seja, a exponencial da entropia cruzada. **Quanto menor a perplexidade, melhor o modelo**, pois significa que ele está "menos perplexo" (mais confiante/preciso) ao prever os próximos tokens.
-
----
-
-### Questão 13
-**Resposta Correta: B**
-* **Comentário:** O **LoRA** congela os pesos originais $W_0 \in \mathbb{R}^{d \times k}$ do modelo e adiciona uma decomposição de baixo posto: $\Delta W = B \cdot A$, onde $B \in \mathbb{R}^{d \times r}$ e $A \in \mathbb{R}^{r \times k}$, com o rank $r \ll \min(d, k)$. Isso reduz exponencialmente a quantidade de parâmetros a serem atualizados.
-
----
-
-### Questão 14
-**Resposta Correta: C**
-* **Comentário:** A Tradução Automática pega uma sequência de texto de entrada em um idioma e gera uma nova sequência em outro idioma (mapeamento de sequência para sequência). As opções A e B são classificação de texto simples (texto para rótulo).
-
----
-
-### Questão 15
-**Resposta Correta: B**
-* **Comentário:** O pipeline do RLHF clássico (ex: InstructGPT/ChatGPT) segue rigorosamente:
-  1. **SFT:** Fine-tuning supervisionado com pares de prompt/resposta de alta qualidade.
-  2. **Reward Model:** Treinamento de um modelo que pontua respostas com base na preferência humana.
-  3. **PPO:** Ajuste fino dos pesos do LLM usando Aprendizado por Reforço para maximizar a nota dada pelo Reward Model.
-
----
-
-### Questão 16
-**Resposta Correta: B**
-* **Comentário:** *Pegadinha inverter as definições!* 
-  * **CBOW (Continuous Bag-of-Words):** Entrada = Palavras do contexto $\rightarrow$ Saída = Palavra central.
-  * **Skip-gram:** Entrada = Palavra central $\rightarrow$ Saída = Palavras do contexto ao redor.
-
----
-
-### Questão 17
-**Resposta Correta: B**
-* **Comentário:** Devido à multiplicação sucessiva de matrizes ao longo dos passos de tempo no backpropagation através do tempo (BPTT), as RNNs tradicionais sofrem com a atenuação do gradiente ($<1$) ou com sua explosão ($>1$), tornando inviável aprender relacionamentos entre palavras distantes no texto.
-
----
-
-### Questão 18
-**Resposta Correta: B**
-* **Comentário:** Essas etapas constituem os procedimentos tradicionais de higienização, normalização e pré-processamento de dados de texto antes de alimentar algoritmos de PLN.
-
----
-
-### Questão 19
-**Resposta Correta: A**
-* **Comentário:** *Pegadinha!* Ao contrário das RNNs, o mecanismo de Self-Attention calcula a atenção entre todos os tokens em paralelo através de operações matriciais. A operação $\text{Softmax}(QK^T)V$ é **permutação-invariante**. Sem somar os vetores de *Positional Encoding* aos embeddings, o modelo trataria "O gato comeu o peixe" exatamente da mesma forma que "O peixe comeu o gato".
-
----
-
-### Questão 20
-**Resposta Correta: B**
-* **Comentário:** A alucinação em LLMs é o fenômeno em que o modelo gera afirmações fáticas falsas, citações inexistentes ou dados incorretos apresentados com alto grau de confiança e fluência sintática.
-
----
-
-### Questão 21
-**Resposta Correta: B**
-* **Comentário:** A família de métricas **ROUGE** (*Recall-Oriented Understudy for Gist Evaluation*) foca em recall e mede a sobreposição de $n$-grams/subsequências entre os resumos gerados pelo modelo e os resumos de referência humana, sendo o padrão para sumarização.
-
----
-
-### Questão 22
-**Resposta Correta: B**
-* **Comentário:** Enquanto o *Greedy Search* é um algoritmo ambicioso que faz a escolha localmente ótima a cada token (passo a passo), o *Beam Search* mantém os $B$ caminhos hipotéticos mais prováveis em paralelo no grafo de busca, encontrando sequências globais de maior probabilidade.
-
----
-
-### Questão 23
-**Resposta Correta: B**
-* **Comentário:** O **RAG** desacopla a memória do modelo em duas partes: um recuperador (*Retriever*, normalmente baseado em Busca Vetorial em banco vetorial) que busca trechos de documentos relevantes, e um gerador (*LLM*) que consome esses trechos como contexto no prompt para elaborar a resposta fundamentada.
-
----
-
-### Questão 24
-**Resposta Correta: B**
-* **Comentário:** *Pegadinha!* A palavra "banco" possui significados completamente diferentes em ambas as frases. No Word2Vec, como cada palavra do vocabulário mapeia para uma única linha fixa na tabela de embeddings, o vetor de "banco" é **estático e idêntico**. No BERT, a atenção lê a palavra no contexto das palavras vizinhas, produzindo vetores **contextualizados e distintos**.
-
----
-
-### Questão 25
-**Resposta Correta: B**
-* **Comentário:** A **FlashAttention** é uma reorganização exata da computação de Atenção no nível de hardware (Kernel CUDA). Ela divide a matriz de atenção em blocos (*tiling*) para operar dentro da memória rápida SRAM da GPU sem precisar escrever/ler a gigantesca matriz $N \times N$ inteira na memória principal HBM, atingindo acelerações expressivas de tempo e espaço sem perder precisão matemática.
-
----
-
-### Questão 26
-**Resposta Correta: A**
-* **Comentário:** *Zero-Shot Learning* é a capacidade de um modelo performar uma tarefa apenas recebendo a instrução no prompt, sem ter recebido nenhum exemplo de treino (*few-shot*) ou ter passado por fine-tuning específico para aquele dataset.
-
----
-
-### Questão 27
-**Resposta Correta: B**
-* **Comentário:** A quantização reduz a precisão da representação numérica dos pesos (ex: de 16 bits para 4 bits), permitindo encaixar modelos grandes em GPUs menores. A troca envolvida (*trade-off*) é uma ligeira degradação no desempenho/qualidade das respostas em troca de uma grande economia de memória VRAM e ganhos de velocidade.
-
----
-
-### Questão 28
-**Resposta Correta: B**
-* **Comentário:** A biblioteca `transformers` da **Hugging Face** tornou-se o ecossistema padrão da indústria para carregar, treinar, compartilhar e rodar inferências em modelos estado-da-arte em PLN e LLMs.
-
----
-
-### Questão 29
-**Resposta Correta: B**
-* **Comentário:** O F1-Score é a média harmônica entre a Precisão e a Revocação:
-$$F1 = 2 \cdot \frac{\text{Precisão} \cdot \text{Revocação}}{\text{Precisão} + \text{Revocação}}$$
-É amplamente utilizado para avaliar a performance global em datasets com classes desbalanceadas.
-
----
-
-### Questão 30
 **Resposta Correta: B**
 * **Comentário:** *Pegadinha de engenharia de prompt!* O Chain-of-Thought não altera pesos (não é treino/fine-tuning). Em modelos autoregressivos, cada token gerado no output passa a fazer parte da janela de contexto para a geração do token seguinte. Quando o modelo descreve o "passo a passo", ele está utilizando seus próprios tokens gerados como um "rascunho de memória", o que melhora radicalmente o desempenho lógico da resposta final.
+
