@@ -44,6 +44,7 @@ x_2 \\
 x_3
 \end{bmatrix}
 $$
+
 =
 $$
 \begin{bmatrix}
