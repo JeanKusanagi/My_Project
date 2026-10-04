@@ -38,8 +38,6 @@ $$
 1 & 4 & -2 \\
 2 & 1 & 1
 \end{bmatrix}
-$$
-$$
 \begin{bmatrix}
 x_1 \\
 x_2 \\
