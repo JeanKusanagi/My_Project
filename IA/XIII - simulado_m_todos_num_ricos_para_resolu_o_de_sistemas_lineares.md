@@ -43,7 +43,9 @@ x_1 \\
 x_2 \\
 x_3
 \end{bmatrix}
+
 =
+
 \begin{bmatrix}
 3 \\
 3 \\
