@@ -46,6 +46,7 @@ x_3
 $$
 
 =
+
 $$
 \begin{bmatrix}
 3 \\
