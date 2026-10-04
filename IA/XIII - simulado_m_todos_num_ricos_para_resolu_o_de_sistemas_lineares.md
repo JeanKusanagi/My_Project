@@ -33,8 +33,8 @@ E) Métodos diretos têm complexidade computacional $O(n)$, enquanto métodos it
 Ao aplicar o algoritmo de **Eliminação de Gauss sem pivoteamento** no sistema abaixo, qual problema computacional é encontrado no primeiro passo de eliminação?
 
 ```
-| 0 2  1 | x_1 |   3 \\
-| 1 4 -2 | x_2 | = 3 \\
+| 0 2  1 | \begin{bmatrix} x_1 \end{bmatrix} |   3 
+| 1 4 -2 | x_2 | = 3 
 | 2 1  1 | x_3 |   4
 ```
 
