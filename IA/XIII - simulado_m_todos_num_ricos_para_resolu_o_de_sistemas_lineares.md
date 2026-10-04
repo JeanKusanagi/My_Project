@@ -39,24 +39,6 @@ $$
 2 & 1 & 1
 \end{bmatrix}
 \begin{bmatrix}
-x_1 \\
-x_2 \\
-x_3
-\end{bmatrix}
-\begin{bmatrix}
-3 \\
-3 \\
-4
-\end{bmatrix}
-$$
-
-$$
-\begin{bmatrix}
-0 & 2 & 1 \\
-1 & 4 & -2 \\
-2 & 1 & 1
-\end{bmatrix}
-\begin{bmatrix}
 x_1 \\ x_2 \\ x_3
 \end{bmatrix}
 =
