@@ -45,7 +45,9 @@ x_3
 \end{bmatrix}
 =
 \begin{bmatrix}
-3 \\ 3 \\ 4
+3 \\
+3 \\
+4
 \end{bmatrix}
 $$
 
