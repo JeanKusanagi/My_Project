@@ -63,10 +63,16 @@ $$
 
 $$
 A = \begin{bmatrix}
-5 & 2 & 1 3\\
-1 & 4 & 2  = 3\\
-2 & -3 & 6 4
+5 & 2 & 1 \\
+1 & 4 & 2 \\
+2 & -3 & 6
 \end{bmatrix}
+= \begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}
+$$
 $$
 
 A) O determinante da matriz é igual a zero, tornando o sistema impossível.
