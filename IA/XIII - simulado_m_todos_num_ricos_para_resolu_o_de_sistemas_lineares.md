@@ -73,11 +73,10 @@ x_2 \\
 x_3
 \end{bmatrix}
 = \begin{bmatrix}
-x_1 \\
-x_2 \\
-x_3
+3 \\
+3 \\
+4
 \end{bmatrix}
-$$
 $$
 
 A) O determinante da matriz é igual a zero, tornando o sistema impossível.
