@@ -166,7 +166,7 @@ Qual é a principal diferença entre a atualização das variáveis no **Método
 
 A) O método de Gauss-Jacobi usa derivadas parciais, enquanto Gauss-Seidel usa aproximações por diferenças finitas.
 
-B) No método de Gauss-Jacobi, todos os componentes do novo vetor $x^{(k+1)}$ são calculados usando estritamente os valores do vetor anterior $x^{(k)}$; no método de Gauss-Seidel, os valores $x_i^{(k+1)}$ recém-calculados na mesma iteração são imediatamente utilizados para calcular os componentes seguintes $x_j^{(k+1)}$ ($j > i$).
+B) No método de Gauss-Jacobi, todos os componentes do novo vetor $x^{(k+1)}$ são calculados utilizando estritamente os valores do vetor anterior $x^{(k)}$; no método de Gauss-Seidel, os valores $x_i^{(k+1)}$ recém-calculados na mesma iteração são imediatamente utilizados para calcular os componentes seguintes $x_j^{(k+1)}$ ($j > i$).
 
 C) Gauss-Jacobi só funciona para matrizes simétricas, enquanto Gauss-Seidel aplica-se apenas a matrizes não-quadradas.
 
