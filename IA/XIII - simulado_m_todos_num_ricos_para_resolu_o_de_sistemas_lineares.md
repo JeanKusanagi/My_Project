@@ -62,10 +62,15 @@ $$
 $$
 
 $$
-A = \begin{bmatrix}
+\begin{bmatrix}
 5 & 2 & 1 \\
 1 & 4 & 2 \\
 2 & -3 & 6
+\end{bmatrix}
+x \begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
 \end{bmatrix}
 = \begin{bmatrix}
 x_1 \\
