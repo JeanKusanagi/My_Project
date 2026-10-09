@@ -61,6 +61,14 @@ $$
 \end{bmatrix}
 $$
 
+$$
+A = \begin{bmatrix}
+5 & 2 & 1 3\\
+1 & 4 & 2  = 3\\
+2 & -3 & 6 4
+\end{bmatrix}
+$$
+
 A) O determinante da matriz é igual a zero, tornando o sistema impossível.
 
 B) O primeiro pivô é nulo ($a_{11} = 0$), impedindo a divisão para o cálculo dos multiplicadores $m_{i1}$, embora o sistema seja possível e determinado.
