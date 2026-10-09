@@ -63,11 +63,11 @@ $$
 
 $$
 \begin{bmatrix}
-5 & 2 & 1 \\
-1 & 4 & 2 \\
-2 & -3 & 6
+0 & 2 & 1 \\
+1 & 4 & -2 \\
+2 & 1 & 1
 \end{bmatrix}
-x \begin{bmatrix}
+. \begin{bmatrix}
 x_1 \\
 x_2 \\
 x_3
