@@ -443,7 +443,7 @@ Portanto, $x^{(1)} = [2.5, 2.0]^T$.
 
 ### Questão 19 (Difícil - *Pegadinha*)
 
-Usando o **mesmo** sistema da questão anterior:
+Utilizando o **mesmo** sistema da questão anterior:
 
 $$
 \begin{aligned}
