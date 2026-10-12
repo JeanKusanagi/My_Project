@@ -288,21 +288,6 @@ D) $x = [2, 1, 0.6]^T$
 
 E) $x = [2, 1, 0.6]^T$
 
-*(Ajustando as opções de cálculo:)*
-- $2 x_1 = 4 \implies x_1 = 2$.
-- $3(2) + 4 x_2 = 10 \implies 6 + 4 x_2 = 10 \implies 4 x_2 = 4 \implies x_2 = 1$.
-- $1(2) - 2(1) + 5 x_3 = 3 \implies 2 - 2 + 5 x_3 = 3 \implies 5 x_3 = 3 \implies x_3 = 0.6$.
-
-A) $x = [2, 1, 0.6]^T$
-
-B) $x = [1, 2, 0.5]^T$
-
-C) $x = [2, -1, 1]^T$
-
-D) $x = [4, 10, 3]^T$
-
-E) $x = [0, 1, 2]^T$
-
 **Resposta Correta: A**
 
 **Comentário:** 
