@@ -324,7 +324,7 @@ Por que a **Regra de Cramer** é praticamente descartada na prática computacion
 
 A) Porque a Regra de Cramer exige que a matriz $A$ seja triangular superior.
 
-B) Porque o custo computacional da Regra de Cramer usando cálculo clássico de determinantes cresce na ordem de $O((n+1)!)$, tornando o tempo de processamento astronomicamente inviável.
+B) Porque o custo computacional da Regra de Cramer utilizando cálculo clássico de determinantes cresce na ordem de $O((n+1)!)$, tornando o tempo de processamento astronomicamente inviável.
 
 C) Porque a Regra de Cramer só funciona se o vetor $b$ for composto inteiramente por números inteiros.
 
