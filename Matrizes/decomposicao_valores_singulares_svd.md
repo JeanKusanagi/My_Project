@@ -8,9 +8,11 @@ A SVD é amplamente utilizada em redução de dimensionalidade, compressão de i
 
 Para uma matriz real \(A\) de dimensões \(m \times n\), a decomposição em valores singulares é dada por:
 
+$$
 \[
 A = U\Sigma V^T
 \]
+$$
 
 Em que:
 
