@@ -52,8 +52,6 @@ A^TA=
 3&0\\
 0&2
 \end{bmatrix}
-$$
-$$
 \begin{bmatrix}
 3&0\\
 0&2
