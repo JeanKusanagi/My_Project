@@ -24,7 +24,7 @@ Em que:
 
 As matrizes \(U\) e \(V\) são ortogonais, isto é, $\(U^TU=I\)$ e $\(V^TV=I\)$.
 
-Os valores singulares são sempre não negativos e correspondem às raízes quadradas dos autovalores de $\(A^TA\)$. Equivalentemente, seus quadrados são os autovalores de \(AA^T\), desconsiderando os valores adicionais iguais a zero que podem surgir devido às dimensões das matrizes.
+Os valores singulares são sempre não negativos e correspondem às raízes quadradas dos autovalores de $\(A^TA\)$. Equivalentemente, seus quadrados são os autovalores de $\(AA^T\)$, desconsiderando os valores adicionais iguais a zero que podem surgir devido às dimensões das matrizes.
 
 ## 2. Exemplo de decomposição em valores singulares
 
