@@ -22,7 +22,7 @@ Em que:
 - **\(V\):** matriz ortogonal de dimensões \(n \times n\), cujas colunas são os vetores singulares à direita de \(A\).
 - **\($V^T$\):** transposta de \(V\).
 
-As matrizes \(U\) e \(V\) são ortogonais, isto é, \(U^TU=I\) e \(V^TV=I\).
+As matrizes \(U\) e \(V\) são ortogonais, isto é, $\(U^TU=I\)$ e $\(V^TV=I\)$.
 
 Os valores singulares são sempre não negativos e correspondem às raízes quadradas dos autovalores de \(A^TA\). Equivalentemente, seus quadrados são os autovalores de \(AA^T\), desconsiderando os valores adicionais iguais a zero que podem surgir devido às dimensões das matrizes.
 
