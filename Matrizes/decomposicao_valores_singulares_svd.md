@@ -20,7 +20,7 @@ Em que:
 - **\(U\):** matriz ortogonal de dimensões \(m \times m\), cujas colunas são os vetores singulares à esquerda de \(A\).
 - **\(\Sigma\):** matriz diagonal retangular de dimensões \(m \times n\), cujos elementos diagonais são os valores singulares de \(A\), normalmente ordenados em ordem decrescente.
 - **\(V\):** matriz ortogonal de dimensões \(n \times n\), cujas colunas são os vetores singulares à direita de \(A\).
-- **\(V^T\):** transposta de \(V\).
+- **\($V^T$\):** transposta de \(V\).
 
 As matrizes \(U\) e \(V\) são ortogonais, isto é, \(U^TU=I\) e \(V^TV=I\).
 
