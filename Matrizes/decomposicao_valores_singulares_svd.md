@@ -24,18 +24,20 @@ Em que:
 
 As matrizes \(U\) e \(V\) são ortogonais, isto é, $\(U^TU=I\)$ e $\(V^TV=I\)$.
 
-Os valores singulares são sempre não negativos e correspondem às raízes quadradas dos autovalores de \(A^TA\). Equivalentemente, seus quadrados são os autovalores de \(AA^T\), desconsiderando os valores adicionais iguais a zero que podem surgir devido às dimensões das matrizes.
+Os valores singulares são sempre não negativos e correspondem às raízes quadradas dos autovalores de $\(A^TA\)$. Equivalentemente, seus quadrados são os autovalores de \(AA^T\), desconsiderando os valores adicionais iguais a zero que podem surgir devido às dimensões das matrizes.
 
 ## 2. Exemplo de decomposição em valores singulares
 
 Considere a matriz:
 
+$$
 \[
 A=\begin{bmatrix}
 3&0\\
 0&2
 \end{bmatrix}
 \]
+$$
 
 Queremos encontrar sua decomposição em valores singulares, ou seja, determinar \(U\), \(\Sigma\) e \(V\).
 
@@ -43,6 +45,7 @@ Queremos encontrar sua decomposição em valores singulares, ou seja, determinar
 
 Como \(A\) é uma matriz diagonal, temos \(A^T=A\). Portanto:
 
+$$
 \[
 A^TA=
 \begin{bmatrix}
@@ -59,8 +62,9 @@ A^TA=
 0&4
 \end{bmatrix}
 \]
+$$
 
-### Etapa 2 — Calcular os autovalores de \(A^TA\)
+### Etapa 2 — Calcular os autovalores de $\(A^TA\)$
 
 Os autovalores são obtidos resolvendo:
 
@@ -70,6 +74,7 @@ Os autovalores são obtidos resolvendo:
 
 Logo:
 
+$$
 \[
 \begin{vmatrix}
 9-\lambda&0\\
@@ -80,33 +85,43 @@ Logo:
 \[
 (9-\lambda)(4-\lambda)=0
 \]
+$$
 
 Assim, os autovalores são:
 
+$$
 \[
 \lambda_1=9,\qquad \lambda_2=4
 \]
+$$
 
 ### Etapa 3 — Calcular os valores singulares
 
 Os valores singulares são as raízes quadradas não negativas dos autovalores de \(A^TA\):
 
+$$
 \[
 \sigma_i=\sqrt{\lambda_i}
 \]
+$$
 
 Portanto:
 
+$$
 \[
 \sigma_1=\sqrt{9}=3
 \]
+$$
 
+$$
 \[
 \sigma_2=\sqrt{4}=2
 \]
+$$
 
 A matriz \(\Sigma\) é:
 
+$$
 \[
 \Sigma=
 \begin{bmatrix}
@@ -114,11 +129,13 @@ A matriz \(\Sigma\) é:
 0&2
 \end{bmatrix}
 \]
+$$
 
 ### Etapa 4 — Determinar \(U\) e \(V\)
 
 Nesse exemplo, \(A\) é diagonal, simétrica e possui valores diagonais positivos. Podemos escolher \(U\) e \(V\) como matrizes identidade:
 
+$$
 \[
 U=V=
 \begin{bmatrix}
@@ -126,9 +143,11 @@ U=V=
 0&1
 \end{bmatrix}
 \]
+$$
 
 Consequentemente, a decomposição é:
 
+$$
 \[
 \boxed{
 A=
@@ -146,6 +165,7 @@ A=
 \end{bmatrix}}_{V^T}
 }
 \]
+$$
 
 Nesse caso, a decomposição é particularmente simples porque \(A\) já está na forma diagonal.
 
@@ -153,7 +173,7 @@ Nesse caso, a decomposição é particularmente simples porque \(A\) já está n
 
 Uma matriz pode ser interpretada como uma transformação linear que modifica vetores. A SVD representa essa transformação como a composição de três operações:
 
-1. **Rotação ou reflexão:** transformação associada a \(V^T\).
+1. **Rotação ou reflexão:** transformação associada a $\(V^T\)$.
 2. **Escalonamento:** transformação realizada por \(\Sigma\), que estica ou comprime o espaço nas direções singulares.
 3. **Rotação ou reflexão:** transformação associada a \(U\).
 
@@ -185,8 +205,8 @@ A SVD possui uma relação importante com outros conceitos da álgebra linear:
 
 - **Autovalores:** os quadrados dos valores singulares não nulos são os autovalores de \(A^TA\).
 - **Posto da matriz:** o número de valores singulares não nulos corresponde ao posto de \(A\).
-- **Norma espectral:** a norma 2 de \(A\) é igual ao maior valor singular, isto é, \(\|A\|_2=\sigma_1\).
-- **Norma de Frobenius:** o quadrado da norma de Frobenius é a soma dos quadrados de todos os valores singulares, isto é, \(\|A\|_F^2=\sum_i \sigma_i^2\).
+- **Norma espectral:** a norma 2 de \(A\) é igual ao maior valor singular, isto é, $\(\|A\|_2=\sigma_1\)$.
+- **Norma de Frobenius:** o quadrado da norma de Frobenius é a soma dos quadrados de todos os valores singulares, isto é, $\(\|A\|_F^2=\sum_i \sigma_i^2\)$.
 
 É importante destacar que, diferentemente da decomposição em autovalores, a SVD existe para qualquer matriz real ou complexa, mesmo que ela não seja quadrada ou diagonalizável.
 
