@@ -214,4 +214,4 @@ A SVD possui uma relação importante com outros conceitos da álgebra linear:
 
 ## Síntese
 
-A decomposição em valores singulares expressa uma matriz como \(A=U\Sigma V^T\). Ela permite identificar direções relevantes de transformação, medir a intensidade do escalonamento e construir aproximações de baixa dimensão. Por sua generalidade e estabilidade numérica, é uma das ferramentas fundamentais da álgebra linear numérica e da ciência de dados.
+A decomposição em valores singulares expressa uma matriz como $\(A=U\Sigma V^T\)$. Ela permite identificar direções relevantes de transformação, medir a intensidade do escalonamento e construir aproximações de baixa dimensão. Por sua generalidade e estabilidade numérica, é uma das ferramentas fundamentais da álgebra linear numérica e da ciência de dados.
