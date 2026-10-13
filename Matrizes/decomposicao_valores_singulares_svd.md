@@ -68,9 +68,11 @@ $$
 
 Os autovalores são obtidos resolvendo:
 
+$$
 \[
 \det(A^TA-\lambda I)=0
 \]
+$$
 
 Logo:
 
@@ -81,7 +83,9 @@ $$
 0&4-\lambda
 \end{vmatrix}=0
 \]
+$$
 
+$$
 \[
 (9-\lambda)(4-\lambda)=0
 \]
