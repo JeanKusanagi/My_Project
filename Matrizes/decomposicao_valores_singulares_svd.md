@@ -53,15 +53,12 @@ A^TA=
 0&2
 \end{bmatrix}
 $$
-
 $$
 \begin{bmatrix}
 3&0\\
 0&2
 \end{bmatrix}
-$$
-=
-$$
+$$ = $$
 \begin{bmatrix}
 9&0\\
 0&4
