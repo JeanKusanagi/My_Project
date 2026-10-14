@@ -10,9 +10,11 @@ Seja \(A\) uma matriz quadrada de ordem \(n\), com elementos \(a_{ij}\). O teore
 
 Cada disco é definido por:
 
+$
 \[
 D_i=\left\{z\in\mathbb{C}:|z-a_{ii}|\leq R_i\right\}
 \]
+$
 
 Em que:
 
@@ -21,17 +23,21 @@ Em que:
 
 O raio é dado por:
 
+$
 \[
 R_i=\sum_{\substack{j=1\\j\neq i}}^n |a_{ij}|
 \]
+$
 
 Portanto, cada disco tem como centro o elemento diagonal \(a_{ii}\) e como raio a soma dos módulos dos demais elementos da mesma linha.
 
 O teorema garante que:
 
+$
 \[
 \sigma(A)\subseteq\bigcup_{i=1}^{n}D_i
 \]
+$
 
 Aqui, \(\sigma(A)\) representa o conjunto dos autovalores da matriz \(A\).
 
@@ -41,6 +47,7 @@ Aqui, \(\sigma(A)\) representa o conjunto dos autovalores da matriz \(A\).
 
 Considere a matriz:
 
+$
 \[
 A=
 \begin{bmatrix}
@@ -49,6 +56,7 @@ A=
 0&1&3
 \end{bmatrix}
 \]
+$
 
 Vamos determinar os discos de Gerschgorin associados às suas três linhas.
 
@@ -58,21 +66,27 @@ A primeira linha é \([4,\ 1,\ 0]\).
 
 O centro é:
 
+$
 \[
 c_1=a_{11}=4
 \]
+$
 
 O raio é:
 
+$
 \[
 R_1=|1|+|0|=1
 \]
+$
 
 Logo:
 
+$
 \[
 D_1=\{z\in\mathbb{C}:|z-4|\leq1\}
 \]
+$
 
 Esse disco tem centro em \(4\) e raio \(1\).
 
@@ -82,21 +96,27 @@ A segunda linha é \([2,\ 5,\ 1]\).
 
 O centro é:
 
+$
 \[
 c_2=a_{22}=5
 \]
+$
 
 O raio é:
 
+$
 \[
 R_2=|2|+|1|=3
 \]
+$
 
 Portanto:
 
+$
 \[
 D_2=\{z\in\mathbb{C}:|z-5|\leq3\}
 \]
+$
 
 O segundo disco tem centro em \(5\) e raio \(3\).
 
@@ -106,21 +126,27 @@ A terceira linha é \([0,\ 1,\ 3]\).
 
 O centro é:
 
+$
 \[
 c_3=a_{33}=3
 \]
+$
 
 O raio é:
 
+$
 \[
 R_3=|0|+|1|=1
 \]
+$
 
 Assim:
 
+$
 \[
 D_3=\{z\in\mathbb{C}:|z-3|\leq1\}
 \]
+$
 
 O terceiro disco tem centro em \(3\) e raio \(1\).
 
@@ -152,9 +178,11 @@ O teorema também pode auxiliar na análise de métodos numéricos para resoluç
 
 Uma propriedade importante é a **dominância diagonal estrita por linhas**, definida por:
 
+$
 \[
 |a_{ii}|>\sum_{j\neq i}|a_{ij}|,\qquad i=1,\ldots,n
 \]
+$
 
 Essa condição significa que, em cada linha, o módulo do elemento diagonal é maior que a soma dos módulos dos demais elementos.
 
