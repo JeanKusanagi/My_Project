@@ -582,12 +582,15 @@ E) Matriz estritamente diagonal dominante por colunas.
 ### Questão 25 (Médio - *Pegadinha*)
 
 Seja a matriz 
+
 $$
 A = \begin{bmatrix} 
 1 & 1000 \\ 
 0 & 1 
 \end{bmatrix}
-$$. Calcule $\|A\|_\infty$ e $\|A^{-1}\|_\infty$ e determine o número de condicionamento $\text{cond}_\infty(A)$.
+$$
+
+Calcule $\|A\|_\infty$ e $\|A^{-1}\|_\infty$ e determine o número de condicionamento $\text{cond}_\infty(A)$.
 
 A) $\text{cond}_\infty(A) = 1$
 
