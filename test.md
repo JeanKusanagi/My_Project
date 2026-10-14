@@ -9,9 +9,7 @@ A = \begin{bmatrix}
 \end{bmatrix}.
 $$
 
-Calcule 
-
-$\|A\|_\infty$ e 
+Calcule $\|A\|_\infty$ e 
 
 $\|A^{-1}\|_\infty $ 
 
