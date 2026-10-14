@@ -525,7 +525,7 @@ Seja $A$ uma matriz de ordem $n$. Se o determinante de $A$ for muito pequeno (po
 
 A) Sim, pois determinante próximo de zero sempre implica número de condicionamento gigantesco.
 
-B) Não, pois o determinante pode ser tornado arbitrariamente pequeno apenas multiplicando a matriz por uma constante escalar $$c < 1$ (uma vez que $\det(cA) = c^n \det(A))$$, sem alterar o verdadeiro condicionamento do sistema.
+B) Não, pois o determinante pode ser tornado arbitrariamente pequeno apenas multiplicando a matriz por uma constante escalar $c < 1$ (uma vez que $\det(cA) = c^n \det(A)$), sem alterar o verdadeiro condicionamento do sistema.
 
 C) Sim, porque o determinante é numericamente igual à norma da matriz inversa.
 
