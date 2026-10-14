@@ -11,7 +11,7 @@ $$
 
 Calcule $\|A\|_\infty$ 
 
-e $\|A^{-1}\|_\infty$ 
+e $\|A^{-1}\|_\infty$ e
 
 e determine o número de condicionamento $\text{cond}_\infty(A)$.
 
