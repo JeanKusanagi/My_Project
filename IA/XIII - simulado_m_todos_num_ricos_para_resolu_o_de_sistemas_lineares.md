@@ -608,10 +608,18 @@ E) $\text{cond}_\infty(A) = 0$
 1. $\|A\|_\infty = \max(|1| + |1000|, |0| + |1|) = \max(1001, 1) = 1001 $.
 2. Inversa de $A$: Para
 
-   $A = \begin{bmatrix} 1 & 1000 \\ 0 & 1 \end{bmatrix}$$, a inversa é$$A^{-1} = \begin{bmatrix} 1 & -1000 \\ 0 & 1 \end{bmatrix}$
+$$
+A = \begin{bmatrix} 1 & 1000 \\ 0 & 1 \end{bmatrix}$$
+$$
+
+a inversa é
+
+$$
+A^{-1} = \begin{bmatrix} 1 & -1000 \\ 0 & 1 \end{bmatrix}
+$$
    
 4. $\|A^{-1}\|_\infty = \max(|1| + |-1000|, |0| + |1|) = \max(1001, 1) = 1001 $.
-5.
+  
 
   $\text{cond}_\infty(A) = \|A\|_\infty \cdot \|A^{-1}\|_\infty = 1001 \times 1001 = 1.002.001$
    
