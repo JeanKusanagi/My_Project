@@ -607,6 +607,7 @@ E) $\text{cond}_\infty(A) = 0$
 **Comentário:** *Pegadinha do cálculo da matriz inversa e norma!*
 1. $\|A\|_\infty = \max(|1| + |1000|, |0| + |1|) = \max(1001, 1) = 1001 $.
 2. Inversa de $A$: Para
+   
 $$
 A = \begin{bmatrix} 1 & 1000 \\ 0 & 1 \end{bmatrix}
 $$, a inversa é
