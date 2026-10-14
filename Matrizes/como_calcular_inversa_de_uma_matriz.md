@@ -26,59 +26,61 @@ $$
 
 sua inversa é dada por:
 
+$$
 \[
 A^{-1}=\frac{1}{ad-bc}
 \begin{bmatrix}d&-b\\-c&a\end{bmatrix}
 \]
+$$
 
 Essa fórmula só pode ser aplicada quando o determinante é diferente de zero:
 
-$
+$$
 \[
 \det(A)=ad-bc\ne0
 \]
-$
+$$
 
 ### Exemplo
 
 Considere a matriz:
 
-$
+$$
 \[
 A=\begin{bmatrix}2&1\\3&2\end{bmatrix}
 \]
-$
+$$
 
 **Passo 1 — Calcular o determinante.**
 
-$
+$$
 \[
 \det(A)=2\cdot2-1\cdot3=4-3=1
 \]
-$
+$$
 
 Como o determinante é diferente de zero, a matriz possui inversa.
 
 **Passo 2 — Aplicar a fórmula.**
 
-$
+$$
 \[
 A^{-1}=\frac{1}{1}
 \begin{bmatrix}2&-1\\-3&2\end{bmatrix}
 \]
-$
+$$
 
 Portanto,
 
-$
+$$
 \[
 \boxed{A^{-1}=\begin{bmatrix}2&-1\\-3&2\end{bmatrix}}
 \]
-$
+$$
 
 **Passo 3 — Verificar o resultado.**
 
-$
+$$
 \[
 AA^{-1}=
 \begin{bmatrix}2&1\\3&2\end{bmatrix}
@@ -86,7 +88,7 @@ AA^{-1}=
 =
 \begin{bmatrix}1&0\\0&1\end{bmatrix}=I
 \]
-$
+$$
 
 Como o resultado é a matriz identidade, a inversa está correta.
 
@@ -96,19 +98,19 @@ O método de Gauss-Jordan permite calcular a inversa de matrizes quadradas de or
 
 A ideia é construir uma matriz aumentada contendo a matriz original \(A\) à esquerda e a identidade \(I\) à direita:
 
-$
+$$
 \[
 [A\mid I]
 \]
-$
+$$
 
 Em seguida, aplicam-se operações elementares nas linhas até transformar a parte esquerda em \(I\). Se isso for possível, a parte direita se transforma em \(A^{-1}\):
 
-$
+$$
 \[
 [A\mid I]\longrightarrow[I\mid A^{-1}]
 \]
-$
+$$
 
 As operações elementares permitidas são:
 
@@ -120,104 +122,106 @@ As operações elementares permitidas são:
 
 Considere novamente:
 
-$
+$$
 \[
 A=\begin{bmatrix}2&1\\3&2\end{bmatrix}
 \]
-$
+$$
 
 Construímos a matriz aumentada:
 
-$
+$$
 \[
 \left[\begin{array}{cc|cc}
 2&1&1&0\\
 3&2&0&1
 \end{array}\right]
 \]
-$
+$$
 
 **Passo 1 — Transformar o primeiro elemento da primeira linha em 1.**
 
 Dividimos a primeira linha por 2:
 
-$
+$$
 \[
 L_1\leftarrow \frac{L_1}{2}
 \]
-$
+$$
 
-$
+$$
 \[
 \left[\begin{array}{cc|cc}
 1&1/2&1/2&0\\
 3&2&0&1
 \end{array}\right]
 \]
-$
+$$
 
 **Passo 2 — Zerar o elemento abaixo do primeiro pivô.**
 
 Subtraímos três vezes a primeira linha da segunda:
 
-$
+$$
 \[
 L_2\leftarrow L_2-3L_1
 \]
-$
+$$
 
-$
+$$
 \[
 \left[\begin{array}{cc|cc}
 1&1/2&1/2&0\\
 0&1/2&-3/2&1
 \end{array}\right]
 \]
-$
+$$
 
 **Passo 3 — Transformar o segundo pivô em 1.**
 
 Multiplicamos a segunda linha por 2:
 
-$
+$$
 \[
 L_2\leftarrow2L_2
 \]
-$
+$$
 
-$
+$$
 \[
 \left[\begin{array}{cc|cc}
 1&1/2&1/2&0\\
 0&1&-3&2
 \end{array}\right]
 \]
-$
+$$
 
 **Passo 4 — Zerar o elemento acima do segundo pivô.**
 
 Subtraímos metade da segunda linha da primeira:
 
-$
+$$
 \[
 L_1\leftarrow L_1-\frac{1}{2}L_2
 \]
-$
+$$
 
-$
+$$
 \[
 \left[\begin{array}{cc|cc}
 1&0&2&-1\\
 0&1&-3&2
 \end{array}\right]
 \]
-$
+$$
 
 A parte esquerda é agora a matriz identidade. A parte direita corresponde à inversa:
 
+$$
 \[
 \boxed{A^{-1}=\begin{bmatrix}2&-1\\-3&2\end{bmatrix}}
 \]
+$$
 
 O resultado é o mesmo obtido pela fórmula para matrizes \(2\times2\).
 
@@ -227,19 +231,19 @@ Uma matriz quadrada não possui inversa quando seu determinante é zero. Nesse c
 
 Por exemplo:
 
-$
+$$
 \[
 B=\begin{bmatrix}1&2\\2&4\end{bmatrix}
 \]
-$
+$$
 
 Seu determinante é:
 
-$
+$$
 \[
 \det(B)=1\cdot4-2\cdot2=0
 \]
-$
+$$
 
 Portanto, \(B\) não possui inversa.
 
@@ -257,27 +261,35 @@ Em geral, para uma matriz quadrada \(A\) de ordem \(n\), as seguintes condiçõe
 
 Considere um sistema linear:
 
+$$
 \[
 Ax=b
 \]
+$$
 
 Se \(A\) for invertível, podemos multiplicar os dois lados pela inversa de \(A\):
 
+$$
 \[
 A^{-1}Ax=A^{-1}b
 \]
+$$
 
 Como \(A^{-1}A=I\), obtemos:
 
+$$
 \[
 Ix=A^{-1}b
 \]
+$$
 
 Portanto,
 
+$$
 \[
 \boxed{x=A^{-1}b}
 \]
+$$
 
 Essa expressão demonstra a relação entre a inversa e a solução de sistemas lineares.
 
