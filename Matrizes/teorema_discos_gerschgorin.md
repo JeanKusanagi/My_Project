@@ -10,11 +10,11 @@ Seja \(A\) uma matriz quadrada de ordem \(n\), com elementos \(a_{ij}\). O teore
 
 Cada disco é definido por:
 
-$$
+$
 \[
 D_i=\left\{z\in\mathbb{C}:|z-a_{ii}|\leq R_i\right\}
 \]
-$$
+$
 
 Em que:
 
