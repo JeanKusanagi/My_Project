@@ -9,7 +9,9 @@ A = \begin{bmatrix}
 \end{bmatrix}.
 $$
 
-Calcule $$\|A\|_\infty $$ e $\|A^{-1}\|_\infty $ e determine o número de condicionamento $\text{cond}_\infty(A)$.
+Calcule 
+$\|A\|_\infty $ 
+e $\|A^{-1}\|_\infty $ e determine o número de condicionamento $\text{cond}_\infty(A)$.
 
 A) $\text{cond}_\infty(A) = 1$
 
