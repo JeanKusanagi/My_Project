@@ -4,11 +4,11 @@ A **inversa de uma matriz** é uma matriz que, quando multiplicada pela matriz o
 
 Uma matriz quadrada \(A\) possui inversa, denotada por \(A^{-1}\), se, e somente se, for **invertível**, o que equivale a dizer que seu determinante é diferente de zero.
 
-$
+$$
 \[
 AA^{-1}=A^{-1}A=I
 \]
-$
+$$
 
 Em que \(I\) é a matriz identidade.
 
@@ -18,11 +18,11 @@ Existem diferentes métodos para calcular a inversa, como a fórmula para matriz
 
 Para uma matriz quadrada de ordem 2,
 
-$
+$$
 \[
 A=\begin{bmatrix}a&b\\c&d\end{bmatrix}
 \]
-$
+$$
 
 sua inversa é dada por:
 
