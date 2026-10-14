@@ -11,7 +11,7 @@ $$
 
 Calcule 
 
-$\|A\|_\infty $ e 
+$\|A\|_\infty$ e 
 
 $\|A^{-1}\|_\infty $ 
 
