@@ -126,11 +126,9 @@ A terceira linha é \([0,\ 1,\ 3]\).
 
 O centro é:
 
-$
 \[
 c_3=a_{33}=3
 \]
-$
 
 O raio é:
 
