@@ -120,9 +120,9 @@ $$
 \]
 $$
 
-A Distância de Hausdorff (Hausdorff Distance) é uma métrica utilizada para medir a diferença entre dois conjuntos de pontos, considerando a maior distância entre um ponto de um conjunto e o ponto mais próximo do outro conjunto. É amplamente empregada em processamento de imagens, visão computacional, reconhecimento de padrões e avaliação de modelos de segmentação.
-
 Ambas variam entre 0 e 1, sendo 1 o valor correspondente à sobreposição perfeita.
+
+A Distância de Hausdorff (Hausdorff Distance) é uma métrica utilizada para medir a diferença entre dois conjuntos de pontos, considerando a maior distância entre um ponto de um conjunto e o ponto mais próximo do outro conjunto. É amplamente empregada em processamento de imagens, visão computacional, reconhecimento de padrões e avaliação de modelos de segmentação.
 
 ## 3. Métricas de regressão
 
