@@ -27,12 +27,12 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
                           │
                           ▼
             < Encontrou Cláusula Vazia (□)? >
-               /                            |
-             Sim                           Não
-             /                              |          
-            ▼                               ▼
- [ Sucesso: BC implica α ]          [ Erro: Não é possível inferir α ]
- (Contradição Encontrada)           (Não há mais cláusulas para resolver)
+                  |                      |
+                 Sim                    Não
+                  |                      |          
+                  ▼                      ▼
+    [ Sucesso: BC implica α ]   [ Erro: Não é possível inferir α ]
+    (Contradição Encontrada)   (Não há mais cláusulas para resolver)
                           │
                           ▼
                        [ Fim ]
@@ -51,8 +51,11 @@ eglpha$) gera uma inconsistência ou absurdo lógico.
 
 ### 3. Conversão para FNC
 A expressão inteira é padronizada. Uma fórmula está em FNC (Forma Normal Conjuntiva) quando é composta por uma conjunção ("E") de cláusulas, onde cada cláusula é uma disjunção ("OU") de literais. Os passos internos de conversão são:
-* **Eliminar Equivalências:** Substituir $A \leftrightarrow B$ por $(A ightarrow B) \wedge (B ightarrow A)$.
-* **Eliminar Implicações:** Substituir $A ightarrow B$ por $
+* **Eliminar Equivalências:** Substituir $A \leftrightarrow B$ por $(A 
+ightarrow B) \wedge (B 
+ightarrow A)$.
+* **Eliminar Implicações:** Substituir $A 
+ightarrow B$ por $
 eg A ee B$.
 * **Internalizar Negações:** Aplicar as Leis de De Morgan (ex: $
 eg(A \wedge B)$ vira $
