@@ -46,7 +46,7 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
 O sistema recebe a **Base de Conhecimento (BC)** contendo as premissas conhecidas e a proposição **$\alpha$** (consulta) que se deseja provar.
 
 ### 2. Negação do Alvo (Refutação)
-Adota-se o princípio da *reducio ad absurdum* (prova por contradição). Em vez de tentar provar $\alpha$ diretamente, tenta-se provar que a inclusão de sua negação ($BC ∧ ¬\alpha$) gera uma inconsistência ou absurdo lógico.
+Adota-se o princípio da *reducio ad absurdum* (prova por contradição). Em vez de tentar provar **$\alpha$** diretamente, tenta-se provar que a inclusão de sua negação ($BC ∧ ¬\alpha$) gera uma inconsistência ou absurdo lógico.
 
 ### 3. Conversão para FNC
 A expressão inteira é padronizada. Uma fórmula está em FNC (Forma Normal Conjuntiva) quando é composta por uma conjunção ("E") de cláusulas, onde cada cláusula é uma disjunção ("OU") de literais. Os passos internos de conversão são:
