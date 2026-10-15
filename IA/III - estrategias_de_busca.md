@@ -93,7 +93,7 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 
 ### 4.6 Busca Bidirecional
 - Executa **duas buscas simultâneas**: uma a partir do estado inicial (para frente) e outra a partir do objetivo (para trás), parando quando as duas fronteiras se encontram.
-- Pode reduzir drasticamente a complexidade de tempo: de $O(b^d)$ para **$O(b^(d/2))$**.
+- Pode reduzir drasticamente a complexidade de tempo: de $O(b^d)$ para **$O(b^{(d/2))}$**.
 
 ⚠️ **Pegadinha:** busca bidirecional exige que a busca "de trás para frente" seja possível — ou seja, que se consiga **gerar predecessores** a partir do objetivo, o que nem sempre é trivial ou até possível (ex.: quando há múltiplos objetivos ou o objetivo não é único e explícito).
 
