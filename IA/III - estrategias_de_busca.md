@@ -56,7 +56,7 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 - Expande os nós **nível a nível** (mais rasos primeiro), usando uma **fila FIFO** como fronteira.
 - **Completa:** sim (se b for finito).
 - **Ótima:** sim, **somente se todos os custos de passo forem iguais** (senão, encontra o caminho com menos passos, não o de menor custo).
-- **Complexidade de tempo e espaço:** O(b^d) — cresce exponencialmente, e o **espaço é o maior problema prático** do BFS (guarda toda a fronteira, que cresce exponencialmente).
+- **Complexidade de tempo e espaço:** $O(b^d)$ — cresce exponencialmente, e o **espaço é o maior problema prático** do BFS (guarda toda a fronteira, que cresce exponencialmente).
 
 ⚠️ **Pegadinha número 1 (muito cobrada):** achar que BFS sempre encontra o **caminho de menor custo**. Isso só é verdade se **todos os custos de aresta forem iguais** (ex.: 1 por passo). Se os custos variarem, BFS pode retornar um caminho com menos passos, mas custo total maior.
 
@@ -64,7 +64,7 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 - Expande sempre o **nó mais profundo** primeiro, usando uma **pilha LIFO** (ou recursão) como fronteira.
 - **Completa:** **não**, em espaços de estados infinitos ou com ciclos (pode ficar "preso" descendo um ramo infinito) — **é completa em espaços finitos com controle de repetição de estados**.
 - **Ótima:** não.
-- **Complexidade de tempo:** O(b^m), onde m é a profundidade máxima (pode ser muito pior que BFS se m >> d).
+- **Complexidade de tempo:** $O(b^m)$, onde m é a profundidade máxima (pode ser muito pior que BFS se m >> d).
 - **Complexidade de espaço:** O(b·m) — **grande vantagem sobre BFS**, pois só guarda um caminho por vez (linear, não exponencial).
 
 ⚠️ **Pegadinha número 1:** a vantagem clássica do DFS sobre o BFS é justamente a **economia de memória** (espaço linear vs. exponencial) — mas isso vem ao custo de **perder completude e otimalidade** em muitos cenários.
@@ -74,7 +74,7 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 - Equivalente ao **algoritmo de Dijkstra** aplicado à busca.
 - **Completa:** sim (se os custos forem ≥ um valor positivo ε).
 - **Ótima:** sim, sempre (mesmo com custos de passo diferentes) — essa é a principal vantagem sobre o BFS.
-- **Complexidade:** depende do custo da solução ótima C* e do menor custo de aresta ε: O(b^(C*/ε)).
+- **Complexidade:** depende do custo da solução ótima C* e do menor custo de aresta ε: $O(b^(C*/ε))$.
 
 ⚠️ **Pegadinha:** UCS **generaliza** o BFS — quando todos os custos são iguais a 1, UCS se comporta exatamente como BFS. Isso costuma ser cobrado como pergunta de "qual a relação entre BFS e UCS?".
 
@@ -85,7 +85,7 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 ### 4.5 Aprofundamento Iterativo — IDS (Iterative Deepening Search)
 - Executa **DFS com limite de profundidade crescente** (L = 0, 1, 2, 3, ...), repetindo a busca a cada iteração até encontrar a solução.
 - **Combina o melhor dos dois mundos:** a eficiência de memória do DFS (O(b·d)) com a completude e otimalidade do BFS (quando custos são uniformes).
-- **Complexidade de tempo:** O(b^d) — parece haver desperdício por reexpandir os nós superiores repetidamente, mas o custo extra é **assintoticamente pequeno**, pois a maior parte dos nós está nas camadas mais profundas.
+- **Complexidade de tempo:** $O(b^d)$ — parece haver desperdício por reexpandir os nós superiores repetidamente, mas o custo extra é **assintoticamente pequeno**, pois a maior parte dos nós está nas camadas mais profundas.
 
 ⚠️ **Pegadinha número 1 (super cobrada):** alunos acham que reexpandir os níveis superiores repetidamente torna o IDS **ineficiente**. Na prática, o custo adicional é **desprezível** — a maioria dos nós de uma árvore de fator de ramificação b está concentrada nas camadas mais profundas, então repetir as camadas rasas tem baixo impacto no total.
 
@@ -93,7 +93,7 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 
 ### 4.6 Busca Bidirecional
 - Executa **duas buscas simultâneas**: uma a partir do estado inicial (para frente) e outra a partir do objetivo (para trás), parando quando as duas fronteiras se encontram.
-- Pode reduzir drasticamente a complexidade de tempo: de O(b^d) para **O(b^(d/2))**.
+- Pode reduzir drasticamente a complexidade de tempo: de $O(b^d)$ para **$O(b^(d/2))$**.
 
 ⚠️ **Pegadinha:** busca bidirecional exige que a busca "de trás para frente" seja possível — ou seja, que se consiga **gerar predecessores** a partir do objetivo, o que nem sempre é trivial ou até possível (ex.: quando há múltiplos objetivos ou o objetivo não é único e explícito).
 
@@ -103,12 +103,12 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 
 | Algoritmo | Completa? | Ótima? | Tempo | Espaço |
 |---|---|---|---|---|
-| **BFS** | Sim | Só com custos uniformes | O(b^d) | O(b^d) |
-| **DFS** | Não (espaços infinitos) | Não | O(b^m) | O(b·m) |
-| **Custo Uniforme (UCS)** | Sim | Sim | O(b^(C*/ε)) | O(b^(C*/ε)) |
-| **Profundidade Limitada** | Não (se L < d) | Não | O(b^L) | O(b·L) |
-| **Aprofundamento Iterativo (IDS)** | Sim | Só com custos uniformes | O(b^d) | O(b·d) |
-| **Bidirecional** | Sim | Sim (em condições específicas) | O(b^(d/2)) | O(b^(d/2)) |
+| **BFS** | Sim | Só com custos uniformes | $O(b^d)$ | $O(b^d)$ |
+| **DFS** | Não (espaços infinitos) | Não | $O(b^m)$ | O(b·m) |
+| **Custo Uniforme (UCS)** | Sim | Sim | $O(b^(C*/ε))$ | $O(b^(C*/ε))$ |
+| **Profundidade Limitada** | Não (se L < d) | Não | $O(b^L)$ | O(b·L) |
+| **Aprofundamento Iterativo (IDS)** | Sim | Só com custos uniformes | $O(b^d)$ | O(b·d) |
+| **Bidirecional** | Sim | Sim (em condições específicas) | $O(b^(d/2))$ | $O(b^(d/2))$ |
 
 ---
 
@@ -129,7 +129,7 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 - Expande sempre o nó que **parece mais próximo do objetivo**, usando apenas f(n) = h(n) (ignora o custo já percorrido).
 - **Completa:** não, em geral (pode entrar em loop em espaços com ciclos, ou ficar presa em ramos infinitos).
 - **Ótima:** **não** — pode ser "enganada" pela heurística e seguir um caminho que parece bom localmente, mas é caro globalmente.
-- **Complexidade:** O(b^m) no pior caso, mas uma boa heurística pode reduzir drasticamente na prática.
+- **Complexidade:** $O(b^m)$ no pior caso, mas uma boa heurística pode reduzir drasticamente na prática.
 
 ⚠️ **Pegadinha:** Busca Gulosa é **míope** — ela só olha "quão perto parece estar do objetivo" (h(n)), **ignorando completamente o custo já gasto** (g(n)) para chegar até ali. Isso é o que a diferencia do A* e é a causa raiz de sua não-otimalidade.
 
@@ -177,7 +177,7 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 | Algoritmo guloso e míope, ignora custo já gasto | Greedy Best-First Search (usa só h(n)) |
 | A* com pouca memória disponível | IDA* |
 | Heurística h2 domina h1 | h2 é mais informada, A* expande menos nós com h2 |
-| Reduzir complexidade de O(b^d) para O(b^(d/2)) | Busca Bidirecional |
+| Reduzir complexidade de $O(b^d)$ para $O(b^(d/2))$ | Busca Bidirecional |
 
 ---
 
@@ -262,7 +262,7 @@ Isso significa que o A* passa a expandir os nós **exclusivamente pelo custo acu
 
 5. Por que a Busca Gulosa (Greedy Best-First) não é ótima, mesmo usando uma heurística admissível?
 
-A Busca Gulosa (Greedy Best-First Search) usa apenas:
+A Busca Gulosa (Greedy Best-First Search) utiliza apenas:
 
 $$f(n) = h(n)$$
 
@@ -272,7 +272,7 @@ Mesmo que a heurística seja admissível (nunca superestime o custo restante), a
 
 6. Por que o IDA* é preferido ao A* tradicional em problemas com espaço de busca muito grande?
 
-O A* tradicional mantém **todos os nós gerados em memória** (nas listas open e closed), o que leva a um consumo de memória que cresce **exponencialmente** com a profundidade da busca — O(b^d). Em problemas com espaços de busca muito grandes (como quebra-cabeças complexos, jogos com muitos estados), essa demanda de memória rapidamente se torna proibitiva, mesmo que haja tempo computacional disponível.
+O A* tradicional mantém **todos os nós gerados em memória** (nas listas open e closed), o que leva a um consumo de memória que cresce **exponencialmente** com a profundidade da busca — $O(b^d)$. Em problemas com espaços de busca muito grandes (como quebra-cabeças complexos, jogos com muitos estados), essa demanda de memória rapidamente se torna proibitiva, mesmo que haja tempo computacional disponível.
 
 O **IDA\* (Iterative Deepening A\*)** combina a ideia do aprofundamento iterativo com a função f(n) = g(n) + h(n) do A*: em vez de manter uma lista aberta expansiva, ele realiza buscas em profundidade sucessivas, usando um **limite de custo (threshold)** baseado em f(n) que aumenta a cada iteração (começando com f(início) e aumentando para o menor valor de f que excedeu o limite anterior).
 
