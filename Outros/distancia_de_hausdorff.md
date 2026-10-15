@@ -6,27 +6,27 @@ A **distância de Hausdorff** mede a diferença entre dois conjuntos não vazios
 
 Sejam \(A\) e \(B\) dois conjuntos não vazios. A distância de Hausdorff é definida por:
 
-$
+$$
 \[
 H(A,B)=\max\{h(A,B),h(B,A)\}
 \]
-$
+$$
 
 em que:
 
-$
+$$
 \[
 h(A,B)=\sup_{a\in A}\inf_{b\in B}d(a,b)
 \]
-$
+$$
 
 e
 
-$
+$$
 \[
 h(B,A)=\sup_{b\in B}\inf_{a\in A}d(b,a).
 \]
-$
+$$
 
 ### Significado dos termos
 
