@@ -160,6 +160,8 @@ $$
 
 ### Coeficiente de determinação (\(R^2\))
 
+O $R^2$ uma medida estatística que indica o quão bem um modelo de regressão de regressão explica a variação dos dados observados (mede a proporção da variância da variável resposta explicada pelo modelo de regressão). Em geral, o R² assume valores entre 0 e 1, sendo que valores próximos de 1 indicam maior capacidade explicativa do modelo, enquanto valores próximos de 0 indicam que apenas uma pequena parcela da variância é explicada. O R² tende a aumentar, ou pelo menos não diminuir, à medida que novas variáveis são adicionadas ao modelo, mesmo quando elas possuem pouca ou nenhuma relevância preditiva. Para contornar essa limitação, utiliza-se o R² ajustado, que penaliza a inclusão de preditores desnecessários e, por isso, é mais apropriado para comparar modelos com diferentes quantidades de variáveis explicativas.
+
 $$
 \[
 R^2=1-\frac{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}
