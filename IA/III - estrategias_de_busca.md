@@ -174,10 +174,10 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 | Heurística que nunca superestima | Admissível → garante otimalidade em busca em árvore |
 | Heurística com a condição do "triângulo" c(n,a,n') | Consistente → garante otimalidade em busca em grafo |
 | A* com h(n) = 0 | Vira exatamente o UCS |
-| Algoritmo guloso e míope, ignora custo já gasto | Greedy Best-First Search (usa só h(n)) |
+| Algoritmo guloso e míope, ignora custo já gasto | Greedy Best-First Search (utiliza só h(n)) |
 | A* com pouca memória disponível | IDA* |
 | Heurística h2 domina h1 | h2 é mais informada, A* expande menos nós com h2 |
-| Reduzir complexidade de $O(b^d)$ para $O(b^(d/2))$ | Busca Bidirecional |
+| Reduzir complexidade de $O(b^d)$ para $O(b^{(d/2))}$ | Busca Bidirecional |
 
 ---
 
