@@ -130,6 +130,18 @@ Considere $\(y_i\)$ o valor real, $\(\hat{y}_i\)$ o valor predito, $\(\bar{y}\)$
 
 ### Erro quadrático médio (MSE)
 
+ MSE corresponde à média dos quadrados das diferenças entre os valores reais e os valores previstos. Como os erros são elevados ao quadrado, o método atribui maior penalização a erros elevados devido ao termo quadrático, tornando-se mais sensível à presença de outliers.
+
+$$
+\[
+\mathrm{MSE}=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+\]
+$$
+
+### Raiz do Erro Quadrático Médio (RMSE)
+
+O RMSE mede desvio padrão dos resíduos e preserva a unidade original da variável predita, facilitando a interpretação dos resultados.
+
 $$
 \[
 \mathrm{MSE}=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
@@ -137,6 +149,8 @@ $$
 $$
 
 ### Erro absoluto médio (MAE)
+
+O MAE mede o erro médio absoluto de forma mais robusta em relação a valores extremos quando comparado ao MSE.
 
 $$
 \[
