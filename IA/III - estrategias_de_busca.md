@@ -105,10 +105,10 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 |---|---|---|---|---|
 | **BFS** | Sim | Só com custos uniformes | $O(b^d)$ | $O(b^d)$ |
 | **DFS** | Não (espaços infinitos) | Não | $O(b^m)$ | O(b·m) |
-| **Custo Uniforme (UCS)** | Sim | Sim | $O(b^(C*/ε))$ | $O(b^(C*/ε))$ |
+| **Custo Uniforme (UCS)** | Sim | Sim | $O(b^(C*/ε))$ | $O(b^{(C*/ε))}$ |
 | **Profundidade Limitada** | Não (se L < d) | Não | $O(b^L)$ | O(b·L) |
 | **Aprofundamento Iterativo (IDS)** | Sim | Só com custos uniformes | $O(b^d)$ | O(b·d) |
-| **Bidirecional** | Sim | Sim (em condições específicas) | $O(b^(d/2))$ | $O(b^(d/2))$ |
+| **Bidirecional** | Sim | Sim (em condições específicas) | $O(b^{(d/2))}$ | $O(b^{(d/2))}$ |
 
 ---
 
