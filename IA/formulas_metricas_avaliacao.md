@@ -144,7 +144,7 @@ O RMSE mede desvio padrão dos resíduos e preserva a unidade original da variá
 
 $$
 \[
-\mathrm{RMSE}^2=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+\mathrm{RMSE}=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}
 \]
 $$
 
