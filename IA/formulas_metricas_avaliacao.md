@@ -131,22 +131,28 @@ Considere \(y_i\) o valor real, \(\hat{y}_i\) o valor predito, \(\bar{y}\) a mé
 
 ### Erro quadrático médio (MSE)
 
+$$
 \[
 \mathrm{MSE}=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
 \]
+$$
 
 ### Erro absoluto médio (MAE)
 
+$$
 \[
 \mathrm{MAE}=\frac{1}{n}\sum_{i=1}^{n}|y_i-\hat{y}_i|
 \]
+$$
 
 ### Coeficiente de determinação (\(R^2\))
 
+$$
 \[
 R^2=1-\frac{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}
 {\sum_{i=1}^{n}(y_i-\bar{y})^2}
 \]
+$$
 
 O \(R^2\) pode assumir valores negativos quando o modelo apresenta desempenho inferior ao de uma previsão constante pela média, dependendo do procedimento de avaliação.
 
@@ -154,9 +160,11 @@ O \(R^2\) pode assumir valores negativos quando o modelo apresenta desempenho in
 
 ### PSNR (*Peak Signal-to-Noise Ratio*)
 
+$$
 \[
 \mathrm{PSNR}=10\log_{10}\left(\frac{MAX_I^2}{\mathrm{MSE}}\right)
 \]
+$$
 
 Em que:
 
@@ -165,19 +173,23 @@ Em que:
 
 Para imagens com intensidade máxima igual a 1:
 
+$$
 \[
 \mathrm{PSNR}=-10\log_{10}(\mathrm{MSE})
 \]
+$$
 
 O resultado é expresso em decibéis (dB). Quanto maior o PSNR, menor o erro quadrático de reconstrução. Para imagens idênticas, o MSE é zero e o PSNR tende ao infinito.
 
 ### SSIM (*Structural Similarity Index*)
 
+$$
 \[
 \mathrm{SSIM}(x,y)=
 \frac{(2\mu_x\mu_y+C_1)(2\sigma_{xy}+C_2)}
 {(\mu_x^2+\mu_y^2+C_1)(\sigma_x^2+\sigma_y^2+C_2)}
 \]
+$$
 
 Em que:
 
@@ -192,10 +204,12 @@ Na formulação usual, valores próximos de 1 indicam maior similaridade estrutu
 
 ### BLEU (*Bilingual Evaluation Understudy*)
 
+$$
 \[
 \mathrm{BLEU}=BP\cdot
 \exp\left(\sum_{n=1}^{N}w_n\log p_n\right)
 \]
+$$
 
 Em que:
 
@@ -205,6 +219,7 @@ Em que:
 
 A penalidade por brevidade é definida por:
 
+$$
 \[
 BP=
 \begin{cases}
@@ -212,6 +227,7 @@ BP=
 e^{1-r/c}, & c\leq r
 \end{cases}
 \]
+$$
 
 Em que \(c\) é o comprimento do texto gerado e \(r\) é o comprimento de referência adotado no cálculo.
 
@@ -219,6 +235,7 @@ Em que \(c\) é o comprimento do texto gerado e \(r\) é o comprimento de refer�
 
 O ROUGE possui diferentes variantes. Para o ROUGE-N, baseado na sobreposição de n-gramas, uma formulação usual é:
 
+$$
 \[
 \mathrm{ROUGE\text{-}N}=
 \frac{\sum_{g\in\mathcal{G}_N}
@@ -226,6 +243,7 @@ O ROUGE possui diferentes variantes. Para o ROUGE-N, baseado na sobreposição d
 \mathrm{Count}_{ref}(g)\bigr)}
 {\sum_{g\in\mathcal{G}_N}\mathrm{Count}_{ref}(g)}
 \]
+$$
 
 Em que:
 
@@ -239,11 +257,13 @@ Essa formulação representa a cobertura dos n-gramas da referência pelo texto 
 
 Para uma sequência de tokens \(w_1,w_2,\ldots,w_N\):
 
+$$
 \[
 \mathrm{PPL}=
 \exp\left(-\frac{1}{N}
 \sum_{i=1}^{N}\log P(w_i\mid w_1,\ldots,w_{i-1})\right)
 \]
+$$
 
 Em que \(P(w_i\mid w_1,\ldots,w_{i-1})\) é a probabilidade atribuída pelo modelo ao token atual, condicionada aos tokens anteriores.
 
@@ -255,9 +275,11 @@ A perplexidade corresponde à exponencial da entropia cruzada média quando se u
 
 A AP corresponde à área sob a curva Precisão–Revocação. Uma formulação contínua comum é:
 
+$$
 \[
 \mathrm{AP}=\int_0^1 p_{\mathrm{interp}}(r)\,dr
 \]
+$$
 
 Em que \(p_{\mathrm{interp}}(r)\) é a precisão interpolada para o nível de revocação \(r\).
 
@@ -267,23 +289,29 @@ Na prática, a AP é calculada a partir de um conjunto discreto de predições o
 
 Para \(C\) classes avaliadas:
 
+$$
 \[
 \mathrm{mAP}=\frac{1}{C}\sum_{c=1}^{C}\mathrm{AP}_c
 \]
+$$
 
 Em conjuntos de dados como o COCO, utiliza-se frequentemente a média das APs em múltiplos limiares de IoU:
 
+$$
 \[
 \mathrm{mAP}_{\mathrm{COCO}}=
 \frac{1}{|\mathcal{T}|}
 \sum_{t\in\mathcal{T}}\mathrm{mAP}_{t}
 \]
+$$
 
 O conjunto usual de limiares é:
 
+$$
 \[
 \mathcal{T}=\{0{,}50,0{,}55,\ldots,0{,}95\}
 \]
+$$
 
 São, portanto, dez limiares de IoU entre 0,50 e 0,95, com incremento de 0,05.
 
