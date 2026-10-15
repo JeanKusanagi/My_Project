@@ -213,9 +213,9 @@ $$
 
 Em que:
 
-- \(p_n\) é a precisão modificada dos n-gramas de ordem \(n\).
-- \(w_n\) é o peso atribuído a cada ordem de n-grama, frequentemente \(w_n=1/N\).
-- \(BP\) é a penalidade por brevidade (*Brevity Penalty*).
+- $\(p_n\)$ é a precisão modificada dos n-gramas de ordem \(n\).
+- $\(w_n\)$ é o peso atribuído a cada ordem de n-grama, frequentemente \(w_n=1/N\).
+- $\(BP\)$ é a penalidade por brevidade (*Brevity Penalty*).
 
 A penalidade por brevidade é definida por:
 
@@ -247,9 +247,9 @@ $$
 
 Em que:
 
-- \(\mathcal{G}_N\) é o conjunto de n-gramas.
-- \(\mathrm{Count}_{cand}(g)\) é a frequência do n-grama no texto gerado.
-- \(\mathrm{Count}_{ref}(g)\) é a frequência do n-grama no texto de referência.
+- $\(\mathcal{G}_N\)$ é o conjunto de n-gramas.
+- $\(\mathrm{Count}_{cand}(g)\)$ é a frequência do n-grama no texto gerado.
+- $\(\mathrm{Count}_{ref}(g)\)$ é a frequência do n-grama no texto de referência.
 
 Essa formulação representa a cobertura dos n-gramas da referência pelo texto gerado.
 
