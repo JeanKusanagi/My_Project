@@ -13,9 +13,11 @@ Considere:
 
 Proporção de predições corretas entre todas as predições:
 
+$
 \[
 \mathrm{Accuracy}=\frac{TP+TN}{TP+TN+FP+FN}
 \]
+$
 
 ### Sensibilidade (*Sensitivity* ou *Recall*)
 
