@@ -43,7 +43,7 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
 ## Detalhamento das Etapas do Fluxo
 
 ### 1. Definição das Entradas
-O sistema recebe a **Base de Conhecimento (BC)** contendo as premissas conhecidas e a proposição **$lpha$** (consulta) que se deseja provar.
+O sistema recebe a **Base de Conhecimento (BC)** contendo as premissas conhecidas e a proposição **$alpha$** (consulta) que se deseja provar.
 
 ### 2. Negação do Alvo (Refutação)
 Adota-se o princípio da *reducio ad absurdum* (prova por contradição). Em vez de tentar provar $lpha$ diretamente, tenta-se provar que a inclusão de sua negação ($BC \wedge 
