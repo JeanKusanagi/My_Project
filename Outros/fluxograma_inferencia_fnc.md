@@ -46,7 +46,7 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
 O sistema recebe a **Base de Conhecimento (BC)** contendo as premissas conhecidas e a proposição **$\alpha$** (consulta) que se deseja provar.
 
 ### 2. Negação do Alvo (Refutação)
-Adota-se o princípio da *reducio ad absurdum* (prova por contradição). Em vez de tentar provar $lpha$ diretamente, tenta-se provar que a inclusão de sua negação ($BC \wedge 
+Adota-se o princípio da *reducio ad absurdum* (prova por contradição). Em vez de tentar provar $\alpha$ diretamente, tenta-se provar que a inclusão de sua negação ($BC \wedge 
 eglpha$) gera uma inconsistência ou absurdo lógico.
 
 ### 3. Conversão para FNC
@@ -74,5 +74,5 @@ eg P$). Elas são combinadas (resolvidas) gerando uma nova cláusula (resolvente
 
 ### 6. Condição de Parada
 * **Sucesso (Cláusula Vazia $\square$):** Se a resolução de duas cláusulas complementares diretas (como $P$ e $
-eg P$) gerar o símbolo vazio, significa que a contradição foi alcançada. Isso prova que **$lpha$ é uma consequência lógica** da base.
-* **Falha:** Se nenhuma cláusula nova puder ser gerada e o símbolo vazio não for alcançado, significa que a inferência falhou e $lpha$ não pode ser provado a partir daquela BC.
+eg P$) gerar o símbolo vazio, significa que a contradição foi alcançada. Isso prova que **$\alpha$ é uma consequência lógica** da base.
+* **Falha:** Se nenhuma cláusula nova puder ser gerada e o símbolo vazio não for alcançado, significa que a inferência falhou e $\alpha$ não pode ser provado a partir daquela BC.
