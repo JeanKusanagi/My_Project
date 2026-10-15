@@ -23,40 +23,50 @@ $$
 
 Proporção de exemplos positivos reais identificados corretamente:
 
+$
 \[
 \mathrm{Recall}=\frac{TP}{TP+FN}
 \]
+$
 
 ### Especificidade (*Specificity*)
 
 Proporção de exemplos negativos reais identificados corretamente:
 
+$
 \[
 \mathrm{Specificity}=\frac{TN}{TN+FP}
 \]
+$
 
 ### Precisão (*Precision*)
 
 Proporção de predições positivas que são realmente positivas:
 
+$
 \[
 \mathrm{Precision}=\frac{TP}{TP+FP}
 \]
+$
 
 ### F1-score
 
 Média harmônica entre precisão e recall:
 
+$
 \[
 F_1=2\frac{\mathrm{Precision}\cdot\mathrm{Recall}}
 {\mathrm{Precision}+\mathrm{Recall}}
 \]
+$
 
 Forma equivalente, em função dos elementos da matriz de confusão:
 
+$
 \[
 F_1=\frac{2TP}{2TP+FP+FN}
 \]
+$
 
 ## 2. Métricas de segmentação de imagens
 
@@ -66,37 +76,49 @@ Considere \(A\) a região segmentada pelo modelo e \(B\) a região de referênci
 
 Mede a sobreposição entre a região predita e a região de referência:
 
+$
 \[
 \mathrm{Dice}=\frac{2|A\cap B|}{|A|+|B|}
 \]
+$
 
 Em termos de verdadeiros positivos, falsos positivos e falsos negativos:
 
+$
 \[
 \mathrm{Dice}=\frac{2TP}{2TP+FP+FN}
 \]
+$
 
+$
 ### Intersection over Union (IoU) ou índice de Jaccard
 
 \[
 \mathrm{IoU}=\frac{|A\cap B|}{|A\cup B|}
 \]
+$
 
 Forma equivalente:
 
+$
 \[
 \mathrm{IoU}=\frac{TP}{TP+FP+FN}
 \]
+$
 
 Relação entre Dice e IoU:
 
+$
 \[
 \mathrm{Dice}=\frac{2\mathrm{IoU}}{1+\mathrm{IoU}}
 \]
+$
 
+$
 \[
 \mathrm{IoU}=\frac{\mathrm{Dice}}{2-\mathrm{Dice}}
 \]
+$
 
 Ambas variam entre 0 e 1, sendo 1 o valor correspondente à sobreposição perfeita.
 
