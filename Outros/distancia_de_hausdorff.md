@@ -6,29 +6,35 @@ A **distância de Hausdorff** mede a diferença entre dois conjuntos não vazios
 
 Sejam \(A\) e \(B\) dois conjuntos não vazios. A distância de Hausdorff é definida por:
 
+$
 \[
 H(A,B)=\max\{h(A,B),h(B,A)\}
 \]
+$
 
 em que:
 
+$
 \[
 h(A,B)=\sup_{a\in A}\inf_{b\in B}d(a,b)
 \]
+$
 
 e
 
+$
 \[
 h(B,A)=\sup_{b\in B}\inf_{a\in A}d(b,a).
 \]
+$
 
 ### Significado dos termos
 
-- \(d(a,b)\): distância entre os pontos \(a\) e \(b\).
-- \(\inf\): ínfimo das distâncias — a maior cota inferior, que corresponde à menor distância quando ela é atingida.
-- \(\sup\): supremo das distâncias — a menor cota superior, que corresponde ao maior valor quando ele é atingido.
-- \(h(A,B)\): maior distância mínima dos pontos de \(A\) até o conjunto \(B\).
-- \(h(B,A)\): maior distância mínima dos pontos de \(B\) até o conjunto \(A\).
+- $\(d(a,b)\)$: distância entre os pontos \(a\) e \(b\).
+- $\(\inf\)$: ínfimo das distâncias — a maior cota inferior, que corresponde à menor distância quando ela é atingida.
+- $\(\sup\)$: supremo das distâncias — a menor cota superior, que corresponde ao maior valor quando ele é atingido.
+- $\(h(A,B)\)$: maior distância mínima dos pontos de \(A\) até o conjunto \(B\).
+- $\(h(B,A)\)$: maior distância mínima dos pontos de \(B\) até o conjunto \(A\).
 
 A distância de Hausdorff considera as duas direções para que nenhum dos conjuntos seja ignorado na comparação.
 
