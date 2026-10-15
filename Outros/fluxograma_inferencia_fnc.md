@@ -27,8 +27,10 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
                           │
                           ▼
             < Encontrou Cláusula Vazia (□)? >
-               /                                     Sim                           Não
-             /                                         ▼                               ▼
+               /                            |
+             Sim                           Não
+             /                              |          
+            ▼                               ▼
  [ Sucesso: BC implica α ]          [ Erro: Não é possível inferir α ]
  (Contradição Encontrada)           (Não há mais cláusulas para resolver)
                           │
