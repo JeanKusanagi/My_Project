@@ -90,7 +90,6 @@ $$
 \]
 $$
 
-$$
 ### Intersection over Union (IoU) ou índice de Jaccard
 
 $$
@@ -127,7 +126,7 @@ Ambas variam entre 0 e 1, sendo 1 o valor correspondente à sobreposição perfe
 
 ## 3. Métricas de regressão
 
-Considere \(y_i\) o valor real, \(\hat{y}_i\) o valor predito, \(\bar{y}\) a média dos valores reais e \(n\) o número de amostras.
+Considere $\(y_i\)$ o valor real, $\(\hat{y}_i\)$ o valor predito, $\(\bar{y}\)$ a média dos valores reais e $\(n\)$ o número de amostras.
 
 ### Erro quadrático médio (MSE)
 
@@ -154,7 +153,7 @@ R^2=1-\frac{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}
 \]
 $$
 
-O \(R^2\) pode assumir valores negativos quando o modelo apresenta desempenho inferior ao de uma previsão constante pela média, dependendo do procedimento de avaliação.
+O $\(R^2\)$ pode assumir valores negativos quando o modelo apresenta desempenho inferior ao de uma previsão constante pela média, dependendo do procedimento de avaliação.
 
 ## 4. Métricas de reconstrução de imagens
 
@@ -168,7 +167,7 @@ $$
 
 Em que:
 
-- \(MAX_I\) é o valor máximo possível de intensidade dos pixels ou voxels.
+- $\(MAX_I\)$ é o valor máximo possível de intensidade dos pixels ou voxels.
 - MSE é o erro quadrático médio entre a imagem de referência e a imagem reconstruída.
 
 Para imagens com intensidade máxima igual a 1:
@@ -193,10 +192,10 @@ $$
 
 Em que:
 
-- \(\mu_x\) e \(\mu_y\) são as médias locais das intensidades das imagens.
-- \(\sigma_x^2\) e \(\sigma_y^2\) são as variâncias locais.
-- \(\sigma_{xy}\) é a covariância entre as imagens.
-- \(C_1\) e \(C_2\) são constantes de estabilização numérica.
+- $\(\mu_x\)$ e $\(\mu_y\)$ são as médias locais das intensidades das imagens.
+- $\(\sigma_x^2\)$ e \(\sigma_y^2\) são as variâncias locais.
+- $\(\sigma_{xy}\)$ é a covariância entre as imagens.
+- $\(C_1\)$ e $\(C_2\)$ são constantes de estabilização numérica.
 
 Na formulação usual, valores próximos de 1 indicam maior similaridade estrutural; imagens idênticas apresentam SSIM igual a 1.
 
