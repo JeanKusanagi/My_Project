@@ -144,7 +144,7 @@ O RMSE mede desvio padrão dos resíduos e preserva a unidade original da variá
 
 $$
 \[
-\mathrm{MSE}=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+\mathrm{RMSE}^2=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
 \]
 $$
 
@@ -227,7 +227,7 @@ $$
 Em que:
 
 - $\(p_n\)$ é a precisão modificada dos n-gramas de ordem \(n\).
-- $\(w_n\)$ é o peso atribuído a cada ordem de n-grama, frequentemente \(w_n=1/N\).
+- $\(w_n\)$ é o peso atribuído a cada ordem de n-grama, frequentemente $\(w_n=1/N\)$.
 - $\(BP\)$ é a penalidade por brevidade (*Brevity Penalty*).
 
 A penalidade por brevidade é definida por:
