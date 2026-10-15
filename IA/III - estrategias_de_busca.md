@@ -74,7 +74,7 @@ Toda prova pede para classificar um algoritmo segundo essas 4 propriedades:
 - Equivalente ao **algoritmo de Dijkstra** aplicado à busca.
 - **Completa:** sim (se os custos forem ≥ um valor positivo ε).
 - **Ótima:** sim, sempre (mesmo com custos de passo diferentes) — essa é a principal vantagem sobre o BFS.
-- **Complexidade:** depende do custo da solução ótima C* e do menor custo de aresta ε: $O(b^(C*/ε))$.
+- **Complexidade:** depende do custo da solução ótima C* e do menor custo de aresta ε: $O(b^{(C*/ε))}$.
 
 ⚠️ **Pegadinha:** UCS **generaliza** o BFS — quando todos os custos são iguais a 1, UCS se comporta exatamente como BFS. Isso costuma ser cobrado como pergunta de "qual a relação entre BFS e UCS?".
 
