@@ -193,7 +193,7 @@ $$
 Em que:
 
 - $\(\mu_x\)$ e $\(\mu_y\)$ são as médias locais das intensidades das imagens.
-- $\(\sigma_x^2\)$ e \(\sigma_y^2\) são as variâncias locais.
+- $\(\sigma_x^2\)$ e $\(\sigma_y^2\)$ são as variâncias locais.
 - $\(\sigma_{xy}\)$ é a covariância entre as imagens.
 - $\(C_1\)$ e $\(C_2\)$ são constantes de estabilização numérica.
 
@@ -254,7 +254,7 @@ Essa formulação representa a cobertura dos n-gramas da referência pelo texto 
 
 ### Perplexidade (*Perplexity*)
 
-Para uma sequência de tokens \(w_1,w_2,\ldots,w_N\):
+Para uma sequência de tokens $\(w_1,w_2,\ldots,w_N\)$:
 
 $$
 \[
@@ -327,7 +327,7 @@ São, portanto, dez limiares de IoU entre 0,50 e 0,95, com incremento de 0,05.
 | IoU | Interseção relativa à união | Maior |
 | MSE | Erro quadrático | Menor |
 | MAE | Erro absoluto | Menor |
-| \(R^2\) | Variabilidade explicada pelo modelo | Geralmente maior |
+| $\(R^2\)$ | Variabilidade explicada pelo modelo | Geralmente maior |
 | PSNR | Fidelidade da reconstrução | Maior |
 | SSIM | Similaridade estrutural | Mais próximo de 1 |
 | BLEU | Precisão de n-gramas | Maior |
