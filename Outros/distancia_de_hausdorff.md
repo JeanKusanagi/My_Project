@@ -42,17 +42,17 @@ A distância de Hausdorff considera as duas direções para que nenhum dos conju
 
 Considere os conjuntos de pontos na reta real:
 
-$
+$$
 \[
 A=\{1,2,3\}
 \]
-$
+$$
 
-$
+$$
 \[
 B=\{2,3,4\}
 \]
-$
+$$
 
 ### Passo 1 — Calcular \(h(A,B)\)
 
@@ -64,11 +64,11 @@ Para cada ponto de \(A\), calcula-se a menor distância até algum ponto de \(B\
 
 Logo:
 
-$
+$$
 \[
 h(A,B)=\max\{1,0,0\}=1
 \]
-$
+$$
 
 ### Passo 2 — Calcular \(h(B,A)\)
 
@@ -80,35 +80,35 @@ Para cada ponto de \(B\), calcula-se a menor distância até algum ponto de \(A\
 
 Logo:
 
-$
+$$
 \[
 h(B,A)=\max\{0,0,1\}=1
 \]
-$
+$$
 
 ### Passo 3 — Calcular a distância de Hausdorff
 
-$
+$$
 \[
 H(A,B)=\max\{h(A,B),h(B,A)\}
 \]
-$
+$$
 
 Substituindo os valores:
 
-$
+$$
 \[
 H(A,B)=\max\{1,1\}
 \]
-$
+$$
 
 Portanto:
 
-$
+$$
 \[
 \boxed{H(A,B)=1}
 \]
-$
+$$
 
 ## 3. Aplicações
 
