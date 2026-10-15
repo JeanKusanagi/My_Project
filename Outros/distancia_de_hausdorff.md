@@ -110,14 +110,44 @@ $$
 \]
 $$
 
-## 3. Aplicações
+## Cálculo em Python
 
-A distância de Hausdorff é utilizada para:
+```python
+import numpy as np
+from scipy.spatial.distance import directed_hausdorff
 
-- Comparar formas geométricas e contornos.
-- Avaliar semelhanças e diferenças entre imagens.
-- Comparar nuvens de pontos em visão computacional.
-- Medir diferenças entre objetos representados por conjuntos de pontos.
+A = np.array([[0, 0], [1, 0]])
+B = np.array([[0, 1], [3, 0]])
+
+h_ab = directed_hausdorff(A, B)[0]
+h_ba = directed_hausdorff(B, A)[0]
+d_h = max(h_ab, h_ba)
+
+print(h_ab, h_ba, d_h)  # 1.414..., 2.0, 2.0
+```
+
+## Complexidade
+
+- Algoritmo ingênuo para conjuntos finitos com $n$ e $m$ pontos: $O(nm)$.
+- Em 2D, é possível obter $O((n + m)\log(n + m))$ usando diagramas de Voronoi.
+- Há algoritmos práticos com *early break* e amostragem aleatória (Taha & Hanbury, 2015) que reduzem muito o tempo médio, e é esse tipo de abordagem que o SciPy usa.
+
+## Variantes para lidar com outliers
+
+| Variante | Ideia |
+|---|---|
+| **Hausdorff parcial** | Usa o $k$-ésimo maior valor (ou um quantil) em vez do supremo. |
+| **HD95** | Usa o percentil 95 das distâncias; muito comum em segmentação médica. |
+| **Hausdorff modificada (Dubuisson & Jain, 1994)** | Troca o supremo pela **média** das distâncias mínimas. |
+| **Chamfer distance** | Soma ou média das distâncias ao ponto mais próximo; usada em nuvens de pontos 3D. |
+
+## Aplicações
+
+- **Visão computacional:** casamento de contornos e reconhecimento de objetos.
+- **Imagens médicas:** avaliação de segmentações (comparar o contorno previsto com o de referência).
+- **Computação gráfica e CAD:** comparação de malhas e superfícies, medindo erro de simplificação.
+- **GIS:** similaridade entre geometrias e trajetórias.
+- **Matemática:** topologia, análise e teoria de fractais (espaço de conjuntos compactos).
 
 ## 4. Resumo
 
