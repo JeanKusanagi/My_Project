@@ -339,6 +339,7 @@ São, portanto, dez limiares de IoU entre 0,50 e 0,95, com incremento de 0,05.
 | F1-score | Equilíbrio entre precisão e recall | Maior |
 | Dice | Sobreposição entre segmentações | Maior |
 | IoU | Interseção relativa à união | Maior |
+| Distância de Hausdorff | Dissimilaridade | Menor |
 | MSE | Erro quadrático | Menor |
 | MAE | Erro absoluto | Menor |
 | $\(R^2\)$ | Variabilidade explicada pelo modelo | Geralmente maior |
