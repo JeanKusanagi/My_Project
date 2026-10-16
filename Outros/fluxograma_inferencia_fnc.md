@@ -4,60 +4,6 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
 
 ## O Fluxograma Lógico
 
-```text
- [ Início: Base de Conhecimento (BC) e Consulta (α) ]
-                          │
-                          ▼
-         [ Passo 1: Negar a Consulta (¬α) ]
-                          │
-                          ▼
- [ Passo 2: Adicionar à Base (BC ∧ ¬α) — Prova por Contradição ]
-                          |
-                          ▼
-   [ Passo 3: Eliminar Implicações e Equivalências ]
-           A ↔ B vira (¬A ∨ B) ∧ (¬B ∨ A)
-                (A ─> B vira ¬A ∨ B)
-                          |
-                          ▼
-       [ Passo 4: Mover Negações para Dentro (De Morgan) ]
-               ¬(A ∧ B) ≡ ¬A ∨ ¬B
-                          |
-                          ▼
-                [ Passo 5: Skolemização ]
-           (Eliminar quantificadores existenciais)
-                          |
-                          ▼
-      [ Passo 6: Eliminar Quantificadores Universais ]
-             (Ficam implícitos nas cláusulas)
-                          │
-                          ▼
-  [ Passo 7: Transformar toda a expressão para FNC (CNF) ]
-     ├─ Eliminar equivalências: A ↔ B vira (¬A ∨ B) ∧ (¬B ∨ A).
-     ├─ Eliminar implicações (A ─> B vira ¬A ∨ B)
-     ├─ Mover negações para dentro (Leis de De Morgan)
-     └─ Distribuir disjunções (∧ sobre ∨)
-                          │
-                          ▼
-        [ Passo 8: Separar a FNC em Cláusulas ]
-                          │
-                          ▼
-        [ Passo 9: Aplicar a Regra de Resolução ]
-                          │
-                          ▼
-            < Encontrou Cláusula Vazia (□)? >
-                  |                      |
-                 Sim                    Não
-                  |                      |          
-                  ▼                      ▼
-    [ Sucesso: BC implica α ]   [ Erro: Não é possível inferir α ]
-    (Contradição Encontrada)   (Não há mais cláusulas para resolver)
-                          │
-                          ▼
-                       [ Fim ]
-'''
-
-
-
 '''
 [ Início: Base de Conhecimento (BC) e Consulta (α) ]
                           |
