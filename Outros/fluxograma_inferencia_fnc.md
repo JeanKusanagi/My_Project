@@ -15,6 +15,7 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
                           │
                           ▼
   [ Passo 3: Transformar toda a expressão para FNC (CNF) ]
+     ├─ Trocar $A \leftrightarrow B$ por ($¬A ∨ B$) $\wedge$ $(B \rightarrow A)$.
      ├─ Eliminar implicações (A ──> B vira ¬A ∨ B)
      ├─ Mover negações para dentro (Leis de De Morgan)
      └─ Distribuir disjunções (∧ sobre ∨)
