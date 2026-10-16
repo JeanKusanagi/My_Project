@@ -55,7 +55,7 @@ A expressão inteira é padronizada. Uma fórmula está em FNC (Forma Normal Con
 $\rightarrow$ $A)$.
 * **Eliminar Implicações:** Substituir $A$ $\rightarrow$ $B$ por $¬A ∨ B$.
 * **Internalizar Negações:** Aplicar as Leis de De Morgan (ex: $¬(A \wedge B)$ vira $¬A ∨ ¬B$) e eliminar dupla negação ($¬¬A$ vira $A$).
-* **Distribuir Disjunções:** Aplicar a propriedade distributiva do operador $\lor$ (OU) sobre o operador $\land$ (E), de modo que as conjunções fiquem no nível mais externo da fórmula, enquanto as disjunções conectam os literais dentro de cada cláusula: $\[A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)\]$
+* **Distribuir Disjunções:** Aplicar a propriedade distributiva do operador $\lor$ (OU) sobre o operador $\land$ (E), de modo que as conjunções fiquem no nível mais externo da fórmula, enquanto as disjunções conectam os literais dentro de cada cláusula: $\[A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)\]$ e $\[A \land (B \lor C) \equiv (A \land B) \lor (A \land C)\]$
 
 ### 4. Separação em Cláusulas
 O operador $\wedge$ (E) global é descartado, quebrando a fórmula final em um conjunto de cláusulas independentes e simplificadas dentro do sistema.
