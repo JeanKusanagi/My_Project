@@ -20,7 +20,7 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
                           |
                           ▼
        [ Passo 4: Mover Negações para Dentro (De Morgan) ]
-               ¬(A ∧ B) \equiv ¬A ∨ ¬B
+               ¬(A ∧ B) ≡ ¬A ∨ ¬B
                           |
                           ▼
           [ Passo 5: Padronizar as Variáveis ]
