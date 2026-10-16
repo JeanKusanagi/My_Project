@@ -63,11 +63,13 @@ $\rightarrow$ $A)$.
 O operador $\wedge$ (E) global é descartado, quebrando a fórmula final em um conjunto de cláusulas independentes e simplificadas dentro do sistema.
 
 Assim, a fórmula:
-$
+
+$$
 \[
 (A \lor B) \land (\neg A \lor C) \land (\neg B \lor C)
 \]
-$
+$$
+
 Transforma-se no conjunto:
 
 $$
