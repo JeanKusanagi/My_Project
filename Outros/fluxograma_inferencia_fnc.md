@@ -62,6 +62,21 @@ $\rightarrow$ $A)$.
 ### 4. Separação em Cláusulas
 O operador $\wedge$ (E) global é descartado, quebrando a fórmula final em um conjunto de cláusulas independentes e simplificadas dentro do sistema.
 
+Assim, a fórmula:
+$
+\[
+(A \lor B) \land (\neg A \lor C) \land (\neg B \lor C)
+\]
+$
+Transforma-se no conjunto:
+$
+\[
+\boxed{
+S = \{(A \lor B), (\neg A \lor C), (\neg B \lor C)\}
+}
+\]
+$
+
 ### 5. Loop de Resolução
 O motor de inferência busca iterativamente pares de cláusulas que contenham literais complementares (por exemplo, uma cláusula com $P$ e outra com $P$). Elas são combinadas (resolvidas) gerando uma nova cláusula (resolvente) que exclui o par complementar.
 
