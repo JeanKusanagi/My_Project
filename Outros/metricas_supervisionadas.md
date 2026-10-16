@@ -124,6 +124,42 @@ Ambas variam entre 0 e 1, sendo 1 o valor correspondente à sobreposição perfe
 
 A Distância de Hausdorff (Hausdorff Distance) é uma métrica utilizada para medir a diferença entre dois conjuntos de pontos, considerando a maior distância entre um ponto de um conjunto e o ponto mais próximo do outro conjunto. É amplamente empregada em processamento de imagens, visão computacional, reconhecimento de padrões e avaliação de modelos de segmentação.
 
+A **distância de Hausdorff** mede a diferença entre dois conjuntos não vazios de pontos em um espaço métrico. É utilizada, por exemplo, em geometria, processamento de imagens e visão computacional.
+
+Sejam \(A\) e \(B\) dois conjuntos não vazios. A distância de Hausdorff é definida por:
+
+$$
+\[
+H(A,B)=\max\{h(A,B),h(B,A)\}
+\]
+$$
+
+em que:
+
+$$
+\[
+h(A,B)=\sup_{a\in A}\inf_{b\in B}d(a,b)
+\]
+$$
+
+e
+
+$$
+\[
+h(B,A)=\sup_{b\in B}\inf_{a\in A}d(b,a).
+\]
+$$
+
+### Significado dos termos
+
+- $\(d(a,b)\)$: distância entre os pontos \(a\) e \(b\).
+- $\(\inf\)$: ínfimo das distâncias — a maior cota inferior, que corresponde à menor distância quando ela é atingida.
+- $\(\sup\)$: supremo das distâncias — a menor cota superior, que corresponde ao maior valor quando ele é atingido.
+- $\(h(A,B)\)$: maior distância mínima dos pontos de \(A\) até o conjunto \(B\).
+- $\(h(B,A)\)$: maior distância mínima dos pontos de \(B\) até o conjunto \(A\).
+
+A distância de Hausdorff considera as duas direções para que nenhum dos conjuntos seja ignorado na comparação.
+
 ## 3. Métricas de regressão
 
 Considere $\(y_i\)$ o valor real, $\(\hat{y}_i\)$ o valor predito, $\(\bar{y}\)$ a média dos valores reais e $\(n\)$ o número de amostras.
