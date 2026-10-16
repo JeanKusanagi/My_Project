@@ -70,12 +70,13 @@ $
 $
 Transforma-se no conjunto:
 
+$$
 \[
 \boxed{
 S = \{(A \lor B), (\neg A \lor C), (\neg B \lor C)\}
 }
 \]
-
+$$
 
 ### 5. Loop de Resolução
 O motor de inferência busca iterativamente pares de cláusulas que contenham literais complementares (por exemplo, uma cláusula com $P$ e outra com $P$). Elas são combinadas (resolvidas) gerando uma nova cláusula (resolvente) que exclui o par complementar.
