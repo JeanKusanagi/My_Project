@@ -124,6 +124,8 @@ Ambas variam entre 0 e 1, sendo 1 o valor correspondente à sobreposição perfe
 
 A Distância de Hausdorff (Hausdorff Distance) é uma métrica utilizada para medir a diferença entre dois conjuntos de pontos, considerando a maior distância entre um ponto de um conjunto e o ponto mais próximo do outro conjunto. É amplamente empregada em processamento de imagens, visão computacional, reconhecimento de padrões e avaliação de modelos de segmentação.
 
+### Distância de Hausdorff
+
 A **distância de Hausdorff** mede a diferença entre dois conjuntos não vazios de pontos em um espaço métrico. É utilizada, por exemplo, em geometria, processamento de imagens e visão computacional.
 
 Sejam \(A\) e \(B\) dois conjuntos não vazios. A distância de Hausdorff é definida por:
@@ -150,7 +152,7 @@ h(B,A)=\sup_{b\in B}\inf_{a\in A}d(b,a).
 \]
 $$
 
-### Significado dos termos
+Significado dos termos
 
 - $\(d(a,b)\)$: distância entre os pontos \(a\) e \(b\).
 - $\(\inf\)$: ínfimo das distâncias — a maior cota inferior, que corresponde à menor distância quando ela é atingida.
