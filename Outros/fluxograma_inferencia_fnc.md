@@ -53,7 +53,7 @@ A expressão inteira é padronizada. Uma fórmula está em FNC (Forma Normal Con
 * **Eliminar Equivalências:** Substituir $A$ $\leftrightarrow$ $B$ por ($A$ $\rightarrow$ $B$) $\wedge$ $(B$ 
 $ightarrow$ $A)$.
 * **Eliminar Implicações:** Substituir $A$ $\rightarrow$ $B$ por $eg$ $A$ $ee$ $B$.
-* **Internalizar Negações:** Aplicar as Leis de De Morgan (ex: $¬(A \wedge B)$ vira $¬A$ ee $¬B$) e eliminar dupla negação ($\egeg A$ vira $A$).
+* **Internalizar Negações:** Aplicar as Leis de De Morgan (ex: $¬(A \wedge B)$ vira $¬A$ ee $¬B$) e eliminar dupla negação ($¬¬A$ vira $A$).
 * **Distribuir Disjunções:** Distribuir o operador $ee$ sobre o $\wedge$ para que os "E" fiquem apenas no nível mais externo.
 
 ### 4. Separação em Cláusulas
