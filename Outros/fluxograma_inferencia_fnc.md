@@ -4,7 +4,7 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
 
 ## O Fluxograma Lógico
 
-'''
+```
 [ Início: Base de Conhecimento (BC) e Consulta (α) ]
                           |
                           v
