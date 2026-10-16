@@ -54,8 +54,11 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
                           │
                           ▼
                        [ Fim ]
+'''
 
 
+
+'''
 [ Início: Base de Conhecimento (BC) e Consulta (α) ]
                           |
                           v
