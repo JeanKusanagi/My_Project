@@ -50,10 +50,10 @@ Adota-se o princípio da *reducio ad absurdum* (prova por contradição). Em vez
 
 ### 3. Conversão para FNC
 A expressão inteira é padronizada. Uma fórmula está em FNC (Forma Normal Conjuntiva) quando é composta por uma conjunção ("E") de cláusulas, onde cada cláusula é uma disjunção ("OU") de literais. Os passos internos de conversão são:
-* **Eliminar Equivalências:** Substituir $A$ $\leftrightarrow$ $B$ por $(A$ $\rightarrow$ $B$) $\wedge$ $(B$ 
+* **Eliminar Equivalências:** Substituir $A$ $\leftrightarrow$ $B$ por ($A$ $\rightarrow$ $B$) $\wedge$ $(B$ 
 $ightarrow$ $A)$.
-* **Eliminar Implicações:** Substituir $A$ $\rightarrow$ $B$ por $eg$ $A $ee$ $B$.
-* **Internalizar Negações:** Aplicar as Leis de De Morgan (ex: $¬(A \wedge B)$ vira $¬A$ ee $¬B$) e eliminar dupla negação ($egeg A$ vira $A$).
+* **Eliminar Implicações:** Substituir $A$ $\rightarrow$ $B$ por $eg$ $A$ $ee$ $B$.
+* **Internalizar Negações:** Aplicar as Leis de De Morgan (ex: $¬(A \wedge B)$ vira $¬A$ ee $¬B$) e eliminar dupla negação ($\egeg A$ vira $A$).
 * **Distribuir Disjunções:** Distribuir o operador $ee$ sobre o $\wedge$ para que os "E" fiquem apenas no nível mais externo.
 
 ### 4. Separação em Cláusulas
