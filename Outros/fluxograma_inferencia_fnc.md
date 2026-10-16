@@ -54,6 +54,65 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
                           │
                           ▼
                        [ Fim ]
+
+
+[ Início: Base de Conhecimento (BC) e Consulta (α) ]
+                          |
+                          v
+              [ Passo 1: Negar a Consulta ]
+                          |
+                       ¬α
+                          |
+                          v
+      [ Passo 2: Construir BC ∧ ¬α ]
+            (Prova por Contradição)
+                          |
+                          v
+ [ Passo 3: Eliminar Implicações e Equivalências ]
+             A → B  ≡  ¬A ∨ B
+             A ↔ B  ≡  (¬A ∨ B) ∧ (¬B ∨ A)
+                          |
+                          v
+ [ Passo 4: Mover Negações para Dentro (De Morgan) ]
+             ¬(A ∧ B) ≡ ¬A ∨ ¬B
+             ¬(A ∨ B) ≡ ¬A ∧ ¬B
+                          |
+                          v
+       [ Passo 5: Padronizar Variáveis ]
+       (Renomear variáveis quando necessário)
+                          |
+                          v
+             [ Passo 6: Skolemização ]
+       (Eliminar quantificadores existenciais)
+         (Usar constantes ou funções de Skolem)
+                          |
+                          v
+   [ Passo 7: Eliminar Quantificadores Universais ]
+        (Ficam implícitos nas cláusulas)
+                          |
+                          v
+     [ Passo 8: Transformar a Expressão em FNC ]
+       (Distribuir ∨ sobre ∧ quando necessário)
+                          |
+                          v
+          [ Passo 9: Separar em Cláusulas ]
+                          |
+                          v
+           [ Passo 10: Aplicar a Resolução ]
+                          |
+                          v
+              < Foi obtida a cláusula vazia □? >
+                       /             \
+                     Sim              Não
+                      |                |
+                      v                v
+         [ Contradição encontrada ]  [ A busca por
+                      |                resolução
+                      v                esgotou-se? ]
+          [ BC implica α: sucesso ]       |
+                                    +-----+-----+
+                                    |           |
+                                   Sim         Não
 ```
 
 ---
