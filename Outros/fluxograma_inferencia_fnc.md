@@ -103,3 +103,16 @@ O motor de inferência busca iterativamente pares de cláusulas que contenham li
 ### 6. Condição de Parada
 * **Sucesso (Cláusula Vazia $\square$):** Se a resolução de duas cláusulas complementares diretas (como $P$ e $¬\neg P$) gerar o símbolo vazio, significa que a contradição foi alcançada. Isso prova que **$\alpha$ é uma consequência lógica da base de conhecimento (BC)**.
 * **Falha:** Se nenhuma cláusula nova puder ser gerada e a cláusula vazia ($\square$) não for obtida, significa que não foi possível demonstrar que $\alpha$ é uma consequência lógica da base de conhecimento (BC).
+
+ ### Resumo
+
+1. Negar a consulta.
+2. Adicionar a negação à base de conhecimento.
+3. Eliminar implicações e equivalências.
+4. Mover as negações para dentro.
+5. Padronizar as variáveis, quando necessário.
+6. Skolemizar, eliminando os quantificadores existenciais.
+7. Eliminar os quantificadores universais.
+8. Transformar a expressão em FNC.
+9. Separar a FNC em cláusulas.
+10. Aplicar a resolução.
