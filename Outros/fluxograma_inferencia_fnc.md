@@ -23,28 +23,25 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
                ¬(A ∧ B) ≡ ¬A ∨ ¬B
                           |
                           ▼
-          [ Passo 5: Padronizar as Variáveis ]
-                          |
-                          ▼
-                [ Passo 6: Skolemização ]
+                [ Passo 5: Skolemização ]
            (Eliminar quantificadores existenciais)
                           |
                           ▼
-      [ Passo 7: Eliminar Quantificadores Universais ]
+      [ Passo 6: Eliminar Quantificadores Universais ]
              (Ficam implícitos nas cláusulas)
                           │
                           ▼
-  [ Passo 8: Transformar toda a expressão para FNC (CNF) ]
+  [ Passo 7: Transformar toda a expressão para FNC (CNF) ]
      ├─ Eliminar equivalências: A ↔ B vira (¬A ∨ B) ∧ (¬B ∨ A).
      ├─ Eliminar implicações (A ─> B vira ¬A ∨ B)
      ├─ Mover negações para dentro (Leis de De Morgan)
      └─ Distribuir disjunções (∧ sobre ∨)
                           │
                           ▼
-        [ Passo 9: Separar a FNC em Cláusulas ]
+        [ Passo 8: Separar a FNC em Cláusulas ]
                           │
                           ▼
-        [ Passo 10: Aplicar a Regra de Resolução ]
+        [ Passo 9: Aplicar a Regra de Resolução ]
                           │
                           ▼
             < Encontrou Cláusula Vazia (□)? >
