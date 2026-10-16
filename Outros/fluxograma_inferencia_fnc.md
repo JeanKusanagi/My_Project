@@ -15,8 +15,7 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
                           │
                           ▼
   [ Passo 3: Transformar toda a expressão para FNC (CNF) ]
-     ├─ Eliminar equivalências: $A ↔ B$ vira $(¬A ∨ B) ∧ (¬B ∨ A)$.
-     ├─ Trocar $A ↔ B$ por ($¬A ∨ B$) $\wedge$ $(B ─> A)$.
+     ├─ Eliminar equivalências: A ↔ B vira (¬A ∨ B) ∧ (¬B ∨ A).
      ├─ Eliminar implicações (A ─> B vira ¬A ∨ B)
      ├─ Mover negações para dentro (Leis de De Morgan)
      └─ Distribuir disjunções (∧ sobre ∨)
@@ -53,7 +52,7 @@ Adota-se o princípio da *reducio ad absurdum* (prova por contradição). Em vez
 ### 3. Conversão para FNC
 A expressão inteira é padronizada. Uma fórmula está em FNC (Forma Normal Conjuntiva) quando é composta por uma conjunção ("E") de cláusulas, onde cada cláusula é uma disjunção ("OU") de literais. Os passos internos de conversão são:
 * **Eliminar Equivalências:** Substituir $A$ $\leftrightarrow$ $B$ por ($B \rightarrow A$) $\wedge$ $(B$ 
-$\rightarrow$ $A)$.
+$\rightarrow$ $A)$, ou seja, (¬A ∨ B) ∧ (¬B ∨ A).
 * **Eliminar Implicações:** Substituir $A$ $\rightarrow$ $B$ por $¬A ∨ B$.
 * **Internalizar Negações:** Aplicar as Leis de De Morgan (ex: $¬(A \wedge B)$ vira $¬A ∨ ¬B$) e eliminar dupla negação ($¬¬A$ vira $A$).
 * **Distribuir Disjunções:** Aplicar a propriedade distributiva do operador $\lor$ (OU) sobre o operador $\land$ (E), de modo que as conjunções fiquem no nível mais externo da fórmula, enquanto as disjunções conectam os literais dentro de cada cláusula:
