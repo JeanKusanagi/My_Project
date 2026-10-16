@@ -8,14 +8,14 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
 [ Início: Base de Conhecimento (BC) e Consulta (α) ]
                           |
                           v
-              [ Passo 1: Negar a Consulta (¬α) ]
+           [ Passo 1: Negar a Consulta (¬α) ]
                           |
                           v
             [ Passo 2: Construir BC ∧ ¬α ]
                (Prova por Contradição)
                           |
                           v
- [ Passo 3: Eliminar Implicações e Equivalências ]
+  [ Passo 3: Eliminar Implicações e Equivalências ]
              A → B  ≡  ¬A ∨ B
              A ↔ B  ≡  (¬A ∨ B) ∧ (¬B ∨ A)
                           |
@@ -25,7 +25,7 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
              ¬(A ∨ B) ≡ ¬A ∧ ¬B
                           |
                           v
-       [ Passo 5: Padronizar Variáveis ]
+         [ Passo 5: Padronizar Variáveis ]
        (Renomear variáveis quando necessário)
                           |
                           v
@@ -35,7 +35,7 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
                           |
                           v
    [ Passo 7: Eliminar Quantificadores Universais ]
-        (Ficam implícitos nas cláusulas)
+           (Ficam implícitos nas cláusulas)
                           |
                           v
      [ Passo 8: Transformar a Expressão em FNC ]
@@ -48,15 +48,15 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
            [ Passo 10: Aplicar a Resolução ]
                           |
                           v
-              < Foi obtida a cláusula vazia □? >
-                       /             \
-                     Sim              Não
-                      |                |
-                      v                v
-         [ Contradição encontrada ]  [ A busca por
-                      |                resolução
-                      v                esgotou-se? ]
-          [ BC implica α: sucesso ]       |
+            < Foi obtida a cláusula vazia □? >
+                     /                \
+                   Sim                 Não
+                    |                   |
+                    v                   v
+        [ Contradição encontrada ]  [ A busca por
+                     |                resolução
+                     v                esgotou-se? ]
+         [ BC implica α: sucesso ]        |
                                     +-----+-----+
                                     |           |
                                    Sim         Não
