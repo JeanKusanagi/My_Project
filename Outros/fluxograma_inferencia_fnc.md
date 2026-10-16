@@ -66,5 +66,5 @@ O operador $\wedge$ (E) global é descartado, quebrando a fórmula final em um c
 O motor de inferência busca iterativamente pares de cláusulas que contenham literais complementares (por exemplo, uma cláusula com $P$ e outra com $P$). Elas são combinadas (resolvidas) gerando uma nova cláusula (resolvente) que exclui o par complementar.
 
 ### 6. Condição de Parada
-* **Sucesso (Cláusula Vazia $\square$):** Se a resolução de duas cláusulas complementares diretas (como $P$ e $¬\neg P$) gerar o símbolo vazio, significa que a contradição foi alcançada. Isso prova que **$\alpha$ é uma consequência lógica** da base.
+* **Sucesso (Cláusula Vazia $\square$):** Se a resolução de duas cláusulas complementares diretas (como $P$ e $¬\neg P$) gerar o símbolo vazio, significa que a contradição foi alcançada. Isso prova que **$\alpha$** **é uma consequência lógica** da base.
 * **Falha:** Se nenhuma cláusula nova puder ser gerada e o símbolo vazio não for alcançado, significa que a inferência falhou e $\alpha$ não pode ser provado a partir daquela BC.
