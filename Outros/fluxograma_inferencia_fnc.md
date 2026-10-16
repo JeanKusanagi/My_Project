@@ -62,13 +62,11 @@ Este documento apresenta o processo estruturado de inferência lógica proposici
 [ Início: Base de Conhecimento (BC) e Consulta (α) ]
                           |
                           v
-              [ Passo 1: Negar a Consulta ]
-                          |
-                       ¬α
+              [ Passo 1: Negar a Consulta (¬α) ]
                           |
                           v
-      [ Passo 2: Construir BC ∧ ¬α ]
-            (Prova por Contradição)
+            [ Passo 2: Construir BC ∧ ¬α ]
+               (Prova por Contradição)
                           |
                           v
  [ Passo 3: Eliminar Implicações e Equivalências ]
