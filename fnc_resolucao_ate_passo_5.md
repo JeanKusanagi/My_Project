@@ -339,7 +339,7 @@ Mortal(Socrates)
 \]
 $$
 
-A cláusula vazia \(\Box\) representa uma contradição.
+A cláusula vazia $\(\Box\)$ representa uma contradição.
 
 ### Passo 10 — Interpretar o resultado
 
@@ -418,7 +418,7 @@ C_2=Humano(Socrates)
 \]
 $$
 
-A negação da consulta, \(\neg\exists y\,Mae(Socrates,y)\), equivale a:
+A negação da consulta, $\(\neg\exists y\,Mae(Socrates,y)\)$, equivale a:
 
 $$
 \[
@@ -434,9 +434,11 @@ C_3=\neg Mae(Socrates,y)
 
 Portanto, o conjunto de cláusulas é:
 
+$$
 \[
 S=\{C_1,C_2,C_3\}
 \]
+$$
 
 ### Passo 7 — Verificar a Forma Normal Conjuntiva (FNC)
 
@@ -473,7 +475,7 @@ $$
 
 ### Passo 9 — Aplicar a regra de resolução
 
-#### Resolução 1 — Usar \(C_1\) e \(C_2\)
+#### Resolução 1 — Usar $\(C_1\)$ e $\(C_2\)$
 
 Temos:
 
@@ -505,7 +507,7 @@ C_4=Mae(Socrates,f(Socrates))
 \]
 $$
 
-#### Resolução 2 — Usar \(C_4\) e \(C_3\)
+#### Resolução 2 — Usar $\(C_4\) e \(C_3\)$
 
 Temos:
 
@@ -523,9 +525,11 @@ $$
 
 Os literais são complementares com a substituição:
 
+$$
 \[
 y=f(Socrates)
 \]
+$$
 
 Aplicando a resolução:
 
@@ -572,8 +576,8 @@ $$
 | 6. Eliminar quantificadores universais | As variáveis universais ficam implícitas | As variáveis universais ficam implícitas |
 | 7. Obter/verificar a FNC | A fórmula já está na FNC | A fórmula já está na FNC após a Skolemização |
 | 8. Separar em cláusulas | Três cláusulas iniciais | Três cláusulas iniciais |
-| 9. Aplicar resolução | Deriva \(Mortal(Socrates)\) e depois \(\Box\) | Deriva \(Mae(Socrates,f(Socrates))\) e depois \(\Box\) |
-| 10. Concluir | \(BC\models Mortal(Socrates)\) | \(BC\models\exists y\,Mae(Socrates,y)\) |
+| 9. Aplicar resolução | Deriva \(Mortal(Socrates)\) e depois $\(\Box\)$ | Deriva \(Mae(Socrates,f(Socrates))\) e depois $\(\Box\)$ |
+| 10. Concluir | $\(BC\models Mortal(Socrates)\)$ | $\(BC\models\exists y\,Mae(Socrates,y)\)$ |
 
 **Para memorizar:** a Skolemização elimina quantificadores existenciais; a FNC organiza a fórmula em cláusulas; e a resolução tenta derivar a cláusula vazia para demonstrar a conclusão por refutação.
 
