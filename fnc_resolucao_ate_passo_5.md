@@ -368,13 +368,15 @@ $$
 1. Todo ser humano tem uma mãe.
 2. Sócrates é um ser humano.
 
-Considere a base de conhecimento:
+Considere a base de conhecimento, em que a primeira afirmação é representada por:
 
 $$
 \[
 \forall x\,(Humano(x)\rightarrow \exists y\,Mae(x,y))
 \]
 $$
+
+A segunda afirmação é:
 
 $$
 \[
