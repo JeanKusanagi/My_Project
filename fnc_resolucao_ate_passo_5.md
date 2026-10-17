@@ -43,7 +43,7 @@ $$
 
 Para isso, utilizaremos uma prova por contradição: adicionaremos a negação da consulta à base de conhecimento e tentaremos obter uma contradição por resolução.
 
-## 2. Passo 1 — Negar a consulta
+## Passo 1 — Negar a consulta
 
 A consulta original é:
 
@@ -74,7 +74,7 @@ $$
 
 Se conseguirmos demonstrar que \(F\) é insatisfatível, teremos provado que a consulta é consequência lógica da base de conhecimento.
 
-## 3. Passo 2 — Eliminar as implicações
+## Passo 2 — Eliminar as implicações
 
 A fórmula contém a implicação:
 
@@ -121,7 +121,7 @@ $$
 
 Observe que eliminamos a implicação, substituindo-a por uma disjunção.
 
-## 4. Passo 3 — Mover as negações para dentro
+## Passo 3 — Mover as negações para dentro
 
 A fórmula resultante já está na forma normal negativa (FNN): as negações aparecem diretamente diante dos predicados.
 
@@ -140,7 +140,7 @@ Não precisamos aplicar nenhuma outra lei de De Morgan neste exemplo.
 
 **Observação:** a forma normal negativa não é a mesma coisa que a Forma Normal Conjuntiva. Ainda precisamos verificar as etapas seguintes da conversão.
 
-## 5. Passo 4 — Padronizar as variáveis
+## Passo 4 — Padronizar as variáveis
 
 A padronização consiste em renomear variáveis ligadas por quantificadores quando necessário, evitando ambiguidades entre variáveis distintas.
 
@@ -157,7 +157,7 @@ F =
 \]
 $$
 
-## 6. Passo 5 — Aplicar a Skolemização
+## Passo 5 — Aplicar a Skolemização
 
 A Skolemização elimina os quantificadores existenciais, substituindo suas variáveis por constantes ou funções de Skolem.
 
@@ -185,8 +185,6 @@ $$
 Isso é importante: nem todo exemplo de resolução precisa modificar a fórmula durante a Skolemização.
 
 ---
-
-## Exemplo 1 — Silogismo de Sócrates
 
 ### Passo 6 — Eliminar os quantificadores universais
 
