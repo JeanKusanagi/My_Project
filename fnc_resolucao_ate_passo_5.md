@@ -428,9 +428,11 @@ $$
 
 Eliminando o quantificador universal explícito, obtemos:
 
+$$
 \[
 C_3=\neg Mae(Socrates,y)
 \]
+$$
 
 Portanto, o conjunto de cláusulas é:
 
