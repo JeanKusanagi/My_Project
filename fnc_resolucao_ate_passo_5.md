@@ -13,25 +13,33 @@ Queremos demonstrar que Sócrates é mortal.
 
 **Base de conhecimento (BC):**
 
+$$
 \[
 \forall x\,(Humano(x)\rightarrow Mortal(x))
 \]
+$$
 
+$$
 \[
 Humano(Socrates)
 \]
+$$
 
 **Consulta:**
 
+$$
 \[
 \alpha = Mortal(Socrates)
 \]
+$$
 
 Nosso objetivo é provar que:
 
+$$
 \[
 \boxed{BC \models Mortal(Socrates)}
 \]
+$$
 
 Para isso, utilizaremos uma prova por contradição: adicionaremos a negação da consulta à base de conhecimento e tentaremos obter uma contradição por resolução.
 
@@ -39,24 +47,30 @@ Para isso, utilizaremos uma prova por contradição: adicionaremos a negação d
 
 A consulta original é:
 
+$$
 \[
 \alpha = Mortal(Socrates)
 \]
+$$
 
 Negando-a:
 
+$$
 \[
 \neg\alpha = \neg Mortal(Socrates)
 \]
+$$
 
 Adicionamos essa negação à base de conhecimento:
 
+$$
 \[
 F =
 \forall x\,(Humano(x)\rightarrow Mortal(x))
 \land Humano(Socrates)
 \land \neg Mortal(Socrates)
 \]
+$$
 
 Se conseguirmos demonstrar que \(F\) é insatisfatível, teremos provado que a consulta é consequência lógica da base de conhecimento.
 
@@ -64,36 +78,46 @@ Se conseguirmos demonstrar que \(F\) é insatisfatível, teremos provado que a c
 
 A fórmula contém a implicação:
 
+$$
 \[
 Humano(x)\rightarrow Mortal(x)
 \]
+$$
 
 Utilizamos a equivalência lógica:
 
+$$
 \[
 P\rightarrow Q \equiv \neg P\lor Q
 \]
+$$
 
 Logo:
 
+$$
 \[
 Humano(x)\rightarrow Mortal(x)
 \]
+$$
 
 torna-se:
 
+$$
 \[
 \neg Humano(x)\lor Mortal(x)
 \]
+$$
 
 A fórmula completa passa a ser:
 
+$$
 \[
 F =
 \forall x\,(\neg Humano(x)\lor Mortal(x))
 \land Humano(Socrates)
 \land \neg Mortal(Socrates)
 \]
+$$
 
 Observe que eliminamos a implicação, substituindo-a por uma disjunção.
 
@@ -103,12 +127,14 @@ A fórmula resultante já está na forma normal negativa (FNN): as negações ap
 
 Temos:
 
+$$
 \[
 F =
 \forall x\,(\neg Humano(x)\lor Mortal(x))
 \land Humano(Socrates)
 \land \neg Mortal(Socrates)
 \]
+$$
 
 Não precisamos aplicar nenhuma outra lei de De Morgan neste exemplo.
 
@@ -122,12 +148,14 @@ Neste exemplo, temos apenas uma variável universal, \(x\). Portanto, **não é 
 
 A fórmula permanece:
 
+$$
 \[
 F =
 \forall x\,(\neg Humano(x)\lor Mortal(x))
 \land Humano(Socrates)
 \land \neg Mortal(Socrates)
 \]
+$$
 
 ## 6. Passo 5 — Aplicar a Skolemização
 
@@ -135,20 +163,24 @@ A Skolemização elimina os quantificadores existenciais, substituindo suas vari
 
 Entretanto, observe que nossa fórmula contém apenas o quantificador universal:
 
+$$
 \[
 \forall x
 \]
+$$
 
 Não existem quantificadores existenciais neste exemplo. Portanto, **a Skolemização não altera a fórmula**.
 
 Temos:
 
+$$
 \[
 F =
 \forall x\,(\neg Humano(x)\lor Mortal(x))
 \land Humano(Socrates)
 \land \neg Mortal(Socrates)
 \]
+$$
 
 Isso é importante: nem todo exemplo de resolução precisa modificar a fórmula durante a Skolemização.
 
@@ -162,24 +194,30 @@ Após a Skolemização, eliminamos os símbolos explícitos dos quantificadores 
 
 A fórmula
 
+$$
 \[
 \forall x\,(\neg Humano(x)\lor Mortal(x))
 \]
+$$
 
 passa a ser representada por:
 
+$$
 \[
 \neg Humano(x)\lor Mortal(x)
 \]
+$$
 
 Assim, a fórmula completa fica:
 
+$$
 \[
 F =
 (\neg Humano(x)\lor Mortal(x))
 \land Humano(Socrates)
 \land \neg Mortal(Socrates)
 \]
+$$
 
 ### Passo 7 — Transformar para a Forma Normal Conjuntiva (FNC)
 
@@ -187,6 +225,7 @@ A FNC é uma conjunção de cláusulas, e cada cláusula é uma disjunção de l
 
 Neste exemplo, a fórmula já está na FNC:
 
+$$
 \[
 \boxed{
 F =
@@ -195,6 +234,7 @@ F =
 \land \neg Mortal(Socrates)
 }
 \]
+$$
 
 Não é necessário distribuir disjunções sobre conjunções.
 
@@ -202,17 +242,23 @@ Não é necessário distribuir disjunções sobre conjunções.
 
 Separando cada componente da conjunção, obtemos:
 
+$$
 \[
 C_1 = \neg Humano(x)\lor Mortal(x)
 \]
+$$
 
+$$
 \[
 C_2 = Humano(Socrates)
 \]
+$$
 
+$$
 \[
 C_3 = \neg Mortal(Socrates)
 \]
+$$
 
 O conjunto de cláusulas é:
 
@@ -228,10 +274,13 @@ A resolução combina cláusulas que contêm literais complementares. Na Lógica
 
 Temos:
 
+$$
 \[
 C_1=\neg Humano(x)\lor Mortal(x)
 \]
+$$
 
+$$
 \[
 C_2=Humano(Socrates)
 \]
@@ -241,9 +290,11 @@ Os literais \(\neg Humano(x)\) e \(Humano(Socrates)\) são complementares pela s
 \[
 x=Socrates
 \]
+$$
 
 Aplicando a resolução:
 
+$$
 \[
 \frac{
 \neg Humano(x)\lor Mortal(x)
@@ -252,20 +303,25 @@ Aplicando a resolução:
 Mortal(Socrates)
 }
 \]
+$$
 
 Obtemos:
 
+$$
 \[
 C_4=Mortal(Socrates)
 \]
+$$
 
 #### Resolução 2 — Usar \(C_4\) e \(C_3\)
 
 Temos:
 
+$$
 \[
 C_4=Mortal(Socrates)
 \]
+$$
 
 \[
 C_3=\neg Mortal(Socrates)
@@ -273,6 +329,7 @@ C_3=\neg Mortal(Socrates)
 
 Os literais são complementares. Pela resolução:
 
+$$
 \[
 \frac{
 Mortal(Socrates)
@@ -282,6 +339,7 @@ Mortal(Socrates)
 \Box
 }
 \]
+$$
 
 A cláusula vazia \(\Box\) representa uma contradição.
 
@@ -289,15 +347,19 @@ A cláusula vazia \(\Box\) representa uma contradição.
 
 A fórmula inicial era:
 
+$$
 \[
 F=BC\land\neg\alpha
 \]
+$$
 
 Como a resolução produziu a cláusula vazia, \(BC\land\neg\alpha\) é insatisfatível. Logo:
 
+$$
 \[
 \boxed{BC\models Mortal(Socrates)}
 \]
+$$
 
 **Conclusão:** demonstramos que Sócrates é mortal.
 
@@ -307,45 +369,59 @@ Como a resolução produziu a cláusula vazia, \(BC\land\neg\alpha\) é insatisf
 
 Considere a base de conhecimento:
 
+$$
 \[
 \forall x\,(Humano(x)\rightarrow \exists y\,Mae(x,y))
 \]
+$$
 
+$$
 \[
 Humano(Socrates)
 \]
+$$
 
 A consulta é:
 
+$$
 \[
 \alpha=\exists y\,Mae(Socrates,y)
 \]
+$$
 
 ### Passo 6 — Eliminar os quantificadores universais
 
 Após eliminar a implicação e aplicar a Skolemização, temos:
 
+$$
 \[
 \forall x\,(\neg Humano(x)\lor Mae(x,f(x)))
 \]
+$$
 
 Eliminando o símbolo explícito do quantificador universal, obtemos a cláusula:
 
+$$
 \[
 C_1=\neg Humano(x)\lor Mae(x,f(x))
 \]
+$$
 
 A afirmação de que Sócrates é humano gera:
 
+$$
 \[
 C_2=Humano(Socrates)
 \]
+$$
 
 A negação da consulta, \(\neg\exists y\,Mae(Socrates,y)\), equivale a:
 
+$$
 \[
 \forall y\,\neg Mae(Socrates,y)
 \]
+$$
 
 Eliminando o quantificador universal explícito, obtemos:
 
@@ -363,6 +439,7 @@ S=\{C_1,C_2,C_3\}
 
 A fórmula está na FNC, pois consiste em uma conjunção de cláusulas. Cada cláusula contém um literal ou uma disjunção de literais:
 
+$$
 \[
 \boxed{
 \begin{aligned}
@@ -372,11 +449,13 @@ C_3&=\neg Mae(Socrates,y)
 \end{aligned}
 }
 \]
+$$
 
 ### Passo 8 — Separar em cláusulas
 
 O conjunto final é:
 
+$$
 \[
 \boxed{
 S=
@@ -387,6 +466,7 @@ Humano(Socrates),
 \}
 }
 \]
+$$
 
 ### Passo 9 — Aplicar a regra de resolução
 
@@ -394,37 +474,49 @@ Humano(Socrates),
 
 Temos:
 
+$$
 \[
 C_1=\neg Humano(x)\lor Mae(x,f(x))
 \]
+$$
 
+$$
 \[
 C_2=Humano(Socrates)
 \]
+$$
 
 Unificamos os literais complementares usando:
 
+$$
 \[
 x=Socrates
 \]
+$$
 
 A resolução produz:
 
+$$
 \[
 C_4=Mae(Socrates,f(Socrates))
 \]
+$$
 
 #### Resolução 2 — Usar \(C_4\) e \(C_3\)
 
 Temos:
 
+$$
 \[
 C_4=Mae(Socrates,f(Socrates))
 \]
+$$
 
+$$
 \[
 C_3=\neg Mae(Socrates,y)
 \]
+$$
 
 Os literais são complementares com a substituição:
 
@@ -434,6 +526,7 @@ y=f(Socrates)
 
 Aplicando a resolução:
 
+$$
 \[
 \frac{
 Mae(Socrates,f(Socrates))
@@ -443,22 +536,27 @@ Mae(Socrates,f(Socrates))
 \Box
 }
 \]
+$$
 
 Obtemos a cláusula vazia:
 
+$$
 \[
 \boxed{\Box}
 \]
+$$
 
 ### Passo 10 — Interpretar o resultado
 
 A cláusula vazia mostra que a base de conhecimento, combinada com a negação da consulta, é insatisfatível. Portanto:
 
+$$
 \[
 \boxed{
 BC\models\exists y\,Mae(Socrates,y)
 }
 \]
+$$
 
 **Conclusão:** demonstramos que Sócrates tem uma mãe.
 
