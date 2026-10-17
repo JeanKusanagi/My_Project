@@ -4,6 +4,8 @@
 
 Vamos demonstrar, passo a passo, como utilizar a Skolemização, a Forma Normal Conjuntiva (FNC) e a resolução para provar uma conclusão a partir de uma base de conhecimento.
 
+## Exemplo 1 — Silogismo de Sócrates
+
 1. Todo ser humano é mortal.
 2. Sócrates é um ser humano.
 
