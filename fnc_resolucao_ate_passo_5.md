@@ -434,11 +434,11 @@ C_3=\neg Mae(Socrates,y)
 
 Portanto, o conjunto de cláusulas é:
 
-$$
+$
 \[
 S=\{C_1,C_2,C_3\}
 \]
-$$
+$
 
 ### Passo 7 — Verificar a Forma Normal Conjuntiva (FNC)
 
