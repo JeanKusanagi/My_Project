@@ -58,7 +58,10 @@ $$L_1 \leftarrow L_1 - 0.5L_2$$
 * $0.5 - 0.5(-2) = 0.5 + 1 = 1.5$
 * $0 - 0.5(1) = -0.5$
 
-$$\left(\begin{array}{cc|cc} 1 & 0 & 1.5 & -0.5 \\ 0 & 1 & -2 & 1 \end{array}\right)$$
+$$\left(\begin{array}{cc|cc} 
+1 & 0 & 1.5 & -0.5 \\
+0 & 1 & -2 & 1 
+\end{array}\right)$$
 
 ---
 
@@ -70,6 +73,21 @@ $$A^{-1} = \begin{pmatrix} 1.5 & -0.5 \\ -2 & 1 \end{pmatrix}$$
 
 ### Verificação ($A \times A^{-1} = I$)
 
-$$\begin{pmatrix} 2 & 1 \\ 4 & 3 \end{pmatrix} \begin{pmatrix} 1.5 & -0.5 \\ -2 & 1 \end{pmatrix} = \begin{pmatrix} 2(1.5)+1(-2) & 2(-0.5)+1(1) \\ 4(1.5)+3(-2) & 4(-0.5)+3(1) \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$$
+$$\begin{pmatrix} 
+2 & 1 \\
+4 & 3 
+\end{pmatrix}
+\begin{pmatrix} 
+1.5 & -0.5 \\
+-2 & 1 
+\end{pmatrix} = 
+\begin{pmatrix}
+2(1.5)+1(-2) & 2(-0.5)+1(1) \\
+4(1.5)+3(-2) & 4(-0.5)+3(1) 
+\end{pmatrix} = 
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}$$
 
 A verificação confirma que o cálculo está **correto**!
