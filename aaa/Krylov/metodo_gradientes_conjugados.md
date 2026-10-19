@@ -6,13 +6,17 @@ Proposto por Hestenes e Stiefel em 1952, CG é particularmente adequado à resol
 
 Diferentemente dos métodos diretos baseados em fatoração, o CG gera iterativamente uma sequência de direções conjugadas em relação à matriz (A) e busca a solução do sistema por meio da minimização da função quadrática
 
-f(x)=(½) xᵀAx − bᵀx (A solução do sistema Ax=b corresponde ao ponto de mínimo desta função).
+$$
+f(x)=(½) xᵀAx − bᵀx.
+$$
 
-Isso permite que as informações obtidas nas iterações anteriores sejam aproveitadas de maneira mais eficiente, em vez de seguir simplesmente a direção do gradiente, como ocorre no método do gradiente descendente.
+A solução do sistema Ax=b corresponde ao ponto de mínimo desta função). Isso permite que as informações obtidas nas iterações anteriores sejam aproveitadas de maneira mais eficiente, em vez de seguir simplesmente a direção do gradiente, como ocorre no método do gradiente descendente.
 
 Como a matriz (A) é SPD, essa função é estritamente convexa e possui um único ponto de mínimo, que satisfaz
 
+$$
 ∇f(x)=Ax−b=0.
+$$
 
 Ou seja, esse ponto de mínimo é exatamente a solução do sistema linear Ax=b.
 
