@@ -1,6 +1,6 @@
 # Exemplo de Eliminação Gaussiana (Método de Gauss)
 
-Este documento apresenta o passo a passo da **Eliminação Gaussiana** aplicada a um sistema linear $3 	imes 3$ com solução única.
+Este documento apresenta o passo a passo da **Eliminação Gaussiana** aplicada a um sistema linear $3 \times 3$ com solução única.
 
 O objetivo deste método é transformar a matriz de coeficientes em uma **matriz triangular superior** (com zeros abaixo da diagonal principal) e depois encontrar as variáveis usando substituição regressiva (de baixo para cima).
 
