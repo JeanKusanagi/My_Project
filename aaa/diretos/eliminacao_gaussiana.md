@@ -1,3 +1,47 @@
+# Método de Eliminação de Gauss
+
+O **Método de Eliminação de Gauss** (ou escalonamento) é um algoritmo da álgebra linear usado para resolver sistemas de equações lineares. 
+
+O objetivo principal é transformar a matriz original dos coeficientes em uma **matriz triangular superior** (onde todos os elementos abaixo da diagonal principal são iguais a zero), facilitando o cálculo das variáveis.
+
+---
+
+## Como funciona o método
+
+1. **Montagem da Matriz Aumentada**: Escreve-se o sistema de equações na forma de uma matriz combinando os coeficientes das variáveis e os termos independentes após o sinal de igual.
+2. **Operações Elementares**: Utiliza-se três tipos de operações válidas para zerar os elementos abaixo da diagonal principal:
+   * Trocar duas linhas de posição ($L_i \leftrightarrow L_j$).
+   * Multiplicar uma linha por um número diferente de zero ($c \cdot L_i$).
+   * Somar a uma linha um múltiplo de outra linha ($L_i + k \cdot L_j$).
+3. **Substituição Retroativa (ou Regressiva)**: Após a matriz estar escalonada, a última equação terá apenas uma incógnita. Resolve-se de baixo para cima, substituindo os valores encontrados nas equações anteriores para achar todas as variáveis.
+
+---
+
+## Exemplo prático de cálculo
+
+Para o sistema linear:
+* $2x + y = 5$
+* $x - y = 1$
+
+1. **Matriz aumentada**:
+   $$\begin{pmatrix} 2 & 1 & \vert{} & 5 \\ 1 & -1 & \vert{} & 1 \end{pmatrix}$$
+
+2. **Escalonamento** (zerando o elemento abaixo do 2 na primeira coluna):
+   * Nova linha 2 = Linha 2 - $(1/2) \times$ Linha 1
+   $$\begin{pmatrix} 2 & 1 & \vert{} & 5 \\ 0 & -1.5 & \vert{} & -1.5 \end{pmatrix}$$
+
+3. **Resolução por substituição**:
+   * Da segunda linha: $-1.5y = -1.5 \implies y = 1$.
+   * Da primeira linha: $2x + 1 = 5 \implies 2x = 4 \implies x = 2$.
+   * **Solução**: $x = 2$ e $y = 1$.
+
+---
+
+## Diferença para o Método de Gauss-Jordan
+
+* **Eliminação de Gauss**: Para na forma triangular superior e utiliza substituição retroativa para encontrar as incógnitas.
+* **Gauss-Jordan**: Continua as operações elementares até transformar a matriz dos coeficientes em uma **matriz identidade** (com 1 na diagonal principal e 0 em todas as outras posições), fornecendo os resultados diretamente sem necessidade de substituição.
+
 # Exemplo de Eliminação Gaussiana (Método de Gauss)
 
 Este documento apresenta o passo a passo da **Eliminação Gaussiana** aplicada a um sistema linear $3 \times 3$ com solução única.
