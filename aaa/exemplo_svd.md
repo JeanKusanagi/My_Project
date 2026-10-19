@@ -62,6 +62,7 @@ $$V = \begin{pmatrix}
 As colunas de $U$ podem ser encontradas usando a relação $u_i = \frac{1}{\sigma_i} A v_i$:
 
 * Para $u_1$:
+
 $$A v_1 =
 \begin{pmatrix}
 3 & 0 \\
