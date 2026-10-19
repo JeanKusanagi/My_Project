@@ -1,6 +1,20 @@
 # Método dos Gradientes Conjugados e Variantes
 
-O **método do gradiente conjugado** é um algoritmo iterativo usado para resolver sistemas de equações lineares do tipo $Ax = b$, especialmente quando a matriz $A$ é grande, simétrica e definida positiva.
+O **método do gradiente conjugado (CG)** é um algoritmo iterativo utilizado para resolver sistemas de equações lineares do tipo $Ax = b$, especialmente quando a matriz $A$ é grande, simétrica e definida positiva.
+
+Proposto por Hestenes e Stiefel em 1952, CG é particularmente adequado à resolução de sistemas lineares cuja matriz (A) é simétrica definida positiva (SPD). Em aritmética exata, para uma matriz de dimensão (n), o método converge para a solução em no máximo (n) iterações. Na prática, devido à estrutura espectral da matriz e aos efeitos da aritmética de ponto flutuante, a convergência pode ocorrer em um número significativamente menor de iterações, geralmente, quando um critério de tolerância é atingido. A velocidade de convergência depende, entre outros fatores, do condicionamento e da distribuição dos autovalores de (A), sendo comum o emprego de técnicas de pré-condicionamento para melhorar esse comportamento. Sistemas bem condicionados tendem a apresentar convergência mais rápida, enquanto sistemas mal condicionados podem exigir técnicas adicionais.
+
+Diferentemente dos métodos diretos baseados em fatoração, o CG gera iterativamente uma sequência de direções conjugadas em relação à matriz (A) e busca a solução do sistema por meio da minimização da função quadrática
+
+f(x)=(½) xᵀAx − bᵀx (A solução do sistema Ax=b corresponde ao ponto de mínimo desta função).
+
+Isso permite que as informações obtidas nas iterações anteriores sejam aproveitadas de maneira mais eficiente, em vez de seguir simplesmente a direção do gradiente, como ocorre no método do gradiente descendente.
+
+Como a matriz (A) é SPD, essa função é estritamente convexa e possui um único ponto de mínimo, que satisfaz
+
+∇f(x)=Ax−b=0.
+
+Ou seja, esse ponto de mínimo é exatamente a solução do sistema linear Ax=b.
 
 ---
 
