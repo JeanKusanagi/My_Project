@@ -54,6 +54,7 @@ $$\left(\begin{array}{cc|cc} 1 & 0.5 & 0.5 & 0 \\ 0 & 1 & -2 & 1 \end{array}\rig
 *(Note que o elemento da diagonal na segunda linha já virou $1$ de forma natural neste exemplo!).*
 
 ### Passo 4: Zerar o elemento acima do pivô na coluna 2 ($L_1$)
+
 Subtraímos $0.5$ vezes a segunda linha da primeira linha ($L_1$):
 
 $$L_1 \leftarrow L_1 - 0.5L_2$$
