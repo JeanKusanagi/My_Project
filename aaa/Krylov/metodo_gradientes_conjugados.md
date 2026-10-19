@@ -42,7 +42,11 @@ Considere o sistema linear bidimensional ($n = 2$):
 $$A = 
 \begin{pmatrix} 4 & 1 \\
 1 & 3
-\end{pmatrix}, \quad b = \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+\end{pmatrix}, \quad b = 
+\begin{pmatrix} 
+1 \\
+2 
+\end{pmatrix}
 $$
 
 A solução exata é 
