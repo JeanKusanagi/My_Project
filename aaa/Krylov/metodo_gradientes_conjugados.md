@@ -48,7 +48,8 @@ $$
 A solução exata é 
 
 $$
-x \approx \begin{pmatrix} 
+x \approx
+\begin{pmatrix} 
 0.0909 \\
 0.6364 
 \end{pmatrix}
