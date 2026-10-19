@@ -81,12 +81,11 @@ $$
 Aplicando o Critério de Sylvester:
 1. **$D_1$**: $\det(3) = \mathbf{3 > 0}$
 2. **$D_2$**:
-
-$\det
+$$\det
 \begin{pmatrix} 3 & 1 \\
 1 & 2
 \end{pmatrix} = (3 \times 2) - (1 \times 1) = 6 - 1 = \mathbf{5 > 0}
-$
+$$
 3. **$D_3$**: $\det(B) = 3(4 - 0) - 1(2 - 0) + 1(0 - 2) = 12 - 2 - 2 = \mathbf{8 > 0}$
 
 Como todos os menores principais líderes são positivos ($3, 5, 8$), a matriz $B$ também é **definida positiva**.
