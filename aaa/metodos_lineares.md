@@ -87,3 +87,24 @@ $$ L = \begin{bmatrix} 1 & 0 & 0 \\ \mathbf{2} & 1 & 0 \\ \mathbf{-1} & \mathbf{
 | **Eliminação Gaussiana** | Triangular Superior | Menos operações aritméticas que Gauss-Jordan. | Exige esforço de substituição manual no final. | Sistemas gerais calculados manualmente ou algoritmos simples. |
 | **Gauss-Jordan** | Matriz Identidade | Dá a resposta diretamente na última coluna, sem substituição. | Custo computacional mais elevado (mais operações por linha). | Encontrar a Matriz Inversa ou resolver sistemas pequenos de forma direta. |
 | **Fatoração LU** | Duas Matrizes ($L$ e $U$) | Extremamente rápido quando o vetor de respostas ($b$) muda frequentemente. | A decomposição inicial exige atenção com os multiplicadores. | Sistemas de engenharia/física com cargas dinâmicas (mesma estrutura, respostas variadas). |
+
+
+
+# Tabela Comparativa de Métodos Algébricos e Fatorações
+
+Esta tabela reúne as principais características, vantagens, desvantagens e cenários ideais dos métodos de resolução de sistemas lineares e fatorações de matrizes estudados.
+
+## Tabela Comparativa dos Métodos
+
+| Método | Formato Final da Matriz | Vantagem Principal | Desvantagem Principal | Cenário Ideal |
+| :--- | :--- | :--- | :--- | :--- |
+| **Eliminação Gaussiana** | Triangular Superior | Menos operações aritméticas que Gauss-Jordan. | Exige esforço de substituição manual no final. | Sistemas gerais calculados manualmente ou algoritmos simples. |
+| **Gauss-Jordan** | Matriz Identidade | Dá a resposta diretamente na última coluna, sem substituição. | Custo computacional mais elevado (mais operações por linha). | Encontrar a Matriz Inversa ou resolver sistemas pequenos de forma direta. |
+| **Fatoração LU** | Duas Matrizes ($L$ e $U$) | Extremamente rápido quando o vetor de respostas ($b$) muda frequentemente. | A decomposição inicial exige atenção com os multiplicadores. | Sistemas de engenharia/física com cargas dinâmicas (mesma estrutura, respostas variadas). |
+| **Fatoração de Cholesky** | Duas Matrizes ($L$ e $L^T$) | Duas vezes mais rápido que o método LU tradicional. | Restrito apenas a matrizes simétricas e definidas positivas. | Simulações de Monte Carlo, Machine Learning e filtragem de Kalman. |
+| **Algoritmo de Thomas** | Vetores modificados ($c'$ e $d'$) | Reduz drasticamente o custo computacional para complexidade linear $O(n)$. | Aplica-se exclusivamente a matrizes tridiagonais. | Resolução de Equações Diferenciais Parciais por Diferenças Finitas. |
+| **Fatoração QR** | Duas Matrizes ($Q$ ortogonal e $R$ triangular) | Altamente estável numericamente e dispensa pivoteamento. | Custo computacional elevado em comparação com o método LU. | Problemas de Mínimos Quadrados, regressões lineares e cálculo de autovalores. |
+| **SVD (Valores Singulares)** | Três Matrizes ($U$ ortogonal, $\Sigma$ diagonal e $V^T$ ortogonal) | Aplica-se a **qualquer matriz** (mesmo retangular ou singular) e extrai propriedades geométricas puras. | Custo computacional muito elevado para grandes volumes de dados. | **Redução de dimensionalidade (PCA)**, compressão de dados/imagens e sistemas mal condicionados. |
+
+---
+*Documento gerado para consolidação de estudos em álgebra linear computacional.*
