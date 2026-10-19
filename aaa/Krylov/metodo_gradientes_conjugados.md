@@ -87,12 +87,14 @@ $$
 
 ### Iteração 1
 1. **Tamanho do passo ($\alpha_0$)**:
-   * $Ap_0 = \begin{pmatrix} 6 \\ 7 \end{pmatrix}$
+
+   * $$Ap_0 = \begin{pmatrix} 6 \\
+     7 \end{pmatrix}$$
    * $\alpha_0 = \frac{r_0^T r_0}{p_0^T A p_0} = \frac{5}{20} = 0.25$
-2. **Atualização da solução ($x_1$)**: $x_1 = x_0 + \alpha_0 p_0 = \begin{pmatrix} 0.25 \\ 0.50 \end{pmatrix}$
-3. **Atualização do resíduo ($r_1$)**: $r_1 = r_0 - \alpha_0 A p_0 = \begin{pmatrix} -0.50 \\ 0.25 \end{pmatrix}$
-4. **Fator de correção ($\beta_0$)**: $\beta_0 = \frac{r_1^T r_1}{r_0^T r_0} = \frac{0.3125}{5} = 0.0625$
-5. **Nova direção ($p_1$)**: $p_1 = r_1 + \beta_0 p_0 = \begin{pmatrix} -0.4375 \\ 0.3750 \end{pmatrix}$
+3. **Atualização da solução ($x_1$)**: $x_1 = x_0 + \alpha_0 p_0 = \begin{pmatrix} 0.25 \\ 0.50 \end{pmatrix}$
+4. **Atualização do resíduo ($r_1$)**: $r_1 = r_0 - \alpha_0 A p_0 = \begin{pmatrix} -0.50 \\ 0.25 \end{pmatrix}$
+5. **Fator de correção ($\beta_0$)**: $\beta_0 = \frac{r_1^T r_1}{r_0^T r_0} = \frac{0.3125}{5} = 0.0625$
+6. **Nova direção ($p_1$)**: $p_1 = r_1 + \beta_0 p_0 = \begin{pmatrix} -0.4375 \\ 0.3750 \end{pmatrix}$
 
 ### Iteração 2
 1. **Tamanho do passo ($\alpha_1$)**:
