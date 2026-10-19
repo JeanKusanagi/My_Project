@@ -36,10 +36,11 @@ $$L_1 \leftarrow \frac{1}{2} L_1$$
 $$\left(\begin{array}{cc|cc} 1 & 0.5 & 0.5 & 0 \\ 4 & 3 & 0 & 1 \end{array}\right)$$
 
 ### Passo 3: Zerar o elemento abaixo do pivô na coluna 1 ($L_2$)
-
 Subtraímos $4$ vezes a primeira linha da segunda linha ($L_2$):
 
-$$L_2 \leftarrow L_2 - 4L_1$$
+$$
+L_2 \leftarrow L_2 - 4L_1
+$$
 
 *Cálculo auxiliar para $L_2$:*
 * $4 - 4(1) = 0$
