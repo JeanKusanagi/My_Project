@@ -48,7 +48,7 @@ $$
 A solução exata é 
 
 $$
-x \approx
+x =
 \begin{pmatrix} 
 0.0909 \\
 0.6364 
