@@ -58,7 +58,7 @@ Subtraímos $0.5$ vezes a segunda linha da primeira linha ($L_1$):
 
 $$L_1 \leftarrow L_1 - 0.5L_2$$
 
-*Cálculo auxiliar para $L_1$:*
+Cálculo auxiliar para $L_1$:
 * $1 - 0.5(0) = 1$
 * $0.5 - 0.5(1) = 0$
 * $0.5 - 0.5(-2) = 0.5 + 1 = 1.5$
