@@ -58,7 +58,8 @@ Partindo de uma estimativa inicial
 
 $$
 x_0 = 
-\begin{pmatrix} 0 \\
+\begin{pmatrix}
+0 \\
 0
 \end{pmatrix}:
 $$
