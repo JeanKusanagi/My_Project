@@ -72,6 +72,7 @@ $$
 $$
 
 * **Zerar o elemento acima do novo pivô ($L_1 \leftarrow L_1 + 3L_2$):**
+
 $$
 \left[
 \begin{array}{cc|c}
