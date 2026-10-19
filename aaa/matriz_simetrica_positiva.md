@@ -68,7 +68,15 @@ $$L = \begin{pmatrix} \sqrt{2} & 0 \\ -\frac{1}{\sqrt{2}} & \sqrt{\frac{3}{2}} \
 ## 4. Exemplo 2: Matriz $3 \times 3$
 
 Seja a matriz simétrica $B$:
-$$B = \begin{pmatrix} 3 & 1 & 1 \\ 1 & 2 & 0 \\ 1 & 0 & 2 \end{pmatrix}$$
+
+$$
+B = 
+\begin{pmatrix}
+3 & 1 & 1 \\
+1 & 2 & 0 \\
+1 & 0 & 2
+\end{pmatrix}
+$$
 
 Aplicando o Critério de Sylvester:
 1. **$D_1$**: $\det(3) = \mathbf{3 > 0}$
