@@ -1,3 +1,4 @@
+
 # Método dos Gradientes Conjugados e Variantes
 
 O **método do gradiente conjugado (CG)** é um algoritmo iterativo utilizado para resolver sistemas de equações lineares do tipo $Ax = b$, especialmente quando a matriz $A$ é grande, simétrica e definida positiva.
@@ -70,8 +71,8 @@ x_0 =
 $$
 
 ### Passo 0: Inicialização
-1. **Resíduo inicial ($r_0$)**: $r_0 = b - Ax_0 = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$
-2. **Direção inicial ($p_0$)**: $p_0 = r_0 = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$
+1. **Resíduo inicial ($r_0$)**: $$r_0 = b - Ax_0 = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$$
+2. **Direção inicial ($p_0$)**: $$p_0 = r_0 = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$$
 
 ### Iteração 1
 1. **Tamanho do passo ($\alpha_0$)**:
