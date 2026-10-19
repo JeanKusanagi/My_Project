@@ -18,6 +18,7 @@ Para manipulação da matriz aumentada, são permitidas apenas três operações
 ## Exemplo de Aplicação (Sistema 2x2)
 
 Dado o sistema:
+
 $$
 \begin{cases} 
 2x + y = 5 \\
@@ -38,6 +39,7 @@ $$
 ### 2. Passo a Passo do Escalonamento
 
 * **Trocar a Linha 1 com a Linha 2 ($L_1 \leftrightarrow L_2$)** para obter o pivô 1 na primeira linha:
+* 
 $$
 \left[
 \begin{array}{cc|c}
@@ -48,6 +50,7 @@ $$
 $$
 
 * **Zerar o elemento abaixo do primeiro pivô ($L_2 \leftarrow L_2 - 2L_1$):**
+
 $$
 \left[
 \begin{array}{cc|c}
@@ -58,6 +61,7 @@ $$
 $$
 
 * **Transformar o próximo pivô em 1 ($L_2 \leftarrow \frac{1}{7}L_2$):**
+
 $$
 \left[
 \begin{array}{cc|c}
