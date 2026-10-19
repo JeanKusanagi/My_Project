@@ -8,7 +8,10 @@ Para ilustrar o funcionamento da **SVD**, vamos resolver um exemplo numérico si
 
 Vamos calcular a SVD de uma matriz real $A$ de dimensão $2 	imes 2$:
 
-$$A = \begin{pmatrix} 3 & 0 \\ 4 & 5 \end{pmatrix}$$
+$$
+A = \begin{pmatrix} 3 & 0 \\ 4 & 5 
+\end{pmatrix}
+$$
 
 O objetivo é encontrar $A = U \Sigma V^T$.
 
