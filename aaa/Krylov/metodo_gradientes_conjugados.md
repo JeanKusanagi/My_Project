@@ -20,7 +20,9 @@ $$
 
 Ou seja, esse ponto de mínimo é exatamente a solução do sistema linear Ax=b.
 
-O pré-condicionamento consiste em transformar um sistema linear em outro equivalente, mas com propriedades que favoreçam a convergência de um método iterativo, tornando o número de condição menor e fazendo com a solução seja encontrada por um método iterativo com uma quantidade muito menor de iterações. Em vez de resolver diretamente o sistema Ax = b, pode-se, por exemplo, aplicar um pré-condicionamento e resolver o sistema M⁻¹A x = M⁻¹b, em que M é uma matriz pré-condicionadora escolhida de modo que seja mais fácil aplicar M⁻¹ do que resolver diretamente o sistema original. Em termos intuitivos, o pré-condicionador procura "melhorar" o sistema antes da aplicação do método iterativo. Idealmente, o sistema pré-condicionado apresenta propriedades espectrais mais favoráveis, como um melhor agrupamento dos autovalores, o que pode reduzir significativamente o número de iterações necessárias para atingir a convergência. Assim, um bom pré-condicionador deve estabelecer um equilíbrio entre a melhoria da convergência e o custo computacional de sua aplicação a cada iteração. Um bom pré-condicionador deve aproximar adequadamente A e, ao mesmo tempo, ser barato de aplicar. Pré-condicionadores comuns incluem a fatoração LU incompleta (ILU), a fatoração de Cholesky incompleta (IC), o pré-condicionamento diagonal (Jacobi) e os métodos multigrade (multigrid), este último particularmente eficaz para equações diferenciais parciais discretizadas. O pré-condicionamento é particularmente importante em sistemas provenientes de discretizações de equações diferenciais parciais.
+O pré-condicionamento consiste em transformar um sistema linear em outro equivalente, mas com propriedades que favoreçam a convergência de um método iterativo, tornando o número de condição menor e fazendo com a solução seja encontrada por um método iterativo com uma quantidade muito menor de iterações. Em vez de resolver diretamente o sistema Ax = b, pode-se, por exemplo, aplicar um pré-condicionamento e resolver o sistema M⁻¹A x = M⁻¹b, em que M é uma matriz pré-condicionadora escolhida de modo que seja mais fácil aplicar M⁻¹ do que resolver diretamente o sistema original.
+
+Em termos intuitivos, o pré-condicionador procura "melhorar" o sistema antes da aplicação do método iterativo. Idealmente, o sistema pré-condicionado apresenta propriedades espectrais mais favoráveis, como um melhor agrupamento dos autovalores, o que pode reduzir significativamente o número de iterações necessárias para atingir a convergência. Assim, um bom pré-condicionador deve estabelecer um equilíbrio entre a melhoria da convergência e o custo computacional de sua aplicação a cada iteração. Um bom pré-condicionador deve aproximar adequadamente A e, ao mesmo tempo, ser barato de aplicar. Pré-condicionadores comuns incluem a fatoração LU incompleta (ILU), a fatoração de Cholesky incompleta (IC), o pré-condicionamento diagonal (Jacobi) e os métodos multigrade (multigrid), este último particularmente eficaz para equações diferenciais parciais discretizadas. O pré-condicionamento é particularmente importante em sistemas provenientes de discretizações de equações diferenciais parciais.
 
 ---
 
@@ -49,7 +51,15 @@ $$
 x \approx \begin{pmatrix} 
 0.0909 \\
 0.6364 
-\end{pmatrix}$. Partindo de uma estimativa inicial $x_0 = \begin{pmatrix} 0 \\ 0 \end{pmatrix}:
+\end{pmatrix}
+$$.
+
+Partindo de uma estimativa inicial 
+$$
+x_0 = 
+\begin{pmatrix} 0 \\
+0
+\end{pmatrix}:
 $$
 
 ### Passo 0: Inicialização
