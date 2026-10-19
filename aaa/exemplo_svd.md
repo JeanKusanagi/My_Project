@@ -35,7 +35,10 @@ $$A^T A = \begin{pmatrix}
 
 Os autovalores ($\lambda$) de $A^T A$ são encontrados resolvendo o determinante $\det(A^T A - \lambda I) = 0$:
 
-$$\det \begin{pmatrix} 25 - \lambda & 20 \\ 20 & 25 - \lambda \end{pmatrix} = 0 \implies (25 - \lambda)^2 - 400 = 0$$
+$$\det \begin{pmatrix}
+25 - \lambda & 20 \\
+20 & 25 - \lambda
+\end{pmatrix} = 0 \implies (25 - \lambda)^2 - 400 = 0$$
 $$\lambda_1 = 45, \quad \lambda_2 = 5$$
 
 Os **valores singulares** ($\sigma$) são as raízes quadradas positivas dos autovalores:
