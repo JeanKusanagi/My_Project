@@ -1,3 +1,87 @@
+# Método de Gauss-Jordan
+
+O **método de Gauss-Jordan** é um algoritmo da álgebra linear usado para resolver sistemas de equações lineares e encontrar a matriz inversa. Ele é uma extensão da eliminação gaussiana.
+
+## Conceito Principal
+
+Enquanto a eliminação gaussiana transforma a matriz original em uma matriz triangular superior, o método de Gauss-Jordan vai além e a transforma em uma **matriz escalonada reduzida por linhas** (geralmente uma matriz identidade).
+
+Ao alcançar o formato de matriz identidade do lado esquerdo de uma matriz aumentada, os valores das incógnitas ou os elementos da matriz inversa podem ser lidos diretamente no lado direito.
+
+## Operações Elementares de Linha
+
+Para manipulação da matriz aumentada, são permitidas apenas três operações:
+1. **Permutação:** Trocar a posição de duas linhas ($L_i \leftrightarrow L_j$).
+2. **Multiplicação:** Multiplicar todos os elementos de uma linha por um escalar não nulo ($L_i \leftarrow k \cdot L_i$, onde $k \neq 0$).
+3. **Substituição:** Substituir uma linha pela soma dela mesma com o múltiplo de outra linha ($L_i \leftarrow L_i + k \cdot L_j$).
+
+## Exemplo de Aplicação (Sistema 2x2)
+
+Dado o sistema:
+$$
+\begin{cases} 
+2x + y = 5 \\
+x - 3y = -1 
+\end{cases}
+$$
+
+### 1. Matriz Aumentada Inicial
+$$
+\left[
+\begin{array}{cc|c}
+2 & 1 & 5 \\
+1 & -3 & -1
+\end{array}
+\right]
+$$
+
+### 2. Passo a Passo do Escalonamento
+
+* **Trocar a Linha 1 com a Linha 2 ($L_1 \leftrightarrow L_2$)** para obter o pivô 1 na primeira linha:
+$$
+\left[
+\begin{array}{cc|c}
+1 & -3 & -1 \\
+2 & 1 & 5
+\end{array}
+\right]
+$$
+
+* **Zerar o elemento abaixo do primeiro pivô ($L_2 \leftarrow L_2 - 2L_1$):**
+$$
+\left[
+\begin{array}{cc|c}
+1 & -3 & -1 \\
+0 & 7 & 7
+\end{array}
+\right]
+$$
+
+* **Transformar o próximo pivô em 1 ($L_2 \leftarrow \frac{1}{7}L_2$):**
+$$
+\left[
+\begin{array}{cc|c}
+1 & -3 & -1 \\
+0 & 1 & 1
+\end{array}
+\right]
+$$
+
+* **Zerar o elemento acima do novo pivô ($L_1 \leftarrow L_1 + 3L_2$):**
+$$
+\left[
+\begin{array}{cc|c}
+1 & 0 & 2 \\
+0 & 1 & 1
+\end{array}
+\right]
+$$
+
+### 3. Resultado
+A matriz à esquerda tornou-se a matriz identidade. A solução do sistema é lida diretamente na última coluna:
+* **$x = 2$**
+* **$y = 1$**
+
 # Método de Gauss-Jordan: Exemplo Prático 3x3
 
 Este documento apresenta a resolução passo a passo de um sistema linear de equações utilizando o **Método de Gauss-Jordan**. No final do processo, quando o sistema possui **solução única**, a matriz dos coeficientes transforma-se na **matriz identidade**.
