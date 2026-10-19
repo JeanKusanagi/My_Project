@@ -48,12 +48,12 @@ $$
 A solução exata é 
 
 $$
-x =
+x \approx
 \begin{pmatrix} 
 0.0909 \\
 0.6364 
-\end{pmatrix}
-$$.
+\end{pmatrix}.
+$$
 
 Partindo de uma estimativa inicial
 
