@@ -54,7 +54,8 @@ x \approx \begin{pmatrix}
 \end{pmatrix}
 $$.
 
-Partindo de uma estimativa inicial 
+Partindo de uma estimativa inicial
+
 $$
 x_0 = 
 \begin{pmatrix} 0 \\
