@@ -43,7 +43,14 @@ $$A =
 \end{pmatrix}, \quad b = \begin{pmatrix} 1 \\ 2 \end{pmatrix}
 $$
 
-A solução exata é $x \approx \begin{pmatrix} 0.0909 \\ 0.6364 \end{pmatrix}$. Partindo de uma estimativa inicial $x_0 = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$:
+A solução exata é 
+
+$$
+x \approx \begin{pmatrix} 
+0.0909 \\
+0.6364 
+\end{pmatrix}$. Partindo de uma estimativa inicial $x_0 = \begin{pmatrix} 0 \\ 0 \end{pmatrix}:
+$$
 
 ### Passo 0: Inicialização
 1. **Resíduo inicial ($r_0$)**: $r_0 = b - Ax_0 = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$
