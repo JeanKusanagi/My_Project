@@ -52,16 +52,41 @@ $$\Sigma = \begin{pmatrix}
 \end{pmatrix}$$
 
 Os autovetores normalizados de $A^T A$ formam as colunas de $V$. Resolvendo o sistema para cada $\lambda$, obtemos:
-$$V = \begin{pmatrix} \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \end{pmatrix}$$
+
+$$V = \begin{pmatrix}
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+\end{pmatrix}$$
 
 ### Passo 2: Encontrar os Vetores Singulares à Esquerda ($U$)
 As colunas de $U$ podem ser encontradas usando a relação $u_i = \frac{1}{\sigma_i} A v_i$:
 
-* Para $u_1$: $A v_1 = \begin{pmatrix} 3 & 0 \\ 4 & 5 \end{pmatrix} \begin{pmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{pmatrix} = \begin{pmatrix} \frac{3}{\sqrt{2}} \\ \frac{9}{\sqrt{2}} \end{pmatrix} \implies u_1 = \frac{1}{3\sqrt{5}}\begin{pmatrix} 
-\frac{3}{\sqrt{2}} \\ \frac{9}{\sqrt{2}} \end{pmatrix} = \begin{pmatrix} \frac{1}{\sqrt{10}} \\ \frac{3}{\sqrt{10}} \end{pmatrix}$
+* Para $u_1$:
+$$A v_1 =
+\begin{pmatrix}
+3 & 0 \\
+4 & 5 \end{pmatrix}
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix} = \begin{pmatrix}
+\frac{3}{\sqrt{2}} \\
+\frac{9}{\sqrt{2}}
+\end{pmatrix} \implies u_1 = \frac{1}{3\sqrt{5}}
+\begin{pmatrix} 
+\frac{3}{\sqrt{2}} \\
+\frac{9}{\sqrt{2}}
+\end{pmatrix} =
+\begin{pmatrix}
+\frac{1}{\sqrt{10}} \\
+\frac{3}{\sqrt{10}}
+\end{pmatrix}
+$$
+
 * Para $u_2$: Seguindo o mesmo processo com $v_2$ e $\sigma_2$, obtemos a segunda coluna.
 
 A matriz $U$ resultante será:
+
 $$U = \begin{pmatrix}
 \frac{1}{\sqrt{10}} & -\frac{3}{\sqrt{10}} \\
 \frac{3}{\sqrt{10}} & \frac{1}{\sqrt{10}}
