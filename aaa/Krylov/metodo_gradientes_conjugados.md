@@ -112,7 +112,9 @@ $$r_1 = r_0 - \alpha_0 A p_0 =
 0.25 \end{pmatrix}
 $$
 
-4. **Fator de correção ($\beta_0$)**: $\beta_0 = \frac{r_1^T r_1}{r_0^T r_0} = \frac{0.3125}{5} = 0.0625$
+4. **Fator de correção ($\beta_0$)**:
+
+$$\beta_0 = \frac{r_1^T r_1}{r_0^T r_0} = \frac{0.3125}{5} = 0.0625$$
 
 5. **Nova direção ($p_1$)**:
 
