@@ -125,10 +125,13 @@ $$
 
 ### Iteração 2
 1. **Tamanho do passo ($\alpha_1$)**:
-   * $Ap_1 = \begin{pmatrix} -1.375 \\ 0.6875 \end{pmatrix}$
-   * $\alpha_1 = \frac{r_1^T r_1}{p_1^T A p_1} = \frac{0.3125}{0.859375} \approx 0.363636$
 
-2. **Atualização da solução ($x_2$)**:
+$$Ap_1 = \begin{pmatrix} -1.375 \\
+0.6875 \end{pmatrix}$$
+
+$$\alpha_1 = \frac{r_1^T r_1}{p_1^T A p_1} = \frac{0.3125}{0.859375} \approx 0.363636$$
+
+3. **Atualização da solução ($x_2$)**:
 
 $$x_2 = x_1 + \alpha_1 p_1 = \begin{pmatrix} 0.090909 \\
 0.636364 \end{pmatrix}$$
