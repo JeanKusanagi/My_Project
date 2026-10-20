@@ -4,6 +4,8 @@ A **Decomposição em Valores Singulares** (*Singular Value Decomposition — SV
 
 A SVD é amplamente utilizada em redução de dimensionalidade, compressão de imagens, processamento de sinais, análise de dados, sistemas de recomendação e aprendizado de máquina.
 
+Os **valores singulares** de uma matriz $M$ (de ordem $m \times n$) são as raízes quadradas dos autovalores não nulos da matriz $M^* M$ (ou $MM^*$, em que $*$ denota a transposta conjugada). Eles representam os fatores de escala pelos quais a matriz dilata ou contrai o espaço ao longo de certas direções.
+
 ## 1. Definição matemática
 
 Para uma matriz real \(A\) de dimensões \(m \times n\), a decomposição em valores singulares é dada por:
@@ -18,7 +20,7 @@ Em que:
 
 - **\(A\):** matriz original, de dimensões \(m \times n\).
 - **\(U\):** matriz ortogonal de dimensões \(m \times m\), cujas colunas são os vetores singulares à esquerda de \(A\).
-- **\(\Sigma\):** matriz diagonal retangular de dimensões \(m \times n\), cujos elementos diagonais são os valores singulares de \(A\), normalmente ordenados em ordem decrescente.
+- **$\(\Sigma\)$:** matriz diagonal retangular de dimensões \(m \times n\), cujos elementos diagonais são os valores singulares de \(A\), normalmente ordenados em ordem decrescente.
 - **\(V\):** matriz ortogonal de dimensões \(n \times n\), cujas colunas são os vetores singulares à direita de \(A\).
 - **\($V^T$\):** transposta de \(V\).
 
