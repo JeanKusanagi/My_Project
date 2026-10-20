@@ -59,8 +59,8 @@ O limite do erro absoluto do resultado é a **soma dos erros absolutos** de cada
 ### 2. Na Multiplicação (e Divisão)
 Na multiplicação, o **erro relativo** do resultado final é aproximadamente igual à **soma dos erros relativos** de cada termo.
 
-* **Lado A do terreno:** $10\text{ m}$ com erro relativo de $1% \ (0,01)$
-* **Lado B do terreno:** $20\text{ m}$ com erro relativo de $2% \ (0,02)$
+* **Lado A do terreno:** $10\text{ m}$ com erro relativo de $1\% = (0,01)$
+* **Lado B do terreno:** $20\text{ m}$ com erro relativo de $2\% = (0,02)$
 * **Área Nominal:** $10 \times 20 = 200\text{ m}^2$
 * **Erro Relativo Máximo:** $1\% + 2\% = \mathbf{3\% \ (0,03)}$
 * **Erro Absoluto da Área:** $200\text{ m}^2 \times 0,03 = \mathbf{6\text{ m}^2}$
