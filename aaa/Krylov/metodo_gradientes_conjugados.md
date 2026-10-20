@@ -88,9 +88,10 @@ $$
 ### Iteração 1
 1. **Tamanho do passo ($\alpha_0$)**:
 
-$$* Ap_0 = \begin{pmatrix}
+$$ * Ap_0 = \begin{pmatrix}
 6 \\
-7 \end{pmatrix}$$
+7 \end{pmatrix}
+$$
 
    * $\alpha_0 = \frac{r_0^T r_0}{p_0^T A p_0} = \frac{5}{20} = 0.25$
 2. **Atualização da solução ($x_1$)**: $x_1 = x_0 + \alpha_0 p_0 = \begin{pmatrix} 0.25 \\ 0.50 \end{pmatrix}$
