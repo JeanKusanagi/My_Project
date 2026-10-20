@@ -18,7 +18,7 @@ Em que:
 
 - **\(A\):** matriz original, de dimensões \(m \times n\).
 - **\(U\):** matriz ortogonal de dimensões \(m \times m\), cujas colunas são os vetores singulares à esquerda de \(A\).
-- **\(\Sigma\):** matriz diagonal retangular de dimensões \(m \times n\), cujos elementos diagonais são os valores singulares de \(A\), normalmente ordenados em ordem decrescente.
+- **$\(\Sigma\)$:** matriz diagonal retangular de dimensões \(m \times n\), cujos elementos diagonais são os valores singulares de \(A\), normalmente ordenados em ordem decrescente.
 - **\(V\):** matriz ortogonal de dimensões \(n \times n\), cujas colunas são os vetores singulares à direita de \(A\).
 - **\($V^T$\):** transposta de \(V\).
 
