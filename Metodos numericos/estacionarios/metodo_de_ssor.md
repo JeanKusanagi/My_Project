@@ -11,6 +11,7 @@ Embora possa ser usado como um solver iterativo direto, a aplicação mais impor
 Dada uma matriz de coeficientes $A$ decomposta em suas partes diagonal ($D$), estritamente inferior ($L$) e estritamente superior ($U$), tal que $A = D - L - U$:
 
 ### Passo 1: Passada para Frente (Forward Pass)
+
 Equivale a uma iteração exata do método SOR convencional. Para cada componente $i = 1, 2, \dots, n$:
 
 $$
