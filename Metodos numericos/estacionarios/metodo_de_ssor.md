@@ -13,8 +13,10 @@ Dada uma matriz de coeficientes $A$ decomposta em suas partes diagonal ($D$), es
 ### Passo 1: Passada para Frente (Forward Pass)
 Equivale a uma iteração exata do método SOR convencional. Para cada componente $i = 1, 2, \dots, n$:
 
-$$x_i^{(k+1/2)} = (1 - \omega)x_i^{(k)} + rac{\omega}{a_{ii}} \left( b_i - \sum_{j=1}^{i-1} a_{ij}x_j^{(k+1/2)} - \sum_{j=i+1}^{n} a_{ij}x_j^{(k)} 
-ight)$$
+$$
+x_i^{(k+1/2)} = (1 - \omega)x_i^{(k)} + rac{\omega}{a_{ii}} \left( b_i - \sum_{j=1}^{i-1} a_{ij}x_j^{(k+1/2)} - \sum_{j=i+1}^{n} a_{ij}x_j^{(k)} 
+ight)
+$$
 
 ### Passo 2: Passada para Trás (Backward Pass)
 Executa a mesma estratégia de relaxação, porém varrendo as variáveis na ordem inversa, de $i = n, n-1, \dots, 1$. Ela utiliza os valores recém-calculados no Passo 1 como o estado anterior:
