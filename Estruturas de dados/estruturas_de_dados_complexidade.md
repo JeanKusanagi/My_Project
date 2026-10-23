@@ -97,4 +97,5 @@ Modificam a estrutura dos ponteiros sem violar a regra básica da BST (filhos es
   * Hierarquias de diretórios e representação de expressões/AST (Abstract Syntax Trees).
   * Árvores balanceadas (AVL / Vermelho-Preta) para manter buscas rápidas ordenadas dinamicamente.
 
-* Complexidade (Árvore de Busca Binária / Balanceada no Caso Médio):• Busca / Inserção / Remoção: $\(O(\log n)\)$.
+* Complexidade (Árvore de Busca Binária / Balanceada no Caso Médio): $\(O(1)$.
+* Busca / Inserção / Remoção: $\(O(\log n)\)$.
