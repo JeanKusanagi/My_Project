@@ -90,11 +90,11 @@ Modificam a estrutura dos ponteiros sem violar a regra básica da BST (filhos es
 
 ## Árvores (Árvore de Busca Binária - BST, AVL, Vermelho-Preta, Árvore B)
 
-• O que é: Estrutura não linear hierárquica composta por nós conectados em ramificações (raiz, ramos e folhas).
+* O que é: Estrutura não linear hierárquica composta por nós conectados em ramificações (raiz, ramos e folhas).
 
-• Principais Aplicações:
+* Principais Aplicações:
   * Bancos de dados e sistemas de arquivos (Árvores B e B+ para indexação rápida em disco).
   * Hierarquias de diretórios e representação de expressões/AST (Abstract Syntax Trees).
   * Árvores balanceadas (AVL / Vermelho-Preta) para manter buscas rápidas ordenadas dinamicamente.
 
-• Complexidade (Árvore de Busca Binária / Balanceada no Caso Médio):• Busca / Inserção / Remoção: $\(O(\log n)\)$.
+* Complexidade (Árvore de Busca Binária / Balanceada no Caso Médio):• Busca / Inserção / Remoção: $\(O(\log n)\)$.
