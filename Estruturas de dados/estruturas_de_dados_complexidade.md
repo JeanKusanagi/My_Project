@@ -23,12 +23,22 @@ Um guia de referência rápida sobre as principais estruturas de dados utilizada
 ## 2. Visão Geral das Estruturas
 
 ### Vetor e Matriz
-* **Vetor:** Elementos contíguos na memória. Acesso instantâneo por índice $O(1)$, mas inserções/remoções no início ou meio exigem o deslocamento de elementos $O(n)$.
-* **Matriz:** Extensão bidimensional ($m \times n$) ou multidimensional. Mantém propriedades similares de acesso direto na memória física linearizada.
+* **Vetor:** Elementos contíguos na memória. Acesso instantâneo por índice $O(1)$, mas inserções/remoções no início ou meio exigem o deslocamento de elementos $O(n)$. Principais Aplicações: Buffers de dados, tabelas de consulta rápida (lookup tables), armazenamento de sequências fixas ou variáveis de tamanho previsível.
+* **Matriz:** Extensão bidimensional ($m \times n$) ou multidimensional. Mantém propriedades similares de acesso direto na memória física linearizada. Principais Aplicações: Processamento de imagens e pixels, tabuleiros de jogos (xadrez, batalha naval), representação de grafos via matriz de adjacência e cálculos de álgebra linear.
 
 ### Pilha (LIFO) e Fila (FIFO)
 * **Pilha (Last In, First Out):** Operações concentradas no topo (*Push*, *Pop*, *Peek*). Todas executadas em $O(1)$.
+* Principais Aplicações:
+    * Gerenciamento de chamadas de funções (Call Stack) em compiladores e sistemas operacionais.
+    * Desfazer/refazer (Undo/Redo) em editores de texto.
+    * Verificação de sintaxe e balanceamento de parênteses/chaves em código.
+    * Algoritmos de busca em profundidade (DFS) e conversão de expressões matemáticas.
 * **Fila (First In, First Out):** Elementos entram pelo fim (*Enqueue*) e saem pelo início (*Dequeue*). Operações gerenciadas eficientemente com ponteiros em $O(1)$.
+* Principais Aplicações:
+    * Gerenciamento de filas de impressão em sistemas operacionais.
+    * Processamento de requisições em servidores e filas de mensagens (message brokers).
+    * Algoritmos de busca em largura (BFS - Breadth-First Search).
+    * Escalonamento de processos (scheduling) na CPU.
 
 ### Listas Encadeadas
 * Elementos espalhados pela memória conectados por ponteiros (referências). Perdem o acesso indexado rápido $O(n)$, mas ganham em inserções dinâmicas $O(1)$ caso o ponto de inserção já seja conhecido.
