@@ -88,7 +88,7 @@ Modificam a estrutura dos ponteiros sem violar a regra básica da BST (filhos es
 * **Árvore Rubro-Negra (Red-Black):** Mais flexível. Utiliza regras de coloração de nós (Vermelho/Preto). Permite que o maior caminho seja até o dobro do menor caminho. Exige menos rotações, sendo ideal para sistemas com inserções e remoções frequentes (base do `std::map` do C++ e `TreeMap` do Java).
  
 
-## Árvores (Árvore de Busca Binária - BST, AVL, Vermelho-Preta, Árvore B)
+### Árvores (Árvore de Busca Binária - BST, AVL, Vermelho-Preta, Árvore B)
 
 * O que é: Estrutura não linear hierárquica composta por nós conectados em ramificações (raiz, ramos e folhas).
 
