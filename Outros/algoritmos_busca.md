@@ -155,3 +155,58 @@ A arquitetura criada pela Google DeepMind revolucionou problemas de busca ao fun
 Modelos de inteligência artificial focados em raciocínio lógico avançado (como a linha OpenAI o1) não geram textos de forma puramente linear. Eles implementam buscas estruturadas em árvores de pensamentos.
 
 O modelo gera múltiplos ramos de hipóteses de solução de forma assíncrona. Uma rede neural avaliadora interna julga a qualidade lógica de cada ramificação. Se um erro matemático ou contradição for detectado, o sistema aplica o conceito clássico de *backtracking* da DFS, abandonando o ramo e tentando outra linha de pensamento antes de exibir a resposta final ao usuário.
+
+
+
+
+
+
+## 6. # Exemplo de Falha na Busca Gulosa (Greedy Best-First Search)
+
+A **Busca Gulosa** escolhe o próximo passo baseando-se *apenas* na estimativa heurística até o objetivo ($h(n)$), ignorando o custo do caminho já percorrido ($g(n)$). Isso faz com que ela seja míope e suscetível a ficar presa em loops ou becos sem saída.
+
+---
+
+### Exemplo 1: O Labirinto com Parede Côncava (Beco sem Saída)
+
+Imagine um agente em uma grade 2D tentando chegar ao objetivo usando a **Distância de Manhattan** como heurística.
+
+```text
+Linha 4: [   ] [   ] [   ] [   ] [   ]
+Linha 3: [--- Parede Barreira --] [   ]  <-- Bloqueio
+Linha 2: [   ] [ A ] [   ] [   ] [ O ]  <-- A (Início) e O (Objetivo)
+Linha 1: [   ] [   ] [   ] [   ] [   ]
+          Col 1  Col 2  Col 3  Col 4  Col 5
+```
+
+### O Comportamento do Algoritmo:
+1. **Movimento Inicial:** No ponto **A (2,2)**, o objetivo está à direita. O algoritmo se move sequencialmente para a direita até a coordenada **(2,4)** porque a distância heurística diminui a cada passo.
+2. **O Bloqueio:** Em **(2,4)**, o caminho direto está bloqueado pela parede. O algoritmo avalia os vizinhos e decide subir para **(3,4)**.
+3. **O Loop:** Em **(3,4)**, ele colide com o recuo do obstáculo. Se o algoritmo não mantiver um registro rígido de nós visitados, ele olhará para baixo **(2,4)**, verá que a heurística lá é numericamente melhor (mais perto do objetivo em linha reta) e **voltará para trás**.
+4. **Resultado:** O agente fica preso oscilando infinitamente entre os mesmos estados.
+
+---
+
+### Exemplo 2: O Mapa com Heurística Enganosa (Loop de Cidades)
+
+Considere um cenário simplificado de navegação entre cidades onde o objetivo final é chegar a **Făgăraș**. O algoritmo utiliza a distância em linha reta até o destino final como função heurística ($h$).
+
+```text
+       [Neamț] (h = 234)
+        /
+   [Iași] (h = 226) 
+        [Vaslui] (h = 199)
+```
+
+### O Comportamento do Algoritmo:
+1. **Decisão Gulosa:** Estando em **Iași**, o algoritmo avalia os vizinhos disponíveis: **Neamț** ($h=234$) e **Vaslui** ($h=199$).
+2. **A Escolha:** Como $199 < 234$, a busca gulosa assume que **Vaslui** é o melhor caminho e se move para lá.
+3. **O Problema:** Na estrutura real do mapa, **Vaslui** é um beco sem saída para este trajeto. A única conexão viável a partir de lá é retornar para **Iași**.
+4. **Resultado:** Ao voltar para **Iași**, o algoritmo repete a mesma análise e escolhe **Vaslui** novamente, entrando em um **loop infinito** (Iași $\leftrightarrow$ Vaslui).
+
+---
+
+### Como Solucionar Este Problema?
+
+* **Busca em Grafo (Graph Search):** Implementar uma lista de estados fechados (nós já visitados) para impedir que o algoritmo retorne a um estado anterior, embora isso ainda possa gerar caminhos muito mais longos e ineficientes.
+* **Algoritmo A\*:** A solução ideal. O A\* combina a heurística com o custo real do caminho acumulado ($f(n) = g(n) + h(n)$). Se o algoritmo começar a andar em círculos ou entrar em um beco sem saída, o custo $g(n)$ aumenta drasticamente, forçando-o a explorar caminhos alternativos mais viáveis.
