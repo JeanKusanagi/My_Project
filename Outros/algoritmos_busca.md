@@ -33,7 +33,7 @@ Abaixo, os algoritmos clássicos estão sintetizados considerando as seguintes v
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Sem Informação** | **Largura (BFS)** | $O(b^d)$ | $O(b^d)$ | Sim | Sim (se custos iguais) | Encontra o caminho mais raso; nunca fica presa. | Uso massivo de memória RAM. |
 | **Sem Informação** | **Profundidade (DFS)** | $O(b^m)$ | $O(b \cdot m)$ | Não | Não | Baixo consumo de memória em caminhos finitos. | Pode ficar presa em caminhos infinitos/loops. |
-| **Sem Informação** | **Custo Uniforme (UCS) Grafos ponderados** | $O(b^{1 + \lfloor C^*/\epsilon \rfloor})$ | $O(b^{1 + \lfloor C^*/\epsilon \rfloor})$ | Sim | Sim | Ótima para qualquer custo de passo positivo. | Explora muitos caminhos desnecessários de baixo custo. |
+| **Sem Informação** | **Custo Uniforme (UCS) Ponderados** | $O(b^{1 + \lfloor C^*/\epsilon \rfloor})$ | $O(b^{1 + \lfloor C^*/\epsilon \rfloor})$ | Sim | Sim | Ótima para qualquer custo de passo positivo. | Explora muitos caminhos desnecessários de baixo custo. |
 | **Com Informação** | **Gulosa (Greedy)** | $O(b^m)$ | $O(b^m)$ | Não | Não | Muito rápida para cenários comuns e diretos. | Pode tomar caminhos errados por ser míope. |
 | **Com Informação** | **A\* (A-Estrela)** | $O(b^d)$ | $O(b^d)$ | Sim | Sim | Melhor eficiência teórica (se heurística correta). | Mantém todos os nós gerados na memória RAM. |
 
