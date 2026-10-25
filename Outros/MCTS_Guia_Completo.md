@@ -15,6 +15,36 @@ Cada ciclo (ou rodada) de MCTS é composto por quatro passos sequenciais:
 
 ---
 
+### O que é Monte Carlo?
+
+O termo **Monte Carlo** refere-se principalmente a dois conceitos muito distintos: uma técnica matemática e computacional de simulação ou um distrito luxuoso no Principado de Mônaco.
+
+---
+
+#### 1. O Método de Monte Carlo (Simulação)
+
+O **Método de Monte Carlo** é uma técnica estatística que utiliza **amostragem aleatória repetida** para computar resultados numéricos e estimar a probabilidade de eventos complexos ou incertos.
+
+* **Como funciona:** Em problemas com muitas variáveis onde o cálculo exato é inviável, o computador executa milhares ou milhões de simulações. A cada execução, o algoritmo escolhe valores aleatórios baseados em uma distribuição de probabilidade predefinida. No final, consolida-se um leque de cenários possíveis e suas respectivas chances de ocorrência.
+* **Origem do nome:** Foi criado nos anos 1940 pelos cientistas Stanislaw Ulam, John von Neumann e Nicholas Metropolis durante o Projeto Manhattan. O codinome foi inspirado no famoso **Cassino de Monte Carlo**, devido à dependência do método em eventos aleatórios e probabilidades (semelhante aos jogos de azar).
+* **Aplicações Comuns:**
+    * **Finanças:** Projeção de risco em investimentos, precificação de opções e simulação de carteiras de ações.
+    * **Engenharia e Ciência:** Análise de confiabilidade de estruturas, meteorologia e simulações de física quântica.
+    * **Gestão de Projetos:** Estimativa de prazos de entrega e custos orçamentários sob condições de incerteza.
+
+---
+
+## 2. Monte Carlo (Geografia)
+
+**Monte Carlo** é um distrito (ou bairro administrativo) do **Principado de Mônaco**, uma cidade-estado localizada na Riviera Francesa.
+
+* **Principais Características:**
+    * **Glamour:** É mundialmente conhecido pela riqueza, residentes famosos, iates e hotéis de alto luxo.
+    * **Cassino de Monte Carlo:** Uma das construções mais icônicas da região, inaugurada no século XIX, que impulsionou a economia local.
+    * **Esporte:** Sedia parte do famoso circuito de rua do Grande Prêmio de Mônaco de Fórmula 1 e o Rally de Monte Carlo.
+  
+---
+
 ## 2. A Matemática do MCTS Clássico: Fórmula UCT
 Para decidir qual nó selecionar, o algoritmo calcula o índice **UCT** para cada nó filho disponível:
 
