@@ -154,3 +154,29 @@ print(h_ab, h_ba, d_h)  # 1.414..., 2.0, 2.0
 **Em síntese:** a distância de Hausdorff mede a maior distância mínima entre os pontos de dois conjuntos, considerando ambas as direções.
 
 A definição pressupõe uma distância \(d\) no espaço considerado. Para conjuntos finitos, o supremo e o ínfimo das fórmulas correspondem, respectivamente, ao máximo e ao mínimo.
+
+
+
+
+
+## Distância de Hausdorff
+
+A **distância de Hausdorff** ($d_H$) mede o quão distantes dois subconjuntos de um espaço métrico estão um do outro. Ela é amplamente utilizada em visão computacional, processamento de imagens e geometria computacional para comparar formas e conjuntos de pontos.
+
+### Fórmula Geral
+
+Para dois subconjuntos não vazios $A$ e $B$ de um espaço métrico, a distância de Hausdorff é definida como:
+
+$$d_H(A, B) = \max \left( \sup_{a \in A} \inf_{b \in B} d(a, b), \, \sup_{b \in B} \inf_{a \in A} d(a, b) \right)$$
+
+Onde:
+* $d(a, b)$ representa a distância métrica básica (como a distância euclidiana) entre os pontos $a$ e $b$.
+* $\inf_{b \in B} d(a, b)$ é a menor distância do ponto $a$ até o conjunto $B$.
+* $\sup_{a \in A}$ encontra o ponto dentro de $A$ que maximiza essa distância mínima em relação a $B$.
+* O cálculo é feito de forma simétrica ($A$ para $B$ e $B$ para $A$), selecionando o maior valor resultante.
+
+### Fórmula para Conjuntos Compactos
+
+Se os conjuntos forem compactos (como formas geométricas fechadas e limitadas no plano), os operadores de ínfimo e supremo coincidem com o mínimo e o máximo:
+
+$$d_H(A, B) = \max \left( \max_{a \in A} \min_{b \in B} d(a, b), \, \max_{b \in B} \min_{a \in A} d(a, b) \right)$$
