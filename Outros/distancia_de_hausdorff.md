@@ -159,7 +159,7 @@ A definição pressupõe uma distância \(d\) no espaço considerado. Para conju
 
 
 
-## Distância de Hausdorff
+## 5. Distância de Hausdorff
 
 A **distância de Hausdorff** ($d_H$) mede o quão distantes dois subconjuntos de um espaço métrico estão um do outro. Ela é amplamente utilizada em visão computacional, processamento de imagens e geometria computacional para comparar formas e conjuntos de pontos.
 
