@@ -32,7 +32,7 @@ Quando uma operação desbalanceia um nó ($FB = \pm 2$), aplicam-se rotações:
 
 ---
 
-## 3. Exemplo de Inserção e remoção
+## 3. Exemplo de inserção e remoção
 
 ### 📋 Conceito e Fator de Balanço
 O **Fator de Balanço (FB)** determina se a árvore precisa ou não ser rebalanceada. Ele é calculado para cada nó da seguinte forma:
