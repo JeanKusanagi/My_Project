@@ -45,7 +45,97 @@ $$\log_2(n + 1) \ge \frac{h}{2} \implies h \le 2 \log_2(n + 1)$$
 
 ---
 
-## 3. Implementação em Python
+## Exemplo de inserção e remoção
+
+### 🛑 Regras Fundamentais (Propriedades)
+Para se manter balanceada, a árvore rubro-negra deve seguir estritamente estas 5 regras:
+
+1. Todo nó é ou **vermelho** ou **preto**.
+2. A **raiz** da árvore é sempre **preta**.
+3. Todas as **folhas (NIL)** são **pretas**.
+4. Se um nó é **vermelho**, ambos os seus filhos devem ser **pretos** (não existem nós vermelhos consecutivos).
+5. Todo caminho de um nó até suas folhas descendentes contém o **mesmo número de nós pretos** (altura negra).
+
+---
+
+### 🛠️ Funcionamento da Inserção
+Todo novo nó é inserido inicialmente como **Vermelho (V)**. Se o pai do novo nó também for vermelho, ocorre uma violação que é corrigida avaliando a cor do **tio** (irmão do pai):
+
+*   **Caso 1: O Tio é Vermelho (Recoloração)**
+    *   *Ação:* Pai e Tio viram **Pretos**. Avô vira **Vermelho** (e a verificação sobe para o avô).
+*   **Caso 2: O Tio é Preto e forma "Ziguezague"**
+    *   *Ação:* Rotação simples no Pai na direção oposta ao novo nó para alinhá-los em linha reta.
+*   **Caso 3: O Tio é Preto e forma "Linha Reta"**
+    *   *Ação:* Rotação no Avô na direção oposta ao Pai. Inverte as cores do antigo Avô e do antigo Pai.
+
+---
+
+### 🔄 Exemplo Prático Passo a Passo
+
+#### 1. Inserção dos elementos: 10, 20, 30, 15
+
+#### Passo A: Inserir 10
+Torna-se a raiz. Pela regra 2, vira preto.
+```text
+  10(P)
+```
+
+##### Passo B: Inserir 20
+Inserido à direita de 10 como vermelho. Nenhuma regra violada.
+```text
+  10(P)
+        20(V)
+```
+
+##### Passo C: Inserir 30
+Inserido à direita de 20. Conflito de vermelhos (20 e 30). Tio é `NIL` (preto) em linha reta. Rotação à esquerda no avô (10) e recoloração.
+```text
+      20(P)
+     /      10(V)   30(V)
+```
+
+##### Passo D: Inserir 15
+Inserido à direita de 10. Conflito de vermelhos (10 e 15). Tio (30) é vermelho. Recoloração do pai (10) e do tio (30) para preto. O avô (20) tenta virar vermelho, mas permanece preto por ser a raiz.
+```text
+      20(P)
+     /      10(P)   30(P)
+        15(V)
+```
+
+---
+
+#### 2. Remoção do elemento: 20
+
+#### Passo A: Substituição pelo sucessor
+O nó 20 (raiz) é substituído pelo seu sucessor imediato (30). O nó original 30 vira uma folha `NIL`.
+```text
+      30(P) 
+     /      10(P)   NIL(P)
+        15(V)
+```
+*Nota: A remoção do nó preto causou um déficit negro no caminho da direita.*
+
+##### Passo B: Rotação no Irmão
+O irmão da folha deficitária é o 10 (preto), que possui um filho direito vermelho (15). Fazemos uma rotação à esquerda no 10 para alinhar a estrutura.
+```text
+      30(P)
+     /      15(P)   NIL(P)
+  /
+10(V)
+```
+
+##### Passo C: Rotação na Raiz e Ajuste Final
+Uma rotação à direita na raiz (30) é executada, e as cores são balanceadas para restabelecer a altura negra idêntica em todos os caminhos.
+```text
+      15(P)
+     /      10(P)   30(P)
+```
+
+**Árvore perfeitamente balanceada e válida!**
+
+---
+
+## 4. Implementação em Python
 
 ```python
 class Node:
