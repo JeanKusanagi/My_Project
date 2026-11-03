@@ -624,3 +624,180 @@ int main() {
     }
 }
 ```
+
+---
+
+## Exemplo Prático de Inserção
+
+## 3. Passo a Passo Prático: Inserção
+
+Vamos construir uma árvore inserindo sequencialmente a lista de números: `[10, 20, 30, 40, 50, 25]`.
+
+### Passo 1: Inserir 10
+Raiz inicial da árvore.
+```text
+  10 (FB=0)
+```
+
+### Passo 2: Inserir 20
+Como $20 > 10$, vai para a direita.
+```text
+  10 (FB=-1)
+    \
+     20 (FB=0)
+```
+
+### Passo 3: Inserir 30 $\rightarrow$ Rotação Simples à Esquerda (RR)
+O número 30 vai para a direita do 20. O nó 10 fica com $\text{FB} = -2$ (Peso à direita).
+```text
+    10                        20 (FB=0)
+      \       Rotação        /  \
+       20     --->         10    30
+         \                (FB=0) (FB=0)
+          30
+```
+
+### Passo 4: Inserir 40
+O número 40 vai para a direita do 30.
+```text
+      20 (FB=-1)
+     /  \
+   10    30 (FB=-1)
+           \
+            40 (FB=0)
+```
+
+### Passo 5: Inserir 50 $\rightarrow$ Rotação Simples à Esquerda (RR)
+O número 50 vai para a direita do 40. O nó 30 fica com $\text{FB} = -2$. Aplicamos a rotação simples à esquerda no nó 30.
+```text
+      20                      20 (FB=-1)
+     /  \                    /  \
+   10    30                 10   40 (FB=0)
+           \      --->          /  \
+            40                30    50
+              \             (FB=0) (FB=0)
+               50
+```
+
+### Passo 6: Inserir 25 $\rightarrow$ Rotação Dupla à Esquerda (RL)
+O número 25 navega na árvore até a esquerda do 30. A raiz principal 20 fica com $\text{FB} = -2$ (peso à direita), enquanto seu filho 40 possui $\text{FB} = +1$ (peso à esquerda). Sinais invertidos exigem rotação dupla:
+1. Rotação Simples à Direita no nó filho (40).
+2. Rotação Simples à Esquerda no nó raiz desbalanceado (20).
+
+```text
+      20 (FB=-2)                    30 (FB=0)
+     /  \                          /  \
+   10    40                      20    40
+        /  \         --->       /  \     \
+       30   50                10   25     50
+      /
+     25
+```
+
+---
+
+## 4. Passo a Passo Prático: Remoção Standard
+
+Trabalhando sobre o resultado final obtido na inserção, simulamos três cenários comuns de remoção.
+
+### Caso A: Remoção de um Nó Folha
+Ao remover o nó **25** (que não possui nenhum filho), a remoção é direta. O nó pai (20) passa a ter $\text{FB} = +1$. Como está dentro do limite $[-1, 1]$, nenhuma rotação é necessária.
+```text
+        30 (FB=0)
+       /  \
+     20    40
+    /        \
+  10          50
+```
+
+### Caso B: Remoção Gerando Desbalanceamento (Rotação Simples)
+A partir da estrutura anterior, removemos o nó **10**.
+O nó pai (20) fica sem filhos. O cálculo do fator de balanço na raiz **30** acusa desvio crítico: $\text{FB} = 0 - 2 = -2$. Como seu filho da direita (40) possui $\text{FB} = -1$, fazemos uma **Rotação Simples à Esquerda** trazendo o 40 para o topo.
+```text
+        30 (FB=-2)                    40 (FB=0)
+       /  \                          /  \
+     20    40         --->         30    50
+             \                    /
+              50                 20
+```
+
+### Caso C: Remoção de Nó com Dois Filhos
+Removendo o nó raiz **40**.  
+Para remover um elemento com dois filhos, substituímos seu valor pelo **antecessor em-ordem** (o maior elemento da subárvore esquerda, que é o **30**) ou pelo **sucessor em-ordem** (o menor da direita, que seria o **50**). Escolhendo o antecessor 30:
+1. Copiamos o valor 30 para o lugar do 40.
+2. Apagamos o nó 30 antigo da sua posição original, fazendo o 20 subir.
+```text
+        30 (FB=0)
+       /  \
+     20    50
+```
+
+---
+
+## 5. Cenário Complexo: Remoção Provocando Rotação Dupla
+
+Este cenário demonstra um caso avançado onde a retirada de um nó cria uma quebra na árvore estruturada em "zigue-zague", ativando um rebalanceamento de dois passos.
+
+### Estrutura Inicial Base
+Partimos de uma nova árvore AVL com os nós `[30, 15, 40, 10, 35, 45]`:
+```text
+        30 (FB=0)
+       /  \
+     15    40 (FB=1)
+    /     /  \
+   10    35   45
+```
+
+### Etapa 1: Remoção do nó folha 10
+O nó **10** é deletado diretamente da folha esquerda.  
+* O nó 15 passa a ter altura 1.
+* A raiz **30** passa a ter $\text{FB} = 1 - 2 = -1$ (Ainda balanceada).
+```text
+        30 (FB=-1)
+       /  \
+     15    40 (FB=1)
+          /  \
+        35    45
+```
+
+### Etapa 2: Remoção do nó 15 $\rightarrow$ Desbalanceamento Crítico!
+Removemos o nó **15**. Agora, a subárvore esquerda da raiz perde toda a sua altura (torna-se 0).
+* O nó raiz **30** agora tem $\text{FB} = 0 - 2 = -2$. **Árvore desbalanceada à direita!**
+* Analisamos o filho da direita (**40**): ele possui $\text{FB} = +1$, o que significa que o seu peso acumulado está apontado para o lado interno (**para a esquerda, no nó 35**).
+
+```text
+        30 (FB=-2)  <-- Erro crítico (Esquerda vazia)
+          \
+           40 (FB=1)  <-- Filho com sinal contrário (Peso interno)
+          /  \
+        35    45
+```
+
+Como os sinais estão trocados (Raiz $-2$ e Filho $+1$), o algoritmo classifica como um caso **Direita-Esquerda (RL)**, exigindo uma **Rotação Dupla à Esquerda**.
+
+### Etapa 3: Execução da Rotação Dupla
+
+#### Sub-passo A: Rotação Simples à Direita no nó filho (40)
+O nó **35** rotaciona para cima, assumindo o papel de filho direito da raiz 30. O nó 40 desce virando seu filho direito.
+```text
+        30
+          \
+           35
+             \
+              40
+                \
+                 45
+```
+
+#### Sub-passo B: Rotação Simples à Esquerda no nó raiz (30)
+O nó **35** rotaciona novamente, desta vez subindo para o topo absoluto da árvore. O antigo nó raiz (30) desce para a sua esquerda.
+
+```text
+        35 (FB=0)
+       /  \
+     30    40 (FB=-1)
+             \
+              45
+```
+
+A árvore foi rebalanceada com sucesso e voltou a respeitar todas as restrições AVL, mantendo os fatores de balanço estáveis e a busca eficiente em tempo logarítmico.
