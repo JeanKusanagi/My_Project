@@ -39,7 +39,8 @@ Um guia de referência rápida sobre as principais estruturas de dados utilizada
     * Escalonamento de processos (scheduling) na CPU.
 
 ### Listas Encadeadas
-* Elementos espalhados pela memória conectados por ponteiros (referências). Perdem o acesso indexado rápido $O(n)$, mas ganham em inserções dinâmicas $O(1)$ caso o ponto de inserção já seja conhecido. Principais Aplicações:• Implementação dinâmica de pilhas e filas onde o tamanho varia constantemente.
+* Elementos espalhados pela memória conectados por ponteiros (referências). Perdem o acesso indexado rápido $O(n)$, mas ganham em inserções dinâmicas $O(1)$ caso o ponto de inserção já seja conhecido. Principais Aplicações:
+* Implementação dinâmica de pilhas e filas onde o tamanho varia constantemente.
     * Gerenciamento de memória livre por sistemas operacionais.
     * Navegador web histórico (botões "avançar" e "voltar" em listas duplamente encadeadas).
 
