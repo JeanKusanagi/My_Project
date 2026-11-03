@@ -32,7 +32,134 @@ Quando uma operação desbalanceia um nó ($FB = \pm 2$), aplicam-se rotações:
 
 ---
 
-## 3. Implementação Completa em Python
+## 3. Exemplo de Inserção e remoção
+
+### 📋 Conceito e Fator de Balanço
+O **Fator de Balanço (FB)** determina se a árvore precisa ou não ser rebalanceada. Ele é calculado para cada nó da seguinte forma:
+
+```unset
+FB = altura(subárvore_esquerda) - altura(subárvore_direita)
+```
+
+*   **Árvore Balanceada:** -1 ≤ FB ≤ 1
+*   **Árvore Desbalanceada:** FB = -2 ou FB = +2 (Exige rotação imediata)
+
+---
+
+### 📈 Exemplo Prático de Inserção
+
+Vamos construir uma árvore inserindo a sequência de números: **10, 20, 30, 40 e 25**.
+
+#### 1. Inserir 10
+Primeiro elemento torna-se a raiz.
+*   **FB(10):** 0 - 0 = 0 (Balanceado)
+```text
+  10 (FB: 0)
+```
+
+#### 2. Inserir 20
+20 é maior que 10, entra à direita.
+*   **FB(20):** 0
+*   **FB(10):** 0 - 1 = -1 (Balanceado)
+```text
+  10 (FB: -1)
+    \
+    20 (FB: 0)
+```
+
+#### 3. Inserir 30 (Gera Rotação Simples à Esquerda)
+30 entra à direita de 20.
+*   **FB(30):** 0
+*   **FB(20):** 0 - 1 = -1
+*   **FB(10):** 0 - 2 = **-2** 🔴 *Desbalanceado!*
+```text
+      10 (FB: -2)
+        \
+        20
+          \
+          30
+```
+**Solução (Caso RR):** Rotação Simples à Esquerda no nó 10. O nó 20 sobe para a raiz.
+```text
+    20 (FB: 0)
+   /  \
+ 10    30  (Ambos FB: 0)
+```
+
+#### 4. Inserir 40
+40 entra à direita de 30.
+*   **FB(40):** 0
+*   **FB(30):** 0 - 1 = -1
+*   **FB(20):** 1 - 2 = -1 (Balanceado)
+```text
+      20 (FB: -1)
+     /  \
+   10    30 (FB: -1)
+           \
+           40 (FB: 0)
+```
+
+#### 5. Inserir 25 (Gera Rotação Dupla à Esquerda)
+25 entra à esquerda de 30.
+*   **FB(25):** 0
+*   **FB(30):** 1 - 1 = 0
+*   **FB(20):** 1 - 3 = **-2** 🔴 *Desbalanceado!*
+```text
+        20 (FB: -2)
+       /  \
+     10    30
+          /  \
+        25    40
+```
+**Solução (Caso RL):** Rotação Dupla à Esquerda no nó 20 (Primeiro rotaciona 30 à direita, depois 20 à esquerda). O nó 25 sobe para a raiz.
+```text
+        25 (FB: 0)
+       /  \
+     20    30
+    /        \
+  10          40
+```
+
+---
+
+### 📉 Exemplo Prático de Remoção
+
+Partindo da árvore final obtida acima, faremos a **remoção do nó 30**.
+
+### 1. Remover o Nó 30
+O número 30 é um nó folha, logo é removido diretamente.
+```text
+        25 
+       /  \
+     20    [Vazio]
+    /        
+  10          
+```
+
+#### 2. Recálculo e Rebalanceamento
+Análise dos fatores de balanço de baixo para cima após a perda do nó direito:
+*   **FB(10):** 0
+*   **FB(20):** 1 - 0 = 1
+*   **FB(25):** 2 - 0 = **+2** 🔴 *Desbalanceado!*
+```text
+        25 (FB: +2)
+       /
+     20 (FB: 1)
+    /
+  10 (FB: 0)
+```
+**Solução (Caso LL):** Rotação Simples à Direita no nó 25. O nó 20 assume a raiz.
+
+#### 🌳 Configuração Final da Árvore:
+```text
+    20 (FB: 0)
+   /  \
+ 10    25 (Ambos FB: 0)
+```
+
+---
+
+## 4. Implementação Completa em Python
 
 Este script implementa a árvore AVL com todas as operações (inserção, remoção, busca, percursos, contagem de nós, busca por mínimos/máximos e folhas), incluindo um menu interativo via terminal.
 
