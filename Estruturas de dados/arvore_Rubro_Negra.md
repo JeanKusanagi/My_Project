@@ -3,7 +3,7 @@ Este arquivo contém a especificação teórica, a prova matemática de complexi
 
 ---
 
-## 1. Regras Fundamentais e Características
+## 1. 🛑 Regras Fundamentais e Características
 Uma árvore rubro-negra é uma árvore binária de busca auto-balanceada onde cada nó possui um bit extra de armazenamento que define sua cor: **Vermelho** ou **Preto**. Para garantir o balanço estrutural, ela obrigatoriamente segue as seguintes regras:
 1. Todo nó é ou vermelho ou preto.
 2. A raiz é sempre preta.
@@ -47,17 +47,6 @@ $$\log_2(n + 1) \ge \frac{h}{2} \implies h \le 2 \log_2(n + 1)$$
 
 ## Exemplo de inserção e remoção
 
-### 🛑 Regras Fundamentais (Propriedades)
-Para se manter balanceada, a árvore rubro-negra deve seguir estritamente estas 5 regras:
-
-1. Todo nó é ou **vermelho** ou **preto**.
-2. A **raiz** da árvore é sempre **preta**.
-3. Todas as **folhas (NIL)** são **pretas**.
-4. Se um nó é **vermelho**, ambos os seus filhos devem ser **pretos** (não existem nós vermelhos consecutivos).
-5. Todo caminho de um nó até suas folhas descendentes contém o **mesmo número de nós pretos** (altura negra).
-
----
-
 ### 🛠️ Funcionamento da Inserção
 Todo novo nó é inserido inicialmente como **Vermelho (V)**. Se o pai do novo nó também for vermelho, ocorre uma violação que é corrigida avaliando a cor do **tio** (irmão do pai):
 
@@ -70,6 +59,100 @@ Todo novo nó é inserido inicialmente como **Vermelho (V)**. Se o pai do novo n
 
 ---
 
+### 🛠️ Funcionamento da Remoção
+
+Se excluirmos um nó **vermelho**, nenhuma propriedade da árvore é violada. O problema real ocorre quando removemos um nó **preto**, pois isso altera a altura negra da árvore (Regra 5), criando um desbalanceamento conhecido como **"duplo preto"** (o nó substituto fica com um "peso" preto a mais para compensar a perda).
+
+Para eliminar esse duplo preto, analisamos a cor do **irmão (I)** do nó substituto e dos **filhos desse irmão**.
+
+#### Os 4 Casos Principais de Correção
+Considere que **X** é o nó com o duplo preto, **P** é o pai de X, **I** é o irmão de X, e **E** e **D** são os filhos esquerdo e direito de I, respectivamente. Assumiremos que X é o filho esquerdo de P.
+
+#### Caso 1: O Irmão (I) é Vermelho
+* **Condição:** I é vermelho. Isso implica que P, E e D devem ser pretos.
+* **Ação:**
+  * Inverta as cores de P e I (P vira vermelho, I vira preto).
+  * Faça uma **rotação à esquerda no pai (P)**.
+* **Efeito:** X continua duplo preto, mas agora ele ganhou um novo irmão que é preto. Isso transforma a situação em um dos casos seguintes (2, 3 ou 4).
+
+```text
+      P (Preto)                     I (Preto)
+     / \                           / \
+  X(DB) I (Verm)     ======>      P (Verm)  D (Preto)
+       / \                       / \
+      E   D                     X(DB) E
+```
+
+#### Caso 2: O Irmão (I) e seus Filhos (E, D) são Pretos
+* **Condição:** I é preto, e ambos os seus filhos (E e D) também são pretos.
+* **Ação:**
+  * Remova um "preto" de X (ele vira preto normal) e um "preto" de I (ele vira vermelho).
+  * Passe o "preto extra" para o pai (P).
+* **Efeito:** Se P era vermelho, ele vira preto normal e o algoritmo **termina**. Se P já era preto, ele se torna o novo nó "duplo preto", e o algoritmo continua subindo na árvore.
+
+```text
+      P (Qualquer)                  P (Qualquer + Preto) <-- Novo foco
+     / \                           / \
+  X(DB) I (Preto)    ======>     X (Preto) I (Verm)
+       / \                            / \
+    E(Pr) D(Pr)                    E(Pr) D(Pr)
+```
+
+#### Caso 3: O Irmão (I) é Preto, o Filho Distante (D) é Preto, mas o Próximo (E) é Vermelho
+* **Condição:** I é preto, D é preto, mas E é vermelho (um "triângulo").
+* **Ação:**
+  * Inverta as cores de I e E (I vira vermelho, E vira preto).
+  * Faça uma **rotação à direita no irmão (I)**.
+* **Efeito:** O duplo preto X continua no mesmo lugar, mas essa manobra transforma a estrutura no Caso 4.
+
+```text
+      P (Qualquer)                  P (Qualquer)
+     / \                           / \
+  X(DB) I (Preto)    ======>     X(DB) E (Preto)
+       / \                            \
+   E(Verm) D(Pr)                       I (Verm)
+                                        \
+                                        D(Pr)
+```
+
+#### Caso 4: O Irmão (I) é Preto e o Filho Distante (D) é Vermelho
+* **Condição:** I é preto e D é vermelho (uma "linha"). O filho E pode ser de qualquer cor.
+* **Ação:**
+  * I assume a cor atual do pai (P).
+  * P vira preto e D vira preto.
+  * Faça uma **rotação à esquerda no pai (P)**.
+* **Efeito:** O duplo preto de X é completamente eliminado. A árvore fica perfeitamente balanceada e o algoritmo **termina**.
+
+```text
+      P (Qualquer)                  I (Cor antiga de P)
+     / \                           / \
+  X(DB) I (Preto)    ======>     P(Preto)  D (Preto)
+         \                      / \
+        D(Verm)                X   E
+```
+
+---
+
+### Resumo Visual da Remoção (Fluxograma)
+```text
+O nó removido/substituído era PRETO?
+   │
+   ├── Não ──> Fim (Não quebra nenhuma regra)
+   │
+   └── Sim ──> Nó atual vira Duplo Preto (DB). Analisar o Irmão (I):
+        │
+        ├── I é Vermelho ──> Caso 1: Rotaciona o Pai, atualiza cores ──> Reavalia
+        │
+        └── I é Preto:
+             │
+             ├── Filhos de I são Pretos ──> Caso 2: Puxa o preto para o Pai ──> Sobe na árvore
+             │
+             ├── Filho oposto é Preto, filho próximo é Vermelho ──> Caso 3: Rotaciona Irmão ──> Vai para Caso 4
+             │
+             └── Filho oposto é Vermelho ──> Caso 4: Rotaciona o Pai, ajusta cores ──> Perfeito / Fim
+```
+
+---
 ### 🔄 Exemplo Prático Passo a Passo
 
 #### 1. Inserção dos elementos: 10, 20, 30, 15
