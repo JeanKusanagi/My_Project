@@ -328,7 +328,7 @@ Todos os nós estão balanceados.
 A remoção de 10 provocou um desbalanceamento no nó 20, corrigido por uma
 rotação dupla RL.
 
-## 5. Resumo das operações
+## 4. Resumo das operações
 
   -----------------------------------------------------------------------
   Operação                Situação                Balanceamento
@@ -356,7 +356,7 @@ rotação dupla RL.
                                                   em 20
   -----------------------------------------------------------------------
 
-## 6. Os quatro casos de desbalanceamento AVL
+## 5. Os quatro casos de desbalanceamento AVL
 
   -----------------------------------------------------------------------
   Caso                    Onde ocorre a inserção  Rotação corretiva
@@ -382,7 +382,7 @@ rotação dupla RL.
 para os ancestrais. Por isso, pode ser necessário realizar rotações em
 mais de um nível da árvore.
 
-## 4. Complexidade
+## 6. Complexidade
 
 Em uma árvore AVL, a altura é `O(log n)`. Consequentemente, as operações
 de busca, inserção e remoção possuem complexidade de tempo:
@@ -394,7 +394,7 @@ total da atualização permanece `O(log n)`, pois pode ser necessário
 percorrer o caminho entre o nó alterado e a raiz.
 ---
 
-## 5. Implementação Completa em Python
+## 7. Implementação Completa em Python
 
 Este script implementa a árvore AVL com todas as operações (inserção, remoção, busca, percursos, contagem de nós, busca por mínimos/máximos e folhas), incluindo um menu interativo via terminal.
 
@@ -617,7 +617,7 @@ if __name__ == "__main__":
 
 ---
 
-## 4. Implementação Completa em C
+## 8. Implementação Completa em C
 
 Esta versão em C gerencia ponteiros, desalocação de memória dinamicamente no encerramento do programa e oferece o mesmo menu interativo.
 
@@ -862,11 +862,9 @@ int main() {
 
 ---
 
-## Exemplo Prático de Inserção
+## 9. Exemplo Prático de Inserção
 
-## 3. Passo a Passo Prático: Inserção
-
-Vamos construir uma árvore inserindo sequencialmente a lista de números: `[10, 20, 30, 40, 50, 25]`.
+Iremos construir uma árvore inserindo sequencialmente a lista de números: `[10, 20, 30, 40, 50, 25]`.
 
 ### Passo 1: Inserir 10
 Raiz inicial da árvore.
@@ -931,7 +929,7 @@ O número 25 navega na árvore até a esquerda do 30. A raiz principal 20 fica c
 
 ---
 
-## 4. Passo a Passo Prático: Remoção Standard
+## 10. Passo a Passo Prático: Remoção Standard
 
 Trabalhando sobre o resultado final obtido na inserção, simulamos três cenários comuns de remoção.
 
@@ -969,7 +967,7 @@ Para remover um elemento com dois filhos, substituímos seu valor pelo **anteces
 
 ---
 
-## 5. Cenário Complexo: Remoção Provocando Rotação Dupla
+## 11. Cenário Complexo: Remoção Provocando Rotação Dupla
 
 Este cenário demonstra um caso avançado onde a retirada de um nó cria uma quebra na árvore estruturada em "zigue-zague", ativando um rebalanceamento de dois passos.
 
