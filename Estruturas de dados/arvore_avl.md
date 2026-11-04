@@ -177,7 +177,7 @@ A árvore continua balanceada. Nenhuma rotação é necessária.
 A única rotação realizada durante as inserções foi a rotação simples à
 esquerda no nó 10, após a inserção de 30.
 
-## 3. Remoção do valor 30
+## Remoção do valor 30
 
 Partimos da árvore:
 
