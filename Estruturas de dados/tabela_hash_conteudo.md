@@ -193,7 +193,7 @@ Para planejar um Filtro de Bloom com $n$ elementos máximos e uma taxa de falso 
 * **Tamanho do vetor de bits ($m$):**
   $$m \approx -2{,}08 \cdot n \cdot \ln(p)$$
 * **Número ideal de funções hash ($k$):**
-  $$k pprox 0.693 \cdot \frac{m}{n}$$
+  $$k \approx 0{,}693 \cdot \frac{m}{n}$$
 
 *Regra de bolso para erro de 1%:* Aloque **10 bits por elemento** ($m pprox 10n$) e use **7 funções hash** ($k = 7$).
 
