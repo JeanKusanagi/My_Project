@@ -191,7 +191,7 @@ Consiste em um **vetor de bits** (inicializado com zeros) e **$k$ funções hash
 Para planejar um Filtro de Bloom com $n$ elementos máximos e uma taxa de falso positivo aceitável $p$, calcula-se:
 
 * **Tamanho do vetor de bits ($m$):**
-  $$m pprox -2.08 \cdot n \cdot \ln(p)$$
+  $$m \approx -2{,}08 \cdot n \cdot \ln(p)$$
 * **Número ideal de funções hash ($k$):**
   $$k pprox 0.693 \cdot \frac{m}{n}$$
 
