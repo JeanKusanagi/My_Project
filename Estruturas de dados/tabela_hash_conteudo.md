@@ -64,6 +64,6 @@ Nesta abordagem, **todos os elementos são armazenados diretamente no próprio v
 ## 5. Fator de Carga e Rehashing
 
 O **Fator de Carga** ($\alpha$) é a razão entre o número de elementos armazenados ($n$) e o tamanho total do vetor ($m$):  
-$$\alpha = rac{n}{m}$$
+$$\alpha = \frac{n}{m}$$
 
 Quando o fator de carga ultrapassa um limite crítico (geralmente $0.7$ ou $0.75$), a probabilidade de colisões aumenta drasticamente. Para contornar isso, a tabela realiza o **Rehashing**: o vetor é redimensionado (normalmente duplicando de tamanho) e todas as chaves existentes são remapeadas para novas posições usando o novo tamanho do vetor.
