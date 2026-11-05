@@ -55,7 +55,7 @@ Nesta abordagem, **todos os elementos são armazenados diretamente no próprio v
 | Característica | Encadeamento Separado | Endereçamento Aberto |
 | :--- | :--- | :--- |
 | **Armazenamento** | Fora do vetor principal (listas externas) | Totalmente de forma interna no vetor |
-| **Fator de Carga ($lpha$)** | Pode ser maior que $1.0$ (mais itens que posições) | Deve ser estritamente menor que $1.0$ |
+| **Fator de Carga ($\alpha$)** | Pode ser maior que $1.0$ (mais itens que posições) | Deve ser estritamente menor que $1.0$ |
 | **Desperdício de Memória** | Alocação dinâmica para ponteiros das listas | Espaço reservado e não utilizado no array |
 | **Remoção de Elementos** | Simples (deleção clássica em lista encadeada) | Complexa (exige marcação lógica como *deletado*) |
 
