@@ -198,7 +198,7 @@ Para planejar um Filtro de Bloom com $n$ elementos máximos e uma taxa de falso 
 *Regra de bolso para erro de 1%:* Aloque **10 bits por elemento** ($m pprox 10n$) e use **7 funções hash** ($k = 7$).
 
 ### O Truque das Duas Funções Hash (Kirsch-Mitzenmacher)
-Para não deixar o sistema lento calculando 7 hashes complexas do zero, desenvolvedores usam apenas duas funções base ((H_1(x)) e (H_2(x))) para simular infinitas funções através de aritmética simples:
+Para não deixar o sistema lento calculando 7 hashes complexas do zero, desenvolvedores usam apenas duas funções base (($H_1(x)$) e ($H_2(x)$)) para simular infinitas funções através de aritmética simples:
 
 $$\text{Posição}_i(x) = (H_1(x) + i \cdot H_2(x)) \bmod m$$
 
