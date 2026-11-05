@@ -130,4 +130,253 @@ print("Caminho encontrado pelo A*:", resultado)
 ```
 
 ---
+
+# Exemplo de busca A* (A-Star)
+
+O algoritmo **A\*** é um algoritmo de busca informada utilizado para encontrar o caminho de menor custo entre um estado inicial e um estado objetivo. Ele combina o custo já percorrido com uma estimativa do custo restante até o objetivo.
+
+Sua função de avaliação é:
+
+\[
+\boxed{f(n)=g(n)+h(n)}
+\]
+
+Em que:
+
+- \(f(n)\): custo total estimado do caminho passando pelo nó \(n\).
+- \(g(n)\): custo real acumulado do nó inicial até \(n\).
+- \(h(n)\): estimativa heurística do custo de \(n\) até o objetivo.
+
+## 1. Definição do problema
+
+Considere o seguinte grafo, no qual desejamos encontrar o caminho de menor custo entre os nós **A (inicial)** e **G (objetivo)**.
+
+Os valores nas arestas representam os custos de deslocamento, enquanto os valores entre parênteses representam as heurísticas \(h(n)\).
+
+### Conexões do grafo
+
+| Origem | Destino | Custo |
+|---|---|---:|
+| A | B | 2 |
+| A | C | 4 |
+| B | D | 7 |
+| B | E | 3 |
+| C | F | 3 |
+| D | G | 2 |
+| E | G | 5 |
+| F | G | 2 |
+
+Valores heurísticos:
+
+| Nó | \(h(n)\) |
+|---|---:|
+| A | 7 |
+| B | 6 |
+| C | 4 |
+| D | 2 |
+| E | 4 |
+| F | 2 |
+| G | 0 |
+
+## 2. Execução passo a passo
+
+O algoritmo começa no nó A.
+
+### Passo 1: Expandir A
+
+Como estamos no nó inicial:
+
+\[
+g(A)=0
+\]
+
+\[
+f(A)=g(A)+h(A)=0+7=7
+\]
+
+Expandimos A e encontramos dois sucessores: B e C.
+
+Para B:
+
+\[
+g(B)=0+2=2
+\]
+
+\[
+f(B)=2+6=8
+\]
+
+Para C:
+
+\[
+g(C)=0+4=4
+\]
+
+\[
+f(C)=4+4=8
+\]
+
+Lista de nós disponíveis (OPEN):
+
+| Nó | \(g(n)\) | \(h(n)\) | \(f(n)\) |
+|---|---:|---:|---:|
+| B | 2 | 6 | 8 |
+| C | 4 | 4 | 8 |
+
+Os dois possuem o mesmo valor de \(f(n)\). Para este exemplo, em caso de empate, escolhemos o nó com menor \(h(n)\).
+
+Portanto, selecionamos C.
+
+### Passo 2: Expandir C
+
+Expandimos C e encontramos F.
+
+O custo acumulado até F é:
+
+\[
+g(F)=g(C)+c(C,F)
+\]
+
+\[
+g(F)=4+3=7
+\]
+
+Calculamos:
+
+\[
+f(F)=7+2=9
+\]
+
+Lista OPEN:
+
+| Nó | \(g(n)\) | \(h(n)\) | \(f(n)\) |
+|---|---:|---:|---:|
+| B | 2 | 6 | 8 |
+| F | 7 | 2 | 9 |
+
+Selecionamos B, pois possui o menor valor de \(f(n)\).
+
+### Passo 3: Expandir B
+
+Expandimos B e encontramos D e E.
+
+Para D:
+
+\[
+g(D)=2+7=9
+\]
+
+\[
+f(D)=9+2=11
+\]
+
+Para E:
+
+\[
+g(E)=2+3=5
+\]
+
+\[
+f(E)=5+4=9
+\]
+
+Lista OPEN:
+
+| Nó | \(g(n)\) | \(h(n)\) | \(f(n)\) |
+|---|---:|---:|---:|
+| F | 7 | 2 | 9 |
+| E | 5 | 4 | 9 |
+| D | 9 | 2 | 11 |
+
+Temos um empate entre F e E. Novamente, escolhemos o nó com menor heurística.
+
+Selecionamos F.
+
+### Passo 4: Expandir F
+
+Expandimos F e encontramos G.
+
+\[
+g(G)=g(F)+c(F,G)
+\]
+
+\[
+g(G)=7+2=9
+\]
+
+Como G é o objetivo:
+
+\[
+f(G)=9+0=9
+\]
+
+Lista OPEN:
+
+| Nó | \(g(n)\) | \(h(n)\) | \(f(n)\) |
+|---|---:|---:|---:|
+| E | 5 | 4 | 9 |
+| G | 9 | 0 | 9 |
+| D | 9 | 2 | 11 |
+
+**Importante:** para garantir a solução ótima, não basta encerrar ao gerar G. O algoritmo deve encerrar quando G for removido da lista OPEN para expansão, isto é, quando for selecionado como o nó de menor \(f\). Neste exemplo, G e E empatam em \(f=9\). Se o desempate selecionar G, podemos encerrar: o caminho por E custaria \(5+5=10\), portanto não é melhor.
+
+## 3. Resultado final
+
+O caminho de menor custo encontrado é:
+
+\[
+\boxed{A \rightarrow C \rightarrow F \rightarrow G}
+\]
+
+Custo total:
+
+\[
+C(A,C,F,G)=4+3+2
+\]
+
+\[
+\boxed{C=9}
+\]
+
+## 4. Resumo da execução
+
+| Iteração | Nó expandido | Nós gerados | Próximo nó |
+|---|---|---|---|
+| 1 | A | B, C | C |
+| 2 | C | F | B |
+| 3 | B | D, E | F |
+| 4 | F | G | G ou E (empate em \(f=9\)) |
+
+A ordem exata dos nós selecionados em caso de empate depende da regra de desempate adotada. O resultado ótimo permanece o mesmo.
+
+## 5. Propriedades do algoritmo A*
+
+**Completude:** encontra uma solução se existir, desde que as condições necessárias sejam satisfeitas, como fator de ramificação finito e custos positivos limitados inferiormente por uma constante positiva.
+
+**Otimalidade:** encontra uma solução de custo mínimo quando utiliza uma heurística admissível. Na busca em grafo sem reabertura de nós, exige-se uma heurística consistente.
+
+**Heurística admissível:** nunca superestima o custo real restante até o objetivo:
+
+\[
+h(n)\leq h^*(n)
+\]
+
+Em que \(h^*(n)\) representa o custo real mínimo até o objetivo.
+
+**Complexidade:** no pior caso, tanto o tempo quanto o espaço podem crescer exponencialmente com a profundidade da solução.
+
+## 6. Diferença entre busca gulosa e A*
+
+| Característica | Busca Gulosa | Busca A* |
+|---|---|---|
+| Função de avaliação | \(f(n)=h(n)\) | \(f(n)=g(n)+h(n)\) |
+| Considera custo percorrido? | Não | Sim |
+| Utiliza heurística? | Sim | Sim |
+| Garante solução ótima? | Não, em geral | Sim, sob condições adequadas |
+| Memória | Pode ser elevada | Pode ser elevada |
+
+**Conclusão:** a principal vantagem do A* é combinar o custo real percorrido com uma estimativa do custo restante. Dessa forma, consegue direcionar a busca ao objetivo sem ignorar os custos já acumulados, encontrando soluções ótimas quando as condições da heurística são respeitadas.
+
+---
+
 *Compilado para fins educacionais e de referência técnica sobre Teoria dos Grafos e Inteligência Artificial.*
