@@ -201,6 +201,7 @@ Para planejar um Filtro de Bloom com $n$ elementos máximos e uma taxa de falso 
 Para não deixar o sistema lento calculando 7 hashes complexas do zero, desenvolvedores usam apenas duas funções base ($H_1(x)$ e $H_2(x)$) para simular infinitas funções através de aritmética simples:
 
 $$	ext{Posição}_i(x) = (H_1(x) + i \cdot H_2(x)) \pmod m$$
+$$\text{Posição}_i(x) = (H_1(x) + i \cdot H_2(x)) \bmod m$$
 
 Dessa forma, a chave de texto só é lida e processada uma vez, e os outros índices são gerados instantaneamente por operações básicas na CPU.
 
