@@ -88,3 +88,132 @@ O pré-condicionamento transforma o sistema original em $M^{-1}Ax = M^{-1}b$. O 
 *   **ILU (Fatoração LU Incompleta):** O padrão geral para matrizes não-simétricas na engenharia.
 *   **Multigrid (AMG/MG):** Essencial para grandes problemas vindos de Equações Diferenciais Parciais (EDPs).
 *   **FGMRES (Flexible GMRES):** Obrigatório caso o pré-condicionador varie a cada iteração (ex: se o pré-condicionador for outro método iterativo).
+
+## 5. Algoritmo GMRES com Rotações de Givens (Pseudocódigo)
+
+---
+
+```text
+ALGORITMO GMRES(A, b, x0, tol, m_max)
+    // ENTRADAS:
+    // A: Matriz do sistema (n x n)
+    // b: Vetor do lado direito (n x 1)
+    // x0: Palpite inicial (n x 1)
+    // tol: Tolerância de parada (ex: 1e-6)
+    // m_max: Número máximo de iterações antes de parar ou reiniciar
+    
+    // -------------------------------------------------------------
+    // Passo 0: Inicialização
+    // -------------------------------------------------------------
+    r0 = b - A * x0
+    beta = norma_euclidiana(r0)
+    
+    Se beta < tol Então
+        Retornar x0 // O palpite inicial já é a solução
+    Fim Se
+    
+    // Inicializa a base de Krylov V e o vetor g do lado direito projetado
+    v = r0 / beta
+    g = vetor_zerado(m_max + 1)
+    g[1] = beta
+    
+    // Inicializa vetores para guardar os senos e cossenos das rotações de Givens
+    c = vetor_zerado(m_max)
+    s = vetor_zerado(m_max)
+    
+    // Aloca espaço para a Matriz de Hessenberg Superior H (m_max+1 x m_max)
+    H = matriz_zerada(m_max + 1, m_max)
+    
+    // -------------------------------------------------------------
+    // Loop Iterativo (Processo de Arnoldi + Minimização)
+    // -------------------------------------------------------------
+    Para j = 1 Até m_max Faça
+        
+        // 1. Passo de Arnoldi: Multiplicação
+        w = A * v[j]
+        
+        // 2. Ortogonalização de Gram-Schmidt Modificada
+        Para i = 1 Até j Faça
+            H[i, j] = produto_escalar(w, v[i])
+            w = w - H[i, j] * v[i]
+        Fim Para
+        
+        H[j+1, j] = norma_euclidiana(w)
+        
+        // 3. Aplica rotações de Givens anteriores à nova coluna de H
+        Para i = 1 Até j-1 Faça
+            temp      =  c[i] * H[i, j] + s[i] * H[i+1, j]
+            H[i+1, j] = -s[i] * H[i, j] + c[i] * H[i+1, j]
+            H[i, j]   = temp
+        Fim Para
+        
+        // 4. Calcula e aplica a NOVA rotação de Givens para zerar H[j+1, j]
+        a = H[j, j]
+        b = H[j+1, j]
+        
+        Se b == 0 Então
+            c[j] = 1
+            s[j] = 0
+        Senão Se modulo(b) > modulo(a) Então
+            tau = a / b
+            s[j] = 1 / raiz_quadrada(1 + tau^2)
+            c[j] = s[j] * tau
+        Senão
+            tau = b / a
+            c[j] = 1 / raiz_quadrada(1 + tau^2)
+            s[j] = c[j] * tau
+        Fim Se
+        
+        // Elimina o elemento subdiagonal em H
+        H[j, j]   = c[j] * a + s[j] * b
+        H[j+1, j] = 0
+        
+        // Aplica a nova rotação ao vetor do lado direito g
+        g[j+1] = -s[j] * g[j]
+        g[j]   =  c[j] * g[j]
+        
+        // 5. Critério de Parada (O resíduo atualizado é o último elemento de g)
+        residuo_atual = modulo(g[j+1])
+        
+        Se (residuo_atual / beta) < tol Então
+            m_atual = j // Guarda em qual iteração convergiu
+            Quebrar Loop
+        Fim Se
+        
+        // Se não convergiu, define o próximo vetor da base
+        v[j+1] = w / H[j+1, j]
+        m_atual = j
+    Fim Para
+    
+    // -------------------------------------------------------------
+    // Passo Final: Reconstrução da Solução
+    // -------------------------------------------------------------
+    // Resolve o sistema triangular superior R * y = g usando a matriz H modificada
+    // H (de 1 até m_atual, de 1 até m_atual) agora contém a matriz R triangular
+    y = vetor_zerado(m_atual)
+    
+    Para i = m_atual Decrescendo Até 1 Faça
+        soma = 0
+        Para k = i+1 Até m_atual Faça
+            soma = soma + H[i, k] * y[k]
+        Fim Para
+        y[i] = (g[i] - soma) / H[i, i]
+    Fim Para
+    
+    // Monta a solução final no espaço original de dimensão n
+    x = x0
+    Para i = 1 Até m_atual Faça
+        x = x + v[i] * y[i]
+    Fim Para
+    
+    Retornar x
+FIM ALGORITMO
+```
+
+---
+
+## 📌 Detalhes de Implementação
+
+1. **Gram-Schmidt Modificado:** Implementado no loop interno de ortogonalização. Atualizar `w` a cada passo reduz drasticamente a perda de ortogonalidade numérica causada por erros de arredondamento em precisão finita.
+2. **Cálculo Estável de Givens:** A escolha do cálculo dos parâmetros baseando-se na razão `tau` (dependendo de qual valor absoluto é maior entre `a` e `b`) previne problemas de *overflow* aritmético.
+3. **Monitoramento do Resíduo:** O valor `modulo(g[j+1])` fornece o resíduo exato da iteração atual de forma síncrona, permitindo a interrupção prematura do laço sem custos adicionais de reconstrução de `x` ou multiplicação de matrizes de ordem $n$.
