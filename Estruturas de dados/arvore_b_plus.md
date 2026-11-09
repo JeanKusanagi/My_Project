@@ -124,3 +124,61 @@ Removendo a chave **`20`** da folha `[ 20 ]`:
 
 * **Sistemas de Arquivos:** NTFS, ReiserFS, XFS, JFS2.
 * **Bancos de Dados:** PostgreSQL, Oracle, Microsoft SQL Server, MySQL (InnoDB), SQLite, IBM DB2.
+
+---
+
+---
+
+## 📌 Propriedades Fundamentais
+
+* **Ordem (m):** Define o número máximo de ponteiros (filhos) que um nó pode ter.
+* **Capacidade dos Nós:**
+  * **Nós Internos:** Podem conter no máximo $m-1$ chaves e devem conter pelo menos $\lceil m/2 \rceil - 1$ chaves.
+  * **Nós Folha:** Armazenam os dados reais (ou ponteiros para os registros) e também seguem a regra de preenchimento mínimo de $\lceil m/2 \rceil - 1$ chaves.
+* **Separação de Conteúdo:** Os nós internos servem estritamente como *índices de navegação*. Os dados reais residem **apenas** nas folhas.
+* **Encadeamento:** Todos os nós folha são interconectados por uma lista encadeada, otimizando buscas por intervalos (*range queries*).
+
+---
+
+## 📥 Algoritmo de Inserção
+
+Toda inserção começa obrigatoriamente em um nó folha. O balanceamento é mantido de baixo para cima através de divisões de nós (*splits*).
+
+### Passo a Passo:
+1. **Busca:** Navega a partir da raiz até encontrar a folha correta onde a chave deve ser guardada.
+2. **Inserção Direta:** Se a folha tiver espaço disponível (número de chaves $< m-1$), insere a chave mantendo a ordenação.
+3. **Divisão da Folha (Split):** Se a folha estiver cheia (atingiu $m$ chaves):
+   * O nó é dividido em duas folhas distintas.
+   * As chaves menores permanecem na folha original; as chaves maiores vão para a nova folha.
+   * **Regra B+:** A menor chave da nova folha (o elemento do meio) é **copiada** para o nó pai.
+4. **Propagação nos Nós Internos:** Se o nó pai também estiver cheio ao receber a nova chave de índice:
+   * O nó interno é dividido em dois.
+   * **Regra B+:** O elemento do meio é **movido** (e não copiado) para o pai de nível superior.
+   * Se a raiz original for dividida, cria-se uma nova raiz com uma única chave, aumentando a altura da árvore em 1 nível.
+
+---
+
+## 📤 Algoritmo de Remoção
+
+A remoção remove uma chave de um nó folha e trata as violações de preenchimento mínimo (sub-preenchimento ou *underflow*) de baixo para cima.
+
+### Passo a Passo:
+1. **Busca:** Localiza o nó folha que contém a chave a ser removida.
+2. **Remoção Direta:** Remove a chave do nó folha. Se o nó continuar com o número mínimo exigido de chaves ($\ge \lceil m/2 \rceil - 1$), a operação encerra.
+3. **Tratamento de Sub-preenchimento:** Se o nó ficar com menos chaves do que o permitido:
+   * **Caso 1: Empréstimo (Redistribuição):** Se um nó irmão adjacente (esquerdo ou direito) tiver chaves além do mínimo necessário:
+     * O nó atual pega uma chave emprestada desse irmão.
+     * A chave correspondente no nó pai é **atualizada** para refletir o novo menor elemento do nó à direita.
+   * **Caso 2: Fusão (Merge):** Se nenhum dos irmãos adjacentes tiver chaves sobressalentes:
+     * O nó atual é **fundido** com seu irmão.
+     * Como os dados combinados agora cabem em um único nó, a chave separadora no nó pai torna-se redundante e é **removida**.
+4. **Propagação da Fusão:** A remoção de uma chave no nó pai pode desencadear um sub-preenchimento nele mesmo. O processo de empréstimo ou fusão repete-se subindo os níveis da árvore. Se a raiz perder sua última chave, ela é eliminada e o nó filho fundido assume como a nova raiz, reduzindo a altura da árvore.
+
+---
+
+## 📊 Comparativo das Operações
+
+| Operação | Caso Ideal | Caso de Estouro de Limite | Efeito na Altura |
+| :--- | :--- | :--- | :--- |
+| **Inserção** | Espaço livre na folha. | Divisão (*Split*) do nó folha / interno. | Pode **aumentar** a altura pela raiz. |
+| **Remoção** | Nó mantém preenchimento mínimo. | Empréstimo ou Fusão (*Merge*) de nós. | Pode **diminuir** a altura se a raiz sumir. |
