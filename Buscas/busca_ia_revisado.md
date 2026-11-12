@@ -46,7 +46,7 @@ $N(IDS) = (d + 1)·b⁰ + d·b¹ + (d − 1)·b² + … + 1·b^d = O(b^d)$.
 
 Com b = 10 e d = 5, a IDS gera 6 + 50 + 400 + 3.000 + 20.000 + 100.000 = 123.456 nós, contra 111.111 da BFS, ou seja, um custo adicional de apenas cerca de 11%.
 
-**Busca bidirecional.** É uma estratégia que realiza duas buscas simultâneas: uma a partir do estado inicial, em direção ao objetivo, e outra a partir do estado objetivo, em direção ao início. O algoritmo termina quando as duas buscas se encontram, permitindo reconstruir o caminho entre os estados. Em geral, quando o fator de ramificação é b e a profundidade da solução é d, sua complexidade temporal e espacial pode ser reduzida de O(b^d), característica da busca em largura convencional, para aproximadamente $O(b^{(d/2)})$, pois cada busca só precisa chegar à metade do caminho $(2·b^(d/2) ≪ b^d)$. Por exemplo, com b = 10 e d = 6, a BFS convencional gera cerca de 10⁶ nós, enquanto a bidirecional gera cerca de 2 × 10³. Entretanto, sua aplicação depende de ser possível definir o estado objetivo e realizar a busca no sentido inverso (calcular os predecessores), o que nem sempre é viável em todos os problemas.
+**Busca bidirecional.** É uma estratégia que realiza duas buscas simultâneas: uma a partir do estado inicial, em direção ao objetivo, e outra a partir do estado objetivo, em direção ao início. O algoritmo termina quando as duas buscas se encontram, permitindo reconstruir o caminho entre os estados. Em geral, quando o fator de ramificação é b e a profundidade da solução é d, sua complexidade temporal e espacial pode ser reduzida de $O(b^d)$, característica da busca em largura convencional, para aproximadamente $O(b^{(d/2)})$, pois cada busca só precisa chegar à metade do caminho $(2·b^{(d/2)} ≪ b^d)$. Por exemplo, com b = 10 e d = 6, a BFS convencional gera cerca de 10⁶ nós, enquanto a bidirecional gera cerca de 2 × 10³. Entretanto, sua aplicação depende de ser possível definir o estado objetivo e realizar a busca no sentido inverso (calcular os predecessores), o que nem sempre é viável em todos os problemas.
 
 ## 4. Busca com informação e heurísticas
 
@@ -62,7 +62,7 @@ h(n) ≤ c(n, a, n') + h(n') para todo nó n e todo sucessor n' de n, e h(g) = 0
 
 em que h(n) é o custo estimado do nó n até o objetivo, c(n, a, n') é o custo real (não negativo) da ação a que leva de n a n' e h(n') é o custo estimado do sucessor n' até o objetivo.
 
-Toda heurística consistente é admissível, embora o contrário não seja necessariamente verdadeiro. Para ver por quê, considere um caminho n = n₀, n₁, …, n_k = g até um objetivo; aplicando a desigualdade repetidamente, h(n₀) ≤ c(n₀,n₁) + h(n₁) ≤ … ≤ (custo total do caminho) + h(g) = custo do caminho, o que vale em particular para o caminho ótimo e implica h(n) ≤ h*(n). A consistência é uma propriedade mais forte e, no A*, garante que os valores de f(n) = g(n) + h(n) não diminuam ao longo de um caminho. De fato, se n' é sucessor de n:
+Toda heurística consistente é admissível, embora o contrário não seja necessariamente verdadeiro. Para ver por quê, considere um caminho n = n₀, n₁, …, $n_k$ = g até um objetivo; aplicando a desigualdade repetidamente, h(n₀) ≤ c(n₀,n₁) + h(n₁) ≤ … ≤ (custo total do caminho) + h(g) = custo do caminho, o que vale em particular para o caminho ótimo e implica h(n) ≤ h*(n). A consistência é uma propriedade mais forte e, no A*, garante que os valores de f(n) = g(n) + h(n) não diminuam ao longo de um caminho. De fato, se n' é sucessor de n:
 
 f(n') = g(n') + h(n') = g(n) + c(n, a, n') + h(n') ≥ g(n) + h(n) = f(n).
 
@@ -77,7 +77,7 @@ A **dominância** entre heurísticas é outro conceito fundamental: diz-se que h
 - h₁(n) = número de peças fora do lugar (relaxando para "uma peça pode ir para qualquer casa"). Aqui, h₁ = 8.
 - h₂(n) = soma das distâncias de Manhattan das peças às suas posições finais (relaxando para "uma peça pode ir para qualquer casa adjacente, ocupada ou não"). Aqui, h₂ = 3 + 1 + 2 + 2 + 2 + 3 + 3 + 2 = 18.
 
-Ambas são admissíveis, pois cada peça fora do lugar precisa de pelo menos um movimento, e de pelo menos |Δlinha| + |Δcoluna| movimentos. Como h₂(n) ≥ h₁(n) para todo n, h₂ domina h₁ e leva o A* a expandir menos nós. Outros exemplos clássicos são a distância euclidiana (linha reta), em problemas de navegação espacial, que é admissível porque nenhuma estrada pode ser mais curta que a linha reta entre dois pontos, e a distância de Manhattan, em problemas de movimentação em grades sem movimentos diagonais.
+Ambas são admissíveis, pois cada peça fora do lugar precisa de pelo menos um movimento, e de pelo menos |Δlinha| + |Δcoluna| movimentos. Como h₂(n) ≥ h₁(n) para todo n, h₂ domina h₁ e leva o A* a expandir menos nós. Outros exemplos clássicos são a **distância euclidiana (linha reta)**, em problemas de navegação espacial, que é admissível porque nenhuma estrada pode ser mais curta que a linha reta entre dois pontos, e a **distância de Manhattan**, em problemas de movimentação em grades sem movimentos diagonais.
 
 Com essas propriedades definidas, podemos examinar os algoritmos que as utilizam.
 
