@@ -42,7 +42,7 @@ em que C* é o custo da solução ótima e ε é o menor custo de ação. Quando
 
 **Busca de aprofundamento iterativo (IDS).** Resolve esse problema ao executar sucessivas buscas em profundidade limitada com limite crescente (L = 0, 1, 2, …) até encontrar uma solução. Assim, combina as vantagens da BFS e da DFS: tem a completude e a otimalidade da BFS (quando os custos são uniformes), com o consumo de memória linear da DFS, O(bd). Embora regenere os nós das camadas superiores a cada iteração, o desperdício é pequeno, pois a maioria dos nós está na última camada. O número total de nós gerados é
 
-$N(IDS) = (d + 1)·b⁰ + d·b¹ + (d − 1)·b² + … + 1·b^d = O(b^{d})$.
+$N(IDS) = (d + 1)·b⁰ + d·b¹ + (d − 1)·b² + … + 1·b^d$ = $O(b^d)$.
 
 Com b = 10 e d = 5, a IDS gera 6 + 50 + 400 + 3.000 + 20.000 + 100.000 = 123.456 nós, contra 111.111 da BFS, ou seja, um custo adicional de apenas cerca de 11%.
 
