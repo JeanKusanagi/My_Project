@@ -34,7 +34,7 @@ f(n) = g(n),
 
 em que g(n) representa o custo do caminho do estado inicial até n. Quando os custos das ações são não negativos, a UCS garante uma solução ótima; com custos de ação estritamente positivos (isto é, c ≥ ε > 0), também é completa. Sua principal desvantagem é que pode explorar uma quantidade muito grande de estados antes de encontrar a solução, especialmente quando não possui conhecimento sobre a direção do objetivo. No pior caso, as complexidades de tempo e espaço são
 
-$O(b^(1 + ⌊C*/ε⌋))$,
+$O(b^{(1 + ⌊C*/ε⌋))}$,
 
 em que C* é o custo da solução ótima e ε é o menor custo de ação. Quando todos os custos são iguais, C*/ε = d e a UCS se comporta como a BFS. Na Romênia, a UCS encontra a rota ótima de 418 km (Arad → Sibiu → Rîmnicu Vâlcea → Pitesti → Bucareste), mas só depois de expandir cidades que se afastam do destino, como Zerind e Timișoara, cujo custo acumulado ainda é menor que 418.
 
