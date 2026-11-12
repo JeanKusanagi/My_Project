@@ -42,7 +42,7 @@ em que C* é o custo da solução ótima e ε é o menor custo de ação. Quando
 
 **Busca de aprofundamento iterativo (IDS).** Resolve esse problema ao executar sucessivas buscas em profundidade limitada com limite crescente (L = 0, 1, 2, …) até encontrar uma solução. Assim, combina as vantagens da BFS e da DFS: tem a completude e a otimalidade da BFS (quando os custos são uniformes), com o consumo de memória linear da DFS, O(bd). Embora regenere os nós das camadas superiores a cada iteração, o desperdício é pequeno, pois a maioria dos nós está na última camada. O número total de nós gerados é
 
-$N(IDS) = (d + 1)·b⁰ + d·b¹ + (d − 1)·b² + … + 1·b^d$ = $O(b^d)$.
+$N(IDS) = (d + 1)·b⁰ + d·b¹ + (d − 1)·b² + … + 1·b^d = O(b^d)$.
 
 Com b = 10 e d = 5, a IDS gera 6 + 50 + 400 + 3.000 + 20.000 + 100.000 = 123.456 nós, contra 111.111 da BFS, ou seja, um custo adicional de apenas cerca de 11%.
 
@@ -142,7 +142,7 @@ Uma analogia seria como tentar subir uma montanha no meio de uma névoa espessa:
 
 **Têmpera simulada (Simulated Annealing).** É inspirada no processo de metalurgia (em que o metal é aquecido e resfriado lentamente para cristalizar sem defeitos). A cada passo, sorteia-se um vizinho s'; se ele for melhor, é aceito; se for pior, com ΔE = V(s') − V(s) < 0, é aceito com probabilidade
 
-$P = e^(ΔE / T)$,
+$P = e^{(ΔE / T)}$,
 
 em que T é a "temperatura". No início (T alta), P é próxima de 1 e o algoritmo aceita movimentos ruins com frequência para escapar de máximos locais. À medida que o tempo passa e a temperatura "esfria" (T → 0), P → 0 e ele se torna mais estrito, aceitando praticamente só movimentos de melhoria. Se o resfriamento for suficientemente lento, o algoritmo converge para o ótimo global com probabilidade que tende a 1, ao custo de uma convergência mais lenta.
 
