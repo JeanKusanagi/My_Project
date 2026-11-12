@@ -14,7 +14,7 @@ Na **busca em árvores**, não há, em geral, um controle global dos estados já
 
 O **fator de ramificação (b)** representa, aproximadamente, o número de sucessores de cada estado e desempenha papel fundamental na complexidade da busca. Em uma árvore com fator de ramificação aproximadamente uniforme, uma busca até a profundidade d pode gerar
 
-1 + b + b² + … + b^d = (b^(d+1) − 1) / (b − 1) = O(b^d)
+$1 + b + b² + … + b^d = (b^(d+1) − 1) / (b − 1) = O(b^d)$
 
 nós. Portanto, pequenas reduções no fator de ramificação podem produzir grandes ganhos computacionais, pois o número de nós cresce exponencialmente com a profundidade. Por exemplo, com d = 5, uma árvore com b = 10 tem cerca de 111.111 nós, enquanto com b = 5 tem apenas 3.906, ou seja, cerca de 28 vezes menos. Esse crescimento ajuda a explicar por que problemas com espaços de estados aparentemente simples podem se tornar computacionalmente difíceis.
 
@@ -24,9 +24,9 @@ Para reduzir esse custo, os algoritmos de busca podem ser classificados principa
 
 A **busca sem informação ou busca cega (uninformed search ou blind search)** caracteriza-se pela ausência de conhecimento adicional sobre o problema além de sua definição formal. Em outras palavras, utiliza apenas as informações fornecidas pela formulação do problema, sem estimativas heurísticas sobre a proximidade dos estados em relação ao objetivo, explorando o espaço de estados de maneira sistemática. Consequentemente, a escolha do próximo estado a ser explorado depende de propriedades estruturais da árvore ou do grafo de busca, como profundidade, custo acumulado ou ordem de geração. Exemplos clássicos incluem a busca em largura (Breadth-First Search – BFS), a busca em profundidade (Depth-First Search – DFS), a busca de custo uniforme (Uniform-Cost Search – UCS), a busca em profundidade limitada (DLS) e a busca de aprofundamento iterativo (Iterative Deepening Search – IDS).
 
-**Busca em largura (BFS).** Expande todos os nós de uma camada antes de avançar à camada seguinte. Ela garante a solução de menor profundidade, sendo completa (para b finito) e ótima quando todas as ações têm o mesmo custo (por exemplo, grafos não ponderados). A estrutura de dados utilizada é uma fila FIFO (First In, First Out). Se o fator de ramificação é b e a solução está na profundidade d, a complexidade é aproximadamente O(b^d), tanto para tempo quanto para memória, pois toda a fronteira precisa ser armazenada. Assim, embora a BFS possa encontrar rapidamente uma solução superficial, pode tornar-se inviável em espaços grandes: com b = 10, e supondo 1 milhão de nós por segundo e 1 KB por nó, uma solução em d = 8 exigiria cerca de 111 milhões de nós, ou seja, mais de 100 GB de memória. No exemplo da Romênia, a BFS devolve Arad → Sibiu → Fagaras → Bucareste (3 estradas, 450 km), que tem o menor número de passos, mas não o menor custo, já que existe uma rota de 418 km. Isso ilustra por que a BFS só é ótima quando os custos são uniformes.
+**Busca em largura (BFS).** Expande todos os nós de uma camada antes de avançar à camada seguinte. Ela garante a solução de menor profundidade, sendo completa (para b finito) e ótima quando todas as ações têm o mesmo custo (por exemplo, grafos não ponderados). A estrutura de dados utilizada é uma fila FIFO (First In, First Out). Se o fator de ramificação é b e a solução está na profundidade d, a complexidade é aproximadamente $O(b^d)$, tanto para tempo quanto para memória, pois toda a fronteira precisa ser armazenada. Assim, embora a BFS possa encontrar rapidamente uma solução superficial, pode tornar-se inviável em espaços grandes: com b = 10, e supondo 1 milhão de nós por segundo e 1 KB por nó, uma solução em d = 8 exigiria cerca de 111 milhões de nós, ou seja, mais de 100 GB de memória. No exemplo da Romênia, a BFS devolve Arad → Sibiu → Fagaras → Bucareste (3 estradas, 450 km), que tem o menor número de passos, mas não o menor custo, já que existe uma rota de 418 km. Isso ilustra por que a BFS só é ótima quando os custos são uniformes.
 
-**Busca em profundidade (DFS).** Explora um ramo até sua extremidade antes de retroceder, utilizando memória proporcional à profundidade máxima da busca. Sua implementação típica emprega uma pilha LIFO (Last In, First Out) ou recursão. Embora possa encontrar rapidamente uma solução quando esta estiver em um ramo explorado inicialmente, a DFS não é ótima e pode não ser completa em espaços infinitos ou que contenham ciclos (em grafos finitos com conjunto de explorados, ela é completa). Se b representa o fator de ramificação e m a profundidade máxima, sua complexidade de tempo é O(b^m) e a de memória é O(bm), já que só é necessário guardar o caminho atual e os irmãos não expandidos de cada nó do caminho.
+**Busca em profundidade (DFS).** Explora um ramo até sua extremidade antes de retroceder, utilizando memória proporcional à profundidade máxima da busca. Sua implementação típica emprega uma pilha LIFO (Last In, First Out) ou recursão. Embora possa encontrar rapidamente uma solução quando esta estiver em um ramo explorado inicialmente, a DFS não é ótima e pode não ser completa em espaços infinitos ou que contenham ciclos (em grafos finitos com conjunto de explorados, ela é completa). Se b representa o fator de ramificação e m a profundidade máxima, sua complexidade de tempo é $O(b^m)$ e a de memória é O(bm), já que só é necessário guardar o caminho atual e os irmãos não expandidos de cada nó do caminho.
 
 **Busca de custo uniforme (UCS).** Pode ser vista como uma generalização da BFS para grafos ponderados, expandindo sempre o nó com o menor custo acumulado. Sua função de avaliação é
 
@@ -34,7 +34,7 @@ f(n) = g(n),
 
 em que g(n) representa o custo do caminho do estado inicial até n. Quando os custos das ações são não negativos, a UCS garante uma solução ótima; com custos de ação estritamente positivos (isto é, c ≥ ε > 0), também é completa. Sua principal desvantagem é que pode explorar uma quantidade muito grande de estados antes de encontrar a solução, especialmente quando não possui conhecimento sobre a direção do objetivo. No pior caso, as complexidades de tempo e espaço são
 
-O(b^(1 + ⌊C*/ε⌋)),
+$O(b^(1 + ⌊C*/ε⌋))$,
 
 em que C* é o custo da solução ótima e ε é o menor custo de ação. Quando todos os custos são iguais, C*/ε = d e a UCS se comporta como a BFS. Na Romênia, a UCS encontra a rota ótima de 418 km (Arad → Sibiu → Rîmnicu Vâlcea → Pitesti → Bucareste), mas só depois de expandir cidades que se afastam do destino, como Zerind e Timișoara, cujo custo acumulado ainda é menor que 418.
 
@@ -42,7 +42,7 @@ em que C* é o custo da solução ótima e ε é o menor custo de ação. Quando
 
 **Busca de aprofundamento iterativo (IDS).** Resolve esse problema ao executar sucessivas buscas em profundidade limitada com limite crescente (L = 0, 1, 2, …) até encontrar uma solução. Assim, combina as vantagens da BFS e da DFS: tem a completude e a otimalidade da BFS (quando os custos são uniformes), com o consumo de memória linear da DFS, O(bd). Embora regenere os nós das camadas superiores a cada iteração, o desperdício é pequeno, pois a maioria dos nós está na última camada. O número total de nós gerados é
 
-N(IDS) = (d + 1)·b⁰ + d·b¹ + (d − 1)·b² + … + 1·b^d = O(b^d).
+N(IDS) = (d + 1)·b⁰ + d·b¹ + (d − 1)·b² + … + 1·$b^d$ = $O(b^d)$.
 
 Com b = 10 e d = 5, a IDS gera 6 + 50 + 400 + 3.000 + 20.000 + 100.000 = 123.456 nós, contra 111.111 da BFS, ou seja, um custo adicional de apenas cerca de 11%.
 
@@ -121,13 +121,13 @@ A busca gulosa utiliza somente h(n), enquanto o A* utiliza g(n) + h(n). Essa dif
 
 | Algoritmo | Completo? | Ótimo? | Tempo | Espaço |
 |---|---|---|---|---|
-| BFS | Sim (b finito) | Sim, se custos uniformes | O(b^d) | O(b^d) |
-| UCS | Sim, se c ≥ ε > 0 | Sim | O(b^(1+⌊C*/ε⌋)) | O(b^(1+⌊C*/ε⌋)) |
+| BFS | Sim (b finito) | Sim, se custos uniformes | $O(b^d)$ | $O(b^d)$ |
+| UCS | Sim, se c ≥ ε > 0 | Sim | $O(b^(1+⌊C*/ε⌋))$ | $O(b^(1+⌊C*/ε⌋))$ |
 | DFS | Não (em árvores/espaços infinitos) | Não | O(b^m) | O(bm) |
-| DLS | Não (se L < d) | Não | O(b^L) | O(bL) |
-| IDS | Sim | Sim, se custos uniformes | O(b^d) | O(bd) |
-| Bidirecional | Sim (com BFS) | Sim, se custos uniformes | O(b^(d/2)) | O(b^(d/2)) |
-| Gulosa | Não (em árvores) | Não | O(b^m) | O(b^m) |
+| DLS | Não (se L < d) | Não | $O(b^L)$ | O(bL) |
+| IDS | Sim | Sim, se custos uniformes | $O(b^d)$ | O(bd) |
+| Bidirecional | Sim (com BFS) | Sim, se custos uniformes | $O(b^(d/2))$ | $O(b^(d/2))$ |
+| Gulosa | Não (em árvores) | Não | $O(b^m)$ | $O(b^m)$ |
 | A* | Sim, se c ≥ ε > 0 | Sim, se h admissível (árvore) ou consistente (grafo) | exponencial | exponencial |
 
 ## 7. Busca local
@@ -142,7 +142,7 @@ Uma analogia seria como tentar subir uma montanha no meio de uma névoa espessa:
 
 **Têmpera simulada (Simulated Annealing).** É inspirada no processo de metalurgia (em que o metal é aquecido e resfriado lentamente para cristalizar sem defeitos). A cada passo, sorteia-se um vizinho s'; se ele for melhor, é aceito; se for pior, com ΔE = V(s') − V(s) < 0, é aceito com probabilidade
 
-P = e^(ΔE / T),
+$P = e^(ΔE / T)$,
 
 em que T é a "temperatura". No início (T alta), P é próxima de 1 e o algoritmo aceita movimentos ruins com frequência para escapar de máximos locais. À medida que o tempo passa e a temperatura "esfria" (T → 0), P → 0 e ele se torna mais estrito, aceitando praticamente só movimentos de melhoria. Se o resfriamento for suficientemente lento, o algoritmo converge para o ótimo global com probabilidade que tende a 1, ao custo de uma convergência mais lenta.
 
