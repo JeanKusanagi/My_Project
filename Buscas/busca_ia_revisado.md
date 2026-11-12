@@ -34,19 +34,19 @@ f(n) = g(n),
 
 em que g(n) representa o custo do caminho do estado inicial até n. Quando os custos das ações são não negativos, a UCS garante uma solução ótima; com custos de ação estritamente positivos (isto é, c ≥ ε > 0), também é completa. Sua principal desvantagem é que pode explorar uma quantidade muito grande de estados antes de encontrar a solução, especialmente quando não possui conhecimento sobre a direção do objetivo. No pior caso, as complexidades de tempo e espaço são
 
-$O(b^{(1 + ⌊C*/ε⌋))}$,
+$O(b^{(1 + ⌊C*/ε⌋)})$,
 
 em que C* é o custo da solução ótima e ε é o menor custo de ação. Quando todos os custos são iguais, C*/ε = d e a UCS se comporta como a BFS. Na Romênia, a UCS encontra a rota ótima de 418 km (Arad → Sibiu → Rîmnicu Vâlcea → Pitesti → Bucareste), mas só depois de expandir cidades que se afastam do destino, como Zerind e Timișoara, cujo custo acumulado ainda é menor que 418.
 
-**Busca em profundidade limitada (DLS).** Executa uma DFS com um limite fixo de profundidade L, com tempo O(b^L) e espaço O(bL). Se o limite for menor que a profundidade da solução, ela não a encontra.
+**Busca em profundidade limitada (DLS).** Executa uma DFS com um limite fixo de profundidade L, com tempo $O(b^L)$ e espaço O(bL). Se o limite for menor que a profundidade da solução, ela não a encontra.
 
 **Busca de aprofundamento iterativo (IDS).** Resolve esse problema ao executar sucessivas buscas em profundidade limitada com limite crescente (L = 0, 1, 2, …) até encontrar uma solução. Assim, combina as vantagens da BFS e da DFS: tem a completude e a otimalidade da BFS (quando os custos são uniformes), com o consumo de memória linear da DFS, O(bd). Embora regenere os nós das camadas superiores a cada iteração, o desperdício é pequeno, pois a maioria dos nós está na última camada. O número total de nós gerados é
 
-N(IDS) = (d + 1)·b⁰ + d·b¹ + (d − 1)·b² + … + 1·$b^d$ = $O(b^d)$.
+$N(IDS) = (d + 1)·b⁰ + d·b¹ + (d − 1)·b² + … + 1·b^d = O(b^d)$.
 
 Com b = 10 e d = 5, a IDS gera 6 + 50 + 400 + 3.000 + 20.000 + 100.000 = 123.456 nós, contra 111.111 da BFS, ou seja, um custo adicional de apenas cerca de 11%.
 
-**Busca bidirecional.** É uma estratégia que realiza duas buscas simultâneas: uma a partir do estado inicial, em direção ao objetivo, e outra a partir do estado objetivo, em direção ao início. O algoritmo termina quando as duas buscas se encontram, permitindo reconstruir o caminho entre os estados. Em geral, quando o fator de ramificação é b e a profundidade da solução é d, sua complexidade temporal e espacial pode ser reduzida de O(b^d), característica da busca em largura convencional, para aproximadamente O(b^(d/2)), pois cada busca só precisa chegar à metade do caminho (2·b^(d/2) ≪ b^d). Por exemplo, com b = 10 e d = 6, a BFS convencional gera cerca de 10⁶ nós, enquanto a bidirecional gera cerca de 2 × 10³. Entretanto, sua aplicação depende de ser possível definir o estado objetivo e realizar a busca no sentido inverso (calcular os predecessores), o que nem sempre é viável em todos os problemas.
+**Busca bidirecional.** É uma estratégia que realiza duas buscas simultâneas: uma a partir do estado inicial, em direção ao objetivo, e outra a partir do estado objetivo, em direção ao início. O algoritmo termina quando as duas buscas se encontram, permitindo reconstruir o caminho entre os estados. Em geral, quando o fator de ramificação é b e a profundidade da solução é d, sua complexidade temporal e espacial pode ser reduzida de O(b^d), característica da busca em largura convencional, para aproximadamente $O(b^{(d/2)})$, pois cada busca só precisa chegar à metade do caminho $(2·b^(d/2) ≪ b^d)$. Por exemplo, com b = 10 e d = 6, a BFS convencional gera cerca de 10⁶ nós, enquanto a bidirecional gera cerca de 2 × 10³. Entretanto, sua aplicação depende de ser possível definir o estado objetivo e realizar a busca no sentido inverso (calcular os predecessores), o que nem sempre é viável em todos os problemas.
 
 ## 4. Busca com informação e heurísticas
 
